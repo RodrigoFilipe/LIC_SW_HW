@@ -1,0 +1,64 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity SerialReceiver is
+port(
+	SDX: in std_logic;
+	SCLK: in std_logic;
+	SS: in std_logic;
+	accept: in std_logic;
+	D: out std_logic_vector(8 downto 0);
+	DXval: out std_logic_vector
+);
+end SerialReceiver;
+
+architecture strucural of SerialReceiver is
+component SerialControl is
+port(
+	rst: in std_logic;
+	clk: in std_logic;
+	enRx: in std_logic;
+	accept: in std_logic;
+	pFlag: in std_logic;
+	dFlag: in std_logic;
+	RXerror: in std_logic;
+	wr: out std_logic;
+	init: out std_logic;
+	DXval: out std_logic
+);
+end component;
+
+component ParityCheck is
+port(
+		data: in std_logic;
+	init: in std_logic;
+	clk: in std_logic;
+	err: out std_logic
+);
+end component;
+
+component Cont is 
+port(
+	R: in std_logic;
+	CE: in std_logic;
+	Clk: in std_logic;
+	Q: out std_logic_vector(3 downto 0)
+	);
+end component;
+
+component ShiftRegister is
+port(
+	CLK: in std_logic;
+	RST: in std_logic;
+	data: in std_logic;
+	enable: in std_logic;
+	D: out std_logic_vector(8 downto 0)
+	);
+end component;
+
+
+
+
+
+
+

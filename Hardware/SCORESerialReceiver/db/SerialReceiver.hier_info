@@ -1,0 +1,465 @@
+|SerialReceiver
+rst => SerialControl:SC.rst
+rst => ShiftRegister:ShRegister.RST
+clk => SerialControl:SC.clk
+SDX => ParityCheck:Pcheck.data
+SDX => ShiftRegister:ShRegister.data
+SCLK => ParityCheck:Pcheck.clk
+SCLK => ShiftRegister:ShRegister.CLK
+SCLK => Cont:Counter.Clk
+SS => SerialControl:SC.enRx
+accept => SerialControl:SC.accept
+D[0] <= ShiftRegister:ShRegister.D[0]
+D[1] <= ShiftRegister:ShRegister.D[1]
+D[2] <= ShiftRegister:ShRegister.D[2]
+D[3] <= ShiftRegister:ShRegister.D[3]
+D[4] <= ShiftRegister:ShRegister.D[4]
+D[5] <= ShiftRegister:ShRegister.D[5]
+D[6] <= ShiftRegister:ShRegister.D[6]
+DXval <= SerialControl:SC.DXval
+
+
+|SerialReceiver|SerialControl:SC
+rst => CurrentState~3.DATAIN
+clk => CurrentState~1.DATAIN
+enRx => NextState.OUTPUTSELECT
+enRx => NextState.OUTPUTSELECT
+enRx => NextState.OUTPUTSELECT
+enRx => NextState.OUTPUTSELECT
+enRx => NextState.OUTPUTSELECT
+enRx => Selector0.IN2
+enRx => NextState.STATE_001.DATAB
+enRx => Selector1.IN1
+accept => Selector0.IN3
+accept => Selector3.IN2
+pFlag => NextState.OUTPUTSELECT
+pFlag => NextState.OUTPUTSELECT
+pFlag => NextState.DATAA
+dFlag => NextState.DATAA
+dFlag => NextState.DATAA
+RXerror => NextState.DATAA
+RXerror => NextState.DATAA
+wr <= wr.DB_MAX_OUTPUT_PORT_TYPE
+init <= init.DB_MAX_OUTPUT_PORT_TYPE
+DXval <= DXval.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialReceiver|ParityCheck:Pcheck
+data => Cont1bit:counter.CE
+init => Cont1bit:counter.R
+clk => Cont1bit:counter.Clk
+err <= Cont1bit:counter.Q
+
+
+|SerialReceiver|ParityCheck:Pcheck|Cont1bit:counter
+R => ContadorCrescente1bit:U1.Reset
+CE => ContadorCrescente1bit:U1.CE
+Clk => ContadorCrescente1bit:U1.CLK
+Q <= ContadorCrescente1bit:U1.S
+
+
+|SerialReceiver|ParityCheck:Pcheck|Cont1bit:counter|ContadorCrescente1bit:U1
+DataIn => MuxCont1bit:CC_MUX.X
+PL => MuxCont1bit:CC_MUX.S
+CE => adder1bit:CC_Adder.A
+CLK => Registo1bit:CC_Reg.Clk
+Reset => Registo1bit:CC_Reg.Reset
+TC <= Registo1bit:CC_Reg.S
+S <= Registo1bit:CC_Reg.S
+
+
+|SerialReceiver|ParityCheck:Pcheck|Cont1bit:counter|ContadorCrescente1bit:U1|Registo1bit:CC_Reg
+A => FFD:FFD1.D
+Clk => FFD:FFD1.CLK
+Reset => FFD:FFD1.RESET
+E => FFD:FFD1.EN
+S <= FFD:FFD1.Q
+
+
+|SerialReceiver|ParityCheck:Pcheck|Cont1bit:counter|ContadorCrescente1bit:U1|Registo1bit:CC_Reg|FFD:FFD1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialReceiver|ParityCheck:Pcheck|Cont1bit:counter|ContadorCrescente1bit:U1|adder1bit:CC_Adder
+A => FA:FA1.A
+B => FA:FA1.B
+C0 => FA:FA1.Ci
+S <= FA:FA1.S
+C4 <= comb.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialReceiver|ParityCheck:Pcheck|Cont1bit:counter|ContadorCrescente1bit:U1|adder1bit:CC_Adder|FA:FA1
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialReceiver|ParityCheck:Pcheck|Cont1bit:counter|ContadorCrescente1bit:U1|adder1bit:CC_Adder|FA:FA1|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialReceiver|ParityCheck:Pcheck|Cont1bit:counter|ContadorCrescente1bit:U1|adder1bit:CC_Adder|FA:FA1|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialReceiver|ParityCheck:Pcheck|Cont1bit:counter|ContadorCrescente1bit:U1|MuxCont1bit:CC_MUX
+X => R.IN0
+Y => R.IN0
+S => R.IN1
+S => R.IN1
+R <= R.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialReceiver|ShiftRegister:ShRegister
+CLK => FFD:U1.CLK
+CLK => FFD:U2.CLK
+CLK => FFD:U3.CLK
+CLK => FFD:U4.CLK
+CLK => FFD:U5.CLK
+CLK => FFD:U6.CLK
+CLK => FFD:U7.CLK
+RST => FFD:U1.RESET
+RST => FFD:U2.RESET
+RST => FFD:U3.RESET
+RST => FFD:U4.RESET
+RST => FFD:U5.RESET
+RST => FFD:U6.RESET
+RST => FFD:U7.RESET
+data => FFD:U1.D
+enable => FFD:U1.EN
+enable => FFD:U2.EN
+enable => FFD:U3.EN
+enable => FFD:U4.EN
+enable => FFD:U5.EN
+enable => FFD:U6.EN
+enable => FFD:U7.EN
+D[0] <= FFD:U1.Q
+D[1] <= FFD:U2.Q
+D[2] <= FFD:U3.Q
+D[3] <= FFD:U4.Q
+D[4] <= FFD:U5.Q
+D[5] <= FFD:U6.Q
+D[6] <= FFD:U7.Q
+
+
+|SerialReceiver|ShiftRegister:ShRegister|FFD:U1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialReceiver|ShiftRegister:ShRegister|FFD:U2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialReceiver|ShiftRegister:ShRegister|FFD:U3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialReceiver|ShiftRegister:ShRegister|FFD:U4
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialReceiver|ShiftRegister:ShRegister|FFD:U5
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialReceiver|ShiftRegister:ShRegister|FFD:U6
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialReceiver|ShiftRegister:ShRegister|FFD:U7
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialReceiver|Cont:Counter
+R => ContadorCrescente:U1.Reset
+CE => ContadorCrescente:U1.CE
+Clk => ContadorCrescente:U1.CLK
+Q[0] <= ContadorCrescente:U1.S[0]
+Q[1] <= ContadorCrescente:U1.S[1]
+Q[2] <= ContadorCrescente:U1.S[2]
+Q[3] <= ContadorCrescente:U1.S[3]
+
+
+|SerialReceiver|Cont:Counter|ContadorCrescente:U1
+DataIn[0] => MuxCont:CC_MUX.X[0]
+DataIn[1] => MuxCont:CC_MUX.X[1]
+DataIn[2] => MuxCont:CC_MUX.X[2]
+DataIn[3] => MuxCont:CC_MUX.X[3]
+PL => MuxCont:CC_MUX.S
+CE => adder4:CC_Adder.A[0]
+CLK => Registo:CC_Reg.Clk
+Reset => Registo:CC_Reg.Reset
+TC <= TC.DB_MAX_OUTPUT_PORT_TYPE
+S[0] <= Registo:CC_Reg.S[0]
+S[1] <= Registo:CC_Reg.S[1]
+S[2] <= Registo:CC_Reg.S[2]
+S[3] <= Registo:CC_Reg.S[3]
+
+
+|SerialReceiver|Cont:Counter|ContadorCrescente:U1|Registo:CC_Reg
+A[0] => FFD:FFD1.D
+A[1] => FFD:FFD2.D
+A[2] => FFD:FFD3.D
+A[3] => FFD:FFD4.D
+Clk => FFD:FFD1.CLK
+Clk => FFD:FFD2.CLK
+Clk => FFD:FFD3.CLK
+Clk => FFD:FFD4.CLK
+Reset => FFD:FFD1.RESET
+Reset => FFD:FFD2.RESET
+Reset => FFD:FFD3.RESET
+Reset => FFD:FFD4.RESET
+E => FFD:FFD1.EN
+E => FFD:FFD2.EN
+E => FFD:FFD3.EN
+E => FFD:FFD4.EN
+S[0] <= FFD:FFD1.Q
+S[1] <= FFD:FFD2.Q
+S[2] <= FFD:FFD3.Q
+S[3] <= FFD:FFD4.Q
+
+
+|SerialReceiver|Cont:Counter|ContadorCrescente:U1|Registo:CC_Reg|FFD:FFD1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialReceiver|Cont:Counter|ContadorCrescente:U1|Registo:CC_Reg|FFD:FFD2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialReceiver|Cont:Counter|ContadorCrescente:U1|Registo:CC_Reg|FFD:FFD3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialReceiver|Cont:Counter|ContadorCrescente:U1|Registo:CC_Reg|FFD:FFD4
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder
+A[0] => FA:FA1.A
+A[1] => FA:FA2.A
+A[2] => FA:FA3.A
+A[3] => FA:FA4.A
+B[0] => FA:FA1.B
+B[1] => FA:FA2.B
+B[2] => FA:FA3.B
+B[3] => FA:FA4.B
+C0 => FA:FA1.Ci
+S[0] <= FA:FA1.S
+S[1] <= FA:FA2.S
+S[2] <= FA:FA3.S
+S[3] <= FA:FA4.S
+C4 <= FA:FA4.Co
+
+
+|SerialReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA1
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA1|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA1|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA2
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA2|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA2|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA3
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA3|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA3|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA4
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA4|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA4|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerialReceiver|Cont:Counter|ContadorCrescente:U1|MuxCont:CC_MUX
+X[0] => R.IN0
+X[1] => R.IN0
+X[2] => R.IN0
+X[3] => R.IN0
+Y[0] => R.IN0
+Y[1] => R.IN0
+Y[2] => R.IN0
+Y[3] => R.IN0
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+R[0] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[1] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[2] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[3] <= R.DB_MAX_OUTPUT_PORT_TYPE
+
+

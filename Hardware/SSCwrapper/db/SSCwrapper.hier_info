@@ -1,0 +1,2318 @@
+|SSCwrapper
+clk => SSC:sc.clk
+rst => SSC:sc.rst
+inputPort[0] => UsbPort:uPort.inputPort[0]
+inputPort[1] => UsbPort:uPort.inputPort[1]
+inputPort[2] => UsbPort:uPort.inputPort[2]
+inputPort[3] => UsbPort:uPort.inputPort[3]
+inputPort[4] => UsbPort:uPort.inputPort[4]
+inputPort[5] => UsbPort:uPort.inputPort[5]
+inputPort[6] => UsbPort:uPort.inputPort[6]
+inputPort[7] => UsbPort:uPort.inputPort[7]
+accept => SSC:sc.accept
+Dout[0] <= SSC:sc.Dout[0]
+Dout[1] <= SSC:sc.Dout[1]
+Dout[2] <= SSC:sc.Dout[2]
+Dout[3] <= SSC:sc.Dout[3]
+Dout[4] <= SSC:sc.Dout[4]
+Dout[5] <= SSC:sc.Dout[5]
+Dout[6] <= SSC:sc.Dout[6]
+DXval <= SSC:sc.WrD
+HEX0[0] <= HEX0[0].DB_MAX_OUTPUT_PORT_TYPE
+HEX0[1] <= HEX0[1].DB_MAX_OUTPUT_PORT_TYPE
+HEX0[2] <= HEX0[2].DB_MAX_OUTPUT_PORT_TYPE
+HEX0[3] <= HEX0[3].DB_MAX_OUTPUT_PORT_TYPE
+HEX0[4] <= HEX0[4].DB_MAX_OUTPUT_PORT_TYPE
+HEX0[5] <= HEX0[5].DB_MAX_OUTPUT_PORT_TYPE
+HEX0[6] <= HEX0[6].DB_MAX_OUTPUT_PORT_TYPE
+HEX0[7] <= HEX0[7].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[0] <= HEX1[0].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[1] <= HEX1[1].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[2] <= HEX1[2].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[3] <= HEX1[3].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[4] <= HEX1[4].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[5] <= HEX1[5].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[6] <= HEX1[6].DB_MAX_OUTPUT_PORT_TYPE
+HEX1[7] <= HEX1[7].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[0] <= HEX2[0].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[1] <= HEX2[1].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[2] <= HEX2[2].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[3] <= HEX2[3].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[4] <= HEX2[4].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[5] <= HEX2[5].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[6] <= HEX2[6].DB_MAX_OUTPUT_PORT_TYPE
+HEX2[7] <= HEX2[7].DB_MAX_OUTPUT_PORT_TYPE
+HEX3[0] <= HEX3[0].DB_MAX_OUTPUT_PORT_TYPE
+HEX3[1] <= HEX3[1].DB_MAX_OUTPUT_PORT_TYPE
+HEX3[2] <= HEX3[2].DB_MAX_OUTPUT_PORT_TYPE
+HEX3[3] <= HEX3[3].DB_MAX_OUTPUT_PORT_TYPE
+HEX3[4] <= HEX3[4].DB_MAX_OUTPUT_PORT_TYPE
+HEX3[5] <= HEX3[5].DB_MAX_OUTPUT_PORT_TYPE
+HEX3[6] <= HEX3[6].DB_MAX_OUTPUT_PORT_TYPE
+HEX3[7] <= HEX3[7].DB_MAX_OUTPUT_PORT_TYPE
+HEX4[0] <= HEX4[0].DB_MAX_OUTPUT_PORT_TYPE
+HEX4[1] <= HEX4[1].DB_MAX_OUTPUT_PORT_TYPE
+HEX4[2] <= HEX4[2].DB_MAX_OUTPUT_PORT_TYPE
+HEX4[3] <= HEX4[3].DB_MAX_OUTPUT_PORT_TYPE
+HEX4[4] <= HEX4[4].DB_MAX_OUTPUT_PORT_TYPE
+HEX4[5] <= HEX4[5].DB_MAX_OUTPUT_PORT_TYPE
+HEX4[6] <= HEX4[6].DB_MAX_OUTPUT_PORT_TYPE
+HEX4[7] <= HEX4[7].DB_MAX_OUTPUT_PORT_TYPE
+HEX5[0] <= comb.DB_MAX_OUTPUT_PORT_TYPE
+HEX5[1] <= HEX5[1].DB_MAX_OUTPUT_PORT_TYPE
+HEX5[2] <= HEX5[2].DB_MAX_OUTPUT_PORT_TYPE
+HEX5[3] <= HEX5[3].DB_MAX_OUTPUT_PORT_TYPE
+HEX5[4] <= HEX5[4].DB_MAX_OUTPUT_PORT_TYPE
+HEX5[5] <= HEX5[5].DB_MAX_OUTPUT_PORT_TYPE
+HEX5[6] <= HEX5[6].DB_MAX_OUTPUT_PORT_TYPE
+HEX5[7] <= HEX5[7].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|UsbPort:uPort
+inputPort[0] => sld_virtual_jtag:b2v_inst.ir_out[0]
+inputPort[1] => sld_virtual_jtag:b2v_inst.ir_out[1]
+inputPort[2] => sld_virtual_jtag:b2v_inst.ir_out[2]
+inputPort[3] => sld_virtual_jtag:b2v_inst.ir_out[3]
+inputPort[4] => sld_virtual_jtag:b2v_inst.ir_out[4]
+inputPort[5] => sld_virtual_jtag:b2v_inst.ir_out[5]
+inputPort[6] => sld_virtual_jtag:b2v_inst.ir_out[6]
+inputPort[7] => sld_virtual_jtag:b2v_inst.ir_out[7]
+outputPort[0] <= sld_virtual_jtag:b2v_inst.ir_in[0]
+outputPort[1] <= sld_virtual_jtag:b2v_inst.ir_in[1]
+outputPort[2] <= sld_virtual_jtag:b2v_inst.ir_in[2]
+outputPort[3] <= sld_virtual_jtag:b2v_inst.ir_in[3]
+outputPort[4] <= sld_virtual_jtag:b2v_inst.ir_in[4]
+outputPort[5] <= sld_virtual_jtag:b2v_inst.ir_in[5]
+outputPort[6] <= sld_virtual_jtag:b2v_inst.ir_in[6]
+outputPort[7] <= sld_virtual_jtag:b2v_inst.ir_in[7]
+
+
+|SSCwrapper|UsbPort:uPort|sld_virtual_jtag:b2v_inst
+tck <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.tck
+tdi <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.tdi
+ir_in[0] <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.ir_in
+ir_in[1] <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.ir_in
+ir_in[2] <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.ir_in
+ir_in[3] <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.ir_in
+ir_in[4] <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.ir_in
+ir_in[5] <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.ir_in
+ir_in[6] <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.ir_in
+ir_in[7] <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.ir_in
+tdo => tdo.IN1
+ir_out[0] => ir_out[0].IN1
+ir_out[1] => ir_out[1].IN1
+ir_out[2] => ir_out[2].IN1
+ir_out[3] => ir_out[3].IN1
+ir_out[4] => ir_out[4].IN1
+ir_out[5] => ir_out[5].IN1
+ir_out[6] => ir_out[6].IN1
+ir_out[7] => ir_out[7].IN1
+virtual_state_cdr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.virtual_state_cdr
+virtual_state_sdr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.virtual_state_sdr
+virtual_state_e1dr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.virtual_state_e1dr
+virtual_state_pdr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.virtual_state_pdr
+virtual_state_e2dr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.virtual_state_e2dr
+virtual_state_udr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.virtual_state_udr
+virtual_state_cir <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.virtual_state_cir
+virtual_state_uir <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.virtual_state_uir
+tms <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.tms
+jtag_state_tlr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_tlr
+jtag_state_rti <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_rti
+jtag_state_sdrs <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_sdrs
+jtag_state_cdr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_cdr
+jtag_state_sdr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_sdr
+jtag_state_e1dr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_e1dr
+jtag_state_pdr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_pdr
+jtag_state_e2dr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_e2dr
+jtag_state_udr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_udr
+jtag_state_sirs <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_sirs
+jtag_state_cir <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_cir
+jtag_state_sir <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_sir
+jtag_state_e1ir <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_e1ir
+jtag_state_pir <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_pir
+jtag_state_e2ir <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_e2ir
+jtag_state_uir <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_uir
+
+
+|SSCwrapper|UsbPort:uPort|sld_virtual_jtag:b2v_inst|sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst
+tck <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_tck
+tdi <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_tdi
+ir_in[0] <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_ir_in
+ir_in[1] <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_ir_in
+ir_in[2] <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_ir_in
+ir_in[3] <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_ir_in
+ir_in[4] <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_ir_in
+ir_in[5] <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_ir_in
+ir_in[6] <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_ir_in
+ir_in[7] <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_ir_in
+tdo => tdo.IN1
+ir_out[0] => ir_out[0].IN1
+ir_out[1] => ir_out[1].IN1
+ir_out[2] => ir_out[2].IN1
+ir_out[3] => ir_out[3].IN1
+ir_out[4] => ir_out[4].IN1
+ir_out[5] => ir_out[5].IN1
+ir_out[6] => ir_out[6].IN1
+ir_out[7] => ir_out[7].IN1
+virtual_state_cdr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_virtual_state_cdr
+virtual_state_sdr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_virtual_state_sdr
+virtual_state_e1dr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_virtual_state_e1dr
+virtual_state_pdr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_virtual_state_pdr
+virtual_state_e2dr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_virtual_state_e2dr
+virtual_state_udr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_virtual_state_udr
+virtual_state_cir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_virtual_state_cir
+virtual_state_uir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_virtual_state_uir
+tms <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_tms
+jtag_state_tlr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_tlr
+jtag_state_rti <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_rti
+jtag_state_sdrs <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_sdrs
+jtag_state_cdr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_cdr
+jtag_state_sdr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_sdr
+jtag_state_e1dr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_e1dr
+jtag_state_pdr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_pdr
+jtag_state_e2dr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_e2dr
+jtag_state_udr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_udr
+jtag_state_sirs <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_sirs
+jtag_state_cir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_cir
+jtag_state_sir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_sir
+jtag_state_e1ir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_e1ir
+jtag_state_pir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_pir
+jtag_state_e2ir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_e2ir
+jtag_state_uir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_uir
+
+
+|SSCwrapper|UsbPort:uPort|sld_virtual_jtag:b2v_inst|sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst
+usr_tck <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_tck
+usr_tdi <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_tdi
+usr_ir_in[0] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_ir_in
+usr_ir_in[1] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_ir_in
+usr_ir_in[2] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_ir_in
+usr_ir_in[3] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_ir_in
+usr_ir_in[4] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_ir_in
+usr_ir_in[5] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_ir_in
+usr_ir_in[6] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_ir_in
+usr_ir_in[7] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_ir_in
+usr_tdo => adapted_tdo.IN1
+usr_ir_out[0] => adapted_ir_out[0].IN1
+usr_ir_out[1] => adapted_ir_out[1].IN1
+usr_ir_out[2] => adapted_ir_out[2].IN1
+usr_ir_out[3] => adapted_ir_out[3].IN1
+usr_ir_out[4] => adapted_ir_out[4].IN1
+usr_ir_out[5] => adapted_ir_out[5].IN1
+usr_ir_out[6] => adapted_ir_out[6].IN1
+usr_ir_out[7] => adapted_ir_out[7].IN1
+usr_virtual_state_cdr <= virtual_state_cdr.DB_MAX_OUTPUT_PORT_TYPE
+usr_virtual_state_sdr <= virtual_state_sdr.DB_MAX_OUTPUT_PORT_TYPE
+usr_virtual_state_e1dr <= virtual_state_e1dr.DB_MAX_OUTPUT_PORT_TYPE
+usr_virtual_state_pdr <= virtual_state_pdr.DB_MAX_OUTPUT_PORT_TYPE
+usr_virtual_state_e2dr <= virtual_state_e2dr.DB_MAX_OUTPUT_PORT_TYPE
+usr_virtual_state_udr <= virtual_state_udr.DB_MAX_OUTPUT_PORT_TYPE
+usr_virtual_state_cir <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_cdr
+usr_virtual_state_uir <= virtual_state_uir.DB_MAX_OUTPUT_PORT_TYPE
+usr_tms <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_tms
+usr_jtag_state_tlr <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_tlr
+usr_jtag_state_rti <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_rti
+usr_jtag_state_sdrs <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_sdrs
+usr_jtag_state_cdr <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_cdr
+usr_jtag_state_sdr <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_sdr
+usr_jtag_state_e1dr <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_e1dr
+usr_jtag_state_pdr <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_pdr
+usr_jtag_state_e2dr <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_e2dr
+usr_jtag_state_udr <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_udr
+usr_jtag_state_sirs <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_sirs
+usr_jtag_state_cir <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_cir
+usr_jtag_state_sir <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_sir
+usr_jtag_state_e1ir <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_e1ir
+usr_jtag_state_pir <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_pir
+usr_jtag_state_e2ir <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_e2ir
+usr_jtag_state_uir <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_uir
+raw_tck => raw_tck.IN1
+raw_tms => raw_tms.IN1
+tdi => tdi.IN1
+jtag_state_tlr => jtag_state_tlr.IN1
+jtag_state_rti => jtag_state_rti.IN1
+jtag_state_sdrs => jtag_state_sdrs.IN1
+jtag_state_cdr => jtag_state_cdr.IN1
+jtag_state_sdr => jtag_state_sdr.IN1
+jtag_state_e1dr => jtag_state_e1dr.IN1
+jtag_state_pdr => jtag_state_pdr.IN1
+jtag_state_e2dr => jtag_state_e2dr.IN1
+jtag_state_udr => jtag_state_udr.IN1
+jtag_state_sirs => jtag_state_sirs.IN1
+jtag_state_cir => jtag_state_cir.IN1
+jtag_state_sir => jtag_state_sir.IN1
+jtag_state_e1ir => jtag_state_e1ir.IN1
+jtag_state_pir => jtag_state_pir.IN1
+jtag_state_e2ir => jtag_state_e2ir.IN1
+jtag_state_uir => jtag_state_uir.IN1
+usr1 => usr1.IN1
+clr => clr.IN1
+ena => ena.IN1
+ir_in[0] => ir_in[0].IN1
+ir_in[1] => ir_in[1].IN1
+ir_in[2] => ir_in[2].IN1
+ir_in[3] => ir_in[3].IN1
+ir_in[4] => ir_in[4].IN1
+ir_in[5] => ir_in[5].IN1
+ir_in[6] => ir_in[6].IN1
+ir_in[7] => ir_in[7].IN1
+tdo <= sld_jtag_endpoint_adapter:jtag_signal_adapter.tdo
+ir_out[0] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
+ir_out[1] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
+ir_out[2] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
+ir_out[3] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
+ir_out[4] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
+ir_out[5] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
+ir_out[6] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
+ir_out[7] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
+
+
+|SSCwrapper|UsbPort:uPort|sld_virtual_jtag:b2v_inst|sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst|sld_jtag_endpoint_adapter:jtag_signal_adapter
+raw_tck => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.raw_tck
+raw_tms => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.raw_tms
+tdi => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.tdi
+vir_tdi => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.vir_tdi
+jtag_state_tlr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_tlr
+jtag_state_rti => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_rti
+jtag_state_sdrs => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_sdrs
+jtag_state_cdr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_cdr
+jtag_state_sdr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_sdr
+jtag_state_e1dr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_e1dr
+jtag_state_pdr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_pdr
+jtag_state_e2dr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_e2dr
+jtag_state_udr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_udr
+jtag_state_sirs => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_sirs
+jtag_state_cir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_cir
+jtag_state_sir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_sir
+jtag_state_e1ir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_e1ir
+jtag_state_pir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_pir
+jtag_state_e2ir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_e2ir
+jtag_state_uir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_uir
+usr1 => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.usr1
+clr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.clr
+ena => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ena
+ir_in[0] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[0]
+ir_in[1] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[1]
+ir_in[2] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[2]
+ir_in[3] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[3]
+ir_in[4] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[4]
+ir_in[5] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[5]
+ir_in[6] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[6]
+ir_in[7] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[7]
+tdo <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.tdo
+ir_out[0] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[0]
+ir_out[1] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[1]
+ir_out[2] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[2]
+ir_out[3] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[3]
+ir_out[4] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[4]
+ir_out[5] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[5]
+ir_out[6] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[6]
+ir_out[7] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[7]
+adapted_tck <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_tck
+adapted_tms <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_tms
+adapted_tdi <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_tdi
+adapted_vir_tdi <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_vir_tdi
+adapted_jtag_state_tlr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_tlr
+adapted_jtag_state_rti <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_rti
+adapted_jtag_state_sdrs <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_sdrs
+adapted_jtag_state_cdr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_cdr
+adapted_jtag_state_sdr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_sdr
+adapted_jtag_state_e1dr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_e1dr
+adapted_jtag_state_pdr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_pdr
+adapted_jtag_state_e2dr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_e2dr
+adapted_jtag_state_udr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_udr
+adapted_jtag_state_sirs <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_sirs
+adapted_jtag_state_cir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_cir
+adapted_jtag_state_sir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_sir
+adapted_jtag_state_e1ir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_e1ir
+adapted_jtag_state_pir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_pir
+adapted_jtag_state_e2ir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_e2ir
+adapted_jtag_state_uir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_uir
+adapted_usr1 <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_usr1
+adapted_clr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_clr
+adapted_ena <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ena
+adapted_ir_in[0] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[0]
+adapted_ir_in[1] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[1]
+adapted_ir_in[2] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[2]
+adapted_ir_in[3] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[3]
+adapted_ir_in[4] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[4]
+adapted_ir_in[5] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[5]
+adapted_ir_in[6] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[6]
+adapted_ir_in[7] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[7]
+adapted_tdo => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_tdo
+adapted_ir_out[0] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[0]
+adapted_ir_out[1] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[1]
+adapted_ir_out[2] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[2]
+adapted_ir_out[3] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[3]
+adapted_ir_out[4] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[4]
+adapted_ir_out[5] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[5]
+adapted_ir_out[6] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[6]
+adapted_ir_out[7] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[7]
+
+
+|SSCwrapper|UsbPort:uPort|sld_virtual_jtag:b2v_inst|sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst|sld_jtag_endpoint_adapter:jtag_signal_adapter|sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst
+raw_tck => adapted_tck.DATAIN
+raw_tms => adapted_tms.DATAIN
+tdi => adapted_tdi.DATAIN
+vir_tdi => adapted_vir_tdi.DATAIN
+jtag_state_tlr => adapted_jtag_state_tlr.DATAIN
+jtag_state_rti => adapted_jtag_state_rti.DATAIN
+jtag_state_sdrs => adapted_jtag_state_sdrs.DATAIN
+jtag_state_cdr => adapted_jtag_state_cdr.DATAIN
+jtag_state_sdr => adapted_jtag_state_sdr.DATAIN
+jtag_state_e1dr => adapted_jtag_state_e1dr.DATAIN
+jtag_state_pdr => adapted_jtag_state_pdr.DATAIN
+jtag_state_e2dr => adapted_jtag_state_e2dr.DATAIN
+jtag_state_udr => adapted_jtag_state_udr.DATAIN
+jtag_state_sirs => adapted_jtag_state_sirs.DATAIN
+jtag_state_cir => adapted_jtag_state_cir.DATAIN
+jtag_state_sir => adapted_jtag_state_sir.DATAIN
+jtag_state_e1ir => adapted_jtag_state_e1ir.DATAIN
+jtag_state_pir => adapted_jtag_state_pir.DATAIN
+jtag_state_e2ir => adapted_jtag_state_e2ir.DATAIN
+jtag_state_uir => adapted_jtag_state_uir.DATAIN
+usr1 => adapted_usr1.DATAIN
+clr => adapted_clr.DATAIN
+ena => adapted_ena.DATAIN
+ir_in[0] => adapted_ir_in[0].DATAIN
+ir_in[1] => adapted_ir_in[1].DATAIN
+ir_in[2] => adapted_ir_in[2].DATAIN
+ir_in[3] => adapted_ir_in[3].DATAIN
+ir_in[4] => adapted_ir_in[4].DATAIN
+ir_in[5] => adapted_ir_in[5].DATAIN
+ir_in[6] => adapted_ir_in[6].DATAIN
+ir_in[7] => adapted_ir_in[7].DATAIN
+tdo <= adapted_tdo.DB_MAX_OUTPUT_PORT_TYPE
+ir_out[0] <= adapted_ir_out[0].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[1] <= adapted_ir_out[1].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[2] <= adapted_ir_out[2].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[3] <= adapted_ir_out[3].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[4] <= adapted_ir_out[4].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[5] <= adapted_ir_out[5].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[6] <= adapted_ir_out[6].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[7] <= adapted_ir_out[7].DB_MAX_OUTPUT_PORT_TYPE
+adapted_tck <= raw_tck.DB_MAX_OUTPUT_PORT_TYPE
+adapted_tms <= raw_tms.DB_MAX_OUTPUT_PORT_TYPE
+adapted_tdi <= tdi.DB_MAX_OUTPUT_PORT_TYPE
+adapted_vir_tdi <= vir_tdi.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_tlr <= jtag_state_tlr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_rti <= jtag_state_rti.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_sdrs <= jtag_state_sdrs.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_cdr <= jtag_state_cdr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_sdr <= jtag_state_sdr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_e1dr <= jtag_state_e1dr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_pdr <= jtag_state_pdr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_e2dr <= jtag_state_e2dr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_udr <= jtag_state_udr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_sirs <= jtag_state_sirs.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_cir <= jtag_state_cir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_sir <= jtag_state_sir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_e1ir <= jtag_state_e1ir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_pir <= jtag_state_pir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_e2ir <= jtag_state_e2ir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_uir <= jtag_state_uir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_usr1 <= usr1.DB_MAX_OUTPUT_PORT_TYPE
+adapted_clr <= clr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_ena <= ena.DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[0] <= ir_in[0].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[1] <= ir_in[1].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[2] <= ir_in[2].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[3] <= ir_in[3].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[4] <= ir_in[4].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[5] <= ir_in[5].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[6] <= ir_in[6].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[7] <= ir_in[7].DB_MAX_OUTPUT_PORT_TYPE
+adapted_tdo => tdo.DATAIN
+adapted_ir_out[0] => ir_out[0].DATAIN
+adapted_ir_out[1] => ir_out[1].DATAIN
+adapted_ir_out[2] => ir_out[2].DATAIN
+adapted_ir_out[3] => ir_out[3].DATAIN
+adapted_ir_out[4] => ir_out[4].DATAIN
+adapted_ir_out[5] => ir_out[5].DATAIN
+adapted_ir_out[6] => ir_out[6].DATAIN
+adapted_ir_out[7] => ir_out[7].DATAIN
+
+
+|SSCwrapper|SSC:sc
+clk => SerialReceiver_Door:SReceiver.clk
+rst => SerialReceiver_Door:SReceiver.rst
+SC_sel => SerialReceiver_Door:SReceiver.SS
+SCLK => SerialReceiver_Door:SReceiver.SCLK
+SDX => SerialReceiver_Door:SReceiver.SDX
+WrD <= SerialReceiver_Door:SReceiver.DXval
+Dout[0] <= SerialReceiver_Door:SReceiver.D[0]
+Dout[1] <= SerialReceiver_Door:SReceiver.D[1]
+Dout[2] <= SerialReceiver_Door:SReceiver.D[2]
+Dout[3] <= SerialReceiver_Door:SReceiver.D[3]
+Dout[4] <= SerialReceiver_Door:SReceiver.D[4]
+Dout[5] <= SerialReceiver_Door:SReceiver.D[5]
+Dout[6] <= SerialReceiver_Door:SReceiver.D[6]
+accept => SerialReceiver_Door:SReceiver.accept
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver
+rst => SerialControl_Door:SC.rst
+rst => ShiftRegister:ShRegister.RST
+clk => SerialControl_Door:SC.clk
+SDX => ParityCheck:Pcheck.data
+SDX => ShiftRegister:ShRegister.data
+SCLK => ParityCheck:Pcheck.clk
+SCLK => ShiftRegister:ShRegister.CLK
+SCLK => Cont:Counter.Clk
+SS => SerialControl_Door:SC.enRx
+accept => SerialControl_Door:SC.accept
+D[0] <= ShiftRegister:ShRegister.D[0]
+D[1] <= ShiftRegister:ShRegister.D[1]
+D[2] <= ShiftRegister:ShRegister.D[2]
+D[3] <= ShiftRegister:ShRegister.D[3]
+D[4] <= ShiftRegister:ShRegister.D[4]
+D[5] <= ShiftRegister:ShRegister.D[5]
+D[6] <= ShiftRegister:ShRegister.D[6]
+DXval <= SerialControl_Door:SC.DXval
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|SerialControl_Door:SC
+rst => CurrentState~3.DATAIN
+clk => CurrentState~1.DATAIN
+enRx => NextState.OUTPUTSELECT
+enRx => NextState.OUTPUTSELECT
+enRx => NextState.OUTPUTSELECT
+enRx => NextState.OUTPUTSELECT
+enRx => NextState.OUTPUTSELECT
+enRx => Selector0.IN2
+enRx => NextState.STATE_001.DATAB
+enRx => Selector1.IN1
+accept => Selector0.IN3
+accept => Selector3.IN2
+pFlag => NextState.OUTPUTSELECT
+pFlag => NextState.OUTPUTSELECT
+pFlag => NextState.DATAA
+dFlag => NextState.DATAA
+dFlag => NextState.DATAA
+RXerror => NextState.DATAA
+RXerror => NextState.DATAA
+wr <= wr.DB_MAX_OUTPUT_PORT_TYPE
+init <= init.DB_MAX_OUTPUT_PORT_TYPE
+DXval <= DXval.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|ParityCheck:Pcheck
+data => Cont1bit:counter.CE
+init => Cont1bit:counter.R
+clk => Cont1bit:counter.Clk
+err <= Cont1bit:counter.Q
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|ParityCheck:Pcheck|Cont1bit:counter
+R => ContadorCrescente1bit:U1.Reset
+CE => ContadorCrescente1bit:U1.CE
+Clk => ContadorCrescente1bit:U1.CLK
+Q <= ContadorCrescente1bit:U1.S
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|ParityCheck:Pcheck|Cont1bit:counter|ContadorCrescente1bit:U1
+DataIn => MuxCont1bit:CC_MUX.X
+PL => MuxCont1bit:CC_MUX.S
+CE => adder1bit:CC_Adder.A
+CLK => Registo1bit:CC_Reg.Clk
+Reset => Registo1bit:CC_Reg.Reset
+TC <= Registo1bit:CC_Reg.S
+S <= Registo1bit:CC_Reg.S
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|ParityCheck:Pcheck|Cont1bit:counter|ContadorCrescente1bit:U1|Registo1bit:CC_Reg
+A => FFD:FFD1.D
+Clk => FFD:FFD1.CLK
+Reset => FFD:FFD1.RESET
+E => FFD:FFD1.EN
+S <= FFD:FFD1.Q
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|ParityCheck:Pcheck|Cont1bit:counter|ContadorCrescente1bit:U1|Registo1bit:CC_Reg|FFD:FFD1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|ParityCheck:Pcheck|Cont1bit:counter|ContadorCrescente1bit:U1|adder1bit:CC_Adder
+A => FA:FA1.A
+B => FA:FA1.B
+C0 => FA:FA1.Ci
+S <= FA:FA1.S
+C4 <= comb.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|ParityCheck:Pcheck|Cont1bit:counter|ContadorCrescente1bit:U1|adder1bit:CC_Adder|FA:FA1
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|ParityCheck:Pcheck|Cont1bit:counter|ContadorCrescente1bit:U1|adder1bit:CC_Adder|FA:FA1|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|ParityCheck:Pcheck|Cont1bit:counter|ContadorCrescente1bit:U1|adder1bit:CC_Adder|FA:FA1|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|ParityCheck:Pcheck|Cont1bit:counter|ContadorCrescente1bit:U1|MuxCont1bit:CC_MUX
+X => R.IN0
+Y => R.IN0
+S => R.IN1
+S => R.IN1
+R <= R.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|ShiftRegister:ShRegister
+CLK => FFD:U1.CLK
+CLK => FFD:U2.CLK
+CLK => FFD:U3.CLK
+CLK => FFD:U4.CLK
+CLK => FFD:U5.CLK
+CLK => FFD:U6.CLK
+CLK => FFD:U7.CLK
+RST => FFD:U1.RESET
+RST => FFD:U2.RESET
+RST => FFD:U3.RESET
+RST => FFD:U4.RESET
+RST => FFD:U5.RESET
+RST => FFD:U6.RESET
+RST => FFD:U7.RESET
+data => FFD:U1.D
+enable => FFD:U1.EN
+enable => FFD:U2.EN
+enable => FFD:U3.EN
+enable => FFD:U4.EN
+enable => FFD:U5.EN
+enable => FFD:U6.EN
+enable => FFD:U7.EN
+D[0] <= FFD:U1.Q
+D[1] <= FFD:U2.Q
+D[2] <= FFD:U3.Q
+D[3] <= FFD:U4.Q
+D[4] <= FFD:U5.Q
+D[5] <= FFD:U6.Q
+D[6] <= FFD:U7.Q
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|ShiftRegister:ShRegister|FFD:U1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|ShiftRegister:ShRegister|FFD:U2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|ShiftRegister:ShRegister|FFD:U3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|ShiftRegister:ShRegister|FFD:U4
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|ShiftRegister:ShRegister|FFD:U5
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|ShiftRegister:ShRegister|FFD:U6
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|ShiftRegister:ShRegister|FFD:U7
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|Cont:Counter
+R => ContadorCrescente:U1.Reset
+CE => ContadorCrescente:U1.CE
+Clk => ContadorCrescente:U1.CLK
+Q[0] <= ContadorCrescente:U1.S[0]
+Q[1] <= ContadorCrescente:U1.S[1]
+Q[2] <= ContadorCrescente:U1.S[2]
+Q[3] <= ContadorCrescente:U1.S[3]
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1
+DataIn[0] => MuxCont:CC_MUX.X[0]
+DataIn[1] => MuxCont:CC_MUX.X[1]
+DataIn[2] => MuxCont:CC_MUX.X[2]
+DataIn[3] => MuxCont:CC_MUX.X[3]
+PL => MuxCont:CC_MUX.S
+CE => adder4:CC_Adder.A[0]
+CLK => Registo:CC_Reg.Clk
+Reset => Registo:CC_Reg.Reset
+TC <= TC.DB_MAX_OUTPUT_PORT_TYPE
+S[0] <= Registo:CC_Reg.S[0]
+S[1] <= Registo:CC_Reg.S[1]
+S[2] <= Registo:CC_Reg.S[2]
+S[3] <= Registo:CC_Reg.S[3]
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|Registo:CC_Reg
+A[0] => FFD:FFD1.D
+A[1] => FFD:FFD2.D
+A[2] => FFD:FFD3.D
+A[3] => FFD:FFD4.D
+Clk => FFD:FFD1.CLK
+Clk => FFD:FFD2.CLK
+Clk => FFD:FFD3.CLK
+Clk => FFD:FFD4.CLK
+Reset => FFD:FFD1.RESET
+Reset => FFD:FFD2.RESET
+Reset => FFD:FFD3.RESET
+Reset => FFD:FFD4.RESET
+E => FFD:FFD1.EN
+E => FFD:FFD2.EN
+E => FFD:FFD3.EN
+E => FFD:FFD4.EN
+S[0] <= FFD:FFD1.Q
+S[1] <= FFD:FFD2.Q
+S[2] <= FFD:FFD3.Q
+S[3] <= FFD:FFD4.Q
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|Registo:CC_Reg|FFD:FFD1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|Registo:CC_Reg|FFD:FFD2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|Registo:CC_Reg|FFD:FFD3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|Registo:CC_Reg|FFD:FFD4
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder
+A[0] => FA:FA1.A
+A[1] => FA:FA2.A
+A[2] => FA:FA3.A
+A[3] => FA:FA4.A
+B[0] => FA:FA1.B
+B[1] => FA:FA2.B
+B[2] => FA:FA3.B
+B[3] => FA:FA4.B
+C0 => FA:FA1.Ci
+S[0] <= FA:FA1.S
+S[1] <= FA:FA2.S
+S[2] <= FA:FA3.S
+S[3] <= FA:FA4.S
+C4 <= FA:FA4.Co
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA1
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA1|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA1|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA2
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA2|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA2|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA3
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA3|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA3|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA4
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA4|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA4|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|SSC:sc|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|MuxCont:CC_MUX
+X[0] => R.IN0
+X[1] => R.IN0
+X[2] => R.IN0
+X[3] => R.IN0
+Y[0] => R.IN0
+Y[1] => R.IN0
+Y[2] => R.IN0
+Y[3] => R.IN0
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+R[0] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[1] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[2] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[3] <= R.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay
+set => reg_4bit:circuit_gen:0:in_reg.clk
+set => reg_4bit:circuit_gen:0:out_reg.clk
+set => reg_4bit:circuit_gen:1:in_reg.clk
+set => reg_4bit:circuit_gen:1:out_reg.clk
+set => reg_4bit:circuit_gen:2:in_reg.clk
+set => reg_4bit:circuit_gen:2:out_reg.clk
+set => reg_4bit:circuit_gen:3:in_reg.clk
+set => reg_4bit:circuit_gen:3:out_reg.clk
+set => reg_4bit:circuit_gen:4:in_reg.clk
+set => reg_4bit:circuit_gen:4:out_reg.clk
+set => reg_4bit:circuit_gen:5:in_reg.clk
+set => reg_4bit:circuit_gen:5:out_reg.clk
+set => FFD:clear_reg.clk
+cmd[0] => dec_3_8:decoder.addr[0]
+cmd[1] => dec_3_8:decoder.addr[1]
+cmd[2] => dec_3_8:decoder.addr[2]
+data[0] => reg_4bit:circuit_gen:0:in_reg.d[0]
+data[0] => reg_4bit:circuit_gen:1:in_reg.d[0]
+data[0] => reg_4bit:circuit_gen:2:in_reg.d[0]
+data[0] => reg_4bit:circuit_gen:3:in_reg.d[0]
+data[0] => reg_4bit:circuit_gen:4:in_reg.d[0]
+data[0] => reg_4bit:circuit_gen:5:in_reg.d[0]
+data[0] => FFD:clear_reg.d
+data[1] => reg_4bit:circuit_gen:0:in_reg.d[1]
+data[1] => reg_4bit:circuit_gen:1:in_reg.d[1]
+data[1] => reg_4bit:circuit_gen:2:in_reg.d[1]
+data[1] => reg_4bit:circuit_gen:3:in_reg.d[1]
+data[1] => reg_4bit:circuit_gen:4:in_reg.d[1]
+data[1] => reg_4bit:circuit_gen:5:in_reg.d[1]
+data[2] => reg_4bit:circuit_gen:0:in_reg.d[2]
+data[2] => reg_4bit:circuit_gen:1:in_reg.d[2]
+data[2] => reg_4bit:circuit_gen:2:in_reg.d[2]
+data[2] => reg_4bit:circuit_gen:3:in_reg.d[2]
+data[2] => reg_4bit:circuit_gen:4:in_reg.d[2]
+data[2] => reg_4bit:circuit_gen:5:in_reg.d[2]
+data[3] => reg_4bit:circuit_gen:0:in_reg.d[3]
+data[3] => reg_4bit:circuit_gen:1:in_reg.d[3]
+data[3] => reg_4bit:circuit_gen:2:in_reg.d[3]
+data[3] => reg_4bit:circuit_gen:3:in_reg.d[3]
+data[3] => reg_4bit:circuit_gen:4:in_reg.d[3]
+data[3] => reg_4bit:circuit_gen:5:in_reg.d[3]
+HEX0[0] <= dec2hex:circuit_gen:0:hex_digit.dout[0]
+HEX0[1] <= dec2hex:circuit_gen:0:hex_digit.dout[1]
+HEX0[2] <= dec2hex:circuit_gen:0:hex_digit.dout[2]
+HEX0[3] <= dec2hex:circuit_gen:0:hex_digit.dout[3]
+HEX0[4] <= dec2hex:circuit_gen:0:hex_digit.dout[4]
+HEX0[5] <= dec2hex:circuit_gen:0:hex_digit.dout[5]
+HEX0[6] <= dec2hex:circuit_gen:0:hex_digit.dout[6]
+HEX0[7] <= dec2hex:circuit_gen:0:hex_digit.dout[7]
+HEX1[0] <= dec2hex:circuit_gen:1:hex_digit.dout[0]
+HEX1[1] <= dec2hex:circuit_gen:1:hex_digit.dout[1]
+HEX1[2] <= dec2hex:circuit_gen:1:hex_digit.dout[2]
+HEX1[3] <= dec2hex:circuit_gen:1:hex_digit.dout[3]
+HEX1[4] <= dec2hex:circuit_gen:1:hex_digit.dout[4]
+HEX1[5] <= dec2hex:circuit_gen:1:hex_digit.dout[5]
+HEX1[6] <= dec2hex:circuit_gen:1:hex_digit.dout[6]
+HEX1[7] <= dec2hex:circuit_gen:1:hex_digit.dout[7]
+HEX2[0] <= dec2hex:circuit_gen:2:hex_digit.dout[0]
+HEX2[1] <= dec2hex:circuit_gen:2:hex_digit.dout[1]
+HEX2[2] <= dec2hex:circuit_gen:2:hex_digit.dout[2]
+HEX2[3] <= dec2hex:circuit_gen:2:hex_digit.dout[3]
+HEX2[4] <= dec2hex:circuit_gen:2:hex_digit.dout[4]
+HEX2[5] <= dec2hex:circuit_gen:2:hex_digit.dout[5]
+HEX2[6] <= dec2hex:circuit_gen:2:hex_digit.dout[6]
+HEX2[7] <= dec2hex:circuit_gen:2:hex_digit.dout[7]
+HEX3[0] <= dec2hex:circuit_gen:3:hex_digit.dout[0]
+HEX3[1] <= dec2hex:circuit_gen:3:hex_digit.dout[1]
+HEX3[2] <= dec2hex:circuit_gen:3:hex_digit.dout[2]
+HEX3[3] <= dec2hex:circuit_gen:3:hex_digit.dout[3]
+HEX3[4] <= dec2hex:circuit_gen:3:hex_digit.dout[4]
+HEX3[5] <= dec2hex:circuit_gen:3:hex_digit.dout[5]
+HEX3[6] <= dec2hex:circuit_gen:3:hex_digit.dout[6]
+HEX3[7] <= dec2hex:circuit_gen:3:hex_digit.dout[7]
+HEX4[0] <= dec2hex:circuit_gen:4:hex_digit.dout[0]
+HEX4[1] <= dec2hex:circuit_gen:4:hex_digit.dout[1]
+HEX4[2] <= dec2hex:circuit_gen:4:hex_digit.dout[2]
+HEX4[3] <= dec2hex:circuit_gen:4:hex_digit.dout[3]
+HEX4[4] <= dec2hex:circuit_gen:4:hex_digit.dout[4]
+HEX4[5] <= dec2hex:circuit_gen:4:hex_digit.dout[5]
+HEX4[6] <= dec2hex:circuit_gen:4:hex_digit.dout[6]
+HEX4[7] <= dec2hex:circuit_gen:4:hex_digit.dout[7]
+HEX5[0] <= dec2hex:circuit_gen:5:hex_digit.dout[0]
+HEX5[1] <= dec2hex:circuit_gen:5:hex_digit.dout[1]
+HEX5[2] <= dec2hex:circuit_gen:5:hex_digit.dout[2]
+HEX5[3] <= dec2hex:circuit_gen:5:hex_digit.dout[3]
+HEX5[4] <= dec2hex:circuit_gen:5:hex_digit.dout[4]
+HEX5[5] <= dec2hex:circuit_gen:5:hex_digit.dout[5]
+HEX5[6] <= dec2hex:circuit_gen:5:hex_digit.dout[6]
+HEX5[7] <= dec2hex:circuit_gen:5:hex_digit.dout[7]
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|dec_3_8:decoder
+addr[0] => dout.IN1
+addr[0] => dout.IN1
+addr[0] => dout.IN1
+addr[0] => dout.IN1
+addr[0] => dout.IN1
+addr[0] => dout.IN1
+addr[0] => dout.IN1
+addr[0] => dout.IN1
+addr[1] => dout.IN1
+addr[1] => dout.IN1
+addr[1] => dout.IN1
+addr[1] => dout.IN1
+addr[2] => dout.IN0
+addr[2] => dout.IN0
+en => dout.IN1
+en => dout.IN1
+dout[0] <= dout.DB_MAX_OUTPUT_PORT_TYPE
+dout[1] <= dout.DB_MAX_OUTPUT_PORT_TYPE
+dout[2] <= dout.DB_MAX_OUTPUT_PORT_TYPE
+dout[3] <= dout.DB_MAX_OUTPUT_PORT_TYPE
+dout[4] <= dout.DB_MAX_OUTPUT_PORT_TYPE
+dout[5] <= dout.DB_MAX_OUTPUT_PORT_TYPE
+dout[6] <= dout.DB_MAX_OUTPUT_PORT_TYPE
+dout[7] <= dout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:0:in_reg
+clk => FFD:u0.clk
+clk => FFD:u1.clk
+clk => FFD:u2.clk
+clk => FFD:u3.clk
+reset => FFD:u0.reset
+reset => FFD:u1.reset
+reset => FFD:u2.reset
+reset => FFD:u3.reset
+set => FFD:u0.set
+set => FFD:u1.set
+set => FFD:u2.set
+set => FFD:u3.set
+d[0] => FFD:u0.d
+d[1] => FFD:u1.d
+d[2] => FFD:u2.d
+d[3] => FFD:u3.d
+en => FFD:u0.en
+en => FFD:u1.en
+en => FFD:u2.en
+en => FFD:u3.en
+q[0] <= FFD:u0.q
+q[1] <= FFD:u1.q
+q[2] <= FFD:u2.q
+q[3] <= FFD:u3.q
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:0:in_reg|FFD:u0
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:0:in_reg|FFD:u1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:0:in_reg|FFD:u2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:0:in_reg|FFD:u3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:0:out_reg
+clk => FFD:u0.clk
+clk => FFD:u1.clk
+clk => FFD:u2.clk
+clk => FFD:u3.clk
+reset => FFD:u0.reset
+reset => FFD:u1.reset
+reset => FFD:u2.reset
+reset => FFD:u3.reset
+set => FFD:u0.set
+set => FFD:u1.set
+set => FFD:u2.set
+set => FFD:u3.set
+d[0] => FFD:u0.d
+d[1] => FFD:u1.d
+d[2] => FFD:u2.d
+d[3] => FFD:u3.d
+en => FFD:u0.en
+en => FFD:u1.en
+en => FFD:u2.en
+en => FFD:u3.en
+q[0] <= FFD:u0.q
+q[1] <= FFD:u1.q
+q[2] <= FFD:u2.q
+q[3] <= FFD:u3.q
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:0:out_reg|FFD:u0
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:0:out_reg|FFD:u1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:0:out_reg|FFD:u2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:0:out_reg|FFD:u3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|dec2hex:\circuit_gen:0:hex_digit
+d[0] => Equal0.IN0
+d[0] => Equal1.IN3
+d[0] => Equal2.IN1
+d[0] => Equal3.IN3
+d[0] => Equal4.IN1
+d[0] => Equal5.IN3
+d[0] => Equal6.IN2
+d[0] => Equal7.IN3
+d[0] => Equal8.IN1
+d[0] => Equal9.IN3
+d[0] => Equal10.IN2
+d[0] => Equal11.IN3
+d[0] => Equal12.IN2
+d[0] => Equal13.IN3
+d[0] => Equal14.IN3
+d[1] => Equal0.IN3
+d[1] => Equal1.IN0
+d[1] => Equal2.IN0
+d[1] => Equal3.IN2
+d[1] => Equal4.IN3
+d[1] => Equal5.IN1
+d[1] => Equal6.IN1
+d[1] => Equal7.IN2
+d[1] => Equal8.IN3
+d[1] => Equal9.IN1
+d[1] => Equal10.IN1
+d[1] => Equal11.IN2
+d[1] => Equal12.IN3
+d[1] => Equal13.IN2
+d[1] => Equal14.IN2
+d[2] => Equal0.IN2
+d[2] => Equal1.IN2
+d[2] => Equal2.IN3
+d[2] => Equal3.IN0
+d[2] => Equal4.IN0
+d[2] => Equal5.IN0
+d[2] => Equal6.IN0
+d[2] => Equal7.IN1
+d[2] => Equal8.IN2
+d[2] => Equal9.IN2
+d[2] => Equal10.IN3
+d[2] => Equal11.IN1
+d[2] => Equal12.IN1
+d[2] => Equal13.IN1
+d[2] => Equal14.IN1
+d[3] => Equal0.IN1
+d[3] => Equal1.IN1
+d[3] => Equal2.IN2
+d[3] => Equal3.IN1
+d[3] => Equal4.IN2
+d[3] => Equal5.IN2
+d[3] => Equal6.IN3
+d[3] => Equal7.IN0
+d[3] => Equal8.IN0
+d[3] => Equal9.IN0
+d[3] => Equal10.IN0
+d[3] => Equal11.IN0
+d[3] => Equal12.IN0
+d[3] => Equal13.IN0
+d[3] => Equal14.IN0
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+dOut[0] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[1] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[2] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[3] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[4] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[5] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[6] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[7] <= <VCC>
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:1:in_reg
+clk => FFD:u0.clk
+clk => FFD:u1.clk
+clk => FFD:u2.clk
+clk => FFD:u3.clk
+reset => FFD:u0.reset
+reset => FFD:u1.reset
+reset => FFD:u2.reset
+reset => FFD:u3.reset
+set => FFD:u0.set
+set => FFD:u1.set
+set => FFD:u2.set
+set => FFD:u3.set
+d[0] => FFD:u0.d
+d[1] => FFD:u1.d
+d[2] => FFD:u2.d
+d[3] => FFD:u3.d
+en => FFD:u0.en
+en => FFD:u1.en
+en => FFD:u2.en
+en => FFD:u3.en
+q[0] <= FFD:u0.q
+q[1] <= FFD:u1.q
+q[2] <= FFD:u2.q
+q[3] <= FFD:u3.q
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:1:in_reg|FFD:u0
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:1:in_reg|FFD:u1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:1:in_reg|FFD:u2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:1:in_reg|FFD:u3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:1:out_reg
+clk => FFD:u0.clk
+clk => FFD:u1.clk
+clk => FFD:u2.clk
+clk => FFD:u3.clk
+reset => FFD:u0.reset
+reset => FFD:u1.reset
+reset => FFD:u2.reset
+reset => FFD:u3.reset
+set => FFD:u0.set
+set => FFD:u1.set
+set => FFD:u2.set
+set => FFD:u3.set
+d[0] => FFD:u0.d
+d[1] => FFD:u1.d
+d[2] => FFD:u2.d
+d[3] => FFD:u3.d
+en => FFD:u0.en
+en => FFD:u1.en
+en => FFD:u2.en
+en => FFD:u3.en
+q[0] <= FFD:u0.q
+q[1] <= FFD:u1.q
+q[2] <= FFD:u2.q
+q[3] <= FFD:u3.q
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:1:out_reg|FFD:u0
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:1:out_reg|FFD:u1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:1:out_reg|FFD:u2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:1:out_reg|FFD:u3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|dec2hex:\circuit_gen:1:hex_digit
+d[0] => Equal0.IN0
+d[0] => Equal1.IN3
+d[0] => Equal2.IN1
+d[0] => Equal3.IN3
+d[0] => Equal4.IN1
+d[0] => Equal5.IN3
+d[0] => Equal6.IN2
+d[0] => Equal7.IN3
+d[0] => Equal8.IN1
+d[0] => Equal9.IN3
+d[0] => Equal10.IN2
+d[0] => Equal11.IN3
+d[0] => Equal12.IN2
+d[0] => Equal13.IN3
+d[0] => Equal14.IN3
+d[1] => Equal0.IN3
+d[1] => Equal1.IN0
+d[1] => Equal2.IN0
+d[1] => Equal3.IN2
+d[1] => Equal4.IN3
+d[1] => Equal5.IN1
+d[1] => Equal6.IN1
+d[1] => Equal7.IN2
+d[1] => Equal8.IN3
+d[1] => Equal9.IN1
+d[1] => Equal10.IN1
+d[1] => Equal11.IN2
+d[1] => Equal12.IN3
+d[1] => Equal13.IN2
+d[1] => Equal14.IN2
+d[2] => Equal0.IN2
+d[2] => Equal1.IN2
+d[2] => Equal2.IN3
+d[2] => Equal3.IN0
+d[2] => Equal4.IN0
+d[2] => Equal5.IN0
+d[2] => Equal6.IN0
+d[2] => Equal7.IN1
+d[2] => Equal8.IN2
+d[2] => Equal9.IN2
+d[2] => Equal10.IN3
+d[2] => Equal11.IN1
+d[2] => Equal12.IN1
+d[2] => Equal13.IN1
+d[2] => Equal14.IN1
+d[3] => Equal0.IN1
+d[3] => Equal1.IN1
+d[3] => Equal2.IN2
+d[3] => Equal3.IN1
+d[3] => Equal4.IN2
+d[3] => Equal5.IN2
+d[3] => Equal6.IN3
+d[3] => Equal7.IN0
+d[3] => Equal8.IN0
+d[3] => Equal9.IN0
+d[3] => Equal10.IN0
+d[3] => Equal11.IN0
+d[3] => Equal12.IN0
+d[3] => Equal13.IN0
+d[3] => Equal14.IN0
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+dOut[0] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[1] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[2] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[3] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[4] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[5] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[6] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[7] <= <VCC>
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:2:in_reg
+clk => FFD:u0.clk
+clk => FFD:u1.clk
+clk => FFD:u2.clk
+clk => FFD:u3.clk
+reset => FFD:u0.reset
+reset => FFD:u1.reset
+reset => FFD:u2.reset
+reset => FFD:u3.reset
+set => FFD:u0.set
+set => FFD:u1.set
+set => FFD:u2.set
+set => FFD:u3.set
+d[0] => FFD:u0.d
+d[1] => FFD:u1.d
+d[2] => FFD:u2.d
+d[3] => FFD:u3.d
+en => FFD:u0.en
+en => FFD:u1.en
+en => FFD:u2.en
+en => FFD:u3.en
+q[0] <= FFD:u0.q
+q[1] <= FFD:u1.q
+q[2] <= FFD:u2.q
+q[3] <= FFD:u3.q
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:2:in_reg|FFD:u0
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:2:in_reg|FFD:u1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:2:in_reg|FFD:u2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:2:in_reg|FFD:u3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:2:out_reg
+clk => FFD:u0.clk
+clk => FFD:u1.clk
+clk => FFD:u2.clk
+clk => FFD:u3.clk
+reset => FFD:u0.reset
+reset => FFD:u1.reset
+reset => FFD:u2.reset
+reset => FFD:u3.reset
+set => FFD:u0.set
+set => FFD:u1.set
+set => FFD:u2.set
+set => FFD:u3.set
+d[0] => FFD:u0.d
+d[1] => FFD:u1.d
+d[2] => FFD:u2.d
+d[3] => FFD:u3.d
+en => FFD:u0.en
+en => FFD:u1.en
+en => FFD:u2.en
+en => FFD:u3.en
+q[0] <= FFD:u0.q
+q[1] <= FFD:u1.q
+q[2] <= FFD:u2.q
+q[3] <= FFD:u3.q
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:2:out_reg|FFD:u0
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:2:out_reg|FFD:u1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:2:out_reg|FFD:u2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:2:out_reg|FFD:u3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|dec2hex:\circuit_gen:2:hex_digit
+d[0] => Equal0.IN0
+d[0] => Equal1.IN3
+d[0] => Equal2.IN1
+d[0] => Equal3.IN3
+d[0] => Equal4.IN1
+d[0] => Equal5.IN3
+d[0] => Equal6.IN2
+d[0] => Equal7.IN3
+d[0] => Equal8.IN1
+d[0] => Equal9.IN3
+d[0] => Equal10.IN2
+d[0] => Equal11.IN3
+d[0] => Equal12.IN2
+d[0] => Equal13.IN3
+d[0] => Equal14.IN3
+d[1] => Equal0.IN3
+d[1] => Equal1.IN0
+d[1] => Equal2.IN0
+d[1] => Equal3.IN2
+d[1] => Equal4.IN3
+d[1] => Equal5.IN1
+d[1] => Equal6.IN1
+d[1] => Equal7.IN2
+d[1] => Equal8.IN3
+d[1] => Equal9.IN1
+d[1] => Equal10.IN1
+d[1] => Equal11.IN2
+d[1] => Equal12.IN3
+d[1] => Equal13.IN2
+d[1] => Equal14.IN2
+d[2] => Equal0.IN2
+d[2] => Equal1.IN2
+d[2] => Equal2.IN3
+d[2] => Equal3.IN0
+d[2] => Equal4.IN0
+d[2] => Equal5.IN0
+d[2] => Equal6.IN0
+d[2] => Equal7.IN1
+d[2] => Equal8.IN2
+d[2] => Equal9.IN2
+d[2] => Equal10.IN3
+d[2] => Equal11.IN1
+d[2] => Equal12.IN1
+d[2] => Equal13.IN1
+d[2] => Equal14.IN1
+d[3] => Equal0.IN1
+d[3] => Equal1.IN1
+d[3] => Equal2.IN2
+d[3] => Equal3.IN1
+d[3] => Equal4.IN2
+d[3] => Equal5.IN2
+d[3] => Equal6.IN3
+d[3] => Equal7.IN0
+d[3] => Equal8.IN0
+d[3] => Equal9.IN0
+d[3] => Equal10.IN0
+d[3] => Equal11.IN0
+d[3] => Equal12.IN0
+d[3] => Equal13.IN0
+d[3] => Equal14.IN0
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+dOut[0] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[1] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[2] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[3] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[4] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[5] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[6] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[7] <= <VCC>
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:3:in_reg
+clk => FFD:u0.clk
+clk => FFD:u1.clk
+clk => FFD:u2.clk
+clk => FFD:u3.clk
+reset => FFD:u0.reset
+reset => FFD:u1.reset
+reset => FFD:u2.reset
+reset => FFD:u3.reset
+set => FFD:u0.set
+set => FFD:u1.set
+set => FFD:u2.set
+set => FFD:u3.set
+d[0] => FFD:u0.d
+d[1] => FFD:u1.d
+d[2] => FFD:u2.d
+d[3] => FFD:u3.d
+en => FFD:u0.en
+en => FFD:u1.en
+en => FFD:u2.en
+en => FFD:u3.en
+q[0] <= FFD:u0.q
+q[1] <= FFD:u1.q
+q[2] <= FFD:u2.q
+q[3] <= FFD:u3.q
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:3:in_reg|FFD:u0
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:3:in_reg|FFD:u1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:3:in_reg|FFD:u2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:3:in_reg|FFD:u3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:3:out_reg
+clk => FFD:u0.clk
+clk => FFD:u1.clk
+clk => FFD:u2.clk
+clk => FFD:u3.clk
+reset => FFD:u0.reset
+reset => FFD:u1.reset
+reset => FFD:u2.reset
+reset => FFD:u3.reset
+set => FFD:u0.set
+set => FFD:u1.set
+set => FFD:u2.set
+set => FFD:u3.set
+d[0] => FFD:u0.d
+d[1] => FFD:u1.d
+d[2] => FFD:u2.d
+d[3] => FFD:u3.d
+en => FFD:u0.en
+en => FFD:u1.en
+en => FFD:u2.en
+en => FFD:u3.en
+q[0] <= FFD:u0.q
+q[1] <= FFD:u1.q
+q[2] <= FFD:u2.q
+q[3] <= FFD:u3.q
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:3:out_reg|FFD:u0
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:3:out_reg|FFD:u1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:3:out_reg|FFD:u2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:3:out_reg|FFD:u3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|dec2hex:\circuit_gen:3:hex_digit
+d[0] => Equal0.IN0
+d[0] => Equal1.IN3
+d[0] => Equal2.IN1
+d[0] => Equal3.IN3
+d[0] => Equal4.IN1
+d[0] => Equal5.IN3
+d[0] => Equal6.IN2
+d[0] => Equal7.IN3
+d[0] => Equal8.IN1
+d[0] => Equal9.IN3
+d[0] => Equal10.IN2
+d[0] => Equal11.IN3
+d[0] => Equal12.IN2
+d[0] => Equal13.IN3
+d[0] => Equal14.IN3
+d[1] => Equal0.IN3
+d[1] => Equal1.IN0
+d[1] => Equal2.IN0
+d[1] => Equal3.IN2
+d[1] => Equal4.IN3
+d[1] => Equal5.IN1
+d[1] => Equal6.IN1
+d[1] => Equal7.IN2
+d[1] => Equal8.IN3
+d[1] => Equal9.IN1
+d[1] => Equal10.IN1
+d[1] => Equal11.IN2
+d[1] => Equal12.IN3
+d[1] => Equal13.IN2
+d[1] => Equal14.IN2
+d[2] => Equal0.IN2
+d[2] => Equal1.IN2
+d[2] => Equal2.IN3
+d[2] => Equal3.IN0
+d[2] => Equal4.IN0
+d[2] => Equal5.IN0
+d[2] => Equal6.IN0
+d[2] => Equal7.IN1
+d[2] => Equal8.IN2
+d[2] => Equal9.IN2
+d[2] => Equal10.IN3
+d[2] => Equal11.IN1
+d[2] => Equal12.IN1
+d[2] => Equal13.IN1
+d[2] => Equal14.IN1
+d[3] => Equal0.IN1
+d[3] => Equal1.IN1
+d[3] => Equal2.IN2
+d[3] => Equal3.IN1
+d[3] => Equal4.IN2
+d[3] => Equal5.IN2
+d[3] => Equal6.IN3
+d[3] => Equal7.IN0
+d[3] => Equal8.IN0
+d[3] => Equal9.IN0
+d[3] => Equal10.IN0
+d[3] => Equal11.IN0
+d[3] => Equal12.IN0
+d[3] => Equal13.IN0
+d[3] => Equal14.IN0
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+dOut[0] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[1] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[2] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[3] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[4] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[5] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[6] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[7] <= <VCC>
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:4:in_reg
+clk => FFD:u0.clk
+clk => FFD:u1.clk
+clk => FFD:u2.clk
+clk => FFD:u3.clk
+reset => FFD:u0.reset
+reset => FFD:u1.reset
+reset => FFD:u2.reset
+reset => FFD:u3.reset
+set => FFD:u0.set
+set => FFD:u1.set
+set => FFD:u2.set
+set => FFD:u3.set
+d[0] => FFD:u0.d
+d[1] => FFD:u1.d
+d[2] => FFD:u2.d
+d[3] => FFD:u3.d
+en => FFD:u0.en
+en => FFD:u1.en
+en => FFD:u2.en
+en => FFD:u3.en
+q[0] <= FFD:u0.q
+q[1] <= FFD:u1.q
+q[2] <= FFD:u2.q
+q[3] <= FFD:u3.q
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:4:in_reg|FFD:u0
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:4:in_reg|FFD:u1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:4:in_reg|FFD:u2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:4:in_reg|FFD:u3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:4:out_reg
+clk => FFD:u0.clk
+clk => FFD:u1.clk
+clk => FFD:u2.clk
+clk => FFD:u3.clk
+reset => FFD:u0.reset
+reset => FFD:u1.reset
+reset => FFD:u2.reset
+reset => FFD:u3.reset
+set => FFD:u0.set
+set => FFD:u1.set
+set => FFD:u2.set
+set => FFD:u3.set
+d[0] => FFD:u0.d
+d[1] => FFD:u1.d
+d[2] => FFD:u2.d
+d[3] => FFD:u3.d
+en => FFD:u0.en
+en => FFD:u1.en
+en => FFD:u2.en
+en => FFD:u3.en
+q[0] <= FFD:u0.q
+q[1] <= FFD:u1.q
+q[2] <= FFD:u2.q
+q[3] <= FFD:u3.q
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:4:out_reg|FFD:u0
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:4:out_reg|FFD:u1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:4:out_reg|FFD:u2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:4:out_reg|FFD:u3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|dec2hex:\circuit_gen:4:hex_digit
+d[0] => Equal0.IN0
+d[0] => Equal1.IN3
+d[0] => Equal2.IN1
+d[0] => Equal3.IN3
+d[0] => Equal4.IN1
+d[0] => Equal5.IN3
+d[0] => Equal6.IN2
+d[0] => Equal7.IN3
+d[0] => Equal8.IN1
+d[0] => Equal9.IN3
+d[0] => Equal10.IN2
+d[0] => Equal11.IN3
+d[0] => Equal12.IN2
+d[0] => Equal13.IN3
+d[0] => Equal14.IN3
+d[1] => Equal0.IN3
+d[1] => Equal1.IN0
+d[1] => Equal2.IN0
+d[1] => Equal3.IN2
+d[1] => Equal4.IN3
+d[1] => Equal5.IN1
+d[1] => Equal6.IN1
+d[1] => Equal7.IN2
+d[1] => Equal8.IN3
+d[1] => Equal9.IN1
+d[1] => Equal10.IN1
+d[1] => Equal11.IN2
+d[1] => Equal12.IN3
+d[1] => Equal13.IN2
+d[1] => Equal14.IN2
+d[2] => Equal0.IN2
+d[2] => Equal1.IN2
+d[2] => Equal2.IN3
+d[2] => Equal3.IN0
+d[2] => Equal4.IN0
+d[2] => Equal5.IN0
+d[2] => Equal6.IN0
+d[2] => Equal7.IN1
+d[2] => Equal8.IN2
+d[2] => Equal9.IN2
+d[2] => Equal10.IN3
+d[2] => Equal11.IN1
+d[2] => Equal12.IN1
+d[2] => Equal13.IN1
+d[2] => Equal14.IN1
+d[3] => Equal0.IN1
+d[3] => Equal1.IN1
+d[3] => Equal2.IN2
+d[3] => Equal3.IN1
+d[3] => Equal4.IN2
+d[3] => Equal5.IN2
+d[3] => Equal6.IN3
+d[3] => Equal7.IN0
+d[3] => Equal8.IN0
+d[3] => Equal9.IN0
+d[3] => Equal10.IN0
+d[3] => Equal11.IN0
+d[3] => Equal12.IN0
+d[3] => Equal13.IN0
+d[3] => Equal14.IN0
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+dOut[0] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[1] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[2] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[3] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[4] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[5] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[6] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[7] <= <VCC>
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:5:in_reg
+clk => FFD:u0.clk
+clk => FFD:u1.clk
+clk => FFD:u2.clk
+clk => FFD:u3.clk
+reset => FFD:u0.reset
+reset => FFD:u1.reset
+reset => FFD:u2.reset
+reset => FFD:u3.reset
+set => FFD:u0.set
+set => FFD:u1.set
+set => FFD:u2.set
+set => FFD:u3.set
+d[0] => FFD:u0.d
+d[1] => FFD:u1.d
+d[2] => FFD:u2.d
+d[3] => FFD:u3.d
+en => FFD:u0.en
+en => FFD:u1.en
+en => FFD:u2.en
+en => FFD:u3.en
+q[0] <= FFD:u0.q
+q[1] <= FFD:u1.q
+q[2] <= FFD:u2.q
+q[3] <= FFD:u3.q
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:5:in_reg|FFD:u0
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:5:in_reg|FFD:u1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:5:in_reg|FFD:u2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:5:in_reg|FFD:u3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:5:out_reg
+clk => FFD:u0.clk
+clk => FFD:u1.clk
+clk => FFD:u2.clk
+clk => FFD:u3.clk
+reset => FFD:u0.reset
+reset => FFD:u1.reset
+reset => FFD:u2.reset
+reset => FFD:u3.reset
+set => FFD:u0.set
+set => FFD:u1.set
+set => FFD:u2.set
+set => FFD:u3.set
+d[0] => FFD:u0.d
+d[1] => FFD:u1.d
+d[2] => FFD:u2.d
+d[3] => FFD:u3.d
+en => FFD:u0.en
+en => FFD:u1.en
+en => FFD:u2.en
+en => FFD:u3.en
+q[0] <= FFD:u0.q
+q[1] <= FFD:u1.q
+q[2] <= FFD:u2.q
+q[3] <= FFD:u3.q
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:5:out_reg|FFD:u0
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:5:out_reg|FFD:u1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:5:out_reg|FFD:u2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|reg_4bit:\circuit_gen:5:out_reg|FFD:u3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|dec2hex:\circuit_gen:5:hex_digit
+d[0] => Equal0.IN0
+d[0] => Equal1.IN3
+d[0] => Equal2.IN1
+d[0] => Equal3.IN3
+d[0] => Equal4.IN1
+d[0] => Equal5.IN3
+d[0] => Equal6.IN2
+d[0] => Equal7.IN3
+d[0] => Equal8.IN1
+d[0] => Equal9.IN3
+d[0] => Equal10.IN2
+d[0] => Equal11.IN3
+d[0] => Equal12.IN2
+d[0] => Equal13.IN3
+d[0] => Equal14.IN3
+d[1] => Equal0.IN3
+d[1] => Equal1.IN0
+d[1] => Equal2.IN0
+d[1] => Equal3.IN2
+d[1] => Equal4.IN3
+d[1] => Equal5.IN1
+d[1] => Equal6.IN1
+d[1] => Equal7.IN2
+d[1] => Equal8.IN3
+d[1] => Equal9.IN1
+d[1] => Equal10.IN1
+d[1] => Equal11.IN2
+d[1] => Equal12.IN3
+d[1] => Equal13.IN2
+d[1] => Equal14.IN2
+d[2] => Equal0.IN2
+d[2] => Equal1.IN2
+d[2] => Equal2.IN3
+d[2] => Equal3.IN0
+d[2] => Equal4.IN0
+d[2] => Equal5.IN0
+d[2] => Equal6.IN0
+d[2] => Equal7.IN1
+d[2] => Equal8.IN2
+d[2] => Equal9.IN2
+d[2] => Equal10.IN3
+d[2] => Equal11.IN1
+d[2] => Equal12.IN1
+d[2] => Equal13.IN1
+d[2] => Equal14.IN1
+d[3] => Equal0.IN1
+d[3] => Equal1.IN1
+d[3] => Equal2.IN2
+d[3] => Equal3.IN1
+d[3] => Equal4.IN2
+d[3] => Equal5.IN2
+d[3] => Equal6.IN3
+d[3] => Equal7.IN0
+d[3] => Equal8.IN0
+d[3] => Equal9.IN0
+d[3] => Equal10.IN0
+d[3] => Equal11.IN0
+d[3] => Equal12.IN0
+d[3] => Equal13.IN0
+d[3] => Equal14.IN0
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+dOut[0] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[1] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[2] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[3] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[4] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[5] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[6] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[7] <= <VCC>
+
+
+|SSCwrapper|scoreDisplay:Sdisplay|FFD:clear_reg
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

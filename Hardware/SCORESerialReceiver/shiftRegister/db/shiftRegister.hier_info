@@ -1,0 +1,130 @@
+|shiftRegister
+CLK => FFD:U1.CLK
+CLK => FFD:U2.CLK
+CLK => FFD:U3.CLK
+CLK => FFD:U4.CLK
+CLK => FFD:U5.CLK
+CLK => FFD:U6.CLK
+CLK => FFD:U7.CLK
+CLK => FFD:U8.CLK
+CLK => FFD:U9.CLK
+RST => FFD:U1.RESET
+RST => FFD:U2.RESET
+RST => FFD:U3.RESET
+RST => FFD:U4.RESET
+RST => FFD:U5.RESET
+RST => FFD:U6.RESET
+RST => FFD:U7.RESET
+RST => FFD:U8.RESET
+RST => FFD:U9.RESET
+data => FFD:U1.D
+enable => FFD:U1.EN
+enable => FFD:U2.EN
+enable => FFD:U3.EN
+enable => FFD:U4.EN
+enable => FFD:U5.EN
+enable => FFD:U6.EN
+enable => FFD:U7.EN
+enable => FFD:U8.EN
+enable => FFD:U9.EN
+D[0] <= FFD:U1.Q
+D[1] <= FFD:U2.Q
+D[2] <= FFD:U3.Q
+D[3] <= FFD:U4.Q
+D[4] <= FFD:U5.Q
+D[5] <= FFD:U6.Q
+D[6] <= FFD:U7.Q
+D[7] <= FFD:U8.Q
+D[8] <= FFD:U9.Q
+
+
+|shiftRegister|FFD:U1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|shiftRegister|FFD:U2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|shiftRegister|FFD:U3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|shiftRegister|FFD:U4
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|shiftRegister|FFD:U5
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|shiftRegister|FFD:U6
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|shiftRegister|FFD:U7
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|shiftRegister|FFD:U8
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|shiftRegister|FFD:U9
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

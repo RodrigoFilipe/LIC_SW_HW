@@ -1,0 +1,84 @@
+|ParityCheck
+data => Cont:counter.CE
+init => Cont:counter.R
+clk => Cont:counter.Clk
+err <= Cont:counter.Q
+
+
+|ParityCheck|Cont:counter
+R => ContadorCrescente:U1.Reset
+CE => ContadorCrescente:U1.CE
+Clk => ContadorCrescente:U1.CLK
+Q <= ContadorCrescente:U1.S
+
+
+|ParityCheck|Cont:counter|ContadorCrescente:U1
+DataIn => MuxCont:CC_MUX.X
+PL => MuxCont:CC_MUX.S
+CE => adder1:CC_Adder.A
+CLK => Registo:CC_Reg.Clk
+Reset => Registo:CC_Reg.Reset
+TC <= Registo:CC_Reg.S
+S <= Registo:CC_Reg.S
+
+
+|ParityCheck|Cont:counter|ContadorCrescente:U1|Registo:CC_Reg
+A => FFD:FFD1.D
+Clk => FFD:FFD1.CLK
+Reset => FFD:FFD1.RESET
+E => FFD:FFD1.EN
+S <= FFD:FFD1.Q
+
+
+|ParityCheck|Cont:counter|ContadorCrescente:U1|Registo:CC_Reg|FFD:FFD1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ParityCheck|Cont:counter|ContadorCrescente:U1|adder1:CC_Adder
+A => FA:FA1.A
+B => FA:FA1.B
+C0 => FA:FA1.Ci
+S <= FA:FA1.S
+C4 <= comb.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ParityCheck|Cont:counter|ContadorCrescente:U1|adder1:CC_Adder|FA:FA1
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ParityCheck|Cont:counter|ContadorCrescente:U1|adder1:CC_Adder|FA:FA1|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ParityCheck|Cont:counter|ContadorCrescente:U1|adder1:CC_Adder|FA:FA1|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ParityCheck|Cont:counter|ContadorCrescente:U1|MuxCont:CC_MUX
+X => R.IN0
+Y => R.IN0
+S => R.IN1
+S => R.IN1
+R <= R.DB_MAX_OUTPUT_PORT_TYPE
+
+

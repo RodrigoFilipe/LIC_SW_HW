@@ -1,0 +1,25 @@
+|SerialControl
+rst => CurrentState~3.DATAIN
+clk => CurrentState~1.DATAIN
+enRx => NextState.OUTPUTSELECT
+enRx => NextState.OUTPUTSELECT
+enRx => NextState.OUTPUTSELECT
+enRx => NextState.OUTPUTSELECT
+enRx => NextState.OUTPUTSELECT
+enRx => Selector0.IN2
+enRx => NextState.STATE_001.DATAB
+enRx => Selector1.IN1
+accept => Selector0.IN3
+accept => Selector3.IN2
+pFlag => NextState.OUTPUTSELECT
+pFlag => NextState.OUTPUTSELECT
+pFlag => NextState.DATAA
+dFlag => NextState.DATAA
+dFlag => NextState.DATAA
+RXerror => NextState.DATAA
+RXerror => NextState.DATAA
+wr <= wr.DB_MAX_OUTPUT_PORT_TYPE
+init <= init.DB_MAX_OUTPUT_PORT_TYPE
+DXval <= DXval.DB_MAX_OUTPUT_PORT_TYPE
+
+

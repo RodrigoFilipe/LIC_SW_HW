@@ -1,0 +1,65 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "WrD",
+					"strict" : false
+				},
+				{
+					"name" : "Dout[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Dout[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Dout[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Dout[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Dout[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Dout[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Dout[6]",
+					"strict" : false
+				},
+				{
+					"name" : "SC_sel",
+					"strict" : false
+				},
+				{
+					"name" : "accept",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "rst",
+					"strict" : false
+				},
+				{
+					"name" : "SDX",
+					"strict" : false
+				},
+				{
+					"name" : "SCLK",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

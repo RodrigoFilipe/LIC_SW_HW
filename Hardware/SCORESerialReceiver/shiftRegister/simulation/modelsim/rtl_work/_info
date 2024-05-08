@@ -1,0 +1,88 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/ssrlo/ISEL/2324/2semestre/LIC/SerialReceiver/shiftRegister/simulation/modelsim
+Effd
+Z1 w1678180936
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z4 8C:/Users/ssrlo/ISEL/2324/2semestre/LIC/SerialReceiver/Cont4bit/FFD.vhd
+Z5 FC:/Users/ssrlo/ISEL/2324/2semestre/LIC/SerialReceiver/Cont4bit/FFD.vhd
+l0
+L4
+V3Lka6CafX>VEoeC;z@;Wn2
+!s100 o5Zmih;^KiP3bD]iio]CN0
+Z6 OV;C;10.5b;63
+31
+Z7 !s110 1713350931
+!i10b 1
+Z8 !s108 1713350931.000000
+Z9 !s90 -reportprogress|300|-93|-work|work|C:/Users/ssrlo/ISEL/2324/2semestre/LIC/SerialReceiver/Cont4bit/FFD.vhd|
+Z10 !s107 C:/Users/ssrlo/ISEL/2324/2semestre/LIC/SerialReceiver/Cont4bit/FFD.vhd|
+!i113 1
+Z11 o-93 -work work
+Z12 tExplicit 1 CvgOpt 0
+Alogicfunction
+R2
+R3
+DEx4 work 3 ffd 0 22 3Lka6CafX>VEoeC;z@;Wn2
+l18
+L16
+V;oOT[2g4a@V?`[NN5k4551
+!s100 4RmR0zLfWP3Y6cQ8Z5lB@1
+R6
+31
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Eshiftregister
+Z13 w1712140650
+R2
+R3
+R0
+Z14 8C:/Users/ssrlo/ISEL/2324/2semestre/LIC/SerialReceiver/shiftRegister/shiftRegister.vhd
+Z15 FC:/Users/ssrlo/ISEL/2324/2semestre/LIC/SerialReceiver/shiftRegister/shiftRegister.vhd
+l0
+L4
+V7>>1Mb^SCDU8z`nn3GhcP1
+!s100 NB2Tdgo;UWk1enO@L`Ho50
+R6
+31
+R7
+!i10b 1
+R8
+Z16 !s90 -reportprogress|300|-93|-work|work|C:/Users/ssrlo/ISEL/2324/2semestre/LIC/SerialReceiver/shiftRegister/shiftRegister.vhd|
+Z17 !s107 C:/Users/ssrlo/ISEL/2324/2semestre/LIC/SerialReceiver/shiftRegister/shiftRegister.vhd|
+!i113 1
+R11
+R12
+Astructure
+R2
+R3
+DEx4 work 13 shiftregister 0 22 7>>1Mb^SCDU8z`nn3GhcP1
+l30
+L15
+V]YH>T@SLEc:L[2KASTL>L2
+!s100 8B4fS605zUJ>?lbm`RXFV0
+R6
+31
+R7
+!i10b 1
+R8
+R16
+R17
+!i113 1
+R11
+R12
