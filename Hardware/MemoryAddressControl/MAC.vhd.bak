@@ -1,0 +1,87 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity MAC is
+port(
+	clk: in std_logic;
+	rst: in std_logic;
+	putGet: in std_logic;
+	incPut: in std_logic;
+	incGet: in std_logic;
+	full: out std_logic;
+	empty: out std_logic;
+	Address: out std_logic_vector(3 downto 0)
+);
+end MAC;
+
+architecture structure of MAC is
+component UpDownCounter is
+port(
+	CLK: in std_logic;
+	RST: in std_logic;
+	Enable: in std_logic;
+	IncDec: in std_logic;
+	R: out std_logic_vector(3 downto 0)
+);
+
+end component;
+
+component counter3 is
+port(
+	CLK: in std_logic;
+	RST: in std_logic;
+	CE: in std_logic;
+	Q: out std_logic_vector(2 downto 0)
+);
+end component;
+
+component Mux2bit is
+port(
+	X: in std_logic;
+	Y: in std_logic;
+	S: in std_logic;
+	R: out std_logic
+);
+end component;
+
+signal s_putGet: std_logic;
+signal s_UDCounter: std_logic;
+signal s_put: std_logic;
+signal s_get: std_logic;
+
+
+begin 
+
+putCount: counter3 port map(
+	CLK => clk,
+	RST => rst,
+	CE => incPut,
+	R => s_put
+);
+
+getCount: counter3 port map(
+	CLK => clk,
+	RST => rst,
+	CE => incGet,
+	R => s_get
+);
+
+mux: Mux2bit port map(
+	X => s_get,
+	Y => s_put,
+	S => putGet
+);
+
+UpDownCount: UpDownCounter port map(
+	CLK => clk,
+	RST => rst,
+	Enable => incPut or incGet,
+	IncDec => incPut,
+	R => s_UDCounter
+);
+
+full <= s_UDCounter(3);
+empty <= not (s_UDCountero(0) or s_UDCountero(1) or s_UDCountero(2) or s_UDCountero(3));
+
+end structure;
+

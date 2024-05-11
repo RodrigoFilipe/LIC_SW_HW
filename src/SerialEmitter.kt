@@ -84,7 +84,7 @@ fun main(){
     HAL.init()
     SerialEmitter.init()
     SerialEmitter.send(SerialEmitter.Destination.SCORE, 0b1111011, 7)
-    Thread.sleep(5000)
-    SerialEmitter.send(SerialEmitter.Destination.LCD, 0b010101010, 9)
+    //Thread.sleep(5000)
+    SerialEmitter.send(SerialEmitter.Destination.SCORE, 0b00000000, 7)
 
 }

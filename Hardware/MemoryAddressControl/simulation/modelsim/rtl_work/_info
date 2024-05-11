@@ -1,0 +1,595 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/simulation/modelsim
+Eadder3
+Z1 w1688742802
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z4 8C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/Adder3.vhd
+Z5 FC:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/Adder3.vhd
+l0
+L4
+VOZ[dQJ0XBQbT0:bR3?8UI0
+!s100 19T9m7?9a:NdhB<W`jST`2
+Z6 OV;C;10.5b;63
+31
+Z7 !s110 1715167575
+!i10b 1
+Z8 !s108 1715167575.000000
+Z9 !s90 -reportprogress|300|-93|-work|work|C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/Adder3.vhd|
+Z10 !s107 C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/Adder3.vhd|
+!i113 1
+Z11 o-93 -work work
+Z12 tExplicit 1 CvgOpt 0
+Astructural
+R2
+R3
+DEx4 work 6 adder3 0 22 OZ[dQJ0XBQbT0:bR3?8UI0
+l29
+L15
+V<QY@fhkkV2MIbOkEKDM9=1
+!s100 hSUIeLA5^z2lKXn]FQFM_3
+R6
+31
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Eadder4
+Z13 w1715166666
+R2
+R3
+R0
+Z14 8C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/adder4.vhd
+Z15 FC:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/adder4.vhd
+l0
+L4
+VYzAS47aI88S=]<W6G78211
+!s100 z;X@HX87mY?X>Nem?2d8Y1
+R6
+31
+R7
+!i10b 1
+R8
+Z16 !s90 -reportprogress|300|-93|-work|work|C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/adder4.vhd|
+Z17 !s107 C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/adder4.vhd|
+!i113 1
+R11
+R12
+Astructural
+R2
+R3
+DEx4 work 6 adder4 0 22 YzAS47aI88S=]<W6G78211
+l29
+L15
+Vb;_O56_KW1U]]JN=<<Wd;3
+!s100 >Vji<JKJYCCaYTVMFbSbn1
+R6
+31
+R7
+!i10b 1
+R8
+R16
+R17
+!i113 1
+R11
+R12
+Eaddersubtractor
+Z18 w1715166978
+R2
+R3
+R0
+Z19 8C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/adderSubtractor.vhd
+Z20 FC:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/adderSubtractor.vhd
+l0
+L4
+VM<ZdMi5T7KKTVkR=hBUZ>0
+!s100 2io^[NFM2`@31MdmD?I[V0
+R6
+31
+R7
+!i10b 1
+R8
+Z21 !s90 -reportprogress|300|-93|-work|work|C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/adderSubtractor.vhd|
+Z22 !s107 C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/adderSubtractor.vhd|
+!i113 1
+R11
+R12
+Astructure
+R2
+R3
+DEx4 work 15 addersubtractor 0 22 M<ZdMi5T7KKTVkR=hBUZ>0
+l32
+L16
+Va2__Eck^KI75k5zQ9AO7?0
+!s100 f5lKM]_nQ>G6^i=MOSbFF0
+R6
+31
+R7
+!i10b 1
+R8
+R21
+R22
+!i113 1
+R11
+R12
+Econtadorcrescente
+Z23 w1715166918
+R2
+R3
+R0
+Z24 8C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/ContadorCrescente.vhd
+Z25 FC:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/ContadorCrescente.vhd
+l0
+L4
+VYibJYJ`YQIe88>1mZ^P;C3
+!s100 WH:^9_TcRR[z=VgM@z]f<3
+R6
+31
+R7
+!i10b 1
+R8
+Z26 !s90 -reportprogress|300|-93|-work|work|C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/ContadorCrescente.vhd|
+Z27 !s107 C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/ContadorCrescente.vhd|
+!i113 1
+R11
+R12
+Astructure
+R2
+R3
+DEx4 work 17 contadorcrescente 0 22 YibJYJ`YQIe88>1mZ^P;C3
+l55
+L17
+VZBeW89>7FQz]c8:U@l6ob3
+!s100 m0UG>Wmb4heOR[ezlk_VV2
+R6
+31
+R7
+!i10b 1
+R8
+R26
+R27
+!i113 1
+R11
+R12
+Ecounter3
+Z28 w1715167039
+R2
+R3
+R0
+Z29 8C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/Counter3.vhd
+Z30 FC:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/Counter3.vhd
+l0
+L4
+VA02Nkz;BC1Zd@YD8MMCYO3
+!s100 3f>mFf;]E061DI1ECV^]l1
+R6
+31
+R7
+!i10b 1
+R8
+Z31 !s90 -reportprogress|300|-93|-work|work|C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/Counter3.vhd|
+Z32 !s107 C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/Counter3.vhd|
+!i113 1
+R11
+R12
+Astructure
+R2
+R3
+DEx4 work 8 counter3 0 22 A02Nkz;BC1Zd@YD8MMCYO3
+l27
+L14
+Vk`;`WN=[1a>HG?JIP`0:V1
+!s100 Y7lOKm6BC13]XkoX;@e4>2
+R6
+31
+R7
+!i10b 1
+R8
+R31
+R32
+!i113 1
+R11
+R12
+Efa
+Z33 w1715166622
+R2
+R3
+R0
+Z34 8C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/FA.vhd
+Z35 FC:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/FA.vhd
+l0
+L4
+V6hdjCofA_jnf:LlL0YIMk0
+!s100 AjDT6g?dV_0CPJiR@nKPA3
+R6
+31
+R7
+!i10b 1
+R8
+Z36 !s90 -reportprogress|300|-93|-work|work|C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/FA.vhd|
+Z37 !s107 C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/FA.vhd|
+!i113 1
+R11
+R12
+Astructural
+R2
+R3
+DEx4 work 2 fa 0 22 6hdjCofA_jnf:LlL0YIMk0
+l29
+L15
+Vb_meeDncU1BP5?4Hi3PEj1
+!s100 iOi=SJ7l8LSLBZ1f_4YSF3
+R6
+31
+R7
+!i10b 1
+R8
+R36
+R37
+!i113 1
+R11
+R12
+Effd
+Z38 w1715165851
+R2
+R3
+R0
+Z39 8C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/FFD.vhd
+Z40 FC:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/FFD.vhd
+l0
+L4
+V3Lka6CafX>VEoeC;z@;Wn2
+!s100 o5Zmih;^KiP3bD]iio]CN0
+R6
+31
+R7
+!i10b 1
+R8
+Z41 !s90 -reportprogress|300|-93|-work|work|C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/FFD.vhd|
+Z42 !s107 C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/FFD.vhd|
+!i113 1
+R11
+R12
+Alogicfunction
+R2
+R3
+DEx4 work 3 ffd 0 22 3Lka6CafX>VEoeC;z@;Wn2
+l18
+L16
+V]SVa_^9617]I]JE@B2klb2
+!s100 iW:;lFRfm]^0F`G8>K;`g1
+R6
+31
+R7
+!i10b 1
+R8
+R41
+R42
+!i113 1
+R11
+R12
+Eha
+Z43 w1688742803
+R2
+R3
+R0
+Z44 8C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/HA.vhd
+Z45 FC:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/HA.vhd
+l0
+L4
+Vi0hj6;jINkDT]kA2Id:8a2
+!s100 L1fjF<6lkA0K;3elJf=Mi0
+R6
+31
+R7
+!i10b 1
+R8
+Z46 !s90 -reportprogress|300|-93|-work|work|C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/HA.vhd|
+Z47 !s107 C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/HA.vhd|
+!i113 1
+R11
+R12
+Astructural
+R2
+R3
+DEx4 work 2 ha 0 22 i0hj6;jINkDT]kA2Id:8a2
+l15
+L14
+V5UiNI_BH1f`Ya=8Q??e`X0
+!s100 kocgo=MfhdmKjeh[6US7A1
+R6
+31
+R7
+!i10b 1
+R8
+R46
+R47
+!i113 1
+R11
+R12
+Emac
+Z48 w1715167530
+R2
+R3
+R0
+Z49 8C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/MAC.vhd
+Z50 FC:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/MAC.vhd
+l0
+L4
+VIb7JmajI23Hn=04j9RczD1
+!s100 `N62J8RM1>ibl_EGAGBjL0
+R6
+31
+Z51 !s110 1715167576
+!i10b 1
+R8
+Z52 !s90 -reportprogress|300|-93|-work|work|C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/MAC.vhd|
+Z53 !s107 C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/MAC.vhd|
+!i113 1
+R11
+R12
+Astructure
+R2
+R3
+DEx4 work 3 mac 0 22 Ib7JmajI23Hn=04j9RczD1
+l54
+L17
+V_jU;;aR<]bTb[2N[2^ked3
+!s100 3jEPLf3Mi_Qb39BDC_GQS3
+R6
+31
+R51
+!i10b 1
+R8
+R52
+R53
+!i113 1
+R11
+R12
+Emux2bit
+Z54 w1715165274
+R2
+R3
+R0
+Z55 8C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/Mux2bit.vhd
+Z56 FC:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/Mux2bit.vhd
+l0
+L4
+V3REZG=:i81Rog<Z3nQ3D[3
+!s100 GEOW?l3?FGAkzFIE2i8`X0
+R6
+31
+R51
+!i10b 1
+Z57 !s108 1715167576.000000
+Z58 !s90 -reportprogress|300|-93|-work|work|C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/Mux2bit.vhd|
+Z59 !s107 C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/Mux2bit.vhd|
+!i113 1
+R11
+R12
+Alogicfunction
+R2
+R3
+DEx4 work 7 mux2bit 0 22 3REZG=:i81Rog<Z3nQ3D[3
+l15
+L14
+VY71^W[1]MJMHTVRZNgldF1
+!s100 _NoB`eWC4nMLYfV2ZlkfY2
+R6
+31
+R51
+!i10b 1
+R57
+R58
+R59
+!i113 1
+R11
+R12
+Emux3
+R43
+R2
+R3
+R0
+Z60 8C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/MUX3.vhd
+Z61 FC:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/MUX3.vhd
+l0
+L4
+V=C@A_P]<YJQUd=9BEo5c^1
+!s100 12TL^PFJ5=LK4DobbG]AL2
+R6
+31
+Z62 !s110 1715167574
+!i10b 1
+Z63 !s108 1715167574.000000
+Z64 !s90 -reportprogress|300|-93|-work|work|C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/MUX3.vhd|
+Z65 !s107 C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/MUX3.vhd|
+!i113 1
+R11
+R12
+Alogicfunction
+R2
+R3
+DEx4 work 4 mux3 0 22 =C@A_P]<YJQUd=9BEo5c^1
+l15
+L14
+Vzlh66eanA?i39TmXJ;DZz2
+!s100 P>_Pg4]27d9?cQDe;2DeO0
+R6
+31
+R62
+!i10b 1
+R63
+R64
+R65
+!i113 1
+R11
+R12
+Emuxcont
+Z66 w1678180936
+R2
+R3
+R0
+Z67 8C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/MuxCont.vhd
+Z68 FC:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/MuxCont.vhd
+l0
+L4
+VifD964PFV><5PM2b[zk5h1
+!s100 <nQUmZmH^PC@WahiE]CK[2
+R6
+31
+R7
+!i10b 1
+R8
+Z69 !s90 -reportprogress|300|-93|-work|work|C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/MuxCont.vhd|
+Z70 !s107 C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/MuxCont.vhd|
+!i113 1
+R11
+R12
+Alogicfunction
+R2
+R3
+DEx4 work 7 muxcont 0 22 ifD964PFV><5PM2b[zk5h1
+l15
+L14
+V74TYK4?1G=U8:GSh];`_h0
+!s100 G=ZQ3n>n@^[1A5]Fj4U^Q2
+R6
+31
+R7
+!i10b 1
+R8
+R69
+R70
+!i113 1
+R11
+R12
+Ereg3
+Z71 w1715166805
+R2
+R3
+R0
+Z72 8C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/Reg3.vhd
+Z73 FC:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/Reg3.vhd
+l0
+L4
+Vc8V@0IE5FQU98HL3?]LR22
+!s100 VeG0MS`kg9jP^N:fBiiGn1
+R6
+31
+R62
+!i10b 1
+R63
+Z74 !s90 -reportprogress|300|-93|-work|work|C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/Reg3.vhd|
+Z75 !s107 C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/Reg3.vhd|
+!i113 1
+R11
+R12
+Astructure
+R2
+R3
+DEx4 work 4 reg3 0 22 c8V@0IE5FQU98HL3?]LR22
+l28
+L15
+VNCzU0zZ74bOa9mkO4HMCB0
+!s100 hEgg_GK`hPDbFFR?]l]^^1
+R6
+31
+R62
+!i10b 1
+R63
+R74
+R75
+!i113 1
+R11
+R12
+Eregisto
+R66
+R2
+R3
+R0
+Z76 8C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/Registo.vhd
+Z77 FC:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/Registo.vhd
+l0
+L4
+Vz;FM_:6`LKK5<UbJfSEEY2
+!s100 AAKUHGLTlbND7f:>`a[M]1
+R6
+31
+R7
+!i10b 1
+R8
+Z78 !s90 -reportprogress|300|-93|-work|work|C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/Registo.vhd|
+Z79 !s107 C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/Registo.vhd|
+!i113 1
+R11
+R12
+Astructure
+R2
+R3
+DEx4 work 7 registo 0 22 z;FM_:6`LKK5<UbJfSEEY2
+l28
+L15
+Vzff]81lVbdmGRUXY6ZCZc3
+!s100 mboG4FjG;[Fjm>z^6no:n2
+R6
+31
+R7
+!i10b 1
+R8
+R78
+R79
+!i113 1
+R11
+R12
+Eupdowncounter
+Z80 w1715166037
+R2
+R3
+R0
+Z81 8C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/UpDownCounter.vhd
+Z82 FC:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/UpDownCounter.vhd
+l0
+L4
+VC20]0c4S:Fg7VcIl8S8G31
+!s100 nln1:9z4K]fT33co_j9>G1
+R6
+31
+R7
+!i10b 1
+R8
+Z83 !s90 -reportprogress|300|-93|-work|work|C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/UpDownCounter.vhd|
+Z84 !s107 C:/Users/ssrlo/ISEL/2324/2semestre/LIC/MemoryAddressControl/UpDownCounter.vhd|
+!i113 1
+R11
+R12
+Astructure
+R2
+R3
+DEx4 work 13 updowncounter 0 22 C20]0c4S:Fg7VcIl8S8G31
+l55
+L15
+V?HC00EB?<<Ci;9`9R[PcT3
+!s100 0Q63<cEC2;eg7KFCTMPWb3
+R6
+31
+R7
+!i10b 1
+R8
+R83
+R84
+!i113 1
+R11
+R12
