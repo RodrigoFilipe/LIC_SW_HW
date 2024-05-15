@@ -1,0 +1,317 @@
+# Reading C:/intelFPGA_lite/19.1/modelsim_ase/tcl/vsim/pref.tcl
+# do RingBuffer_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/19.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/UpDownCounter.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:28:26 on May 15,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/UpDownCounter.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity UpDownCounter
+# -- Compiling architecture structure of UpDownCounter
+# End time: 11:28:26 on May 15,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/RingBufferControl.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:28:26 on May 15,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/RingBufferControl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity RingBufferControl
+# -- Compiling architecture behavioral of RingBufferControl
+# End time: 11:28:26 on May 15,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/Registo.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:28:26 on May 15,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/Registo.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Registo
+# -- Compiling architecture structure of Registo
+# End time: 11:28:26 on May 15,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/Reg3.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:28:26 on May 15,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/Reg3.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Reg3
+# -- Compiling architecture structure of Reg3
+# End time: 11:28:26 on May 15,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/MuxCont.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:28:26 on May 15,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/MuxCont.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity MuxCont
+# -- Compiling architecture logicFunction of MuxCont
+# End time: 11:28:26 on May 15,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/MUX3.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:28:26 on May 15,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/MUX3.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity MUX3
+# -- Compiling architecture logicFunction of MUX3
+# End time: 11:28:26 on May 15,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/Mux2bit.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:28:26 on May 15,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/Mux2bit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Mux2bit
+# -- Compiling architecture logicFunction of Mux2bit
+# End time: 11:28:26 on May 15,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/MAC.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:28:26 on May 15,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/MAC.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity MAC
+# -- Compiling architecture structure of MAC
+# End time: 11:28:26 on May 15,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/HA.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:28:26 on May 15,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/HA.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity HA
+# -- Compiling architecture structural of HA
+# End time: 11:28:26 on May 15,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/FFD.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:28:26 on May 15,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/FFD.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity FFD
+# -- Compiling architecture logicFunction of FFD
+# End time: 11:28:26 on May 15,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/FA.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:28:26 on May 15,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/FA.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity FA
+# -- Compiling architecture structural of FA
+# End time: 11:28:26 on May 15,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/Counter3.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:28:26 on May 15,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/Counter3.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Counter3
+# -- Compiling architecture structure of Counter3
+# End time: 11:28:26 on May 15,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/ContadorCrescente.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:28:26 on May 15,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/ContadorCrescente.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ContadorCrescente
+# -- Compiling architecture structure of ContadorCrescente
+# End time: 11:28:26 on May 15,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/adderSubtractor.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:28:26 on May 15,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/adderSubtractor.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity adderSubtractor
+# -- Compiling architecture structure of adderSubtractor
+# End time: 11:28:26 on May 15,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/adder4.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:28:26 on May 15,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/adder4.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity adder4
+# -- Compiling architecture structural of adder4
+# End time: 11:28:26 on May 15,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/Adder3.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:28:26 on May 15,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/Adder3.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Adder3
+# -- Compiling architecture structural of Adder3
+# End time: 11:28:26 on May 15,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/RAM.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:28:26 on May 15,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/RAM.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity RAM
+# -- Compiling architecture behavioral of RAM
+# End time: 11:28:26 on May 15,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/RingBuffer.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:28:26 on May 15,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/RingBuffer/RingBuffer.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity RingBuffer
+# -- Compiling architecture structure of RingBuffer
+# End time: 11:28:27 on May 15,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# 
+vsim work.ringbuffer
+# vsim work.ringbuffer 
+# Start time: 11:28:35 on May 15,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.ringbuffer(structure)
+# Loading work.ringbuffercontrol(behavioral)
+# Loading work.mac(structure)
+# Loading work.counter3(structure)
+# Loading work.contadorcrescente(structure)
+# Loading work.reg3(structure)
+# Loading work.ffd(logicfunction)
+# Loading work.adder3(structural)
+# Loading work.fa(structural)
+# Loading work.ha(structural)
+# Loading work.mux3(logicfunction)
+# Loading work.mux2bit(logicfunction)
+# Loading work.updowncounter(structure)
+# Loading work.muxcont(logicfunction)
+# Loading work.registo(structure)
+# Loading work.addersubtractor(structure)
+# Loading work.adder4(structural)
+# Loading ieee.std_logic_arith(body)
+# Loading work.ram(behavioral)
+add wave -position insertpoint  \
+sim:/ringbuffer/clk \
+sim:/ringbuffer/rst \
+sim:/ringbuffer/DAV \
+sim:/ringbuffer/CTS \
+sim:/ringbuffer/D \
+sim:/ringbuffer/Q \
+sim:/ringbuffer/Wreg \
+sim:/ringbuffer/DAC \
+sim:/ringbuffer/s_wr \
+sim:/ringbuffer/s_selPG \
+sim:/ringbuffer/s_incPut \
+sim:/ringbuffer/s_incGet \
+sim:/ringbuffer/s_address \
+sim:/ringbuffer/s_full \
+sim:/ringbuffer/s_empty
+force -freeze sim:/ringbuffer/clk 1 0, 0 {50 ps} -r 100
+force -freeze sim:/ringbuffer/rst 1 0
+force -freeze sim:/ringbuffer/DAV 0 0
+force -freeze sim:/ringbuffer/CTS 0 0
+force -freeze sim:/ringbuffer/D 1010 0
+run
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /ringbuffer/R
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /ringbuffer/R
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /ringbuffer/R
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 1  Instance: /ringbuffer/R
+run
+run
+run
+force -freeze sim:/ringbuffer/rst 0 0
+run
+run
+force -freeze sim:/ringbuffer/DAV 1 0
+run
+run
+run
+run
+run
+run
+run
+run
+force -freeze sim:/ringbuffer/DAV 0 0
+run
+run
+run
+run
+run
+force -freeze sim:/ringbuffer/DAV 1 0
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+force -freeze sim:/ringbuffer/DAV 0 0
+run
+run
+run
+run
+run
+force -freeze sim:/ringbuffer/CTS 1 0
+run
+run
+run
+run
+run
+run
+run
+run
+# End time: 11:33:58 on May 15,2024, Elapsed time: 0:05:23
+# Errors: 0, Warnings: 4

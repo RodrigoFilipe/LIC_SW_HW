@@ -7,7 +7,7 @@ object KBD { // Ler teclas. Métodos retornam ‘0’..’9’,’#’,’*’ o
     private const val keyboardMask = 0x0F
     private const val kvalMask = 0x10
     private const val kackMask = 0x80
-    private var count = 0
+
 
     // Inicia a classe
     fun init() {

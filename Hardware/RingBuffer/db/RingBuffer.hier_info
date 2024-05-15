@@ -1,0 +1,705 @@
+|RingBuffer
+clk => RingBufferControl:RingBufferCtrl.clk
+clk => MAC:MemoryAddressCtrl.clk
+rst => RingBufferControl:RingBufferCtrl.rst
+rst => MAC:MemoryAddressCtrl.rst
+DAV => RingBufferControl:RingBufferCtrl.DAV
+CTS => RingBufferControl:RingBufferCtrl.CTS
+D[0] => RAM:R.din[0]
+D[1] => RAM:R.din[1]
+D[2] => RAM:R.din[2]
+D[3] => RAM:R.din[3]
+Q[0] << RAM:R.dout[0]
+Q[1] << RAM:R.dout[1]
+Q[2] << RAM:R.dout[2]
+Q[3] << RAM:R.dout[3]
+Wreg << RingBufferControl:RingBufferCtrl.Wreg
+DAC << RingBufferControl:RingBufferCtrl.DAC
+
+
+|RingBuffer|RingBufferControl:RingBufferCtrl
+clk => CurrentState~1.DATAIN
+rst => CurrentState~3.DATAIN
+DAV => GenerateNextState.IN0
+DAV => GenerateNextState.IN0
+DAV => Selector4.IN4
+DAV => GenerateNextState.IN0
+DAV => GenerateNextState.IN0
+DAV => Selector1.IN1
+CTS => GenerateNextState.IN1
+CTS => GenerateNextState.IN1
+CTS => GenerateNextState.IN1
+full => GenerateNextState.IN1
+full => GenerateNextState.IN1
+empty => GenerateNextState.IN1
+empty => GenerateNextState.IN1
+empty => GenerateNextState.IN1
+empty => GenerateNextState.IN1
+wr <= wr.DB_MAX_OUTPUT_PORT_TYPE
+selPG <= selPG.DB_MAX_OUTPUT_PORT_TYPE
+incPut <= incPut.DB_MAX_OUTPUT_PORT_TYPE
+incGet <= incGet.DB_MAX_OUTPUT_PORT_TYPE
+Wreg <= Wreg.DB_MAX_OUTPUT_PORT_TYPE
+DAC <= DAC.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl
+clk => counter3:putCount.CLK
+clk => counter3:getCount.CLK
+clk => UpDownCounter:UpDownCount.CLK
+rst => counter3:putCount.RST
+rst => counter3:getCount.RST
+rst => UpDownCounter:UpDownCount.RST
+putGet => Mux2bit:mux.S
+incPut => s_enable.IN0
+incPut => counter3:putCount.CE
+incPut => UpDownCounter:UpDownCount.IncDec
+incGet => s_enable.IN1
+incGet => counter3:getCount.CE
+full <= UpDownCounter:UpDownCount.R[3]
+empty <= empty.DB_MAX_OUTPUT_PORT_TYPE
+Address[0] <= Mux2bit:mux.R[0]
+Address[1] <= Mux2bit:mux.R[1]
+Address[2] <= Mux2bit:mux.R[2]
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:putCount
+CLK => ContadorCrescente:C_CC.CLK
+RST => ContadorCrescente:C_CC.Reset
+CE => ContadorCrescente:C_CC.CE
+Q[0] <= ContadorCrescente:C_CC.S[0]
+Q[1] <= ContadorCrescente:C_CC.S[1]
+Q[2] <= ContadorCrescente:C_CC.S[2]
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente:C_CC
+DataIn[0] => MUX3:CC_MUX.X[0]
+DataIn[1] => MUX3:CC_MUX.X[1]
+DataIn[2] => MUX3:CC_MUX.X[2]
+PL => MUX3:CC_MUX.S
+CE => Adder3:CC_Adder.A[0]
+CLK => Reg3:CC_Reg.CLK
+Reset => Reg3:CC_Reg.RESET
+TC <= TC.DB_MAX_OUTPUT_PORT_TYPE
+S[0] <= Reg3:CC_Reg.S[0]
+S[1] <= Reg3:CC_Reg.S[1]
+S[2] <= Reg3:CC_Reg.S[2]
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente:C_CC|Reg3:CC_Reg
+CLK => FFD:R_FFD0.CLK
+CLK => FFD:R_FFD1.CLK
+CLK => FFD:R_FFD2.CLK
+RESET => FFD:R_FFD0.RESET
+RESET => FFD:R_FFD1.RESET
+RESET => FFD:R_FFD2.RESET
+A[0] => FFD:R_FFD0.D
+A[1] => FFD:R_FFD1.D
+A[2] => FFD:R_FFD2.D
+E => FFD:R_FFD0.EN
+E => FFD:R_FFD1.EN
+E => FFD:R_FFD2.EN
+S[0] <= FFD:R_FFD0.Q
+S[1] <= FFD:R_FFD1.Q
+S[2] <= FFD:R_FFD2.Q
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente:C_CC|Reg3:CC_Reg|FFD:R_FFD0
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente:C_CC|Reg3:CC_Reg|FFD:R_FFD1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente:C_CC|Reg3:CC_Reg|FFD:R_FFD2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente:C_CC|Adder3:CC_Adder
+A[0] => FA:A_FA0.A
+A[1] => FA:A_FA1.A
+A[2] => FA:A_FA2.A
+B[0] => FA:A_FA0.B
+B[1] => FA:A_FA1.B
+B[2] => FA:A_FA2.B
+C0 => FA:A_FA0.Ci
+R[0] <= FA:A_FA0.S
+R[1] <= FA:A_FA1.S
+R[2] <= FA:A_FA2.S
+C3 <= FA:A_FA2.Co
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente:C_CC|Adder3:CC_Adder|FA:A_FA0
+A => HA:FA_HA0.A
+B => HA:FA_HA0.B
+Ci => HA:FA_HA1.B
+S <= HA:FA_HA1.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente:C_CC|Adder3:CC_Adder|FA:A_FA0|HA:FA_HA0
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente:C_CC|Adder3:CC_Adder|FA:A_FA0|HA:FA_HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente:C_CC|Adder3:CC_Adder|FA:A_FA1
+A => HA:FA_HA0.A
+B => HA:FA_HA0.B
+Ci => HA:FA_HA1.B
+S <= HA:FA_HA1.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente:C_CC|Adder3:CC_Adder|FA:A_FA1|HA:FA_HA0
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente:C_CC|Adder3:CC_Adder|FA:A_FA1|HA:FA_HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente:C_CC|Adder3:CC_Adder|FA:A_FA2
+A => HA:FA_HA0.A
+B => HA:FA_HA0.B
+Ci => HA:FA_HA1.B
+S <= HA:FA_HA1.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente:C_CC|Adder3:CC_Adder|FA:A_FA2|HA:FA_HA0
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente:C_CC|Adder3:CC_Adder|FA:A_FA2|HA:FA_HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente:C_CC|MUX3:CC_MUX
+X[0] => R.IN0
+X[1] => R.IN0
+X[2] => R.IN0
+Y[0] => R.IN0
+Y[1] => R.IN0
+Y[2] => R.IN0
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+R[0] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[1] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[2] <= R.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:getCount
+CLK => ContadorCrescente:C_CC.CLK
+RST => ContadorCrescente:C_CC.Reset
+CE => ContadorCrescente:C_CC.CE
+Q[0] <= ContadorCrescente:C_CC.S[0]
+Q[1] <= ContadorCrescente:C_CC.S[1]
+Q[2] <= ContadorCrescente:C_CC.S[2]
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente:C_CC
+DataIn[0] => MUX3:CC_MUX.X[0]
+DataIn[1] => MUX3:CC_MUX.X[1]
+DataIn[2] => MUX3:CC_MUX.X[2]
+PL => MUX3:CC_MUX.S
+CE => Adder3:CC_Adder.A[0]
+CLK => Reg3:CC_Reg.CLK
+Reset => Reg3:CC_Reg.RESET
+TC <= TC.DB_MAX_OUTPUT_PORT_TYPE
+S[0] <= Reg3:CC_Reg.S[0]
+S[1] <= Reg3:CC_Reg.S[1]
+S[2] <= Reg3:CC_Reg.S[2]
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente:C_CC|Reg3:CC_Reg
+CLK => FFD:R_FFD0.CLK
+CLK => FFD:R_FFD1.CLK
+CLK => FFD:R_FFD2.CLK
+RESET => FFD:R_FFD0.RESET
+RESET => FFD:R_FFD1.RESET
+RESET => FFD:R_FFD2.RESET
+A[0] => FFD:R_FFD0.D
+A[1] => FFD:R_FFD1.D
+A[2] => FFD:R_FFD2.D
+E => FFD:R_FFD0.EN
+E => FFD:R_FFD1.EN
+E => FFD:R_FFD2.EN
+S[0] <= FFD:R_FFD0.Q
+S[1] <= FFD:R_FFD1.Q
+S[2] <= FFD:R_FFD2.Q
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente:C_CC|Reg3:CC_Reg|FFD:R_FFD0
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente:C_CC|Reg3:CC_Reg|FFD:R_FFD1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente:C_CC|Reg3:CC_Reg|FFD:R_FFD2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente:C_CC|Adder3:CC_Adder
+A[0] => FA:A_FA0.A
+A[1] => FA:A_FA1.A
+A[2] => FA:A_FA2.A
+B[0] => FA:A_FA0.B
+B[1] => FA:A_FA1.B
+B[2] => FA:A_FA2.B
+C0 => FA:A_FA0.Ci
+R[0] <= FA:A_FA0.S
+R[1] <= FA:A_FA1.S
+R[2] <= FA:A_FA2.S
+C3 <= FA:A_FA2.Co
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente:C_CC|Adder3:CC_Adder|FA:A_FA0
+A => HA:FA_HA0.A
+B => HA:FA_HA0.B
+Ci => HA:FA_HA1.B
+S <= HA:FA_HA1.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente:C_CC|Adder3:CC_Adder|FA:A_FA0|HA:FA_HA0
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente:C_CC|Adder3:CC_Adder|FA:A_FA0|HA:FA_HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente:C_CC|Adder3:CC_Adder|FA:A_FA1
+A => HA:FA_HA0.A
+B => HA:FA_HA0.B
+Ci => HA:FA_HA1.B
+S <= HA:FA_HA1.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente:C_CC|Adder3:CC_Adder|FA:A_FA1|HA:FA_HA0
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente:C_CC|Adder3:CC_Adder|FA:A_FA1|HA:FA_HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente:C_CC|Adder3:CC_Adder|FA:A_FA2
+A => HA:FA_HA0.A
+B => HA:FA_HA0.B
+Ci => HA:FA_HA1.B
+S <= HA:FA_HA1.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente:C_CC|Adder3:CC_Adder|FA:A_FA2|HA:FA_HA0
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente:C_CC|Adder3:CC_Adder|FA:A_FA2|HA:FA_HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente:C_CC|MUX3:CC_MUX
+X[0] => R.IN0
+X[1] => R.IN0
+X[2] => R.IN0
+Y[0] => R.IN0
+Y[1] => R.IN0
+Y[2] => R.IN0
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+R[0] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[1] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[2] <= R.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|Mux2bit:mux
+X[0] => R.IN0
+X[1] => R.IN0
+X[2] => R.IN0
+Y[0] => R.IN0
+Y[1] => R.IN0
+Y[2] => R.IN0
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+R[0] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[1] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[2] <= R.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount
+CLK => Registo:EC_Reg.CLK
+RST => Registo:EC_Reg.Reset
+Enable => Registo:EC_Reg.E
+Enable => adderSubtractor:EC_AS.B[0]
+IncDec => adderSubtractor:EC_AS.OPau
+R[0] <= Registo:EC_Reg.S[0]
+R[1] <= Registo:EC_Reg.S[1]
+R[2] <= Registo:EC_Reg.S[2]
+R[3] <= Registo:EC_Reg.S[3]
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|MuxCont:EC_MUX
+X[0] => R.IN0
+X[1] => R.IN0
+X[2] => R.IN0
+X[3] => R.IN0
+Y[0] => R.IN0
+Y[1] => R.IN0
+Y[2] => R.IN0
+Y[3] => R.IN0
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+R[0] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[1] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[2] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[3] <= R.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|Registo:EC_Reg
+A[0] => FFD:FFD1.D
+A[1] => FFD:FFD2.D
+A[2] => FFD:FFD3.D
+A[3] => FFD:FFD4.D
+Clk => FFD:FFD1.CLK
+Clk => FFD:FFD2.CLK
+Clk => FFD:FFD3.CLK
+Clk => FFD:FFD4.CLK
+Reset => FFD:FFD1.RESET
+Reset => FFD:FFD2.RESET
+Reset => FFD:FFD3.RESET
+Reset => FFD:FFD4.RESET
+E => FFD:FFD1.EN
+E => FFD:FFD2.EN
+E => FFD:FFD3.EN
+E => FFD:FFD4.EN
+S[0] <= FFD:FFD1.Q
+S[1] <= FFD:FFD2.Q
+S[2] <= FFD:FFD3.Q
+S[3] <= FFD:FFD4.Q
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|Registo:EC_Reg|FFD:FFD1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|Registo:EC_Reg|FFD:FFD2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|Registo:EC_Reg|FFD:FFD3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|Registo:EC_Reg|FFD:FFD4
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS
+A[0] => adder4:AS_Adder.A[0]
+A[1] => adder4:AS_Adder.A[1]
+A[2] => adder4:AS_Adder.A[2]
+A[3] => adder4:AS_Adder.A[3]
+B[0] => BxorOP[0].IN0
+B[1] => BxorOP[1].IN0
+B[2] => BxorOP[2].IN0
+B[3] => BxorOP[3].IN0
+CIn => CIxorOP.IN0
+OPau => BxorOP[0].IN1
+OPau => BxorOP[1].IN1
+OPau => BxorOP[2].IN1
+OPau => BxorOP[3].IN1
+OPau => CIxorOP.IN1
+OPau => C4Out.IN1
+S[0] <= adder4:AS_Adder.S[0]
+S[1] <= adder4:AS_Adder.S[1]
+S[2] <= adder4:AS_Adder.S[2]
+S[3] <= adder4:AS_Adder.S[3]
+C4Out <= C4Out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder
+A[0] => FA:FA1.A
+A[1] => FA:FA2.A
+A[2] => FA:FA3.A
+A[3] => FA:FA4.A
+B[0] => FA:FA1.B
+B[1] => FA:FA2.B
+B[2] => FA:FA3.B
+B[3] => FA:FA4.B
+C0 => FA:FA1.Ci
+S[0] <= FA:FA1.S
+S[1] <= FA:FA2.S
+S[2] <= FA:FA3.S
+S[3] <= FA:FA4.S
+C4 <= FA:FA4.Co
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA1
+A => HA:FA_HA0.A
+B => HA:FA_HA0.B
+Ci => HA:FA_HA1.B
+S <= HA:FA_HA1.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA1|HA:FA_HA0
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA1|HA:FA_HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA2
+A => HA:FA_HA0.A
+B => HA:FA_HA0.B
+Ci => HA:FA_HA1.B
+S <= HA:FA_HA1.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA2|HA:FA_HA0
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA2|HA:FA_HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA3
+A => HA:FA_HA0.A
+B => HA:FA_HA0.B
+Ci => HA:FA_HA1.B
+S <= HA:FA_HA1.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA3|HA:FA_HA0
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA3|HA:FA_HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA4
+A => HA:FA_HA0.A
+B => HA:FA_HA0.B
+Ci => HA:FA_HA1.B
+S <= HA:FA_HA1.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA4|HA:FA_HA0
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA4|HA:FA_HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RingBuffer|RAM:R
+address[0] => ram.RADDR
+address[0] => ram.WADDR
+address[1] => ram.RADDR1
+address[1] => ram.WADDR1
+address[2] => ram.RADDR2
+address[2] => ram.WADDR2
+wr => ram.WE
+din[0] => ram.DATAIN
+din[1] => ram.DATAIN1
+din[2] => ram.DATAIN2
+din[3] => ram.DATAIN3
+dout[0] <= ram.DATAOUT
+dout[1] <= ram.DATAOUT1
+dout[2] <= ram.DATAOUT2
+dout[3] <= ram.DATAOUT3
+
+

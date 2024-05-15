@@ -1,0 +1,89 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'clk'
+Slack : -3.144
+TNS   : -22.613
+
+Type  : Slow 1200mV 85C Model Setup 'CTS'
+Slack : -2.036
+TNS   : -9.072
+
+Type  : Slow 1200mV 85C Model Hold 'CTS'
+Slack : -0.354
+TNS   : -0.354
+
+Type  : Slow 1200mV 85C Model Hold 'clk'
+Slack : 0.324
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -23.774
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CTS'
+Slack : -3.000
+TNS   : -3.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente:C_CC|Reg3:CC_Reg|FFD:R_FFD0|Q'
+Slack : 0.235
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'clk'
+Slack : -2.802
+TNS   : -19.400
+
+Type  : Slow 1200mV 0C Model Setup 'CTS'
+Slack : -1.849
+TNS   : -8.021
+
+Type  : Slow 1200mV 0C Model Hold 'CTS'
+Slack : -0.277
+TNS   : -0.277
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : 0.294
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -23.774
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CTS'
+Slack : -3.000
+TNS   : -3.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente:C_CC|Reg3:CC_Reg|FFD:R_FFD0|Q'
+Slack : 0.307
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'clk'
+Slack : -1.651
+TNS   : -7.924
+
+Type  : Fast 1200mV 0C Model Setup 'CTS'
+Slack : -0.525
+TNS   : -2.128
+
+Type  : Fast 1200mV 0C Model Hold 'CTS'
+Slack : -0.282
+TNS   : -0.282
+
+Type  : Fast 1200mV 0C Model Hold 'clk'
+Slack : 0.147
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -20.282
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CTS'
+Slack : -3.000
+TNS   : -3.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente:C_CC|Reg3:CC_Reg|FFD:R_FFD0|Q'
+Slack : 0.289
+TNS   : 0.000
+
+------------------------------------------------------------
