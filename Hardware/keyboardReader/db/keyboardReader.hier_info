@@ -1,0 +1,1175 @@
+|keyboardReader
+rst => keyDecode:kdecode.rst
+rst => RingBuffer:RingBuff.rst
+rst => OutputBuffer:OutputBuff.rst
+clk => keyDecode:kdecode.clk
+clk => RingBuffer:RingBuff.clk
+clk => OutputBuffer:OutputBuff.clk
+kack => OutputBuffer:OutputBuff.ack
+I[0] => keyDecode:kdecode.I[0]
+I[1] => keyDecode:kdecode.I[1]
+I[2] => keyDecode:kdecode.I[2]
+I[3] => keyDecode:kdecode.I[3]
+O[0] << keyDecode:kdecode.O[0]
+O[1] << keyDecode:kdecode.O[1]
+O[2] << keyDecode:kdecode.O[2]
+O[3] << keyDecode:kdecode.O[3]
+dval << OutputBuffer:OutputBuff.Dval
+D[0] << OutputBuffer:OutputBuff.Q[0]
+D[1] << OutputBuffer:OutputBuff.Q[1]
+D[2] << OutputBuffer:OutputBuff.Q[2]
+D[3] << OutputBuffer:OutputBuff.Q[3]
+
+
+|keyboardReader|keyDecode:kdecode
+rst => keyScan:kscan.Rst
+rst => keyControl:kctrl.rst
+clk => keyScan:kscan.clk
+clk => keyControl:kctrl.clk
+kack => keyControl:kctrl.kack
+I[0] => keyScan:kscan.I[0]
+I[1] => keyScan:kscan.I[1]
+I[2] => keyScan:kscan.I[2]
+I[3] => keyScan:kscan.I[3]
+O[0] <= keyScan:kscan.O[0]
+O[1] <= keyScan:kscan.O[1]
+O[2] <= keyScan:kscan.O[2]
+O[3] <= keyScan:kscan.O[3]
+kval <= keyControl:kctrl.kval
+K[0] <= keyScan:kscan.K[0]
+K[1] <= keyScan:kscan.K[1]
+K[2] <= keyScan:kscan.K[2]
+K[3] <= keyScan:kscan.K[3]
+
+
+|keyboardReader|keyDecode:kdecode|keyScan:kscan
+Kscan => Cont:contador.CE
+I[0] => Multiplexer:mux.I[0]
+I[1] => Multiplexer:mux.I[1]
+I[2] => Multiplexer:mux.I[2]
+I[3] => Multiplexer:mux.I[3]
+clk => clkDIV:clkD.clk_in
+Rst => Cont:contador.R
+K[0] <= Cont:contador.Q[0]
+K[1] <= Cont:contador.Q[1]
+K[2] <= Cont:contador.Q[2]
+K[3] <= Cont:contador.Q[3]
+Kpress <= Multiplexer:mux.Y
+O[0] <= Decoder:dec.O[0]
+O[1] <= Decoder:dec.O[1]
+O[2] <= Decoder:dec.O[2]
+O[3] <= Decoder:dec.O[3]
+
+
+|keyboardReader|keyDecode:kdecode|keyScan:kscan|Cont:contador
+R => ContadorCrescente:U1.Reset
+CE => ContadorCrescente:U1.CE
+Clk => ContadorCrescente:U1.CLK
+Q[0] <= ContadorCrescente:U1.S[0]
+Q[1] <= ContadorCrescente:U1.S[1]
+Q[2] <= ContadorCrescente:U1.S[2]
+Q[3] <= ContadorCrescente:U1.S[3]
+
+
+|keyboardReader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1
+DataIn[0] => MuxCont:CC_MUX.X[0]
+DataIn[1] => MuxCont:CC_MUX.X[1]
+DataIn[2] => MuxCont:CC_MUX.X[2]
+DataIn[3] => MuxCont:CC_MUX.X[3]
+PL => MuxCont:CC_MUX.S
+CE => adder4:CC_Adder.A[0]
+CLK => Registo:CC_Reg.Clk
+Reset => Registo:CC_Reg.Reset
+TC <= TC.DB_MAX_OUTPUT_PORT_TYPE
+S[0] <= Registo:CC_Reg.S[0]
+S[1] <= Registo:CC_Reg.S[1]
+S[2] <= Registo:CC_Reg.S[2]
+S[3] <= Registo:CC_Reg.S[3]
+
+
+|keyboardReader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|Registo:CC_Reg
+A[0] => FFD:FFD1.D
+A[1] => FFD:FFD2.D
+A[2] => FFD:FFD3.D
+A[3] => FFD:FFD4.D
+Clk => FFD:FFD1.CLK
+Clk => FFD:FFD2.CLK
+Clk => FFD:FFD3.CLK
+Clk => FFD:FFD4.CLK
+Reset => FFD:FFD1.RESET
+Reset => FFD:FFD2.RESET
+Reset => FFD:FFD3.RESET
+Reset => FFD:FFD4.RESET
+E => FFD:FFD1.EN
+E => FFD:FFD2.EN
+E => FFD:FFD3.EN
+E => FFD:FFD4.EN
+S[0] <= FFD:FFD1.Q
+S[1] <= FFD:FFD2.Q
+S[2] <= FFD:FFD3.Q
+S[3] <= FFD:FFD4.Q
+
+
+|keyboardReader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|Registo:CC_Reg|FFD:FFD1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|Registo:CC_Reg|FFD:FFD2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|Registo:CC_Reg|FFD:FFD3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|Registo:CC_Reg|FFD:FFD4
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|adder4:CC_Adder
+A[0] => FA:FA1.A
+A[1] => FA:FA2.A
+A[2] => FA:FA3.A
+A[3] => FA:FA4.A
+B[0] => FA:FA1.B
+B[1] => FA:FA2.B
+B[2] => FA:FA3.B
+B[3] => FA:FA4.B
+C0 => FA:FA1.Ci
+S[0] <= FA:FA1.S
+S[1] <= FA:FA2.S
+S[2] <= FA:FA3.S
+S[3] <= FA:FA4.S
+C4 <= FA:FA4.Co
+
+
+|keyboardReader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|adder4:CC_Adder|FA:FA1
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|adder4:CC_Adder|FA:FA1|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|adder4:CC_Adder|FA:FA1|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|adder4:CC_Adder|FA:FA2
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|adder4:CC_Adder|FA:FA2|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|adder4:CC_Adder|FA:FA2|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|adder4:CC_Adder|FA:FA3
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|adder4:CC_Adder|FA:FA3|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|adder4:CC_Adder|FA:FA3|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|adder4:CC_Adder|FA:FA4
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|adder4:CC_Adder|FA:FA4|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|adder4:CC_Adder|FA:FA4|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|MuxCont:CC_MUX
+X[0] => R.IN0
+X[1] => R.IN0
+X[2] => R.IN0
+X[3] => R.IN0
+Y[0] => R.IN0
+Y[1] => R.IN0
+Y[2] => R.IN0
+Y[3] => R.IN0
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+R[0] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[1] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[2] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[3] <= R.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|keyDecode:kdecode|keyScan:kscan|Decoder:dec
+S0 => O.IN0
+S0 => O.IN0
+S0 => O.IN0
+S0 => O.IN0
+S1 => O.IN1
+S1 => O.IN1
+S1 => O.IN1
+S1 => O.IN1
+O[0] <= O.DB_MAX_OUTPUT_PORT_TYPE
+O[1] <= O.DB_MAX_OUTPUT_PORT_TYPE
+O[2] <= O.DB_MAX_OUTPUT_PORT_TYPE
+O[3] <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|keyDecode:kdecode|keyScan:kscan|Multiplexer:mux
+I[0] => Y.IN1
+I[1] => Y.IN1
+I[2] => Y.IN1
+I[3] => Y.IN1
+OP0 => Y.IN0
+OP0 => Y.IN0
+OP0 => Y.IN0
+OP0 => Y.IN0
+OP1 => Y.IN1
+OP1 => Y.IN1
+OP1 => Y.IN1
+OP1 => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|keyDecode:kdecode|keyScan:kscan|CLKDIV:clkD
+clk_in => tmp.CLK
+clk_in => count[0].CLK
+clk_in => count[1].CLK
+clk_in => count[2].CLK
+clk_in => count[3].CLK
+clk_in => count[4].CLK
+clk_in => count[5].CLK
+clk_in => count[6].CLK
+clk_in => count[7].CLK
+clk_in => count[8].CLK
+clk_in => count[9].CLK
+clk_in => count[10].CLK
+clk_in => count[11].CLK
+clk_in => count[12].CLK
+clk_in => count[13].CLK
+clk_in => count[14].CLK
+clk_in => count[15].CLK
+clk_in => count[16].CLK
+clk_in => count[17].CLK
+clk_in => count[18].CLK
+clk_in => count[19].CLK
+clk_in => count[20].CLK
+clk_in => count[21].CLK
+clk_in => count[22].CLK
+clk_in => count[23].CLK
+clk_in => count[24].CLK
+clk_in => count[25].CLK
+clk_in => count[26].CLK
+clk_in => count[27].CLK
+clk_in => count[28].CLK
+clk_in => count[29].CLK
+clk_in => count[30].CLK
+clk_in => count[31].CLK
+clk_out <= tmp.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|keyDecode:kdecode|keyControl:kctrl
+clk => CurrentState~1.DATAIN
+rst => CurrentState~3.DATAIN
+kpress => Selector2.IN1
+kpress => GenerateNextState.IN0
+kpress => Selector0.IN1
+kack => GenerateNextState.IN1
+kack => Selector2.IN2
+kack => Selector1.IN2
+kscan <= kscan.DB_MAX_OUTPUT_PORT_TYPE
+kval <= kval.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff
+clk => RingBufferControl:RingBufferCtrl.clk
+clk => MAC:MemoryAddressCtrl.clk
+rst => RingBufferControl:RingBufferCtrl.rst
+rst => MAC:MemoryAddressCtrl.rst
+DAV => RingBufferControl:RingBufferCtrl.DAV
+CTS => RingBufferControl:RingBufferCtrl.CTS
+D[0] => RAM:R.din[0]
+D[1] => RAM:R.din[1]
+D[2] => RAM:R.din[2]
+D[3] => RAM:R.din[3]
+Q[0] <= RAM:R.dout[0]
+Q[1] <= RAM:R.dout[1]
+Q[2] <= RAM:R.dout[2]
+Q[3] <= RAM:R.dout[3]
+Wreg <= RingBufferControl:RingBufferCtrl.Wreg
+DAC <= RingBufferControl:RingBufferCtrl.DAC
+
+
+|keyboardReader|RingBuffer:RingBuff|RingBufferControl:RingBufferCtrl
+clk => CurrentState~1.DATAIN
+rst => CurrentState~3.DATAIN
+DAV => GenerateNextState.IN0
+DAV => GenerateNextState.IN0
+DAV => Selector4.IN4
+DAV => GenerateNextState.IN0
+DAV => GenerateNextState.IN0
+DAV => Selector1.IN1
+CTS => GenerateNextState.IN1
+CTS => GenerateNextState.IN1
+CTS => GenerateNextState.IN1
+full => GenerateNextState.IN1
+full => GenerateNextState.IN1
+empty => GenerateNextState.IN1
+empty => GenerateNextState.IN1
+empty => GenerateNextState.IN1
+empty => GenerateNextState.IN1
+wr <= wr.DB_MAX_OUTPUT_PORT_TYPE
+selPG <= selPG.DB_MAX_OUTPUT_PORT_TYPE
+incPut <= incPut.DB_MAX_OUTPUT_PORT_TYPE
+incGet <= incGet.DB_MAX_OUTPUT_PORT_TYPE
+Wreg <= Wreg.DB_MAX_OUTPUT_PORT_TYPE
+DAC <= DAC.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl
+clk => counter3:putCount.CLK
+clk => counter3:getCount.CLK
+clk => UpDownCounter:UpDownCount.CLK
+rst => counter3:putCount.RST
+rst => counter3:getCount.RST
+rst => UpDownCounter:UpDownCount.RST
+putGet => Mux2bit:mux.S
+incPut => s_enable.IN0
+incPut => counter3:putCount.CE
+incPut => UpDownCounter:UpDownCount.IncDec
+incGet => s_enable.IN1
+incGet => counter3:getCount.CE
+full <= UpDownCounter:UpDownCount.R[3]
+empty <= empty.DB_MAX_OUTPUT_PORT_TYPE
+Address[0] <= Mux2bit:mux.R[0]
+Address[1] <= Mux2bit:mux.R[1]
+Address[2] <= Mux2bit:mux.R[2]
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount
+CLK => ContadorCrescente3bit:C_CC.CLK
+RST => ContadorCrescente3bit:C_CC.Reset
+CE => ContadorCrescente3bit:C_CC.CE
+Q[0] <= ContadorCrescente3bit:C_CC.S[0]
+Q[1] <= ContadorCrescente3bit:C_CC.S[1]
+Q[2] <= ContadorCrescente3bit:C_CC.S[2]
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC
+DataIn[0] => MUX3:CC_MUX.X[0]
+DataIn[1] => MUX3:CC_MUX.X[1]
+DataIn[2] => MUX3:CC_MUX.X[2]
+PL => MUX3:CC_MUX.S
+CE => Adder3:CC_Adder.A[0]
+CLK => Reg3:CC_Reg.CLK
+Reset => Reg3:CC_Reg.RESET
+TC <= TC.DB_MAX_OUTPUT_PORT_TYPE
+S[0] <= Reg3:CC_Reg.S[0]
+S[1] <= Reg3:CC_Reg.S[1]
+S[2] <= Reg3:CC_Reg.S[2]
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Reg3:CC_Reg
+CLK => FFD:R_FFD0.CLK
+CLK => FFD:R_FFD1.CLK
+CLK => FFD:R_FFD2.CLK
+RESET => FFD:R_FFD0.RESET
+RESET => FFD:R_FFD1.RESET
+RESET => FFD:R_FFD2.RESET
+A[0] => FFD:R_FFD0.D
+A[1] => FFD:R_FFD1.D
+A[2] => FFD:R_FFD2.D
+E => FFD:R_FFD0.EN
+E => FFD:R_FFD1.EN
+E => FFD:R_FFD2.EN
+S[0] <= FFD:R_FFD0.Q
+S[1] <= FFD:R_FFD1.Q
+S[2] <= FFD:R_FFD2.Q
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Reg3:CC_Reg|FFD:R_FFD0
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Reg3:CC_Reg|FFD:R_FFD1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Reg3:CC_Reg|FFD:R_FFD2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder
+A[0] => FA:A_FA0.A
+A[1] => FA:A_FA1.A
+A[2] => FA:A_FA2.A
+B[0] => FA:A_FA0.B
+B[1] => FA:A_FA1.B
+B[2] => FA:A_FA2.B
+C0 => FA:A_FA0.Ci
+R[0] <= FA:A_FA0.S
+R[1] <= FA:A_FA1.S
+R[2] <= FA:A_FA2.S
+C3 <= FA:A_FA2.Co
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA0
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA0|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA0|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA1
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA1|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA1|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA2
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA2|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA2|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|MUX3:CC_MUX
+X[0] => R.IN0
+X[1] => R.IN0
+X[2] => R.IN0
+Y[0] => R.IN0
+Y[1] => R.IN0
+Y[2] => R.IN0
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+R[0] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[1] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[2] <= R.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount
+CLK => ContadorCrescente3bit:C_CC.CLK
+RST => ContadorCrescente3bit:C_CC.Reset
+CE => ContadorCrescente3bit:C_CC.CE
+Q[0] <= ContadorCrescente3bit:C_CC.S[0]
+Q[1] <= ContadorCrescente3bit:C_CC.S[1]
+Q[2] <= ContadorCrescente3bit:C_CC.S[2]
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente3bit:C_CC
+DataIn[0] => MUX3:CC_MUX.X[0]
+DataIn[1] => MUX3:CC_MUX.X[1]
+DataIn[2] => MUX3:CC_MUX.X[2]
+PL => MUX3:CC_MUX.S
+CE => Adder3:CC_Adder.A[0]
+CLK => Reg3:CC_Reg.CLK
+Reset => Reg3:CC_Reg.RESET
+TC <= TC.DB_MAX_OUTPUT_PORT_TYPE
+S[0] <= Reg3:CC_Reg.S[0]
+S[1] <= Reg3:CC_Reg.S[1]
+S[2] <= Reg3:CC_Reg.S[2]
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente3bit:C_CC|Reg3:CC_Reg
+CLK => FFD:R_FFD0.CLK
+CLK => FFD:R_FFD1.CLK
+CLK => FFD:R_FFD2.CLK
+RESET => FFD:R_FFD0.RESET
+RESET => FFD:R_FFD1.RESET
+RESET => FFD:R_FFD2.RESET
+A[0] => FFD:R_FFD0.D
+A[1] => FFD:R_FFD1.D
+A[2] => FFD:R_FFD2.D
+E => FFD:R_FFD0.EN
+E => FFD:R_FFD1.EN
+E => FFD:R_FFD2.EN
+S[0] <= FFD:R_FFD0.Q
+S[1] <= FFD:R_FFD1.Q
+S[2] <= FFD:R_FFD2.Q
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente3bit:C_CC|Reg3:CC_Reg|FFD:R_FFD0
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente3bit:C_CC|Reg3:CC_Reg|FFD:R_FFD1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente3bit:C_CC|Reg3:CC_Reg|FFD:R_FFD2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder
+A[0] => FA:A_FA0.A
+A[1] => FA:A_FA1.A
+A[2] => FA:A_FA2.A
+B[0] => FA:A_FA0.B
+B[1] => FA:A_FA1.B
+B[2] => FA:A_FA2.B
+C0 => FA:A_FA0.Ci
+R[0] <= FA:A_FA0.S
+R[1] <= FA:A_FA1.S
+R[2] <= FA:A_FA2.S
+C3 <= FA:A_FA2.Co
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA0
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA0|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA0|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA1
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA1|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA1|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA2
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA2|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA2|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente3bit:C_CC|MUX3:CC_MUX
+X[0] => R.IN0
+X[1] => R.IN0
+X[2] => R.IN0
+Y[0] => R.IN0
+Y[1] => R.IN0
+Y[2] => R.IN0
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+R[0] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[1] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[2] <= R.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Mux2bit:mux
+X[0] => R.IN0
+X[1] => R.IN0
+X[2] => R.IN0
+Y[0] => R.IN0
+Y[1] => R.IN0
+Y[2] => R.IN0
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+R[0] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[1] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[2] <= R.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount
+CLK => Registo:EC_Reg.CLK
+RST => Registo:EC_Reg.Reset
+Enable => Registo:EC_Reg.E
+Enable => adderSubtractor:EC_AS.B[0]
+IncDec => adderSubtractor:EC_AS.OPau
+R[0] <= Registo:EC_Reg.S[0]
+R[1] <= Registo:EC_Reg.S[1]
+R[2] <= Registo:EC_Reg.S[2]
+R[3] <= Registo:EC_Reg.S[3]
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|MuxCont:EC_MUX
+X[0] => R.IN0
+X[1] => R.IN0
+X[2] => R.IN0
+X[3] => R.IN0
+Y[0] => R.IN0
+Y[1] => R.IN0
+Y[2] => R.IN0
+Y[3] => R.IN0
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+R[0] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[1] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[2] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[3] <= R.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|Registo:EC_Reg
+A[0] => FFD:FFD1.D
+A[1] => FFD:FFD2.D
+A[2] => FFD:FFD3.D
+A[3] => FFD:FFD4.D
+Clk => FFD:FFD1.CLK
+Clk => FFD:FFD2.CLK
+Clk => FFD:FFD3.CLK
+Clk => FFD:FFD4.CLK
+Reset => FFD:FFD1.RESET
+Reset => FFD:FFD2.RESET
+Reset => FFD:FFD3.RESET
+Reset => FFD:FFD4.RESET
+E => FFD:FFD1.EN
+E => FFD:FFD2.EN
+E => FFD:FFD3.EN
+E => FFD:FFD4.EN
+S[0] <= FFD:FFD1.Q
+S[1] <= FFD:FFD2.Q
+S[2] <= FFD:FFD3.Q
+S[3] <= FFD:FFD4.Q
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|Registo:EC_Reg|FFD:FFD1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|Registo:EC_Reg|FFD:FFD2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|Registo:EC_Reg|FFD:FFD3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|Registo:EC_Reg|FFD:FFD4
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS
+A[0] => adder4:AS_Adder.A[0]
+A[1] => adder4:AS_Adder.A[1]
+A[2] => adder4:AS_Adder.A[2]
+A[3] => adder4:AS_Adder.A[3]
+B[0] => BxorOP[0].IN0
+B[1] => BxorOP[1].IN0
+B[2] => BxorOP[2].IN0
+B[3] => BxorOP[3].IN0
+CIn => CIxorOP.IN0
+OPau => BxorOP[0].IN1
+OPau => BxorOP[1].IN1
+OPau => BxorOP[2].IN1
+OPau => BxorOP[3].IN1
+OPau => CIxorOP.IN1
+OPau => C4Out.IN1
+S[0] <= adder4:AS_Adder.S[0]
+S[1] <= adder4:AS_Adder.S[1]
+S[2] <= adder4:AS_Adder.S[2]
+S[3] <= adder4:AS_Adder.S[3]
+C4Out <= C4Out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder
+A[0] => FA:FA1.A
+A[1] => FA:FA2.A
+A[2] => FA:FA3.A
+A[3] => FA:FA4.A
+B[0] => FA:FA1.B
+B[1] => FA:FA2.B
+B[2] => FA:FA3.B
+B[3] => FA:FA4.B
+C0 => FA:FA1.Ci
+S[0] <= FA:FA1.S
+S[1] <= FA:FA2.S
+S[2] <= FA:FA3.S
+S[3] <= FA:FA4.S
+C4 <= FA:FA4.Co
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA1
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA1|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA1|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA2
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA2|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA2|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA3
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA3|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA3|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA4
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA4|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA4|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|RingBuffer:RingBuff|RAM:R
+address[0] => ram.RADDR
+address[0] => ram.WADDR
+address[1] => ram.RADDR1
+address[1] => ram.WADDR1
+address[2] => ram.RADDR2
+address[2] => ram.WADDR2
+wr => ram.WE
+din[0] => ram.DATAIN
+din[1] => ram.DATAIN1
+din[2] => ram.DATAIN2
+din[3] => ram.DATAIN3
+dout[0] <= ram.DATAOUT
+dout[1] <= ram.DATAOUT1
+dout[2] <= ram.DATAOUT2
+dout[3] <= ram.DATAOUT3
+
+
+|keyboardReader|OutputBuffer:OutputBuff
+clk => OutputBufferControl:OutputBufferCtrl.clk
+rst => OutputBufferControl:OutputBufferCtrl.rst
+rst => Registo:Reg.Reset
+D[0] => Registo:Reg.A[0]
+D[1] => Registo:Reg.A[1]
+D[2] => Registo:Reg.A[2]
+D[3] => Registo:Reg.A[3]
+Load => OutputBufferControl:OutputBufferCtrl.Load
+ack => OutputBufferControl:OutputBufferCtrl.ack
+OBfree <= OutputBufferControl:OutputBufferCtrl.OBfree
+Dval <= OutputBufferControl:OutputBufferCtrl.Dval
+Q[0] <= Registo:Reg.S[0]
+Q[1] <= Registo:Reg.S[1]
+Q[2] <= Registo:Reg.S[2]
+Q[3] <= Registo:Reg.S[3]
+
+
+|keyboardReader|OutputBuffer:OutputBuff|OutputBufferControl:OutputBufferCtrl
+clk => CurrentState~1.DATAIN
+rst => CurrentState~3.DATAIN
+Load => NextState.STATE_01.DATAB
+Load => Selector0.IN1
+ack => Selector0.IN2
+ack => Selector1.IN2
+Wreg <= Wreg.DB_MAX_OUTPUT_PORT_TYPE
+OBfree <= OBfree.DB_MAX_OUTPUT_PORT_TYPE
+Dval <= Dval.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|OutputBuffer:OutputBuff|Registo:Reg
+A[0] => FFD:FFD1.D
+A[1] => FFD:FFD2.D
+A[2] => FFD:FFD3.D
+A[3] => FFD:FFD4.D
+Clk => FFD:FFD1.CLK
+Clk => FFD:FFD2.CLK
+Clk => FFD:FFD3.CLK
+Clk => FFD:FFD4.CLK
+Reset => FFD:FFD1.RESET
+Reset => FFD:FFD2.RESET
+Reset => FFD:FFD3.RESET
+Reset => FFD:FFD4.RESET
+E => FFD:FFD1.EN
+E => FFD:FFD2.EN
+E => FFD:FFD3.EN
+E => FFD:FFD4.EN
+S[0] <= FFD:FFD1.Q
+S[1] <= FFD:FFD2.Q
+S[2] <= FFD:FFD3.Q
+S[3] <= FFD:FFD4.Q
+
+
+|keyboardReader|OutputBuffer:OutputBuff|Registo:Reg|FFD:FFD1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|OutputBuffer:OutputBuff|Registo:Reg|FFD:FFD2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|OutputBuffer:OutputBuff|Registo:Reg|FFD:FFD3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|keyboardReader|OutputBuffer:OutputBuff|Registo:Reg|FFD:FFD4
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

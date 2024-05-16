@@ -1,0 +1,224 @@
+# Reading C:/intelFPGA_lite/19.1/modelsim_ase/tcl/vsim/pref.tcl
+# do keyboardReader_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/19.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/Registo.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:35:51 on Apr 10,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/Registo.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Registo
+# -- Compiling architecture structure of Registo
+# End time: 00:35:51 on Apr 10,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/MuxCont.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:35:51 on Apr 10,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/MuxCont.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity MuxCont
+# -- Compiling architecture logicFunction of MuxCont
+# End time: 00:35:51 on Apr 10,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/HA.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:35:51 on Apr 10,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/HA.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity HA
+# -- Compiling architecture structural of HA
+# End time: 00:35:51 on Apr 10,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/FFD.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:35:51 on Apr 10,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/FFD.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity FFD
+# -- Compiling architecture logicFunction of FFD
+# End time: 00:35:51 on Apr 10,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/FA.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:35:51 on Apr 10,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/FA.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity FA
+# -- Compiling architecture structural of FA
+# End time: 00:35:51 on Apr 10,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/ContadorCrescente.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:35:51 on Apr 10,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/ContadorCrescente.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ContadorCrescente
+# -- Compiling architecture structure of ContadorCrescente
+# End time: 00:35:51 on Apr 10,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/Cont.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:35:51 on Apr 10,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/Cont.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Cont
+# -- Compiling architecture structure of Cont
+# End time: 00:35:52 on Apr 10,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/adder4.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:35:52 on Apr 10,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/adder4.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity adder4
+# -- Compiling architecture structural of adder4
+# End time: 00:35:52 on Apr 10,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Multiplexer.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:35:52 on Apr 10,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Multiplexer.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Multiplexer
+# -- Compiling architecture LogicFunction of Multiplexer
+# End time: 00:35:52 on Apr 10,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/keyScan.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:35:52 on Apr 10,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/keyScan.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity keyScan
+# -- Compiling architecture structure of KeyScan
+# End time: 00:35:52 on Apr 10,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/keyDecode.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:35:52 on Apr 10,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/keyDecode.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity keyDecode
+# -- Compiling architecture structure of keyDecode
+# End time: 00:35:52 on Apr 10,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/keyControl.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:35:52 on Apr 10,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/keyControl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity keyControl
+# -- Compiling architecture behavioral of keyControl
+# End time: 00:35:52 on Apr 10,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Decoder.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:35:52 on Apr 10,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Decoder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Decoder
+# -- Compiling architecture LogicFunction of Decoder
+# End time: 00:35:52 on Apr 10,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/clkDIV.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:35:52 on Apr 10,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/clkDIV.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity CLKDIV
+# -- Compiling architecture bhv of CLKDIV
+# End time: 00:35:52 on Apr 10,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/keyboardReader.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:35:52 on Apr 10,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/keyboardReader.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity keyboardReader
+# -- Compiling architecture structure of keyboardReader
+# End time: 00:35:52 on Apr 10,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+vcom -reportprogress 300 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/keyboardReader_tb.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 00:36:28 on Apr 10,2024
+# vcom -reportprogress 300 -work work C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/keyboardReader_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity keyboardReader_tb
+# -- Compiling architecture behavioral of keyboardReader_tb
+# End time: 00:36:28 on Apr 10,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.keyboardreader_tb
+# vsim work.keyboardreader_tb 
+# Start time: 00:36:45 on Apr 10,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.keyboardreader_tb(behavioral)
+# Loading work.keyboardreader(structure)
+# Loading work.keydecode(structure)
+# Loading work.keyscan(structure)
+# Loading work.cont(structure)
+# Loading work.contadorcrescente(structure)
+# Loading work.registo(structure)
+# Loading work.ffd(logicfunction)
+# Loading work.adder4(structural)
+# Loading work.fa(structural)
+# Loading work.ha(structural)
+# Loading work.muxcont(logicfunction)
+# Loading work.decoder(logicfunction)
+# Loading work.multiplexer(logicfunction)
+# Loading ieee.numeric_std(body)
+# Loading work.clkdiv(bhv)
+# Loading work.keycontrol(behavioral)
+add wave -position insertpoint  \
+sim:/keyboardreader_tb/RST_tb \
+sim:/keyboardreader_tb/Mclk_tb \
+sim:/keyboardreader_tb/ACK_tb \
+sim:/keyboardreader_tb/KBIn_tb \
+sim:/keyboardreader_tb/KBOut_tb \
+sim:/keyboardreader_tb/D_tb \
+sim:/keyboardreader_tb/Dval_tb
+run
+# End time: 00:39:09 on Apr 10,2024, Elapsed time: 0:02:24
+# Errors: 0, Warnings: 0

@@ -1,0 +1,85 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+entity LCDParallel is
+port(
+	DataIn: in std_logic_vector(7 downto 0);
+	rst: in std_logic; --retirar -> nao é preciso
+	clk: in std_logic; --retirar -> nao é preciso
+	DataOut: out std_logic_vector(7 downto 0);
+	RS: out std_logic;
+	EOut: out std_logic
+	
+);
+end LCDParallel;
+
+architecture structural of LCDParallel is
+component UsbPort IS 
+	PORT
+	(
+		inputPort:  IN  STD_LOGIC_VECTOR(7 DOWNTO 0);
+		outputPort :  OUT  STD_LOGIC_VECTOR(7 DOWNTO 0)
+	);
+END component;
+
+component Registo is
+port
+	(
+	A: in std_logic_vector(3 downto 0);
+	Clk: in std_logic;
+	Reset: in std_logic;
+	E: in std_logic;
+	S: out std_logic_vector(3 downto 0)
+	);
+end component;
+
+signal enableReg: std_logic;
+signal Sclk: std_logic;
+signal SLowToHigh: std_logic_vector(3 downto 0);
+signal SRegL: std_logic_vector(3 downto 0);
+
+begin
+
+
+
+usb: UsbPort port map (
+	inputPort => DataIn,
+	outputPort(6) => RS,
+	outputPort(5) => EOut,
+	outputPort(4) => Sclk,
+	outputPort(0) => SRegL(0),
+	outputPort(1) => SRegL(1),
+	outputPort(2) => SRegL(2),
+	outputPort(3) => SRegL(3)
+);
+
+RegHigh: Registo port map(
+	A => SLowToHigh,
+	Reset => rst,
+	Clk => Sclk,
+	E => '1',
+	S(0) => DataOut(4),
+	S(1) => DataOut(5),
+	S(2) => DataOut(6),
+	S(3) => DataOut(7)
+);
+
+RegLow: Registo port map(
+	A => SRegL,
+	Reset => rst,
+	Clk => Sclk,
+	E => '1',
+	S(0) => SLowToHigh(0),
+	S(1) => SLowToHigh(1),
+	S(2) => SLowToHigh(2),
+	S(3) => SLowToHigh(3)
+);
+	
+
+	DataOut(0) <= SLowToHigh(0);
+	DataOut(1) <= SLowToHigh(1);
+	DataOut(2) <= SLowToHigh(2);
+	DataOut(3) <= SLowToHigh(3);
+	
+end structural;
+	

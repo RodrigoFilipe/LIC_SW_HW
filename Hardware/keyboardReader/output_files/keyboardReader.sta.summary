@@ -1,0 +1,185 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'clk'
+Slack : -3.391
+TNS   : -75.840
+
+Type  : Slow 1200mV 85C Model Setup 'OutputBuffer:OutputBuff|OutputBufferControl:OutputBufferCtrl|CurrentState.STATE_01'
+Slack : -2.680
+TNS   : -10.525
+
+Type  : Slow 1200mV 85C Model Setup 'OutputBuffer:OutputBuff|OutputBufferControl:OutputBufferCtrl|CurrentState.STATE_00'
+Slack : -2.455
+TNS   : -6.435
+
+Type  : Slow 1200mV 85C Model Setup 'RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Reg3:CC_Reg|FFD:R_FFD0|Q'
+Slack : -1.593
+TNS   : -31.380
+
+Type  : Slow 1200mV 85C Model Setup 'keyDecode:kdecode|keyScan:kscan|CLKDIV:clkD|tmp'
+Slack : -0.551
+TNS   : -2.196
+
+Type  : Slow 1200mV 85C Model Hold 'OutputBuffer:OutputBuff|OutputBufferControl:OutputBufferCtrl|CurrentState.STATE_00'
+Slack : -0.025
+TNS   : -0.025
+
+Type  : Slow 1200mV 85C Model Hold 'RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Reg3:CC_Reg|FFD:R_FFD0|Q'
+Slack : 0.119
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clk'
+Slack : 0.225
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'keyDecode:kdecode|keyScan:kscan|CLKDIV:clkD|tmp'
+Slack : 0.330
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'OutputBuffer:OutputBuff|OutputBufferControl:OutputBufferCtrl|CurrentState.STATE_01'
+Slack : 0.771
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -71.432
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'OutputBuffer:OutputBuff|OutputBufferControl:OutputBufferCtrl|CurrentState.STATE_01'
+Slack : -1.222
+TNS   : -4.888
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'keyDecode:kdecode|keyScan:kscan|CLKDIV:clkD|tmp'
+Slack : -1.222
+TNS   : -4.888
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Reg3:CC_Reg|FFD:R_FFD0|Q'
+Slack : 0.264
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'OutputBuffer:OutputBuff|OutputBufferControl:OutputBufferCtrl|CurrentState.STATE_00'
+Slack : 0.405
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'clk'
+Slack : -3.001
+TNS   : -63.448
+
+Type  : Slow 1200mV 0C Model Setup 'OutputBuffer:OutputBuff|OutputBufferControl:OutputBufferCtrl|CurrentState.STATE_01'
+Slack : -2.298
+TNS   : -9.017
+
+Type  : Slow 1200mV 0C Model Setup 'OutputBuffer:OutputBuff|OutputBufferControl:OutputBufferCtrl|CurrentState.STATE_00'
+Slack : -2.213
+TNS   : -5.678
+
+Type  : Slow 1200mV 0C Model Setup 'RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Reg3:CC_Reg|FFD:R_FFD0|Q'
+Slack : -1.378
+TNS   : -27.319
+
+Type  : Slow 1200mV 0C Model Setup 'keyDecode:kdecode|keyScan:kscan|CLKDIV:clkD|tmp'
+Slack : -0.444
+TNS   : -1.769
+
+Type  : Slow 1200mV 0C Model Hold 'OutputBuffer:OutputBuff|OutputBufferControl:OutputBufferCtrl|CurrentState.STATE_00'
+Slack : 0.034
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Reg3:CC_Reg|FFD:R_FFD0|Q'
+Slack : 0.207
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : 0.228
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'keyDecode:kdecode|keyScan:kscan|CLKDIV:clkD|tmp'
+Slack : 0.300
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'OutputBuffer:OutputBuff|OutputBufferControl:OutputBufferCtrl|CurrentState.STATE_01'
+Slack : 0.718
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -71.432
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'OutputBuffer:OutputBuff|OutputBufferControl:OutputBufferCtrl|CurrentState.STATE_01'
+Slack : -1.222
+TNS   : -4.888
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'keyDecode:kdecode|keyScan:kscan|CLKDIV:clkD|tmp'
+Slack : -1.222
+TNS   : -4.888
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Reg3:CC_Reg|FFD:R_FFD0|Q'
+Slack : 0.350
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'OutputBuffer:OutputBuff|OutputBufferControl:OutputBufferCtrl|CurrentState.STATE_00'
+Slack : 0.415
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'clk'
+Slack : -1.203
+TNS   : -13.592
+
+Type  : Fast 1200mV 0C Model Setup 'OutputBuffer:OutputBuff|OutputBufferControl:OutputBufferCtrl|CurrentState.STATE_01'
+Slack : -0.951
+TNS   : -3.483
+
+Type  : Fast 1200mV 0C Model Setup 'OutputBuffer:OutputBuff|OutputBufferControl:OutputBufferCtrl|CurrentState.STATE_00'
+Slack : -0.815
+TNS   : -1.035
+
+Type  : Fast 1200mV 0C Model Setup 'RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Reg3:CC_Reg|FFD:R_FFD0|Q'
+Slack : -0.305
+TNS   : -3.758
+
+Type  : Fast 1200mV 0C Model Setup 'keyDecode:kdecode|keyScan:kscan|CLKDIV:clkD|tmp'
+Slack : 0.227
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'OutputBuffer:OutputBuff|OutputBufferControl:OutputBufferCtrl|CurrentState.STATE_00'
+Slack : -0.115
+TNS   : -0.115
+
+Type  : Fast 1200mV 0C Model Hold 'clk'
+Slack : 0.098
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'keyDecode:kdecode|keyScan:kscan|CLKDIV:clkD|tmp'
+Slack : 0.151
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Reg3:CC_Reg|FFD:R_FFD0|Q'
+Slack : 0.186
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'OutputBuffer:OutputBuff|OutputBufferControl:OutputBufferCtrl|CurrentState.STATE_01'
+Slack : 0.222
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -60.863
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'OutputBuffer:OutputBuff|OutputBufferControl:OutputBufferCtrl|CurrentState.STATE_01'
+Slack : -1.000
+TNS   : -4.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'keyDecode:kdecode|keyScan:kscan|CLKDIV:clkD|tmp'
+Slack : -1.000
+TNS   : -4.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Reg3:CC_Reg|FFD:R_FFD0|Q'
+Slack : 0.291
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'OutputBuffer:OutputBuff|OutputBufferControl:OutputBufferCtrl|CurrentState.STATE_00'
+Slack : 0.422
+TNS   : 0.000
+
+------------------------------------------------------------

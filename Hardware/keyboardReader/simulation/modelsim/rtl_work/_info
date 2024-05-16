@@ -1,0 +1,636 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/simulation/modelsim
+Eadder4
+Z1 w1678180936
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z4 8C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/adder4.vhd
+Z5 FC:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/adder4.vhd
+l0
+L4
+VYzAS47aI88S=]<W6G78211
+!s100 z;X@HX87mY?X>Nem?2d8Y1
+Z6 OV;C;10.5b;63
+31
+Z7 !s110 1712705752
+!i10b 1
+Z8 !s108 1712705752.000000
+Z9 !s90 -reportprogress|300|-93|-work|work|C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/adder4.vhd|
+Z10 !s107 C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/adder4.vhd|
+!i113 1
+Z11 o-93 -work work
+Z12 tExplicit 1 CvgOpt 0
+Astructural
+R2
+R3
+DEx4 work 6 adder4 0 22 YzAS47aI88S=]<W6G78211
+l29
+L15
+Vb;_O56_KW1U]]JN=<<Wd;3
+!s100 >Vji<JKJYCCaYTVMFbSbn1
+R6
+31
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Eclkdiv
+Z13 w1680545664
+Z14 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+R2
+R3
+R0
+Z15 8C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/clkDIV.vhd
+Z16 FC:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/clkDIV.vhd
+l0
+L5
+VZ=f7g^c?a5zF`2O:4UlYN0
+!s100 `V>M>?BkYR7zEBSMA5V8A0
+R6
+31
+R7
+!i10b 1
+R8
+Z17 !s90 -reportprogress|300|-93|-work|work|C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/clkDIV.vhd|
+Z18 !s107 C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/clkDIV.vhd|
+!i113 1
+R11
+R12
+Abhv
+R14
+R2
+R3
+DEx4 work 6 clkdiv 0 22 Z=f7g^c?a5zF`2O:4UlYN0
+l16
+L11
+VgbaYXVPKT2[U5kSbZMFS63
+!s100 <1TaS59>[IjzZo4K_;_?R1
+R6
+31
+R7
+!i10b 1
+R8
+R17
+R18
+!i113 1
+R11
+R12
+Econt
+R1
+R2
+R3
+R0
+Z19 8C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/Cont.vhd
+Z20 FC:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/Cont.vhd
+l0
+L4
+V99XG>f7ZVNM`daW:T6=Wf0
+!s100 =n`>IhOn=BeQ]d4j]FLbM2
+R6
+31
+R7
+!i10b 1
+Z21 !s108 1712705751.000000
+Z22 !s90 -reportprogress|300|-93|-work|work|C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/Cont.vhd|
+Z23 !s107 C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/Cont.vhd|
+!i113 1
+R11
+R12
+Astructure
+R2
+R3
+DEx4 work 4 cont 0 22 99XG>f7ZVNM`daW:T6=Wf0
+l28
+L14
+V<F0AECRFh<6>]@>83XVHC3
+!s100 2eAhG7K=XFQX8n18;>nVU3
+R6
+31
+R7
+!i10b 1
+R21
+R22
+R23
+!i113 1
+R11
+R12
+Econtadorcrescente
+R1
+R2
+R3
+R0
+Z24 8C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/ContadorCrescente.vhd
+Z25 FC:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/ContadorCrescente.vhd
+l0
+L4
+VG;l;cN^zQ^lKK?_jaNXSk0
+!s100 95PHJi5^Hn_[9TFA:@CSl0
+R6
+31
+Z26 !s110 1712705751
+!i10b 1
+R21
+Z27 !s90 -reportprogress|300|-93|-work|work|C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/ContadorCrescente.vhd|
+Z28 !s107 C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/ContadorCrescente.vhd|
+!i113 1
+R11
+R12
+Astructure
+R2
+R3
+DEx4 work 17 contadorcrescente 0 22 G;l;cN^zQ^lKK?_jaNXSk0
+l55
+L17
+VN[H=HWY4]5RzZDNEji^O?1
+!s100 6NI9Ak@B1fkTafA2ORO<V0
+R6
+31
+R26
+!i10b 1
+R21
+R27
+R28
+!i113 1
+R11
+R12
+Edecoder
+Z29 w1709109650
+R2
+R3
+R0
+Z30 8C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Decoder.vhd
+Z31 FC:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Decoder.vhd
+l0
+L4
+V9IFR==GnFcfi[ke@4E<ME2
+!s100 Ah1o?H3C^SL`TF;8F3PBU3
+R6
+31
+R7
+!i10b 1
+R8
+Z32 !s90 -reportprogress|300|-93|-work|work|C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Decoder.vhd|
+Z33 !s107 C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Decoder.vhd|
+!i113 1
+R11
+R12
+Alogicfunction
+R2
+R3
+DEx4 work 7 decoder 0 22 9IFR==GnFcfi[ke@4E<ME2
+l12
+L11
+V`RZkbd>4BYbYe41UIka@23
+!s100 ;NigE`zQ[hocaLZgBU3G20
+R6
+31
+R7
+!i10b 1
+R8
+R32
+R33
+!i113 1
+R11
+R12
+Efa
+R1
+R2
+R3
+R0
+Z34 8C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/FA.vhd
+Z35 FC:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/FA.vhd
+l0
+L4
+V6hdjCofA_jnf:LlL0YIMk0
+!s100 AjDT6g?dV_0CPJiR@nKPA3
+R6
+31
+R26
+!i10b 1
+R21
+Z36 !s90 -reportprogress|300|-93|-work|work|C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/FA.vhd|
+Z37 !s107 C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/FA.vhd|
+!i113 1
+R11
+R12
+Astructural
+R2
+R3
+DEx4 work 2 fa 0 22 6hdjCofA_jnf:LlL0YIMk0
+l29
+L15
+VT0o[iNJVff9Gf9D?YSG0h0
+!s100 ]W;=cO7_=HX_d4<I3N1_U1
+R6
+31
+R26
+!i10b 1
+R21
+R36
+R37
+!i113 1
+R11
+R12
+Effd
+R1
+R2
+R3
+R0
+Z38 8C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/FFD.vhd
+Z39 FC:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/FFD.vhd
+l0
+L4
+V3Lka6CafX>VEoeC;z@;Wn2
+!s100 o5Zmih;^KiP3bD]iio]CN0
+R6
+31
+R26
+!i10b 1
+R21
+Z40 !s90 -reportprogress|300|-93|-work|work|C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/FFD.vhd|
+Z41 !s107 C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/FFD.vhd|
+!i113 1
+R11
+R12
+Alogicfunction
+R2
+R3
+DEx4 work 3 ffd 0 22 3Lka6CafX>VEoeC;z@;Wn2
+l18
+L16
+V;oOT[2g4a@V?`[NN5k4551
+!s100 4RmR0zLfWP3Y6cQ8Z5lB@1
+R6
+31
+R26
+!i10b 1
+R21
+R40
+R41
+!i113 1
+R11
+R12
+Eha
+R1
+R2
+R3
+R0
+Z42 8C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/HA.vhd
+Z43 FC:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/HA.vhd
+l0
+L4
+Vi0hj6;jINkDT]kA2Id:8a2
+!s100 L1fjF<6lkA0K;3elJf=Mi0
+R6
+31
+R26
+!i10b 1
+R21
+Z44 !s90 -reportprogress|300|-93|-work|work|C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/HA.vhd|
+Z45 !s107 C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/HA.vhd|
+!i113 1
+R11
+R12
+Astructural
+R2
+R3
+DEx4 work 2 ha 0 22 i0hj6;jINkDT]kA2Id:8a2
+l15
+L14
+V=22Uo1AHLkl7@U17z[RzD3
+!s100 NcJHS0g=DU7`4IZKFBLO@0
+R6
+31
+R26
+!i10b 1
+R21
+R44
+R45
+!i113 1
+R11
+R12
+Ekeyboardreader
+Z46 w1709725001
+R2
+R3
+R0
+Z47 8C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/keyboardReader.vhd
+Z48 FC:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/keyboardReader.vhd
+l0
+L4
+VTZY0?ni97Z^><;b0=S:In1
+!s100 IYeTCX=W_BNElY3Po:PXc2
+R6
+31
+R7
+!i10b 1
+R8
+Z49 !s90 -reportprogress|300|-93|-work|work|C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/keyboardReader.vhd|
+Z50 !s107 C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/keyboardReader.vhd|
+!i113 1
+R11
+R12
+Astructure
+R2
+R3
+DEx4 work 14 keyboardreader 0 22 TZY0?ni97Z^><;b0=S:In1
+l30
+L16
+VSe=SF0IKBY63>Q^h[zWQ92
+!s100 QFci8Af;NT=2F0Q4Ij5E33
+R6
+31
+R7
+!i10b 1
+R8
+R49
+R50
+!i113 1
+R11
+R12
+Ekeyboardreader_tb
+Z51 w1712705709
+R2
+R3
+R0
+Z52 8C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/keyboardReader_tb.vhd
+Z53 FC:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/keyboardReader_tb.vhd
+l0
+L4
+Vik83?8Eg`Geh6n=_Tjz_V1
+!s100 :mFGMmb>0oEd=6b>ZO^1I2
+R6
+32
+Z54 !s110 1712705788
+!i10b 1
+Z55 !s108 1712705788.000000
+Z56 !s90 -reportprogress|300|-work|work|C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/keyboardReader_tb.vhd|
+Z57 !s107 C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/keyboardReader_tb.vhd|
+!i113 1
+Z58 o-work work
+R12
+Abehavioral
+R2
+R3
+DEx4 work 17 keyboardreader_tb 0 22 ik83?8Eg`Geh6n=_Tjz_V1
+l31
+L7
+V7eYjz3XmaE[jOm0_QT6Qe2
+!s100 aJX[@MTcc:0oIPYodKB?X1
+R6
+32
+R54
+!i10b 1
+R55
+R56
+R57
+!i113 1
+R58
+R12
+Ekeycontrol
+Z59 w1709123012
+R2
+R3
+R0
+Z60 8C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/keyControl.vhd
+Z61 FC:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/keyControl.vhd
+l0
+L4
+VXYk6eHj1e<TFWXLOI<P@G0
+!s100 L=deoo6S5Bm[abN=7go=11
+R6
+31
+R7
+!i10b 1
+R8
+Z62 !s90 -reportprogress|300|-93|-work|work|C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/keyControl.vhd|
+Z63 !s107 C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/keyControl.vhd|
+!i113 1
+R11
+R12
+Abehavioral
+R2
+R3
+DEx4 work 10 keycontrol 0 22 XYk6eHj1e<TFWXLOI<P@G0
+l21
+L16
+VQZJJ`1S2e2>cF97hbb3oP1
+!s100 [d[fhgUBh`?Mk`7Y=^UJ73
+R6
+31
+R7
+!i10b 1
+R8
+R62
+R63
+!i113 1
+R11
+R12
+Ekeydecode
+Z64 w1709121381
+R2
+R3
+R0
+Z65 8C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/keyDecode.vhd
+Z66 FC:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/keyDecode.vhd
+l0
+L4
+VKb=F>k8>_^nYX?m8^A9zY0
+!s100 38feC?H10H5hF2bMPoWB>1
+R6
+31
+R7
+!i10b 1
+R8
+Z67 !s90 -reportprogress|300|-93|-work|work|C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/keyDecode.vhd|
+Z68 !s107 C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/keyDecode.vhd|
+!i113 1
+R11
+R12
+Astructure
+R2
+R3
+DEx4 work 9 keydecode 0 22 Kb=F>k8>_^nYX?m8^A9zY0
+l45
+L16
+V5HhWDT1]m?QHaVUE7B7Kc2
+!s100 nzkOU7HHk]F0hWQAgd7G91
+R6
+31
+R7
+!i10b 1
+R8
+R67
+R68
+!i113 1
+R11
+R12
+Ekeyscan
+Z69 w1709116141
+R2
+R3
+R0
+Z70 8C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/keyScan.vhd
+Z71 FC:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/keyScan.vhd
+l0
+L4
+VB4Ycf8oPTh`JQ7Cii07Sc0
+!s100 f`f]Zd:hSmcT5QzOjlVf?0
+R6
+31
+R7
+!i10b 1
+R8
+Z72 !s90 -reportprogress|300|-93|-work|work|C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/keyScan.vhd|
+Z73 !s107 C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/keyScan.vhd|
+!i113 1
+R11
+R12
+Astructure
+R2
+R3
+DEx4 work 7 keyscan 0 22 B4Ycf8oPTh`JQ7Cii07Sc0
+l51
+L16
+VgZOC]@j5i>2e9jdDSgNn72
+!s100 n`97D46P`Ez?e52oPE3em3
+R6
+31
+R7
+!i10b 1
+R8
+R72
+R73
+!i113 1
+R11
+R12
+Emultiplexer
+Z74 w1709109587
+R2
+R3
+R0
+Z75 8C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Multiplexer.vhd
+Z76 FC:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Multiplexer.vhd
+l0
+L5
+VP0df[a:[bI19eYE6Sd`D72
+!s100 <V_eL`n?[miMn<FiU_Q1;1
+R6
+31
+R7
+!i10b 1
+R8
+Z77 !s90 -reportprogress|300|-93|-work|work|C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Multiplexer.vhd|
+Z78 !s107 C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Multiplexer.vhd|
+!i113 1
+R11
+R12
+Alogicfunction
+R2
+R3
+DEx4 work 11 multiplexer 0 22 P0df[a:[bI19eYE6Sd`D72
+l15
+L13
+VKEeo0SYGGY]A_=WY@CYfG3
+!s100 =SofgA1cABZ=[m]zS:YRT2
+R6
+31
+R7
+!i10b 1
+R8
+R77
+R78
+!i113 1
+R11
+R12
+Emuxcont
+R1
+R2
+R3
+R0
+Z79 8C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/MuxCont.vhd
+Z80 FC:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/MuxCont.vhd
+l0
+L4
+VifD964PFV><5PM2b[zk5h1
+!s100 <nQUmZmH^PC@WahiE]CK[2
+R6
+31
+R26
+!i10b 1
+R21
+Z81 !s90 -reportprogress|300|-93|-work|work|C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/MuxCont.vhd|
+Z82 !s107 C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/MuxCont.vhd|
+!i113 1
+R11
+R12
+Alogicfunction
+R2
+R3
+DEx4 work 7 muxcont 0 22 ifD964PFV><5PM2b[zk5h1
+l15
+L14
+V74TYK4?1G=U8:GSh];`_h0
+!s100 G=ZQ3n>n@^[1A5]Fj4U^Q2
+R6
+31
+R26
+!i10b 1
+R21
+R81
+R82
+!i113 1
+R11
+R12
+Eregisto
+R1
+R2
+R3
+R0
+Z83 8C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/Registo.vhd
+Z84 FC:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/Registo.vhd
+l0
+L4
+Vz;FM_:6`LKK5<UbJfSEEY2
+!s100 AAKUHGLTlbND7f:>`a[M]1
+R6
+31
+R26
+!i10b 1
+R21
+Z85 !s90 -reportprogress|300|-93|-work|work|C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/Registo.vhd|
+Z86 !s107 C:/Users/ssrlo/ISEL/2324/2semestre/LIC/keyboardReader/Cont/Registo.vhd|
+!i113 1
+R11
+R12
+Astructure
+R2
+R3
+DEx4 work 7 registo 0 22 z;FM_:6`LKK5<UbJfSEEY2
+l28
+L15
+Vzff]81lVbdmGRUXY6ZCZc3
+!s100 mboG4FjG;[Fjm>z^6no:n2
+R6
+31
+R26
+!i10b 1
+R21
+R85
+R86
+!i113 1
+R11
+R12
