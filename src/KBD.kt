@@ -35,15 +35,12 @@ object KBD { // Ler teclas. Métodos retornam ‘0’..’9’,’#’,’*’ o
                 0x0B -> '#'
                 else -> NONE.toChar()
             }
-            if (c != NONE.toChar()){
+            HAL.setBits(kackMask)
+            while(HAL.isBit(kvalMask));
+            HAL.clrBits(kackMask)
 
-                if(HAL.isBit(kvalMask)){
-                    HAL.setBits(kackMask)
-                    while(HAL.isBit(kvalMask));
-                    HAL.clrBits(kackMask)
-                }
-                return c
-            }
+            return c
+
         }
 
 
