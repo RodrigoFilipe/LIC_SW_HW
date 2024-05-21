@@ -54,21 +54,17 @@ object KBD { // Ler teclas. Métodos retornam ‘0’..’9’,’#’,’*’ o
 //NONE caso contrário.
     fun waitKey(timeout: Long): Char{
         val prevTime = Time.getTimeInMillis()
+        var currTime = prevTime
+        var key = NONE.toChar()
+        while (key == NONE.toChar() && (currTime - prevTime) < timeout){
 
-        while (true){
+            key = getKey()
 
-            val key = getKey()
+            currTime = Time.getTimeInMillis()
 
-            if(key != NONE.toChar()){
-                return key
-            }
-
-            val currTime = Time.getTimeInMillis()
-            if((currTime - prevTime) > timeout){
-                return NONE.toChar()
-            }
         }
 
+        return key
     }
 }
 
