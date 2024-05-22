@@ -18,12 +18,30 @@ object TUI{
 
         }
     }
+    fun writeFromLeft(s: String){
+        LCD.cursor(0,0)
+        LCD.write(s)
+    }
+
+    fun writeFromRight(s: String){
+        var writePos = 0x8F
+        LCD.cursor(0, writePos)
+        for (c in s){
+            LCD.write(c)
+            writePos--
+            LCD.cursor(0, writePos)
+        }
+    }
 }
+
+
 
 
 fun main(){
     HAL.init()
+    SerialEmitter.init()
     LCD.init()
     KBD.init()
-    TUI.keyToLCD()
+    TUI.writeFromLeft("43")
+    TUI.writeFromRight("alo")
 }
