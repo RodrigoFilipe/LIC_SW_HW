@@ -1,0 +1,137 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'clk'
+Slack : -1.543
+TNS   : -3.857
+
+Type  : Slow 1200mV 85C Model Setup 'LcdDispatcher:Dispatcher|CurrentState.STATE_01'
+Slack : -1.278
+TNS   : -9.083
+
+Type  : Slow 1200mV 85C Model Setup 'Sclk'
+Slack : -0.963
+TNS   : -8.783
+
+Type  : Slow 1200mV 85C Model Hold 'clk'
+Slack : 0.330
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'Sclk'
+Slack : 0.331
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'LcdDispatcher:Dispatcher|CurrentState.STATE_01'
+Slack : 0.762
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'Sclk'
+Slack : -0.447
+TNS   : -2.235
+
+Type  : Slow 1200mV 85C Model Removal 'Sclk'
+Slack : 0.835
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Sclk'
+Slack : -3.000
+TNS   : -20.108
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -12.776
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'LcdDispatcher:Dispatcher|CurrentState.STATE_01'
+Slack : 0.370
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'clk'
+Slack : -1.261
+TNS   : -2.866
+
+Type  : Slow 1200mV 0C Model Setup 'LcdDispatcher:Dispatcher|CurrentState.STATE_01'
+Slack : -1.168
+TNS   : -8.362
+
+Type  : Slow 1200mV 0C Model Setup 'Sclk'
+Slack : -0.813
+TNS   : -7.317
+
+Type  : Slow 1200mV 0C Model Hold 'Sclk'
+Slack : 0.300
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : 0.300
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'LcdDispatcher:Dispatcher|CurrentState.STATE_01'
+Slack : 0.787
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'Sclk'
+Slack : -0.333
+TNS   : -1.665
+
+Type  : Slow 1200mV 0C Model Removal 'Sclk'
+Slack : 0.772
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Sclk'
+Slack : -3.000
+TNS   : -20.108
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -12.776
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'LcdDispatcher:Dispatcher|CurrentState.STATE_01'
+Slack : 0.426
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'clk'
+Slack : -0.603
+TNS   : -0.603
+
+Type  : Fast 1200mV 0C Model Setup 'LcdDispatcher:Dispatcher|CurrentState.STATE_01'
+Slack : -0.339
+TNS   : -1.857
+
+Type  : Fast 1200mV 0C Model Setup 'Sclk'
+Slack : 0.058
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'Sclk'
+Slack : 0.152
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clk'
+Slack : 0.152
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'LcdDispatcher:Dispatcher|CurrentState.STATE_01'
+Slack : 0.561
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'Sclk'
+Slack : 0.295
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'Sclk'
+Slack : 0.361
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Sclk'
+Slack : -3.000
+TNS   : -17.392
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -11.254
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'LcdDispatcher:Dispatcher|CurrentState.STATE_01'
+Slack : 0.369
+TNS   : 0.000
+
+------------------------------------------------------------

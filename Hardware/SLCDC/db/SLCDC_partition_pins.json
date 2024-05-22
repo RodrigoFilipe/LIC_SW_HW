@@ -1,0 +1,69 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "Wrl",
+					"strict" : false
+				},
+				{
+					"name" : "Dout[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Dout[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Dout[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Dout[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Dout[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Dout[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Dout[6]",
+					"strict" : false
+				},
+				{
+					"name" : "Dout[7]",
+					"strict" : false
+				},
+				{
+					"name" : "Dout[8]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "rst",
+					"strict" : false
+				},
+				{
+					"name" : "LCDsel",
+					"strict" : false
+				},
+				{
+					"name" : "SDX",
+					"strict" : false
+				},
+				{
+					"name" : "Sclk",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

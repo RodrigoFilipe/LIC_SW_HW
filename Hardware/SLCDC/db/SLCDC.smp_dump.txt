@@ -1,0 +1,14 @@
+
+State Machine - |SLCDC|LcdDispatcher:Dispatcher|CurrentState
+Name CurrentState.STATE_10 CurrentState.STATE_01 CurrentState.STATE_00 
+CurrentState.STATE_00 0 0 0 
+CurrentState.STATE_01 0 1 1 
+CurrentState.STATE_10 1 0 1 
+
+State Machine - |SLCDC|SerialReceiver:SReceiver|SerialControl:SC|CurrentState
+Name CurrentState.STATE_100 CurrentState.STATE_011 CurrentState.STATE_010 CurrentState.STATE_001 CurrentState.STATE_000 
+CurrentState.STATE_000 0 0 0 0 0 
+CurrentState.STATE_001 0 0 0 1 1 
+CurrentState.STATE_010 0 0 1 0 1 
+CurrentState.STATE_011 0 1 0 0 1 
+CurrentState.STATE_100 1 0 0 0 1 
