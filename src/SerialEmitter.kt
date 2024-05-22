@@ -21,7 +21,7 @@ object SerialEmitter { // Envia tramas para os diferentes módulos Serial Receiv
             HAL.clrBits(LCD_sel)
             var countBit = 0
             for (i in 0..<size){
-                //val bit = SDX.and(sendData)
+                val bit = SDX.and(sendData)
                 HAL.writeBits(SDX, sendData)
 
                 if (sendData.and(SDX) == 1){
@@ -30,17 +30,19 @@ object SerialEmitter { // Envia tramas para os diferentes módulos Serial Receiv
                 sendData = sendData.shr(1)
 
                 HAL.setBits(SCLK)
-                Thread.sleep(250)
+                Thread.sleep(2)
                 HAL.clrBits(SCLK)
-                Thread.sleep(250)
+                Thread.sleep(2)
                 countBit++
 
             }
-            HAL.writeBits(SDX, parity % 2)
+            val p = parity % 2
+            Thread.sleep(1)
+            HAL.writeBits(SDX, p)
             HAL.setBits(SCLK)
-            Thread.sleep(250)
+            Thread.sleep(2)
             HAL.clrBits(SCLK)
-            Thread.sleep(250)
+            Thread.sleep(2)
 
             HAL.setBits(LCD_sel)
 
@@ -58,9 +60,9 @@ object SerialEmitter { // Envia tramas para os diferentes módulos Serial Receiv
                 sendData = sendData.shr(1)
 
                 HAL.setBits(SCLK)
-                Thread.sleep(250)
+                Thread.sleep(50)
                 HAL.clrBits(SCLK)
-                Thread.sleep(250)
+                Thread.sleep(50)
                 countBit++
 
             }

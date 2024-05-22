@@ -1,4 +1,3 @@
-
 ## --- Additional packages with Hardware to Simulator
 package spaceinvaders.simul    # for Modules used in Space Invaders
 
@@ -53,8 +52,8 @@ UsbPort.O7 -> ob.ACK
 # SLCDC
 # --------------------------------------
 # Serial Receiver
-UsbPort.O7 -> srl./SS
-UsbPort.O0 -> srl.SDX
+UsbPort.O0 -> srl./SS
+UsbPort.O3 -> srl.SDX
 UsbPort.O4-> srl.SCLK
 srl.DXval -> dl.Dval
 srl.D[0-8] -> dl.I[0-8]

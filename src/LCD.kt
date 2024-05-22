@@ -131,6 +131,7 @@ object LCD { // Escreve no LCD usando a interface a 4 bits.
 
 fun main() {
     HAL.init()
+    SerialEmitter.init()
     LCD.init()
 
    // while (true);
