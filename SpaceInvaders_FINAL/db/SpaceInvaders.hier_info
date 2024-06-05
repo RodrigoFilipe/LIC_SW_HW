@@ -1,0 +1,2109 @@
+|SpaceInvaders
+rst => keyboardReader:kreader.rst
+rst => SLCDC:LCD.rst
+clk => keyboardReader:kreader.clk
+clk => SLCDC:LCD.clk
+ack => ~NO_FANOUT~
+I[0] => keyboardReader:kreader.I[0]
+I[1] => keyboardReader:kreader.I[1]
+I[2] => keyboardReader:kreader.I[2]
+I[3] => keyboardReader:kreader.I[3]
+Wrl <= SLCDC:LCD.Wrl
+O[0] <= keyboardReader:kreader.O[0]
+O[1] <= keyboardReader:kreader.O[1]
+O[2] <= keyboardReader:kreader.O[2]
+O[3] <= keyboardReader:kreader.O[3]
+Dout[0] <= SLCDC:LCD.Dout[0]
+Dout[1] <= SLCDC:LCD.Dout[1]
+Dout[2] <= SLCDC:LCD.Dout[2]
+Dout[3] <= SLCDC:LCD.Dout[3]
+Dout[4] <= SLCDC:LCD.Dout[4]
+Dout[5] <= SLCDC:LCD.Dout[5]
+Dout[6] <= SLCDC:LCD.Dout[6]
+Dout[7] <= SLCDC:LCD.Dout[7]
+Dout[8] <= SLCDC:LCD.Dout[8]
+
+
+|SpaceInvaders|keyboardReader:kreader
+rst => keyDecode:kdecode.rst
+rst => RingBuffer:RingBuff.rst
+rst => OutputBuffer:OutputBuff.rst
+clk => keyDecode:kdecode.clk
+clk => RingBuffer:RingBuff.clk
+clk => OutputBuffer:OutputBuff.clk
+kack => OutputBuffer:OutputBuff.ack
+I[0] => keyDecode:kdecode.I[0]
+I[1] => keyDecode:kdecode.I[1]
+I[2] => keyDecode:kdecode.I[2]
+I[3] => keyDecode:kdecode.I[3]
+O[0] <= keyDecode:kdecode.O[0]
+O[1] <= keyDecode:kdecode.O[1]
+O[2] <= keyDecode:kdecode.O[2]
+O[3] <= keyDecode:kdecode.O[3]
+dval <= OutputBuffer:OutputBuff.Dval
+D[0] <= OutputBuffer:OutputBuff.Q[0]
+D[1] <= OutputBuffer:OutputBuff.Q[1]
+D[2] <= OutputBuffer:OutputBuff.Q[2]
+D[3] <= OutputBuffer:OutputBuff.Q[3]
+
+
+|SpaceInvaders|keyboardReader:kreader|keyDecode:kdecode
+rst => keyScan:kscan.Rst
+rst => keyControl:kctrl.rst
+clk => clkDIV:cDIV.clk_in
+kack => keyControl:kctrl.kack
+I[0] => keyScan:kscan.I[0]
+I[1] => keyScan:kscan.I[1]
+I[2] => keyScan:kscan.I[2]
+I[3] => keyScan:kscan.I[3]
+O[0] <= keyScan:kscan.O[0]
+O[1] <= keyScan:kscan.O[1]
+O[2] <= keyScan:kscan.O[2]
+O[3] <= keyScan:kscan.O[3]
+kval <= keyControl:kctrl.kval
+K[0] <= keyScan:kscan.K[0]
+K[1] <= keyScan:kscan.K[1]
+K[2] <= keyScan:kscan.K[2]
+K[3] <= keyScan:kscan.K[3]
+
+
+|SpaceInvaders|keyboardReader:kreader|keyDecode:kdecode|CLKDIV:cDIV
+clk_in => tmp.CLK
+clk_in => count[0].CLK
+clk_in => count[1].CLK
+clk_in => count[2].CLK
+clk_in => count[3].CLK
+clk_in => count[4].CLK
+clk_in => count[5].CLK
+clk_in => count[6].CLK
+clk_in => count[7].CLK
+clk_in => count[8].CLK
+clk_in => count[9].CLK
+clk_in => count[10].CLK
+clk_in => count[11].CLK
+clk_in => count[12].CLK
+clk_in => count[13].CLK
+clk_in => count[14].CLK
+clk_in => count[15].CLK
+clk_in => count[16].CLK
+clk_in => count[17].CLK
+clk_in => count[18].CLK
+clk_in => count[19].CLK
+clk_in => count[20].CLK
+clk_in => count[21].CLK
+clk_in => count[22].CLK
+clk_in => count[23].CLK
+clk_in => count[24].CLK
+clk_in => count[25].CLK
+clk_in => count[26].CLK
+clk_in => count[27].CLK
+clk_in => count[28].CLK
+clk_in => count[29].CLK
+clk_in => count[30].CLK
+clk_in => count[31].CLK
+clk_out <= tmp.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|keyDecode:kdecode|keyScan:kscan
+Kscan => Cont:contador.CE
+I[0] => Multiplexer:mux.I[0]
+I[1] => Multiplexer:mux.I[1]
+I[2] => Multiplexer:mux.I[2]
+I[3] => Multiplexer:mux.I[3]
+clk => Cont:contador.Clk
+Rst => Cont:contador.R
+K[0] <= Cont:contador.Q[0]
+K[1] <= Cont:contador.Q[1]
+K[2] <= Cont:contador.Q[2]
+K[3] <= Cont:contador.Q[3]
+Kpress <= Multiplexer:mux.Y
+O[0] <= Decoder:dec.O[0]
+O[1] <= Decoder:dec.O[1]
+O[2] <= Decoder:dec.O[2]
+O[3] <= Decoder:dec.O[3]
+
+
+|SpaceInvaders|keyboardReader:kreader|keyDecode:kdecode|keyScan:kscan|Cont:contador
+R => ContadorCrescente:U1.Reset
+CE => ContadorCrescente:U1.CE
+Clk => ContadorCrescente:U1.CLK
+Q[0] <= ContadorCrescente:U1.S[0]
+Q[1] <= ContadorCrescente:U1.S[1]
+Q[2] <= ContadorCrescente:U1.S[2]
+Q[3] <= ContadorCrescente:U1.S[3]
+
+
+|SpaceInvaders|keyboardReader:kreader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1
+DataIn[0] => MuxCont:CC_MUX.X[0]
+DataIn[1] => MuxCont:CC_MUX.X[1]
+DataIn[2] => MuxCont:CC_MUX.X[2]
+DataIn[3] => MuxCont:CC_MUX.X[3]
+PL => MuxCont:CC_MUX.S
+CE => adder4:CC_Adder.A[0]
+CLK => Registo:CC_Reg.Clk
+Reset => Registo:CC_Reg.Reset
+TC <= TC.DB_MAX_OUTPUT_PORT_TYPE
+S[0] <= Registo:CC_Reg.S[0]
+S[1] <= Registo:CC_Reg.S[1]
+S[2] <= Registo:CC_Reg.S[2]
+S[3] <= Registo:CC_Reg.S[3]
+
+
+|SpaceInvaders|keyboardReader:kreader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|Registo:CC_Reg
+A[0] => FFD:FFD1.D
+A[1] => FFD:FFD2.D
+A[2] => FFD:FFD3.D
+A[3] => FFD:FFD4.D
+Clk => FFD:FFD1.CLK
+Clk => FFD:FFD2.CLK
+Clk => FFD:FFD3.CLK
+Clk => FFD:FFD4.CLK
+Reset => FFD:FFD1.RESET
+Reset => FFD:FFD2.RESET
+Reset => FFD:FFD3.RESET
+Reset => FFD:FFD4.RESET
+E => FFD:FFD1.EN
+E => FFD:FFD2.EN
+E => FFD:FFD3.EN
+E => FFD:FFD4.EN
+S[0] <= FFD:FFD1.Q
+S[1] <= FFD:FFD2.Q
+S[2] <= FFD:FFD3.Q
+S[3] <= FFD:FFD4.Q
+
+
+|SpaceInvaders|keyboardReader:kreader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|Registo:CC_Reg|FFD:FFD1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|Registo:CC_Reg|FFD:FFD2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|Registo:CC_Reg|FFD:FFD3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|Registo:CC_Reg|FFD:FFD4
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|adder4:CC_Adder
+A[0] => FA:FA1.A
+A[1] => FA:FA2.A
+A[2] => FA:FA3.A
+A[3] => FA:FA4.A
+B[0] => FA:FA1.B
+B[1] => FA:FA2.B
+B[2] => FA:FA3.B
+B[3] => FA:FA4.B
+C0 => FA:FA1.Ci
+S[0] <= FA:FA1.S
+S[1] <= FA:FA2.S
+S[2] <= FA:FA3.S
+S[3] <= FA:FA4.S
+C4 <= FA:FA4.Co
+
+
+|SpaceInvaders|keyboardReader:kreader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|adder4:CC_Adder|FA:FA1
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|adder4:CC_Adder|FA:FA1|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|adder4:CC_Adder|FA:FA1|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|adder4:CC_Adder|FA:FA2
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|adder4:CC_Adder|FA:FA2|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|adder4:CC_Adder|FA:FA2|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|adder4:CC_Adder|FA:FA3
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|adder4:CC_Adder|FA:FA3|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|adder4:CC_Adder|FA:FA3|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|adder4:CC_Adder|FA:FA4
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|adder4:CC_Adder|FA:FA4|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|adder4:CC_Adder|FA:FA4|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|keyDecode:kdecode|keyScan:kscan|Cont:contador|ContadorCrescente:U1|MuxCont:CC_MUX
+X[0] => R.IN0
+X[1] => R.IN0
+X[2] => R.IN0
+X[3] => R.IN0
+Y[0] => R.IN0
+Y[1] => R.IN0
+Y[2] => R.IN0
+Y[3] => R.IN0
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+R[0] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[1] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[2] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[3] <= R.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|keyDecode:kdecode|keyScan:kscan|Decoder:dec
+S0 => O.IN0
+S0 => O.IN0
+S0 => O.IN0
+S0 => O.IN0
+S1 => O.IN1
+S1 => O.IN1
+S1 => O.IN1
+S1 => O.IN1
+O[0] <= O.DB_MAX_OUTPUT_PORT_TYPE
+O[1] <= O.DB_MAX_OUTPUT_PORT_TYPE
+O[2] <= O.DB_MAX_OUTPUT_PORT_TYPE
+O[3] <= O.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|keyDecode:kdecode|keyScan:kscan|Multiplexer:mux
+I[0] => Y.IN1
+I[1] => Y.IN1
+I[2] => Y.IN1
+I[3] => Y.IN1
+OP0 => Y.IN0
+OP0 => Y.IN0
+OP0 => Y.IN0
+OP0 => Y.IN0
+OP1 => Y.IN1
+OP1 => Y.IN1
+OP1 => Y.IN1
+OP1 => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|keyDecode:kdecode|keyControl:kctrl
+clk => CurrentState~1.DATAIN
+rst => CurrentState~3.DATAIN
+kpress => Selector2.IN1
+kpress => GenerateNextState.IN0
+kpress => Selector0.IN1
+kack => GenerateNextState.IN1
+kack => Selector2.IN2
+kack => Selector1.IN2
+kscan <= kscan.DB_MAX_OUTPUT_PORT_TYPE
+kval <= kval.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff
+clk => RingBufferControl:RingBufferCtrl.clk
+clk => MAC:MemoryAddressCtrl.clk
+rst => RingBufferControl:RingBufferCtrl.rst
+rst => MAC:MemoryAddressCtrl.rst
+DAV => RingBufferControl:RingBufferCtrl.DAV
+CTS => RingBufferControl:RingBufferCtrl.CTS
+D[0] => RAM:R.din[0]
+D[1] => RAM:R.din[1]
+D[2] => RAM:R.din[2]
+D[3] => RAM:R.din[3]
+Q[0] <= RAM:R.dout[0]
+Q[1] <= RAM:R.dout[1]
+Q[2] <= RAM:R.dout[2]
+Q[3] <= RAM:R.dout[3]
+Wreg <= RingBufferControl:RingBufferCtrl.Wreg
+DAC <= RingBufferControl:RingBufferCtrl.DAC
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|RingBufferControl:RingBufferCtrl
+clk => CurrentState~1.DATAIN
+rst => CurrentState~3.DATAIN
+DAV => GenerateNextState.IN0
+DAV => GenerateNextState.IN0
+DAV => Selector4.IN4
+DAV => GenerateNextState.IN0
+DAV => GenerateNextState.IN0
+DAV => Selector1.IN1
+CTS => GenerateNextState.IN1
+CTS => GenerateNextState.IN1
+CTS => GenerateNextState.IN1
+full => GenerateNextState.IN1
+full => GenerateNextState.IN1
+empty => GenerateNextState.IN1
+empty => GenerateNextState.IN1
+empty => GenerateNextState.IN1
+empty => GenerateNextState.IN1
+wr <= wr.DB_MAX_OUTPUT_PORT_TYPE
+selPG <= selPG.DB_MAX_OUTPUT_PORT_TYPE
+incPut <= incPut.DB_MAX_OUTPUT_PORT_TYPE
+incGet <= incGet.DB_MAX_OUTPUT_PORT_TYPE
+Wreg <= Wreg.DB_MAX_OUTPUT_PORT_TYPE
+DAC <= DAC.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl
+clk => counter3:putCount.CLK
+clk => counter3:getCount.CLK
+clk => UpDownCounter:UpDownCount.CLK
+rst => counter3:putCount.RST
+rst => counter3:getCount.RST
+rst => UpDownCounter:UpDownCount.RST
+putGet => Mux2bit:mux.S
+incPut => s_enable.IN0
+incPut => counter3:putCount.CE
+incPut => UpDownCounter:UpDownCount.IncDec
+incGet => s_enable.IN1
+incGet => counter3:getCount.CE
+full <= UpDownCounter:UpDownCount.R[3]
+empty <= empty.DB_MAX_OUTPUT_PORT_TYPE
+Address[0] <= Mux2bit:mux.R[0]
+Address[1] <= Mux2bit:mux.R[1]
+Address[2] <= Mux2bit:mux.R[2]
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount
+CLK => ContadorCrescente3bit:C_CC.CLK
+RST => ContadorCrescente3bit:C_CC.Reset
+CE => ContadorCrescente3bit:C_CC.CE
+Q[0] <= ContadorCrescente3bit:C_CC.S[0]
+Q[1] <= ContadorCrescente3bit:C_CC.S[1]
+Q[2] <= ContadorCrescente3bit:C_CC.S[2]
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC
+DataIn[0] => MUX3:CC_MUX.X[0]
+DataIn[1] => MUX3:CC_MUX.X[1]
+DataIn[2] => MUX3:CC_MUX.X[2]
+PL => MUX3:CC_MUX.S
+CE => Adder3:CC_Adder.A[0]
+CLK => Reg3:CC_Reg.CLK
+Reset => Reg3:CC_Reg.RESET
+TC <= TC.DB_MAX_OUTPUT_PORT_TYPE
+S[0] <= Reg3:CC_Reg.S[0]
+S[1] <= Reg3:CC_Reg.S[1]
+S[2] <= Reg3:CC_Reg.S[2]
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Reg3:CC_Reg
+CLK => FFD:R_FFD0.CLK
+CLK => FFD:R_FFD1.CLK
+CLK => FFD:R_FFD2.CLK
+RESET => FFD:R_FFD0.RESET
+RESET => FFD:R_FFD1.RESET
+RESET => FFD:R_FFD2.RESET
+A[0] => FFD:R_FFD0.D
+A[1] => FFD:R_FFD1.D
+A[2] => FFD:R_FFD2.D
+E => FFD:R_FFD0.EN
+E => FFD:R_FFD1.EN
+E => FFD:R_FFD2.EN
+S[0] <= FFD:R_FFD0.Q
+S[1] <= FFD:R_FFD1.Q
+S[2] <= FFD:R_FFD2.Q
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Reg3:CC_Reg|FFD:R_FFD0
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Reg3:CC_Reg|FFD:R_FFD1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Reg3:CC_Reg|FFD:R_FFD2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder
+A[0] => FA:A_FA0.A
+A[1] => FA:A_FA1.A
+A[2] => FA:A_FA2.A
+B[0] => FA:A_FA0.B
+B[1] => FA:A_FA1.B
+B[2] => FA:A_FA2.B
+C0 => FA:A_FA0.Ci
+R[0] <= FA:A_FA0.S
+R[1] <= FA:A_FA1.S
+R[2] <= FA:A_FA2.S
+C3 <= FA:A_FA2.Co
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA0
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA0|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA0|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA1
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA1|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA1|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA2
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA2|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA2|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:putCount|ContadorCrescente3bit:C_CC|MUX3:CC_MUX
+X[0] => R.IN0
+X[1] => R.IN0
+X[2] => R.IN0
+Y[0] => R.IN0
+Y[1] => R.IN0
+Y[2] => R.IN0
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+R[0] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[1] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[2] <= R.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount
+CLK => ContadorCrescente3bit:C_CC.CLK
+RST => ContadorCrescente3bit:C_CC.Reset
+CE => ContadorCrescente3bit:C_CC.CE
+Q[0] <= ContadorCrescente3bit:C_CC.S[0]
+Q[1] <= ContadorCrescente3bit:C_CC.S[1]
+Q[2] <= ContadorCrescente3bit:C_CC.S[2]
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente3bit:C_CC
+DataIn[0] => MUX3:CC_MUX.X[0]
+DataIn[1] => MUX3:CC_MUX.X[1]
+DataIn[2] => MUX3:CC_MUX.X[2]
+PL => MUX3:CC_MUX.S
+CE => Adder3:CC_Adder.A[0]
+CLK => Reg3:CC_Reg.CLK
+Reset => Reg3:CC_Reg.RESET
+TC <= TC.DB_MAX_OUTPUT_PORT_TYPE
+S[0] <= Reg3:CC_Reg.S[0]
+S[1] <= Reg3:CC_Reg.S[1]
+S[2] <= Reg3:CC_Reg.S[2]
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente3bit:C_CC|Reg3:CC_Reg
+CLK => FFD:R_FFD0.CLK
+CLK => FFD:R_FFD1.CLK
+CLK => FFD:R_FFD2.CLK
+RESET => FFD:R_FFD0.RESET
+RESET => FFD:R_FFD1.RESET
+RESET => FFD:R_FFD2.RESET
+A[0] => FFD:R_FFD0.D
+A[1] => FFD:R_FFD1.D
+A[2] => FFD:R_FFD2.D
+E => FFD:R_FFD0.EN
+E => FFD:R_FFD1.EN
+E => FFD:R_FFD2.EN
+S[0] <= FFD:R_FFD0.Q
+S[1] <= FFD:R_FFD1.Q
+S[2] <= FFD:R_FFD2.Q
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente3bit:C_CC|Reg3:CC_Reg|FFD:R_FFD0
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente3bit:C_CC|Reg3:CC_Reg|FFD:R_FFD1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente3bit:C_CC|Reg3:CC_Reg|FFD:R_FFD2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder
+A[0] => FA:A_FA0.A
+A[1] => FA:A_FA1.A
+A[2] => FA:A_FA2.A
+B[0] => FA:A_FA0.B
+B[1] => FA:A_FA1.B
+B[2] => FA:A_FA2.B
+C0 => FA:A_FA0.Ci
+R[0] <= FA:A_FA0.S
+R[1] <= FA:A_FA1.S
+R[2] <= FA:A_FA2.S
+C3 <= FA:A_FA2.Co
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA0
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA0|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA0|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA1
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA1|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA1|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA2
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA2|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente3bit:C_CC|Adder3:CC_Adder|FA:A_FA2|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Counter3:getCount|ContadorCrescente3bit:C_CC|MUX3:CC_MUX
+X[0] => R.IN0
+X[1] => R.IN0
+X[2] => R.IN0
+Y[0] => R.IN0
+Y[1] => R.IN0
+Y[2] => R.IN0
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+R[0] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[1] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[2] <= R.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|Mux2bit:mux
+X[0] => R.IN0
+X[1] => R.IN0
+X[2] => R.IN0
+Y[0] => R.IN0
+Y[1] => R.IN0
+Y[2] => R.IN0
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+R[0] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[1] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[2] <= R.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount
+CLK => Registo:EC_Reg.CLK
+RST => Registo:EC_Reg.Reset
+Enable => Registo:EC_Reg.E
+Enable => adderSubtractor:EC_AS.B[0]
+IncDec => adderSubtractor:EC_AS.OPau
+R[0] <= Registo:EC_Reg.S[0]
+R[1] <= Registo:EC_Reg.S[1]
+R[2] <= Registo:EC_Reg.S[2]
+R[3] <= Registo:EC_Reg.S[3]
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|MuxCont:EC_MUX
+X[0] => R.IN0
+X[1] => R.IN0
+X[2] => R.IN0
+X[3] => R.IN0
+Y[0] => R.IN0
+Y[1] => R.IN0
+Y[2] => R.IN0
+Y[3] => R.IN0
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+R[0] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[1] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[2] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[3] <= R.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|Registo:EC_Reg
+A[0] => FFD:FFD1.D
+A[1] => FFD:FFD2.D
+A[2] => FFD:FFD3.D
+A[3] => FFD:FFD4.D
+Clk => FFD:FFD1.CLK
+Clk => FFD:FFD2.CLK
+Clk => FFD:FFD3.CLK
+Clk => FFD:FFD4.CLK
+Reset => FFD:FFD1.RESET
+Reset => FFD:FFD2.RESET
+Reset => FFD:FFD3.RESET
+Reset => FFD:FFD4.RESET
+E => FFD:FFD1.EN
+E => FFD:FFD2.EN
+E => FFD:FFD3.EN
+E => FFD:FFD4.EN
+S[0] <= FFD:FFD1.Q
+S[1] <= FFD:FFD2.Q
+S[2] <= FFD:FFD3.Q
+S[3] <= FFD:FFD4.Q
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|Registo:EC_Reg|FFD:FFD1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|Registo:EC_Reg|FFD:FFD2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|Registo:EC_Reg|FFD:FFD3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|Registo:EC_Reg|FFD:FFD4
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS
+A[0] => adder4:AS_Adder.A[0]
+A[1] => adder4:AS_Adder.A[1]
+A[2] => adder4:AS_Adder.A[2]
+A[3] => adder4:AS_Adder.A[3]
+B[0] => BxorOP[0].IN0
+B[1] => BxorOP[1].IN0
+B[2] => BxorOP[2].IN0
+B[3] => BxorOP[3].IN0
+CIn => CIxorOP.IN0
+OPau => BxorOP[0].IN1
+OPau => BxorOP[1].IN1
+OPau => BxorOP[2].IN1
+OPau => BxorOP[3].IN1
+OPau => CIxorOP.IN1
+OPau => C4Out.IN1
+S[0] <= adder4:AS_Adder.S[0]
+S[1] <= adder4:AS_Adder.S[1]
+S[2] <= adder4:AS_Adder.S[2]
+S[3] <= adder4:AS_Adder.S[3]
+C4Out <= C4Out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder
+A[0] => FA:FA1.A
+A[1] => FA:FA2.A
+A[2] => FA:FA3.A
+A[3] => FA:FA4.A
+B[0] => FA:FA1.B
+B[1] => FA:FA2.B
+B[2] => FA:FA3.B
+B[3] => FA:FA4.B
+C0 => FA:FA1.Ci
+S[0] <= FA:FA1.S
+S[1] <= FA:FA2.S
+S[2] <= FA:FA3.S
+S[3] <= FA:FA4.S
+C4 <= FA:FA4.Co
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA1
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA1|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA1|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA2
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA2|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA2|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA3
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA3|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA3|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA4
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA4|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA4|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|RAM:R
+address[0] => ram.RADDR
+address[0] => ram.WADDR
+address[1] => ram.RADDR1
+address[1] => ram.WADDR1
+address[2] => ram.RADDR2
+address[2] => ram.WADDR2
+wr => ram.WE
+din[0] => ram.DATAIN
+din[1] => ram.DATAIN1
+din[2] => ram.DATAIN2
+din[3] => ram.DATAIN3
+dout[0] <= ram.DATAOUT
+dout[1] <= ram.DATAOUT1
+dout[2] <= ram.DATAOUT2
+dout[3] <= ram.DATAOUT3
+
+
+|SpaceInvaders|keyboardReader:kreader|OutputBuffer:OutputBuff
+clk => OutputBufferControl:OutputBufferCtrl.clk
+rst => OutputBufferControl:OutputBufferCtrl.rst
+rst => Registo:Reg.Reset
+D[0] => Registo:Reg.A[0]
+D[1] => Registo:Reg.A[1]
+D[2] => Registo:Reg.A[2]
+D[3] => Registo:Reg.A[3]
+Load => OutputBufferControl:OutputBufferCtrl.Load
+ack => OutputBufferControl:OutputBufferCtrl.ack
+OBfree <= OutputBufferControl:OutputBufferCtrl.OBfree
+Dval <= OutputBufferControl:OutputBufferCtrl.Dval
+Q[0] <= Registo:Reg.S[0]
+Q[1] <= Registo:Reg.S[1]
+Q[2] <= Registo:Reg.S[2]
+Q[3] <= Registo:Reg.S[3]
+
+
+|SpaceInvaders|keyboardReader:kreader|OutputBuffer:OutputBuff|OutputBufferControl:OutputBufferCtrl
+clk => CurrentState~1.DATAIN
+rst => CurrentState~3.DATAIN
+Load => NextState.STATE_01.DATAB
+Load => Selector0.IN1
+ack => Selector0.IN2
+ack => Selector1.IN2
+Wreg <= Wreg.DB_MAX_OUTPUT_PORT_TYPE
+OBfree <= OBfree.DB_MAX_OUTPUT_PORT_TYPE
+Dval <= Dval.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|OutputBuffer:OutputBuff|Registo:Reg
+A[0] => FFD:FFD1.D
+A[1] => FFD:FFD2.D
+A[2] => FFD:FFD3.D
+A[3] => FFD:FFD4.D
+Clk => FFD:FFD1.CLK
+Clk => FFD:FFD2.CLK
+Clk => FFD:FFD3.CLK
+Clk => FFD:FFD4.CLK
+Reset => FFD:FFD1.RESET
+Reset => FFD:FFD2.RESET
+Reset => FFD:FFD3.RESET
+Reset => FFD:FFD4.RESET
+E => FFD:FFD1.EN
+E => FFD:FFD2.EN
+E => FFD:FFD3.EN
+E => FFD:FFD4.EN
+S[0] <= FFD:FFD1.Q
+S[1] <= FFD:FFD2.Q
+S[2] <= FFD:FFD3.Q
+S[3] <= FFD:FFD4.Q
+
+
+|SpaceInvaders|keyboardReader:kreader|OutputBuffer:OutputBuff|Registo:Reg|FFD:FFD1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|OutputBuffer:OutputBuff|Registo:Reg|FFD:FFD2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|OutputBuffer:OutputBuff|Registo:Reg|FFD:FFD3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|keyboardReader:kreader|OutputBuffer:OutputBuff|Registo:Reg|FFD:FFD4
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|UsbPort:uport
+inputPort[0] => sld_virtual_jtag:b2v_inst.ir_out[0]
+inputPort[1] => sld_virtual_jtag:b2v_inst.ir_out[1]
+inputPort[2] => sld_virtual_jtag:b2v_inst.ir_out[2]
+inputPort[3] => sld_virtual_jtag:b2v_inst.ir_out[3]
+inputPort[4] => sld_virtual_jtag:b2v_inst.ir_out[4]
+inputPort[5] => sld_virtual_jtag:b2v_inst.ir_out[5]
+inputPort[6] => sld_virtual_jtag:b2v_inst.ir_out[6]
+inputPort[7] => sld_virtual_jtag:b2v_inst.ir_out[7]
+outputPort[0] <= sld_virtual_jtag:b2v_inst.ir_in[0]
+outputPort[1] <= sld_virtual_jtag:b2v_inst.ir_in[1]
+outputPort[2] <= sld_virtual_jtag:b2v_inst.ir_in[2]
+outputPort[3] <= sld_virtual_jtag:b2v_inst.ir_in[3]
+outputPort[4] <= sld_virtual_jtag:b2v_inst.ir_in[4]
+outputPort[5] <= sld_virtual_jtag:b2v_inst.ir_in[5]
+outputPort[6] <= sld_virtual_jtag:b2v_inst.ir_in[6]
+outputPort[7] <= sld_virtual_jtag:b2v_inst.ir_in[7]
+
+
+|SpaceInvaders|UsbPort:uport|sld_virtual_jtag:b2v_inst
+tck <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.tck
+tdi <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.tdi
+ir_in[0] <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.ir_in
+ir_in[1] <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.ir_in
+ir_in[2] <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.ir_in
+ir_in[3] <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.ir_in
+ir_in[4] <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.ir_in
+ir_in[5] <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.ir_in
+ir_in[6] <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.ir_in
+ir_in[7] <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.ir_in
+tdo => tdo.IN1
+ir_out[0] => ir_out[0].IN1
+ir_out[1] => ir_out[1].IN1
+ir_out[2] => ir_out[2].IN1
+ir_out[3] => ir_out[3].IN1
+ir_out[4] => ir_out[4].IN1
+ir_out[5] => ir_out[5].IN1
+ir_out[6] => ir_out[6].IN1
+ir_out[7] => ir_out[7].IN1
+virtual_state_cdr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.virtual_state_cdr
+virtual_state_sdr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.virtual_state_sdr
+virtual_state_e1dr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.virtual_state_e1dr
+virtual_state_pdr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.virtual_state_pdr
+virtual_state_e2dr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.virtual_state_e2dr
+virtual_state_udr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.virtual_state_udr
+virtual_state_cir <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.virtual_state_cir
+virtual_state_uir <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.virtual_state_uir
+tms <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.tms
+jtag_state_tlr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_tlr
+jtag_state_rti <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_rti
+jtag_state_sdrs <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_sdrs
+jtag_state_cdr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_cdr
+jtag_state_sdr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_sdr
+jtag_state_e1dr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_e1dr
+jtag_state_pdr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_pdr
+jtag_state_e2dr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_e2dr
+jtag_state_udr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_udr
+jtag_state_sirs <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_sirs
+jtag_state_cir <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_cir
+jtag_state_sir <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_sir
+jtag_state_e1ir <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_e1ir
+jtag_state_pir <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_pir
+jtag_state_e2ir <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_e2ir
+jtag_state_uir <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_uir
+
+
+|SpaceInvaders|UsbPort:uport|sld_virtual_jtag:b2v_inst|sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst
+tck <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_tck
+tdi <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_tdi
+ir_in[0] <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_ir_in
+ir_in[1] <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_ir_in
+ir_in[2] <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_ir_in
+ir_in[3] <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_ir_in
+ir_in[4] <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_ir_in
+ir_in[5] <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_ir_in
+ir_in[6] <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_ir_in
+ir_in[7] <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_ir_in
+tdo => tdo.IN1
+ir_out[0] => ir_out[0].IN1
+ir_out[1] => ir_out[1].IN1
+ir_out[2] => ir_out[2].IN1
+ir_out[3] => ir_out[3].IN1
+ir_out[4] => ir_out[4].IN1
+ir_out[5] => ir_out[5].IN1
+ir_out[6] => ir_out[6].IN1
+ir_out[7] => ir_out[7].IN1
+virtual_state_cdr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_virtual_state_cdr
+virtual_state_sdr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_virtual_state_sdr
+virtual_state_e1dr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_virtual_state_e1dr
+virtual_state_pdr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_virtual_state_pdr
+virtual_state_e2dr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_virtual_state_e2dr
+virtual_state_udr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_virtual_state_udr
+virtual_state_cir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_virtual_state_cir
+virtual_state_uir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_virtual_state_uir
+tms <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_tms
+jtag_state_tlr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_tlr
+jtag_state_rti <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_rti
+jtag_state_sdrs <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_sdrs
+jtag_state_cdr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_cdr
+jtag_state_sdr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_sdr
+jtag_state_e1dr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_e1dr
+jtag_state_pdr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_pdr
+jtag_state_e2dr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_e2dr
+jtag_state_udr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_udr
+jtag_state_sirs <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_sirs
+jtag_state_cir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_cir
+jtag_state_sir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_sir
+jtag_state_e1ir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_e1ir
+jtag_state_pir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_pir
+jtag_state_e2ir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_e2ir
+jtag_state_uir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_uir
+
+
+|SpaceInvaders|UsbPort:uport|sld_virtual_jtag:b2v_inst|sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst
+usr_tck <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_tck
+usr_tdi <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_tdi
+usr_ir_in[0] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_ir_in
+usr_ir_in[1] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_ir_in
+usr_ir_in[2] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_ir_in
+usr_ir_in[3] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_ir_in
+usr_ir_in[4] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_ir_in
+usr_ir_in[5] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_ir_in
+usr_ir_in[6] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_ir_in
+usr_ir_in[7] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_ir_in
+usr_tdo => adapted_tdo.IN1
+usr_ir_out[0] => adapted_ir_out[0].IN1
+usr_ir_out[1] => adapted_ir_out[1].IN1
+usr_ir_out[2] => adapted_ir_out[2].IN1
+usr_ir_out[3] => adapted_ir_out[3].IN1
+usr_ir_out[4] => adapted_ir_out[4].IN1
+usr_ir_out[5] => adapted_ir_out[5].IN1
+usr_ir_out[6] => adapted_ir_out[6].IN1
+usr_ir_out[7] => adapted_ir_out[7].IN1
+usr_virtual_state_cdr <= virtual_state_cdr.DB_MAX_OUTPUT_PORT_TYPE
+usr_virtual_state_sdr <= virtual_state_sdr.DB_MAX_OUTPUT_PORT_TYPE
+usr_virtual_state_e1dr <= virtual_state_e1dr.DB_MAX_OUTPUT_PORT_TYPE
+usr_virtual_state_pdr <= virtual_state_pdr.DB_MAX_OUTPUT_PORT_TYPE
+usr_virtual_state_e2dr <= virtual_state_e2dr.DB_MAX_OUTPUT_PORT_TYPE
+usr_virtual_state_udr <= virtual_state_udr.DB_MAX_OUTPUT_PORT_TYPE
+usr_virtual_state_cir <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_cdr
+usr_virtual_state_uir <= virtual_state_uir.DB_MAX_OUTPUT_PORT_TYPE
+usr_tms <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_tms
+usr_jtag_state_tlr <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_tlr
+usr_jtag_state_rti <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_rti
+usr_jtag_state_sdrs <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_sdrs
+usr_jtag_state_cdr <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_cdr
+usr_jtag_state_sdr <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_sdr
+usr_jtag_state_e1dr <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_e1dr
+usr_jtag_state_pdr <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_pdr
+usr_jtag_state_e2dr <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_e2dr
+usr_jtag_state_udr <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_udr
+usr_jtag_state_sirs <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_sirs
+usr_jtag_state_cir <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_cir
+usr_jtag_state_sir <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_sir
+usr_jtag_state_e1ir <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_e1ir
+usr_jtag_state_pir <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_pir
+usr_jtag_state_e2ir <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_e2ir
+usr_jtag_state_uir <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_uir
+raw_tck => raw_tck.IN1
+raw_tms => raw_tms.IN1
+tdi => tdi.IN1
+jtag_state_tlr => jtag_state_tlr.IN1
+jtag_state_rti => jtag_state_rti.IN1
+jtag_state_sdrs => jtag_state_sdrs.IN1
+jtag_state_cdr => jtag_state_cdr.IN1
+jtag_state_sdr => jtag_state_sdr.IN1
+jtag_state_e1dr => jtag_state_e1dr.IN1
+jtag_state_pdr => jtag_state_pdr.IN1
+jtag_state_e2dr => jtag_state_e2dr.IN1
+jtag_state_udr => jtag_state_udr.IN1
+jtag_state_sirs => jtag_state_sirs.IN1
+jtag_state_cir => jtag_state_cir.IN1
+jtag_state_sir => jtag_state_sir.IN1
+jtag_state_e1ir => jtag_state_e1ir.IN1
+jtag_state_pir => jtag_state_pir.IN1
+jtag_state_e2ir => jtag_state_e2ir.IN1
+jtag_state_uir => jtag_state_uir.IN1
+usr1 => usr1.IN1
+clr => clr.IN1
+ena => ena.IN1
+ir_in[0] => ir_in[0].IN1
+ir_in[1] => ir_in[1].IN1
+ir_in[2] => ir_in[2].IN1
+ir_in[3] => ir_in[3].IN1
+ir_in[4] => ir_in[4].IN1
+ir_in[5] => ir_in[5].IN1
+ir_in[6] => ir_in[6].IN1
+ir_in[7] => ir_in[7].IN1
+tdo <= sld_jtag_endpoint_adapter:jtag_signal_adapter.tdo
+ir_out[0] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
+ir_out[1] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
+ir_out[2] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
+ir_out[3] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
+ir_out[4] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
+ir_out[5] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
+ir_out[6] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
+ir_out[7] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
+
+
+|SpaceInvaders|UsbPort:uport|sld_virtual_jtag:b2v_inst|sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst|sld_jtag_endpoint_adapter:jtag_signal_adapter
+raw_tck => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.raw_tck
+raw_tms => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.raw_tms
+tdi => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.tdi
+vir_tdi => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.vir_tdi
+jtag_state_tlr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_tlr
+jtag_state_rti => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_rti
+jtag_state_sdrs => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_sdrs
+jtag_state_cdr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_cdr
+jtag_state_sdr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_sdr
+jtag_state_e1dr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_e1dr
+jtag_state_pdr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_pdr
+jtag_state_e2dr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_e2dr
+jtag_state_udr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_udr
+jtag_state_sirs => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_sirs
+jtag_state_cir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_cir
+jtag_state_sir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_sir
+jtag_state_e1ir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_e1ir
+jtag_state_pir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_pir
+jtag_state_e2ir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_e2ir
+jtag_state_uir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_uir
+usr1 => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.usr1
+clr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.clr
+ena => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ena
+ir_in[0] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[0]
+ir_in[1] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[1]
+ir_in[2] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[2]
+ir_in[3] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[3]
+ir_in[4] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[4]
+ir_in[5] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[5]
+ir_in[6] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[6]
+ir_in[7] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[7]
+tdo <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.tdo
+ir_out[0] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[0]
+ir_out[1] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[1]
+ir_out[2] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[2]
+ir_out[3] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[3]
+ir_out[4] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[4]
+ir_out[5] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[5]
+ir_out[6] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[6]
+ir_out[7] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[7]
+adapted_tck <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_tck
+adapted_tms <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_tms
+adapted_tdi <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_tdi
+adapted_vir_tdi <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_vir_tdi
+adapted_jtag_state_tlr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_tlr
+adapted_jtag_state_rti <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_rti
+adapted_jtag_state_sdrs <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_sdrs
+adapted_jtag_state_cdr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_cdr
+adapted_jtag_state_sdr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_sdr
+adapted_jtag_state_e1dr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_e1dr
+adapted_jtag_state_pdr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_pdr
+adapted_jtag_state_e2dr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_e2dr
+adapted_jtag_state_udr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_udr
+adapted_jtag_state_sirs <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_sirs
+adapted_jtag_state_cir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_cir
+adapted_jtag_state_sir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_sir
+adapted_jtag_state_e1ir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_e1ir
+adapted_jtag_state_pir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_pir
+adapted_jtag_state_e2ir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_e2ir
+adapted_jtag_state_uir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_uir
+adapted_usr1 <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_usr1
+adapted_clr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_clr
+adapted_ena <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ena
+adapted_ir_in[0] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[0]
+adapted_ir_in[1] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[1]
+adapted_ir_in[2] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[2]
+adapted_ir_in[3] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[3]
+adapted_ir_in[4] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[4]
+adapted_ir_in[5] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[5]
+adapted_ir_in[6] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[6]
+adapted_ir_in[7] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[7]
+adapted_tdo => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_tdo
+adapted_ir_out[0] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[0]
+adapted_ir_out[1] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[1]
+adapted_ir_out[2] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[2]
+adapted_ir_out[3] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[3]
+adapted_ir_out[4] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[4]
+adapted_ir_out[5] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[5]
+adapted_ir_out[6] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[6]
+adapted_ir_out[7] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[7]
+
+
+|SpaceInvaders|UsbPort:uport|sld_virtual_jtag:b2v_inst|sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst|sld_jtag_endpoint_adapter:jtag_signal_adapter|sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst
+raw_tck => adapted_tck.DATAIN
+raw_tms => adapted_tms.DATAIN
+tdi => adapted_tdi.DATAIN
+vir_tdi => adapted_vir_tdi.DATAIN
+jtag_state_tlr => adapted_jtag_state_tlr.DATAIN
+jtag_state_rti => adapted_jtag_state_rti.DATAIN
+jtag_state_sdrs => adapted_jtag_state_sdrs.DATAIN
+jtag_state_cdr => adapted_jtag_state_cdr.DATAIN
+jtag_state_sdr => adapted_jtag_state_sdr.DATAIN
+jtag_state_e1dr => adapted_jtag_state_e1dr.DATAIN
+jtag_state_pdr => adapted_jtag_state_pdr.DATAIN
+jtag_state_e2dr => adapted_jtag_state_e2dr.DATAIN
+jtag_state_udr => adapted_jtag_state_udr.DATAIN
+jtag_state_sirs => adapted_jtag_state_sirs.DATAIN
+jtag_state_cir => adapted_jtag_state_cir.DATAIN
+jtag_state_sir => adapted_jtag_state_sir.DATAIN
+jtag_state_e1ir => adapted_jtag_state_e1ir.DATAIN
+jtag_state_pir => adapted_jtag_state_pir.DATAIN
+jtag_state_e2ir => adapted_jtag_state_e2ir.DATAIN
+jtag_state_uir => adapted_jtag_state_uir.DATAIN
+usr1 => adapted_usr1.DATAIN
+clr => adapted_clr.DATAIN
+ena => adapted_ena.DATAIN
+ir_in[0] => adapted_ir_in[0].DATAIN
+ir_in[1] => adapted_ir_in[1].DATAIN
+ir_in[2] => adapted_ir_in[2].DATAIN
+ir_in[3] => adapted_ir_in[3].DATAIN
+ir_in[4] => adapted_ir_in[4].DATAIN
+ir_in[5] => adapted_ir_in[5].DATAIN
+ir_in[6] => adapted_ir_in[6].DATAIN
+ir_in[7] => adapted_ir_in[7].DATAIN
+tdo <= adapted_tdo.DB_MAX_OUTPUT_PORT_TYPE
+ir_out[0] <= adapted_ir_out[0].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[1] <= adapted_ir_out[1].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[2] <= adapted_ir_out[2].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[3] <= adapted_ir_out[3].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[4] <= adapted_ir_out[4].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[5] <= adapted_ir_out[5].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[6] <= adapted_ir_out[6].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[7] <= adapted_ir_out[7].DB_MAX_OUTPUT_PORT_TYPE
+adapted_tck <= raw_tck.DB_MAX_OUTPUT_PORT_TYPE
+adapted_tms <= raw_tms.DB_MAX_OUTPUT_PORT_TYPE
+adapted_tdi <= tdi.DB_MAX_OUTPUT_PORT_TYPE
+adapted_vir_tdi <= vir_tdi.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_tlr <= jtag_state_tlr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_rti <= jtag_state_rti.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_sdrs <= jtag_state_sdrs.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_cdr <= jtag_state_cdr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_sdr <= jtag_state_sdr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_e1dr <= jtag_state_e1dr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_pdr <= jtag_state_pdr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_e2dr <= jtag_state_e2dr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_udr <= jtag_state_udr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_sirs <= jtag_state_sirs.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_cir <= jtag_state_cir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_sir <= jtag_state_sir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_e1ir <= jtag_state_e1ir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_pir <= jtag_state_pir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_e2ir <= jtag_state_e2ir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_uir <= jtag_state_uir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_usr1 <= usr1.DB_MAX_OUTPUT_PORT_TYPE
+adapted_clr <= clr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_ena <= ena.DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[0] <= ir_in[0].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[1] <= ir_in[1].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[2] <= ir_in[2].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[3] <= ir_in[3].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[4] <= ir_in[4].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[5] <= ir_in[5].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[6] <= ir_in[6].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[7] <= ir_in[7].DB_MAX_OUTPUT_PORT_TYPE
+adapted_tdo => tdo.DATAIN
+adapted_ir_out[0] => ir_out[0].DATAIN
+adapted_ir_out[1] => ir_out[1].DATAIN
+adapted_ir_out[2] => ir_out[2].DATAIN
+adapted_ir_out[3] => ir_out[3].DATAIN
+adapted_ir_out[4] => ir_out[4].DATAIN
+adapted_ir_out[5] => ir_out[5].DATAIN
+adapted_ir_out[6] => ir_out[6].DATAIN
+adapted_ir_out[7] => ir_out[7].DATAIN
+
+
+|SpaceInvaders|SLCDC:LCD
+rst => SerialReceiver:SReceiver.rst
+rst => LcdDispatcher:Dispatcher.rst
+clk => SerialReceiver:SReceiver.clk
+clk => LcdDispatcher:Dispatcher.clk
+LCDsel => SerialReceiver:SReceiver.SS
+Sclk => SerialReceiver:SReceiver.SCLK
+SDX => SerialReceiver:SReceiver.SDX
+Wrl <= LcdDispatcher:Dispatcher.Wrl
+Dout[0] <= LcdDispatcher:Dispatcher.Dout[0]
+Dout[1] <= LcdDispatcher:Dispatcher.Dout[1]
+Dout[2] <= LcdDispatcher:Dispatcher.Dout[2]
+Dout[3] <= LcdDispatcher:Dispatcher.Dout[3]
+Dout[4] <= LcdDispatcher:Dispatcher.Dout[4]
+Dout[5] <= LcdDispatcher:Dispatcher.Dout[5]
+Dout[6] <= LcdDispatcher:Dispatcher.Dout[6]
+Dout[7] <= LcdDispatcher:Dispatcher.Dout[7]
+Dout[8] <= LcdDispatcher:Dispatcher.Dout[8]
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver
+rst => SerialControl:SC.rst
+rst => ShiftRegister:ShRegister.RST
+clk => SerialControl:SC.clk
+SDX => ParityCheck:Pcheck.data
+SDX => ShiftRegister:ShRegister.data
+SCLK => ParityCheck:Pcheck.clk
+SCLK => ShiftRegister:ShRegister.CLK
+SCLK => Cont:Counter.Clk
+SCLK => Spflag.IN1
+SCLK => Sdflag.IN1
+SS => SerialControl:SC.enRx
+accept => SerialControl:SC.accept
+D[0] <= ShiftRegister:ShRegister.D[0]
+D[1] <= ShiftRegister:ShRegister.D[1]
+D[2] <= ShiftRegister:ShRegister.D[2]
+D[3] <= ShiftRegister:ShRegister.D[3]
+D[4] <= ShiftRegister:ShRegister.D[4]
+D[5] <= ShiftRegister:ShRegister.D[5]
+D[6] <= ShiftRegister:ShRegister.D[6]
+D[7] <= ShiftRegister:ShRegister.D[7]
+D[8] <= ShiftRegister:ShRegister.D[8]
+DXval <= SerialControl:SC.DXval
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|SerialControl:SC
+rst => CurrentState~3.DATAIN
+clk => CurrentState~1.DATAIN
+enRx => NextState.OUTPUTSELECT
+enRx => NextState.OUTPUTSELECT
+enRx => NextState.OUTPUTSELECT
+enRx => NextState.OUTPUTSELECT
+enRx => NextState.OUTPUTSELECT
+enRx => Selector0.IN2
+enRx => NextState.STATE_001.DATAB
+enRx => Selector1.IN1
+accept => Selector0.IN3
+accept => Selector3.IN2
+pFlag => NextState.OUTPUTSELECT
+pFlag => NextState.OUTPUTSELECT
+pFlag => NextState.DATAA
+dFlag => NextState.DATAA
+dFlag => NextState.DATAA
+RXerror => NextState.DATAA
+RXerror => NextState.DATAA
+wr <= wr.DB_MAX_OUTPUT_PORT_TYPE
+init <= init.DB_MAX_OUTPUT_PORT_TYPE
+DXval <= DXval.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|ParityCheck:Pcheck
+data => Cont1bit:counter.CE
+init => Cont1bit:counter.R
+clk => Cont1bit:counter.Clk
+err <= Cont1bit:counter.Q
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|ParityCheck:Pcheck|Cont1bit:counter
+R => ContadorCrescente1bit:U1.Reset
+CE => ContadorCrescente1bit:U1.CE
+Clk => ContadorCrescente1bit:U1.CLK
+Q <= ContadorCrescente1bit:U1.S
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|ParityCheck:Pcheck|Cont1bit:counter|ContadorCrescente1bit:U1
+DataIn => MuxCont1bit:CC_MUX.X
+PL => MuxCont1bit:CC_MUX.S
+CE => adder1bit:CC_Adder.A
+CLK => Registo1bit:CC_Reg.Clk
+Reset => Registo1bit:CC_Reg.Reset
+TC <= Registo1bit:CC_Reg.S
+S <= Registo1bit:CC_Reg.S
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|ParityCheck:Pcheck|Cont1bit:counter|ContadorCrescente1bit:U1|Registo1bit:CC_Reg
+A => FFD:FFD1.D
+Clk => FFD:FFD1.CLK
+Reset => FFD:FFD1.RESET
+E => FFD:FFD1.EN
+S <= FFD:FFD1.Q
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|ParityCheck:Pcheck|Cont1bit:counter|ContadorCrescente1bit:U1|Registo1bit:CC_Reg|FFD:FFD1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|ParityCheck:Pcheck|Cont1bit:counter|ContadorCrescente1bit:U1|adder1bit:CC_Adder
+A => FA:FA1.A
+B => FA:FA1.B
+C0 => FA:FA1.Ci
+S <= FA:FA1.S
+C4 <= comb.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|ParityCheck:Pcheck|Cont1bit:counter|ContadorCrescente1bit:U1|adder1bit:CC_Adder|FA:FA1
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|ParityCheck:Pcheck|Cont1bit:counter|ContadorCrescente1bit:U1|adder1bit:CC_Adder|FA:FA1|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|ParityCheck:Pcheck|Cont1bit:counter|ContadorCrescente1bit:U1|adder1bit:CC_Adder|FA:FA1|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|ParityCheck:Pcheck|Cont1bit:counter|ContadorCrescente1bit:U1|MuxCont1bit:CC_MUX
+X => R.IN0
+Y => R.IN0
+S => R.IN1
+S => R.IN1
+R <= R.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|ShiftRegister:ShRegister
+CLK => FFD:U1.CLK
+CLK => FFD:U2.CLK
+CLK => FFD:U3.CLK
+CLK => FFD:U4.CLK
+CLK => FFD:U5.CLK
+CLK => FFD:U6.CLK
+CLK => FFD:U7.CLK
+CLK => FFD:U8.CLK
+CLK => FFD:U9.CLK
+RST => FFD:U1.RESET
+RST => FFD:U2.RESET
+RST => FFD:U3.RESET
+RST => FFD:U4.RESET
+RST => FFD:U5.RESET
+RST => FFD:U6.RESET
+RST => FFD:U7.RESET
+RST => FFD:U8.RESET
+RST => FFD:U9.RESET
+data => FFD:U1.D
+enable => FFD:U1.EN
+enable => FFD:U2.EN
+enable => FFD:U3.EN
+enable => FFD:U4.EN
+enable => FFD:U5.EN
+enable => FFD:U6.EN
+enable => FFD:U7.EN
+enable => FFD:U8.EN
+enable => FFD:U9.EN
+D[0] <= FFD:U9.Q
+D[1] <= FFD:U8.Q
+D[2] <= FFD:U7.Q
+D[3] <= FFD:U6.Q
+D[4] <= FFD:U5.Q
+D[5] <= FFD:U4.Q
+D[6] <= FFD:U3.Q
+D[7] <= FFD:U2.Q
+D[8] <= FFD:U1.Q
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|ShiftRegister:ShRegister|FFD:U1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|ShiftRegister:ShRegister|FFD:U2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|ShiftRegister:ShRegister|FFD:U3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|ShiftRegister:ShRegister|FFD:U4
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|ShiftRegister:ShRegister|FFD:U5
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|ShiftRegister:ShRegister|FFD:U6
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|ShiftRegister:ShRegister|FFD:U7
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|ShiftRegister:ShRegister|FFD:U8
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|ShiftRegister:ShRegister|FFD:U9
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|Cont:Counter
+R => ContadorCrescente:U1.Reset
+CE => ContadorCrescente:U1.CE
+Clk => ContadorCrescente:U1.CLK
+Q[0] <= ContadorCrescente:U1.S[0]
+Q[1] <= ContadorCrescente:U1.S[1]
+Q[2] <= ContadorCrescente:U1.S[2]
+Q[3] <= ContadorCrescente:U1.S[3]
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|Cont:Counter|ContadorCrescente:U1
+DataIn[0] => MuxCont:CC_MUX.X[0]
+DataIn[1] => MuxCont:CC_MUX.X[1]
+DataIn[2] => MuxCont:CC_MUX.X[2]
+DataIn[3] => MuxCont:CC_MUX.X[3]
+PL => MuxCont:CC_MUX.S
+CE => adder4:CC_Adder.A[0]
+CLK => Registo:CC_Reg.Clk
+Reset => Registo:CC_Reg.Reset
+TC <= TC.DB_MAX_OUTPUT_PORT_TYPE
+S[0] <= Registo:CC_Reg.S[0]
+S[1] <= Registo:CC_Reg.S[1]
+S[2] <= Registo:CC_Reg.S[2]
+S[3] <= Registo:CC_Reg.S[3]
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|Cont:Counter|ContadorCrescente:U1|Registo:CC_Reg
+A[0] => FFD:FFD1.D
+A[1] => FFD:FFD2.D
+A[2] => FFD:FFD3.D
+A[3] => FFD:FFD4.D
+Clk => FFD:FFD1.CLK
+Clk => FFD:FFD2.CLK
+Clk => FFD:FFD3.CLK
+Clk => FFD:FFD4.CLK
+Reset => FFD:FFD1.RESET
+Reset => FFD:FFD2.RESET
+Reset => FFD:FFD3.RESET
+Reset => FFD:FFD4.RESET
+E => FFD:FFD1.EN
+E => FFD:FFD2.EN
+E => FFD:FFD3.EN
+E => FFD:FFD4.EN
+S[0] <= FFD:FFD1.Q
+S[1] <= FFD:FFD2.Q
+S[2] <= FFD:FFD3.Q
+S[3] <= FFD:FFD4.Q
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|Cont:Counter|ContadorCrescente:U1|Registo:CC_Reg|FFD:FFD1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|Cont:Counter|ContadorCrescente:U1|Registo:CC_Reg|FFD:FFD2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|Cont:Counter|ContadorCrescente:U1|Registo:CC_Reg|FFD:FFD3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|Cont:Counter|ContadorCrescente:U1|Registo:CC_Reg|FFD:FFD4
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder
+A[0] => FA:FA1.A
+A[1] => FA:FA2.A
+A[2] => FA:FA3.A
+A[3] => FA:FA4.A
+B[0] => FA:FA1.B
+B[1] => FA:FA2.B
+B[2] => FA:FA3.B
+B[3] => FA:FA4.B
+C0 => FA:FA1.Ci
+S[0] <= FA:FA1.S
+S[1] <= FA:FA2.S
+S[2] <= FA:FA3.S
+S[3] <= FA:FA4.S
+C4 <= FA:FA4.Co
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA1
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA1|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA1|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA2
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA2|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA2|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA3
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA3|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA3|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA4
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA4|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA4|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SLCDC:LCD|SerialReceiver:SReceiver|Cont:Counter|ContadorCrescente:U1|MuxCont:CC_MUX
+X[0] => R.IN0
+X[1] => R.IN0
+X[2] => R.IN0
+X[3] => R.IN0
+Y[0] => R.IN0
+Y[1] => R.IN0
+Y[2] => R.IN0
+Y[3] => R.IN0
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+R[0] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[1] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[2] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[3] <= R.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SLCDC:LCD|LcdDispatcher:Dispatcher
+rst => CurrentState~3.DATAIN
+clk => CurrentState~1.DATAIN
+Dval => NextState.STATE_01.DATAB
+Dval => Selector0.IN2
+Din[0] => Dout[0].DATAIN
+Din[1] => Dout[1].DATAIN
+Din[2] => Dout[2].DATAIN
+Din[3] => Dout[3].DATAIN
+Din[4] => Dout[4].DATAIN
+Din[5] => Dout[5].DATAIN
+Din[6] => Dout[6].DATAIN
+Din[7] => Dout[7].DATAIN
+Din[8] => Dout[8].DATAIN
+Wrl <= Wrl.DB_MAX_OUTPUT_PORT_TYPE
+Dout[0] <= Din[0].DB_MAX_OUTPUT_PORT_TYPE
+Dout[1] <= Din[1].DB_MAX_OUTPUT_PORT_TYPE
+Dout[2] <= Din[2].DB_MAX_OUTPUT_PORT_TYPE
+Dout[3] <= Din[3].DB_MAX_OUTPUT_PORT_TYPE
+Dout[4] <= Din[4].DB_MAX_OUTPUT_PORT_TYPE
+Dout[5] <= Din[5].DB_MAX_OUTPUT_PORT_TYPE
+Dout[6] <= Din[6].DB_MAX_OUTPUT_PORT_TYPE
+Dout[7] <= Din[7].DB_MAX_OUTPUT_PORT_TYPE
+Dout[8] <= Din[8].DB_MAX_OUTPUT_PORT_TYPE
+done <= done.DB_MAX_OUTPUT_PORT_TYPE
+
+

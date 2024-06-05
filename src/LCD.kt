@@ -134,17 +134,18 @@ fun main() {
     SerialEmitter.init()
     LCD.init()
 
+
    // while (true);
 
-/*
-    LCD.write("Hello")
-    LCD.cursor(1, 3)
-    LCD.write("LIC")
-    LCD.clear()
- */
+
+    //LCD.write("Hello")
+    //LCD.cursor(1, 3)
+    //LCD.write("LIC")
+    //LCD.clear()
 
 
-  //testKBD_LCD()
+
+  testKBD_LCD()
 
 
 
@@ -158,9 +159,10 @@ fun testKBD_LCD(){
     var c = 0
     while (true){
 
-            val key = KBD.waitKey(1000)
+            val key = KBD.waitKey(3000)
             if (key != 0.toChar()){
                 LCD.write(key)
+                println(key)
                 c++
             }
             if (c == 15){

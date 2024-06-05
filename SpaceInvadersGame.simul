@@ -52,7 +52,7 @@ UsbPort.O7 -> ob.ACK
 # SLCDC
 # --------------------------------------
 # Serial Receiver
-UsbPort.O7 -> srl./SS
+UsbPort.O5 -> srl./SS
 UsbPort.O0 -> srl.SDX
 UsbPort.O4-> srl.SCLK
 srl.DXval -> dl.Dval
@@ -68,8 +68,8 @@ dl.done -> srl.accept
 # SSC
 # --------------------------------------
 # Serial Receiver
-UsbPort.O1  -> srs./SS
-UsbPort.O3  -> srs.SDX
+UsbPort.O6  -> srs./SS
+UsbPort.O0  -> srs.SDX
 UsbPort.O4  -> srs.SCLK
 srs.Dxval   -> sc.Dval
 srs.D[0-6]  -> sc.I[0-6]
