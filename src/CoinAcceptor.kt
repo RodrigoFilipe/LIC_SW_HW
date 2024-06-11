@@ -10,8 +10,21 @@ object CoinAcceptor {
 
     fun checkCoin(){
         if(HAL.isBit(coinMask)){
-
+            println("coin added")
+            HAL.setBits(acceptMask)
         }
+        else{
+            println()
+            HAL.clrBits(acceptMask)
+        }
+        Thread.sleep(500)
     }
 
+}
+fun main(){
+    HAL.init()
+    CoinAcceptor.init()
+    while (true){
+        CoinAcceptor.checkCoin()
+    }
 }
