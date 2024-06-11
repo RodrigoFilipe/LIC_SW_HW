@@ -154,17 +154,17 @@ class coinBox (){
         println("Exist $coins : coins, $credits : credits")
     }
     fun zeroCoin() {
-        coins = 0
-        credits = 0
+        this.coins = 0
+        this.credits = 0
     }
     fun readFile() {
 
     }
     fun writeFile (){
-        var dataScore = mutableListOf<MutableList<Any>>()
+        var dataContability = mutableListOf<MutableList<Any>>()
         var data = mutableListOf<Any>(coins,coins*2-credits)
-        dataScore.add(data)
-        fileSystem().writeFile("cumulativeScore.txt", dataScore)
+        dataContability.add(data)
+        fileSystem().writeFile("contability.txt", dataContability)
     }
 }
 fun gameOver (){
@@ -218,6 +218,12 @@ class scoreGamers(){
 
     }
     fun writeFile (){
+        var dataScore = mutableListOf<MutableList<Any>>()
+        for(i in scoreList.indices) {
+            var data = mutableListOf<Any>(scoreList[i].nome, scoreList[i].scoreValue)
+            dataScore.add(data)
+            fileSystem().writeFile("cumulativeScore.txt", dataScore)
+        }
 
     }
 }
@@ -243,6 +249,7 @@ fun game () { // com  list
             if (myinvaderList.killnave(mynave.getLine()) == 0) {
                 liveInvader = false
                 currTime = Time.getTimeInMillis() - currTime
+                scoreGamers().insertScore("teste", score)
             }
         }
         println("score ${score}\n")
@@ -319,6 +326,8 @@ fun maintenance(mycoin: coinBox): Boolean {
         option = readln()
         if (option == "0") {
             println("encerrado")
+            mycoin.writeFile()
+            scoreGamers().writeFile()
             return true
         }
         if (option == "1") {
@@ -330,7 +339,9 @@ fun maintenance(mycoin: coinBox): Boolean {
             mycoin.viewCoinBox()
             val option = readln()
             if (option == "*") {
+                mycoin.zeroCoin()
                 println("limpar contadores")
+
             }
         }
     }
@@ -343,43 +354,13 @@ fun maintenance(mycoin: coinBox): Boolean {
 
 fun main(args: Array<String>) {
 
-    var dataContability = mutableListOf<MutableList<Any>>()
-    var data = mutableListOf<Any>("Aaaaaa", 1)
-    dataContability.add(data)
-    data = mutableListOf<Any>("Bbbbbbbbbb", 23)
-    dataContability.add(data)
-    fileSystem().writeFile("contability.txt", dataContability)
-
-    var dataScore = mutableListOf<MutableList<Any>>()
-    data = mutableListOf<Any>(20,40)
-    dataScore.add(data)
-    fileSystem().writeFile("cumulativeScore.txt", dataScore)
-
-   // var dataScore = mutableListOf<Any>  (mutableListOf("Aaaaaa", 40) , mutableListOf("Bbbbbbb", 30),mutableListOf ("Ccccccccc", 15))
-   // val myScoreTable = fileSystem().writeFile("scoreTable. txt", dataContability)
-
-     /* testes de lis
-     val myinvaderList = invaderSquadron()
-
-     myinvaderList.insertInvaderSquadron()
-     myinvaderList.insertInvaderSquadron()
-     myinvaderList.showinvaderSquadron()
-     myinvaderList.setInvaderSquadron()
-     myinvaderList.showinvaderSquadron()
-     myinvaderList.setInvaderSquadron()
-     myinvaderList.showinvaderSquadron()
-     val myinvader = myinvaderList.getInvaderSquadron()
-     //myinvaderList.killInvaderSauadron(myinvader)
-     myinvaderList.showinvaderSquadron()
-     myinvaderList.insertInvaderSquadron()
-     myinvaderList.insertInvaderSquadron()
-     myinvaderList.showinvaderSquadron()
-
-
-    */
-     var flagSwitchOff: Boolean = false
+    var flagSwitchOff: Boolean = false
      //var stateMaintenance: Boolean = false
-     var mycoin = coinBox()
+    var mycoin = coinBox()
+    //while (mycoin.getCredits() == 0) {
+        //avaliar coin
+
+ //   }
      while (!flagSwitchOff) {
          println("maintenance options y/n")
          val option = readln()
