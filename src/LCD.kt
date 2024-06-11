@@ -138,7 +138,7 @@ fun main() {
    // while (true);
 
 
-    //LCD.write("Hello")
+    LCD.write("Hello")
     //LCD.cursor(1, 3)
     //LCD.write("LIC")
     //LCD.clear()

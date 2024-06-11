@@ -11,7 +11,7 @@ import javax.swing.JTable
 
 class nave {
     private var line = 1
-    private var shot = -1,
+    private var shot = -1
 
     fun getLine(): Int {
         return line
@@ -163,7 +163,7 @@ class coinBox (){
     fun writeFile (){
         var dataScore = mutableListOf<MutableList<Any>>()
         var data = mutableListOf<Any>(coins,coins*2-credits)
-        dataScore.addLast(data)
+        dataScore.add(data)
         fileSystem().writeFile("cumulativeScore.txt", dataScore)
     }
 }
@@ -345,14 +345,14 @@ fun main(args: Array<String>) {
 
     var dataContability = mutableListOf<MutableList<Any>>()
     var data = mutableListOf<Any>("Aaaaaa", 1)
-    dataContability.addLast(data)
+    dataContability.add(data)
     data = mutableListOf<Any>("Bbbbbbbbbb", 23)
-    dataContability.addLast(data)
+    dataContability.add(data)
     fileSystem().writeFile("contability.txt", dataContability)
 
     var dataScore = mutableListOf<MutableList<Any>>()
     data = mutableListOf<Any>(20,40)
-    dataScore.addLast(data)
+    dataScore.add(data)
     fileSystem().writeFile("cumulativeScore.txt", dataScore)
 
    // var dataScore = mutableListOf<Any>  (mutableListOf("Aaaaaa", 40) , mutableListOf("Bbbbbbb", 30),mutableListOf ("Ccccccccc", 15))
