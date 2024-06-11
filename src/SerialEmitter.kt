@@ -1,10 +1,10 @@
 object SerialEmitter { // Envia tramas para os diferentes módulos Serial Receiver.
     enum class Destination {LCD, SCORE}
-    private val LCD_sel = 0x20
-    private val SC_sel = 0x40
-    private val SDX = 0x01
+    private val LCD_sel = 0x20 //outputPort(5)
+    private val SC_sel = 0x40 //outputPort(6)
+    private val SDX = 0x01 //outputPort(0)
 
-    private val SCLK = 0x10
+    private val SCLK = 0x10 //outputPort(4)
     // Inicia a classe
     fun init(){
         HAL.setBits(SC_sel)
