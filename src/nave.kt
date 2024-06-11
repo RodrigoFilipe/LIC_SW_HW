@@ -11,7 +11,7 @@ import javax.swing.JTable
 
 class nave {
     private var line = 1
-    private var shot = -1
+    private var shot = -1,
 
     fun getLine(): Int {
         return line

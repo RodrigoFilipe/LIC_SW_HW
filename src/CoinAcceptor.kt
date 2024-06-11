@@ -9,7 +9,9 @@ object CoinAcceptor {
     }
 
     fun checkCoin(){
-        if
+        if(HAL.isBit(coinMask)){
+
+        }
     }
 
 }
