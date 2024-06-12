@@ -56,7 +56,7 @@ object LCD { // Escreve no LCD usando a interface a 4 bits.
         }else{
             shiftedData
         }
-       SerialEmitter.send(SerialEmitter.Destination.LCD, d, LCDsize)
+        SerialEmitter.send(SerialEmitter.Destination.LCD, d, LCDsize)
     }
 
     // Escreve um byte de comando/dados no LCD
@@ -104,6 +104,52 @@ object LCD { // Escreve no LCD usando a interface a 4 bits.
             write(i)
     }
 
+
+    fun textLine(line: Int, text: String) {
+        LCD.clear(line, 0)
+        LCD.cursor(line, 0)
+        if (text.length < 17){
+            LCD.write( text)
+        }
+        /*
+        else{
+            val textwhite = "$text                "
+            var begin = 0
+            var end = 15
+            var textDisplay = textwhite.subSequence(begin,end)
+            while (true) {
+                println("$textDisplay, $begin")
+                LCD.write(textDisplay.toString())
+                getSleep(1)
+                begin++
+                end++
+                if (begin ==  15 ){
+                    end = 15
+                    break
+                }
+                textDisplay = textwhite.subSequence(begin,end)
+            }
+        }*/
+    }
+
+    fun placardMaintenance(text: Array<String>) {
+
+        textLine(0, text.get(0))
+        for (i in 1..text.size - 1) {
+            textLine(1, text.get(i))
+            getSleep(10)
+        }
+    }
+    fun placard(line0: Boolean, line1: Boolean, text0: String, text1: String) {
+        if (line0) {
+            textLine(0, text0)
+        }
+        if (line1){
+            textLine(1,text1)
+        }
+    }
+
+
     // Envia comando para posicionar cursor (‘line’:0..LINES-1 , ‘column’:0..COLS-1)
     fun cursor(line: Int, column: Int) {
         if (line == -1){
@@ -127,7 +173,13 @@ object LCD { // Escreve no LCD usando a interface a 4 bits.
         writeCMD(0x01)
         cursor = Pos()
     }
+
+    fun clear(line: Int, column: Int) {
+        LCD.cursor(line, column)
+        LCD.write("                ")  }
 }
+
+
 
 fun main() {
     HAL.init()
@@ -135,7 +187,7 @@ fun main() {
     LCD.init()
 
 
-   // while (true);
+    // while (true);
 
 
     LCD.write("Hello")
@@ -145,7 +197,7 @@ fun main() {
 
 
 
-  testKBD_LCD()
+    testKBD_LCD()
 
 
 
@@ -159,16 +211,16 @@ fun testKBD_LCD(){
     var c = 0
     while (true){
 
-            val key = KBD.waitKey(3000)
-            if (key != 0.toChar()){
-                LCD.write(key)
-                println(key)
-                c++
-            }
-            if (c == 15){
-                LCD.clear()
-                c = 0
-            }
+        val key = KBD.waitKey(3000)
+        if (key != 0.toChar()){
+            LCD.write(key)
+            println(key)
+            c++
+        }
+        if (c == 15){
+            LCD.clear()
+            c = 0
+        }
 
 
     }

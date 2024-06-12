@@ -1,24 +1,28 @@
-import isel.leic.UsbPort
-
 object CoinAcceptor {
     const val acceptMask = 0x02
     const val coinMask = 0x40
+
 
     fun init(){
         HAL.clrBits(coinMask)
     }
 
-    fun checkCoin(){
+    fun checkCoin(): Boolean{
         if(HAL.isBit(coinMask)){
-            println("coin added")
             HAL.setBits(acceptMask)
+
+            while (HAL.isBit(coinMask));
+            Thread.sleep(500)
+            HAL.clrBits(acceptMask)
+
+            println("coin added")
+            return true
         }
         else{
-            println()
-            HAL.clrBits(acceptMask)
+            return false
         }
-        Thread.sleep(500)
     }
+
 
 }
 fun main(){
