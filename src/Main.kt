@@ -40,7 +40,7 @@ fun main(args: Array<String>) {
 
     //var coinAccept = CoinAcceptor
     var dataStore = scoreGamers()
-    //var newCoin = CoinAcceptor
+    var newCoin = CoinAcceptor
 
     while (flagSwitchOff) {
 
