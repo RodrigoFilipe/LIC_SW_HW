@@ -44,17 +44,7 @@ fun main(){
     HAL.init()
     SerialEmitter.init()
     ScoreDisplay.init()
-    //ScoreDisplay.setScore(3)
-    /*SerialEmitter.send(SerialEmitter.Destination.SCORE, 0x08, 7)
-    Thread.sleep(1000)
-    SerialEmitter.send(SerialEmitter.Destination.SCORE, 0x06, 7)
-    Thread.sleep(1000)
-    SerialEmitter.send(SerialEmitter.Destination.SCORE, 0x40, 7)
-    Thread.sleep(1000)
-    SerialEmitter.send(SerialEmitter.Destination.SCORE, 0x06, 7)
 
-    SerialEmitter.send(SerialEmitter.Destination.SCORE, 0x45, 7)
-    SerialEmitter.send(SerialEmitter.Destination.SCORE, 0x06, 7)*/
     ScoreDisplay.setScore(999999)
     Thread.sleep(1000)
     ScoreDisplay.setScore(1200001)
