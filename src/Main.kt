@@ -40,15 +40,15 @@ fun main(args: Array<String>) {
 
     //var coinAccept = CoinAcceptor
     var dataStore = scoreGamers()
-    var newCoin = CoinAcceptor
+    //var newCoin = CoinAcceptor
 
     while (flagSwitchOff) {
 
-        getSleep()
+        //getSleep()
         //println("--------- inserir moeda ${Time.getTimeInMillis()}, coins ${newCoin.checkCoin()} ${CoinAcceptor.checkCoin()}, ${mycoin.getCredits()}")
         if (newCoin.checkCoin()){
             mycoin.insertCoin(1)
-            updateCredits(mycoin.getCredits())
+            updateCredits(mycoin.existCredits())
         }
 
         manutencao.enterManut()
