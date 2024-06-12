@@ -11,12 +11,12 @@ object ScoreDisplay { // Controla o mostrador de pontuação.
 
 
     // Envia comando para atualizar o valor do mostrador de pontuação
-    fun setScore(value: Int){
-        if (value <= 999999){
+    fun setScore(value: Int) {
+        if (value <= 999999) {
             var v = value
             var cmd = 0
 
-            while (v != 0 && cmd < 6){
+            while (v != 0 && cmd < 6) {
                 var data = v % 10
                 data = (data.shl(3)).or(cmd)
                 SerialEmitter.send(SerialEmitter.Destination.SCORE, data, 7)
@@ -26,7 +26,7 @@ object ScoreDisplay { // Controla o mostrador de pontuação.
                 v /= 10
             }
         }
-
+    }
 
     }
     // Envia comando para desativar/ativar a visualização do mostrador de pontuação
@@ -38,7 +38,7 @@ object ScoreDisplay { // Controla o mostrador de pontuação.
             SerialEmitter.send(SerialEmitter.Destination.SCORE, 0x70, 7)
         }
     }
-}
+
 
 fun main(){
     HAL.init()

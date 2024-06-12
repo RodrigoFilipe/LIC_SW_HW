@@ -1,2 +1,20 @@
-teste+15, 15
-teste+15, 15
+teste40,40
+teste10,10
+teste10,10
+teste20,20
+teste15,15
+teste20,20
+teste5,5
+teste50,50
+teste25,25
+teste35,35
+teste30,30
+teste15,15
+teste20,20
+teste45,45
+teste20,20
+teste45,45
+teste20,20
+teste30,30
+teste45,45
+teste25,25

@@ -1,13 +1,9 @@
 import kotlin.random.Random
 import isel.leic.utils.Time
-import java.awt.print.Printable
-import java.time.LocalDateTime
-import java.time.LocalTime
-import java.util.Scanner
+import java.io.BufferedReader
 import java.util.LinkedList
 import java.io.File
-import java.io.InputStream
-import javax.swing.JTable
+import java.io.FileReader
 
 class nave {
     private var line = 1
@@ -130,86 +126,91 @@ class invaderSquadron() {
         //return 0
     }
 }
-
 class coinBox (){
     private var coins = 0
     private var credits = 0
-    fun insertCoin(mycoin: Int){
-        coins += mycoin
-        credits += 2*mycoin
+    private var games = 0
+    val fileName = "contability.txt"
+    fun insertCoin(coin: Int){
+        this.coins += coin
+        this.credits += coin*2
     }
-    fun getCredits(): Boolean{
-        if (credits == 0) {
-            return false
-        }
-        return true
+    fun insertCoin(coin: Int, games: Int){
+        this.coins = coin
+        this.games = games
+    }
+    fun getCoins(): Int{
+        return coins
     }
     fun setCoins() {
         coins = 0
+        credits = 0
+        games = 0
+    }
+    fun getCredits(): Boolean{
+        if (credits > 0){
+            return true
+        }
+        return false
     }
     fun setCredits() {
-        credits--
+        this.credits--
+        this.games++
     }
     fun viewCoinBox() {
         println("Exist $coins : coins, $credits : credits")
     }
+    fun viewCounters() {
+        println("Exist $coins : coins, $games: games")
+    }
     fun zeroCoin() {
-        this.coins = 0
-        this.credits = 0
+        coins = 0
+        credits = 0
     }
     fun readFile() {
-
+        val br = BufferedReader(FileReader(fileName))
+        val line = br.readLine()
+        val str = line!!.split(",")
+        insertCoin(str[0].toString().toInt(), str[1].toString().toInt())
     }
     fun writeFile (){
-        var dataContability = mutableListOf<MutableList<Any>>()
-        var data = mutableListOf<Any>(coins,coins*2-credits)
-        dataContability.add(data)
-        fileSystem().writeFile("contability.txt", dataContability)
-    }
-}
-fun gameOver (){
-}
-
-class fileSystem(){
-  //  fun readFile (file: File): Int {
-
-   // }
-    fun writeFile (name: String, data: MutableList<MutableList<Any>>){
-                   //data: mutableListOf<MutableList<Any>>) {
-        val fileName = name
         val myFile = File(fileName)
-        var content = data.removeFirst().toString().drop(1).dropLast(1)
-        myFile.writeText(content+"\n")
-        for (i in data.indices) {
-            content = data.removeFirst().toString().drop(1).dropLast(1)
-            myFile.appendText(content + "\n")
-        }
+        var data = ("${coins},${games}")
+        myFile.writeText(data.toString())
+
         println("Written to the file")
     }
 }
 
-class scoreGamers(){
-    object scoreRegister {
-        var nome =  ""
-        var scoreValue = 0
-    }
-    var scoreList = LinkedList<scoreRegister>()
+    fun gameOver (){
+}
 
+class fileSystem(){
+
+}
+
+class scoreRegister(){
+    var nome =  ""
+    var scoreValue = 0
+}
+
+class scoreGamers(){
+
+    var scoreList: MutableList<scoreRegister> = emptyList<scoreRegister>().toMutableList()
+    val fileName = "cumulativeScore.txt"
     fun insertScore(nome: String, scoreValue: Int) {
         if (scoreList.size == 20) {
             scoreList.removeLast()
         }
-        var newregister = scoreRegister
+        var newregister = scoreRegister()
         newregister.nome = nome
         newregister.scoreValue = scoreValue
-        println("${newregister.nome} , ${newregister.scoreValue}, ${scoreList.size}")
-        scoreList.add(0, newregister)
-        for (i in scoreList.indices) {
-            println("valores inseridos ${scoreList[i].nome} , ${scoreList[i].scoreValue}, ${scoreList.size}")
-        }
+        println("${nome} , ${scoreValue}, ${scoreList.size}")
+        var data = mutableListOf<Any>(nome, scoreValue)
+        scoreList.addLast(newregister)
         scoreList.sortByDescending { scoreValue }
     }
-    fun createListScore(): LinkedList<scoreRegister> {
+    fun createListScore(): MutableList<scoreRegister>{
         return scoreList
     }
     fun compareScore(value: Int): Boolean{
@@ -219,17 +220,31 @@ class scoreGamers(){
         return false
     }
     fun readFile (){
-
+        val br = BufferedReader(FileReader(fileName))
+        var line = br.readLine()
+        while (line != null){
+            val str = line!!.split(",")
+            insertScore(str[0].toString(), str[1].toString().toInt())
+            line = br.readLine()
+        }
     }
     fun writeFile (){
-        var dataScore = mutableListOf<MutableList<Any>>()
-        for(i in scoreList.indices) {
-            println("${i} - ${scoreList[i].nome}, ${scoreList[i].scoreValue}")
-            dataScore.add(mutableListOf<Any>(scoreList[i].nome, scoreList[i].scoreValue))
+        val myFile = File(fileName)
+        for (i in scoreList.indices) {
+            val content = scoreList[i].nome + "," + scoreList[i].scoreValue + "\n"
+            print("content, $i")
+            if (i == 0){
+               myFile.writeText(content)
+            }
+            else{
+                //myFile.appendText("${scoreList.removeFirst().nome}, ${scoreList.removeFirst().scoreValue}\n")
+                myFile.appendText(content)
+            }
         }
-        fileSystem().writeFile("cumulativeScore.txt", dataScore)
+        println("Written to the file")
     }
-}
+
+    }
 fun game (dataStore: scoreGamers): scoreGamers{ // com  list
     val myinvaderList = invaderSquadron()
     myinvaderList.insertInvaderSquadron()
@@ -267,32 +282,32 @@ class data () {
     }
 }
 fun maintenance(mycoin: coinBox, dataStore: scoreGamers): Boolean {
-    var option: String = "-1"
-    while (option != "9") {
+    var option: Char = 'I'
+    while (option != '9') {
+        getSleep()
         println(
             "maintenance options\n" +
-                    "0 - Game switch Off\n" +
+                    "0 - Game Off\n" +
                     "1 - Game test\n" +
                     "# - Consult box coin\n" +
                     "# and * - Put Box coin empty\n" +
-                    "9 - playing\n"
+                    "9 - end\n"
         )
-        option = readln()
-        if (option == "0") {
+        option = getKey()
+        if (option == '0') {
             println("encerrado")
             mycoin.writeFile()
             dataStore.writeFile()
             return true
         }
-        if (option == "1") {
+        if (option == '1') {
             //game()
         }
-        if (option == "#") {
+        if (option == '#') {
 
             println(" * - put coin empty")
             mycoin.viewCoinBox()
-            val option = readln()
-            if (option == "*") {
+            if (option == '*') {
                 mycoin.zeroCoin()
                 println("limpar contadores")
 
@@ -301,30 +316,53 @@ fun maintenance(mycoin: coinBox, dataStore: scoreGamers): Boolean {
     }
     return false
 }
+fun getKey(): Char{
+    val key = KBD.waitKey(1)
+    if (key != KBD.NONE.toChar()) {
+        return key
+    }
+    return ' '
+}
+
+fun getSleep () {
+    return Thread.sleep(1000)
+}
 
 fun main(args: Array<String>) {
 
     var flagSwitchOff: Boolean = true
     //var stateMaintenance: Boolean = false
     var mycoin = coinBox()
-    var coinAccept = CoinAcceptor
+    mycoin.readFile()
+    //var coinAccept = CoinAcceptor
     var dataStore = scoreGamers()
-
+    dataStore.readFile()
+    var newCoin = CoinAcceptor
+    var teste = 0
     while (flagSwitchOff) {
-        println("--------- inserir moeda")
-        if (CoinAcceptor.getCoin() > 0) {
-            mycoin.insertCoin(CoinAcceptor.resetCoin())
+        teste++
+        getSleep()
+        println("--------- inserir moeda ${Time.getTimeInMillis()}, coins ${newCoin.getCoin()} ${CoinAcceptor.getCoin()}, ${mycoin.getCredits()}")
+        if (newCoin.getCoin() || teste%15 == 0) {
+            if (teste >= 1) {
+                mycoin.insertCoin(1)
+            }
+            println("insert credits")
+            mycoin.insertCoin(newCoin.resetCoin())
         }
-        if (manutencao.getMaintenence()) {
+       if (manutencao.getMaintenence() || teste%20 == 0) {
+            println("em maintenance")
             flagSwitchOff = !maintenance(mycoin, dataStore)
         }
-        val key = KBD.waitKey(1)
-        if (key != KBD.NONE.toChar()) {
-            if (key == '#' && mycoin.getCredits()) {
-                println("coins and credits: ${mycoin.getCredits()}")
-                dataStore = game(dataStore)
-                mycoin.setCredits()
-            }
+       // val key = KBD.waitKey(1)
+        //if (key != KBD.NONE.toChar()) {
+        if ( getKey() == '#' && mycoin.getCredits()) {
+            println("coins and credits: {mycoin.getCredits()}")
+            println("game")
+            dataStore = game(dataStore)
+            mycoin.setCredits()
         }
+
     }
 }
+

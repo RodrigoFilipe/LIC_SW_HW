@@ -11,9 +11,9 @@ object CoinAcceptor {
 
     fun checkCoin(){
         if(HAL.isBit(coinMask)){
-            println("coin added")
             HAL.setBits(acceptMask)
             coin++
+            println("coin added ${coin}")
         }
         else{
             println()
@@ -21,8 +21,12 @@ object CoinAcceptor {
         }
         Thread.sleep(500)
     }
-    fun getCoin(): Int{
-        return coin
+    fun getCoin(): Boolean{
+        if (coin > 0){
+            return true
+        }
+        println("coin not added ${coin}")
+        return false
     }
     fun resetCoin(): Int{
         coin = 0

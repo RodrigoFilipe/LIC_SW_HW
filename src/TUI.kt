@@ -18,6 +18,7 @@ object TUI{
 
         }
     }
+
     fun writeFromLeft(s: String){
         LCD.cursor(0,0)
         LCD.write(s)
