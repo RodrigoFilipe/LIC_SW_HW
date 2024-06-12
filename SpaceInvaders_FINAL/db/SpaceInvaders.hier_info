@@ -1,9 +1,13 @@
 |SpaceInvaders
 rst => keyboardReader:kreader.rst
 rst => SLCDC:LCD.rst
+rst => SSC:Score.rst
 clk => keyboardReader:kreader.clk
 clk => SLCDC:LCD.clk
+clk => SSC:Score.clk
 ack => ~NO_FANOUT~
+coin => UsbPort:uport.inputPort[6]
+manut => UsbPort:uport.inputPort[7]
 I[0] => keyboardReader:kreader.I[0]
 I[1] => keyboardReader:kreader.I[1]
 I[2] => keyboardReader:kreader.I[2]
@@ -13,15 +17,64 @@ O[0] <= keyboardReader:kreader.O[0]
 O[1] <= keyboardReader:kreader.O[1]
 O[2] <= keyboardReader:kreader.O[2]
 O[3] <= keyboardReader:kreader.O[3]
-Dout[0] <= SLCDC:LCD.Dout[0]
-Dout[1] <= SLCDC:LCD.Dout[1]
-Dout[2] <= SLCDC:LCD.Dout[2]
-Dout[3] <= SLCDC:LCD.Dout[3]
-Dout[4] <= SLCDC:LCD.Dout[4]
-Dout[5] <= SLCDC:LCD.Dout[5]
-Dout[6] <= SLCDC:LCD.Dout[6]
-Dout[7] <= SLCDC:LCD.Dout[7]
-Dout[8] <= SLCDC:LCD.Dout[8]
+DoutLCD[0] <= SLCDC:LCD.Dout[0]
+DoutLCD[1] <= SLCDC:LCD.Dout[1]
+DoutLCD[2] <= SLCDC:LCD.Dout[2]
+DoutLCD[3] <= SLCDC:LCD.Dout[3]
+DoutLCD[4] <= SLCDC:LCD.Dout[4]
+DoutLCD[5] <= SLCDC:LCD.Dout[5]
+DoutLCD[6] <= SLCDC:LCD.Dout[6]
+DoutLCD[7] <= SLCDC:LCD.Dout[7]
+DoutLCD[8] <= SLCDC:LCD.Dout[8]
+HEX0[0] <= scoreDisplay:SDisplay.HEX0[0]
+HEX0[1] <= scoreDisplay:SDisplay.HEX0[1]
+HEX0[2] <= scoreDisplay:SDisplay.HEX0[2]
+HEX0[3] <= scoreDisplay:SDisplay.HEX0[3]
+HEX0[4] <= scoreDisplay:SDisplay.HEX0[4]
+HEX0[5] <= scoreDisplay:SDisplay.HEX0[5]
+HEX0[6] <= scoreDisplay:SDisplay.HEX0[6]
+HEX0[7] <= scoreDisplay:SDisplay.HEX0[7]
+HEX1[0] <= scoreDisplay:SDisplay.HEX1[0]
+HEX1[1] <= scoreDisplay:SDisplay.HEX1[1]
+HEX1[2] <= scoreDisplay:SDisplay.HEX1[2]
+HEX1[3] <= scoreDisplay:SDisplay.HEX1[3]
+HEX1[4] <= scoreDisplay:SDisplay.HEX1[4]
+HEX1[5] <= scoreDisplay:SDisplay.HEX1[5]
+HEX1[6] <= scoreDisplay:SDisplay.HEX1[6]
+HEX1[7] <= scoreDisplay:SDisplay.HEX1[7]
+HEX2[0] <= scoreDisplay:SDisplay.HEX2[0]
+HEX2[1] <= scoreDisplay:SDisplay.HEX2[1]
+HEX2[2] <= scoreDisplay:SDisplay.HEX2[2]
+HEX2[3] <= scoreDisplay:SDisplay.HEX2[3]
+HEX2[4] <= scoreDisplay:SDisplay.HEX2[4]
+HEX2[5] <= scoreDisplay:SDisplay.HEX2[5]
+HEX2[6] <= scoreDisplay:SDisplay.HEX2[6]
+HEX2[7] <= scoreDisplay:SDisplay.HEX2[7]
+HEX3[0] <= scoreDisplay:SDisplay.HEX3[0]
+HEX3[1] <= scoreDisplay:SDisplay.HEX3[1]
+HEX3[2] <= scoreDisplay:SDisplay.HEX3[2]
+HEX3[3] <= scoreDisplay:SDisplay.HEX3[3]
+HEX3[4] <= scoreDisplay:SDisplay.HEX3[4]
+HEX3[5] <= scoreDisplay:SDisplay.HEX3[5]
+HEX3[6] <= scoreDisplay:SDisplay.HEX3[6]
+HEX3[7] <= scoreDisplay:SDisplay.HEX3[7]
+HEX4[0] <= scoreDisplay:SDisplay.HEX4[0]
+HEX4[1] <= scoreDisplay:SDisplay.HEX4[1]
+HEX4[2] <= scoreDisplay:SDisplay.HEX4[2]
+HEX4[3] <= scoreDisplay:SDisplay.HEX4[3]
+HEX4[4] <= scoreDisplay:SDisplay.HEX4[4]
+HEX4[5] <= scoreDisplay:SDisplay.HEX4[5]
+HEX4[6] <= scoreDisplay:SDisplay.HEX4[6]
+HEX4[7] <= scoreDisplay:SDisplay.HEX4[7]
+HEX5[0] <= scoreDisplay:SDisplay.HEX5[0]
+HEX5[1] <= scoreDisplay:SDisplay.HEX5[1]
+HEX5[2] <= scoreDisplay:SDisplay.HEX5[2]
+HEX5[3] <= scoreDisplay:SDisplay.HEX5[3]
+HEX5[4] <= scoreDisplay:SDisplay.HEX5[4]
+HEX5[5] <= scoreDisplay:SDisplay.HEX5[5]
+HEX5[6] <= scoreDisplay:SDisplay.HEX5[6]
+HEX5[7] <= scoreDisplay:SDisplay.HEX5[7]
+accept <= UsbPort:uport.outputPort[1]
 
 
 |SpaceInvaders|keyboardReader:kreader
@@ -2105,5 +2158,1912 @@ Dout[6] <= Din[6].DB_MAX_OUTPUT_PORT_TYPE
 Dout[7] <= Din[7].DB_MAX_OUTPUT_PORT_TYPE
 Dout[8] <= Din[8].DB_MAX_OUTPUT_PORT_TYPE
 done <= done.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SSC:Score
+clk => SerialReceiver_Door:SReceiver.clk
+clk => ScoreDispatcher:dispatcher.clk
+rst => SerialReceiver_Door:SReceiver.rst
+rst => ScoreDispatcher:dispatcher.rst
+SC_sel => SerialReceiver_Door:SReceiver.SS
+SCLK => SerialReceiver_Door:SReceiver.SCLK
+SDX => SerialReceiver_Door:SReceiver.SDX
+WrD <= ScoreDispatcher:dispatcher.WrD
+Dout[0] <= ScoreDispatcher:dispatcher.Dout[0]
+Dout[1] <= ScoreDispatcher:dispatcher.Dout[1]
+Dout[2] <= ScoreDispatcher:dispatcher.Dout[2]
+Dout[3] <= ScoreDispatcher:dispatcher.Dout[3]
+Dout[4] <= ScoreDispatcher:dispatcher.Dout[4]
+Dout[5] <= ScoreDispatcher:dispatcher.Dout[5]
+Dout[6] <= ScoreDispatcher:dispatcher.Dout[6]
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver
+rst => SerialControl_Door:SC.rst
+rst => ShiftRegister7:ShRegister.RST
+clk => SerialControl_Door:SC.clk
+SDX => ParityCheck:Pcheck.data
+SDX => ShiftRegister7:ShRegister.data
+SCLK => ParityCheck:Pcheck.clk
+SCLK => ShiftRegister7:ShRegister.CLK
+SCLK => Cont:Counter.Clk
+SS => SerialControl_Door:SC.enRx
+accept => SerialControl_Door:SC.accept
+D[0] <= ShiftRegister7:ShRegister.D[0]
+D[1] <= ShiftRegister7:ShRegister.D[1]
+D[2] <= ShiftRegister7:ShRegister.D[2]
+D[3] <= ShiftRegister7:ShRegister.D[3]
+D[4] <= ShiftRegister7:ShRegister.D[4]
+D[5] <= ShiftRegister7:ShRegister.D[5]
+D[6] <= ShiftRegister7:ShRegister.D[6]
+DXval <= SerialControl_Door:SC.DXval
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|SerialControl_Door:SC
+rst => CurrentState~3.DATAIN
+clk => CurrentState~1.DATAIN
+enRx => NextState.OUTPUTSELECT
+enRx => NextState.OUTPUTSELECT
+enRx => NextState.OUTPUTSELECT
+enRx => NextState.OUTPUTSELECT
+enRx => NextState.OUTPUTSELECT
+enRx => Selector0.IN2
+enRx => NextState.STATE_001.DATAB
+enRx => Selector1.IN1
+accept => Selector0.IN3
+accept => Selector3.IN2
+pFlag => NextState.OUTPUTSELECT
+pFlag => NextState.OUTPUTSELECT
+pFlag => NextState.DATAA
+dFlag => NextState.DATAA
+dFlag => NextState.DATAA
+RXerror => NextState.DATAA
+RXerror => NextState.DATAA
+wr <= wr.DB_MAX_OUTPUT_PORT_TYPE
+init <= init.DB_MAX_OUTPUT_PORT_TYPE
+DXval <= DXval.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|ParityCheck:Pcheck
+data => Cont1bit:counter.CE
+init => Cont1bit:counter.R
+clk => Cont1bit:counter.Clk
+err <= Cont1bit:counter.Q
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|ParityCheck:Pcheck|Cont1bit:counter
+R => ContadorCrescente1bit:U1.Reset
+CE => ContadorCrescente1bit:U1.CE
+Clk => ContadorCrescente1bit:U1.CLK
+Q <= ContadorCrescente1bit:U1.S
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|ParityCheck:Pcheck|Cont1bit:counter|ContadorCrescente1bit:U1
+DataIn => MuxCont1bit:CC_MUX.X
+PL => MuxCont1bit:CC_MUX.S
+CE => adder1bit:CC_Adder.A
+CLK => Registo1bit:CC_Reg.Clk
+Reset => Registo1bit:CC_Reg.Reset
+TC <= Registo1bit:CC_Reg.S
+S <= Registo1bit:CC_Reg.S
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|ParityCheck:Pcheck|Cont1bit:counter|ContadorCrescente1bit:U1|Registo1bit:CC_Reg
+A => FFD:FFD1.D
+Clk => FFD:FFD1.CLK
+Reset => FFD:FFD1.RESET
+E => FFD:FFD1.EN
+S <= FFD:FFD1.Q
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|ParityCheck:Pcheck|Cont1bit:counter|ContadorCrescente1bit:U1|Registo1bit:CC_Reg|FFD:FFD1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|ParityCheck:Pcheck|Cont1bit:counter|ContadorCrescente1bit:U1|adder1bit:CC_Adder
+A => FA:FA1.A
+B => FA:FA1.B
+C0 => FA:FA1.Ci
+S <= FA:FA1.S
+C4 <= comb.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|ParityCheck:Pcheck|Cont1bit:counter|ContadorCrescente1bit:U1|adder1bit:CC_Adder|FA:FA1
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|ParityCheck:Pcheck|Cont1bit:counter|ContadorCrescente1bit:U1|adder1bit:CC_Adder|FA:FA1|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|ParityCheck:Pcheck|Cont1bit:counter|ContadorCrescente1bit:U1|adder1bit:CC_Adder|FA:FA1|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|ParityCheck:Pcheck|Cont1bit:counter|ContadorCrescente1bit:U1|MuxCont1bit:CC_MUX
+X => R.IN0
+Y => R.IN0
+S => R.IN1
+S => R.IN1
+R <= R.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|ShiftRegister7:ShRegister
+CLK => FFD:U1.CLK
+CLK => FFD:U2.CLK
+CLK => FFD:U3.CLK
+CLK => FFD:U4.CLK
+CLK => FFD:U5.CLK
+CLK => FFD:U6.CLK
+CLK => FFD:U7.CLK
+RST => FFD:U1.RESET
+RST => FFD:U2.RESET
+RST => FFD:U3.RESET
+RST => FFD:U4.RESET
+RST => FFD:U5.RESET
+RST => FFD:U6.RESET
+RST => FFD:U7.RESET
+data => FFD:U1.D
+enable => FFD:U1.EN
+enable => FFD:U2.EN
+enable => FFD:U3.EN
+enable => FFD:U4.EN
+enable => FFD:U5.EN
+enable => FFD:U6.EN
+enable => FFD:U7.EN
+D[0] <= FFD:U7.Q
+D[1] <= FFD:U6.Q
+D[2] <= FFD:U5.Q
+D[3] <= FFD:U4.Q
+D[4] <= FFD:U3.Q
+D[5] <= FFD:U2.Q
+D[6] <= FFD:U1.Q
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|ShiftRegister7:ShRegister|FFD:U1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|ShiftRegister7:ShRegister|FFD:U2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|ShiftRegister7:ShRegister|FFD:U3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|ShiftRegister7:ShRegister|FFD:U4
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|ShiftRegister7:ShRegister|FFD:U5
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|ShiftRegister7:ShRegister|FFD:U6
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|ShiftRegister7:ShRegister|FFD:U7
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|Cont:Counter
+R => ContadorCrescente:U1.Reset
+CE => ContadorCrescente:U1.CE
+Clk => ContadorCrescente:U1.CLK
+Q[0] <= ContadorCrescente:U1.S[0]
+Q[1] <= ContadorCrescente:U1.S[1]
+Q[2] <= ContadorCrescente:U1.S[2]
+Q[3] <= ContadorCrescente:U1.S[3]
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1
+DataIn[0] => MuxCont:CC_MUX.X[0]
+DataIn[1] => MuxCont:CC_MUX.X[1]
+DataIn[2] => MuxCont:CC_MUX.X[2]
+DataIn[3] => MuxCont:CC_MUX.X[3]
+PL => MuxCont:CC_MUX.S
+CE => adder4:CC_Adder.A[0]
+CLK => Registo:CC_Reg.Clk
+Reset => Registo:CC_Reg.Reset
+TC <= TC.DB_MAX_OUTPUT_PORT_TYPE
+S[0] <= Registo:CC_Reg.S[0]
+S[1] <= Registo:CC_Reg.S[1]
+S[2] <= Registo:CC_Reg.S[2]
+S[3] <= Registo:CC_Reg.S[3]
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|Registo:CC_Reg
+A[0] => FFD:FFD1.D
+A[1] => FFD:FFD2.D
+A[2] => FFD:FFD3.D
+A[3] => FFD:FFD4.D
+Clk => FFD:FFD1.CLK
+Clk => FFD:FFD2.CLK
+Clk => FFD:FFD3.CLK
+Clk => FFD:FFD4.CLK
+Reset => FFD:FFD1.RESET
+Reset => FFD:FFD2.RESET
+Reset => FFD:FFD3.RESET
+Reset => FFD:FFD4.RESET
+E => FFD:FFD1.EN
+E => FFD:FFD2.EN
+E => FFD:FFD3.EN
+E => FFD:FFD4.EN
+S[0] <= FFD:FFD1.Q
+S[1] <= FFD:FFD2.Q
+S[2] <= FFD:FFD3.Q
+S[3] <= FFD:FFD4.Q
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|Registo:CC_Reg|FFD:FFD1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|Registo:CC_Reg|FFD:FFD2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|Registo:CC_Reg|FFD:FFD3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|Registo:CC_Reg|FFD:FFD4
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder
+A[0] => FA:FA1.A
+A[1] => FA:FA2.A
+A[2] => FA:FA3.A
+A[3] => FA:FA4.A
+B[0] => FA:FA1.B
+B[1] => FA:FA2.B
+B[2] => FA:FA3.B
+B[3] => FA:FA4.B
+C0 => FA:FA1.Ci
+S[0] <= FA:FA1.S
+S[1] <= FA:FA2.S
+S[2] <= FA:FA3.S
+S[3] <= FA:FA4.S
+C4 <= FA:FA4.Co
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA1
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA1|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA1|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA2
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA2|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA2|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA3
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA3|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA3|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA4
+A => HA:HA1.A
+B => HA:HA1.B
+Ci => HA:HA2.B
+S <= HA:HA2.S
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA4|HA:HA1
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|adder4:CC_Adder|FA:FA4|HA:HA2
+A => S.IN0
+A => Co.IN0
+B => S.IN1
+B => Co.IN1
+S <= S.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SSC:Score|SerialReceiver_Door:SReceiver|Cont:Counter|ContadorCrescente:U1|MuxCont:CC_MUX
+X[0] => R.IN0
+X[1] => R.IN0
+X[2] => R.IN0
+X[3] => R.IN0
+Y[0] => R.IN0
+Y[1] => R.IN0
+Y[2] => R.IN0
+Y[3] => R.IN0
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+S => R.IN1
+R[0] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[1] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[2] <= R.DB_MAX_OUTPUT_PORT_TYPE
+R[3] <= R.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|SSC:Score|ScoreDispatcher:dispatcher
+rst => CurrentState~3.DATAIN
+clk => CurrentState~1.DATAIN
+Dval => NextState.STATE_01.DATAB
+Dval => Selector0.IN2
+Din[0] => Dout[0].DATAIN
+Din[1] => Dout[1].DATAIN
+Din[2] => Dout[2].DATAIN
+Din[3] => Dout[3].DATAIN
+Din[4] => Dout[4].DATAIN
+Din[5] => Dout[5].DATAIN
+Din[6] => Dout[6].DATAIN
+WrD <= WrD.DB_MAX_OUTPUT_PORT_TYPE
+Dout[0] <= Din[0].DB_MAX_OUTPUT_PORT_TYPE
+Dout[1] <= Din[1].DB_MAX_OUTPUT_PORT_TYPE
+Dout[2] <= Din[2].DB_MAX_OUTPUT_PORT_TYPE
+Dout[3] <= Din[3].DB_MAX_OUTPUT_PORT_TYPE
+Dout[4] <= Din[4].DB_MAX_OUTPUT_PORT_TYPE
+Dout[5] <= Din[5].DB_MAX_OUTPUT_PORT_TYPE
+Dout[6] <= Din[6].DB_MAX_OUTPUT_PORT_TYPE
+done <= done.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay
+set => reg_4bit:circuit_gen:0:in_reg.clk
+set => reg_4bit:circuit_gen:0:out_reg.clk
+set => reg_4bit:circuit_gen:1:in_reg.clk
+set => reg_4bit:circuit_gen:1:out_reg.clk
+set => reg_4bit:circuit_gen:2:in_reg.clk
+set => reg_4bit:circuit_gen:2:out_reg.clk
+set => reg_4bit:circuit_gen:3:in_reg.clk
+set => reg_4bit:circuit_gen:3:out_reg.clk
+set => reg_4bit:circuit_gen:4:in_reg.clk
+set => reg_4bit:circuit_gen:4:out_reg.clk
+set => reg_4bit:circuit_gen:5:in_reg.clk
+set => reg_4bit:circuit_gen:5:out_reg.clk
+set => FFD:clear_reg.clk
+cmd[0] => dec_3_8:decoder.addr[0]
+cmd[1] => dec_3_8:decoder.addr[1]
+cmd[2] => dec_3_8:decoder.addr[2]
+data[0] => reg_4bit:circuit_gen:0:in_reg.d[0]
+data[0] => reg_4bit:circuit_gen:1:in_reg.d[0]
+data[0] => reg_4bit:circuit_gen:2:in_reg.d[0]
+data[0] => reg_4bit:circuit_gen:3:in_reg.d[0]
+data[0] => reg_4bit:circuit_gen:4:in_reg.d[0]
+data[0] => reg_4bit:circuit_gen:5:in_reg.d[0]
+data[0] => FFD:clear_reg.d
+data[1] => reg_4bit:circuit_gen:0:in_reg.d[1]
+data[1] => reg_4bit:circuit_gen:1:in_reg.d[1]
+data[1] => reg_4bit:circuit_gen:2:in_reg.d[1]
+data[1] => reg_4bit:circuit_gen:3:in_reg.d[1]
+data[1] => reg_4bit:circuit_gen:4:in_reg.d[1]
+data[1] => reg_4bit:circuit_gen:5:in_reg.d[1]
+data[2] => reg_4bit:circuit_gen:0:in_reg.d[2]
+data[2] => reg_4bit:circuit_gen:1:in_reg.d[2]
+data[2] => reg_4bit:circuit_gen:2:in_reg.d[2]
+data[2] => reg_4bit:circuit_gen:3:in_reg.d[2]
+data[2] => reg_4bit:circuit_gen:4:in_reg.d[2]
+data[2] => reg_4bit:circuit_gen:5:in_reg.d[2]
+data[3] => reg_4bit:circuit_gen:0:in_reg.d[3]
+data[3] => reg_4bit:circuit_gen:1:in_reg.d[3]
+data[3] => reg_4bit:circuit_gen:2:in_reg.d[3]
+data[3] => reg_4bit:circuit_gen:3:in_reg.d[3]
+data[3] => reg_4bit:circuit_gen:4:in_reg.d[3]
+data[3] => reg_4bit:circuit_gen:5:in_reg.d[3]
+HEX0[0] <= dec2hex:circuit_gen:0:hex_digit.dout[0]
+HEX0[1] <= dec2hex:circuit_gen:0:hex_digit.dout[1]
+HEX0[2] <= dec2hex:circuit_gen:0:hex_digit.dout[2]
+HEX0[3] <= dec2hex:circuit_gen:0:hex_digit.dout[3]
+HEX0[4] <= dec2hex:circuit_gen:0:hex_digit.dout[4]
+HEX0[5] <= dec2hex:circuit_gen:0:hex_digit.dout[5]
+HEX0[6] <= dec2hex:circuit_gen:0:hex_digit.dout[6]
+HEX0[7] <= dec2hex:circuit_gen:0:hex_digit.dout[7]
+HEX1[0] <= dec2hex:circuit_gen:1:hex_digit.dout[0]
+HEX1[1] <= dec2hex:circuit_gen:1:hex_digit.dout[1]
+HEX1[2] <= dec2hex:circuit_gen:1:hex_digit.dout[2]
+HEX1[3] <= dec2hex:circuit_gen:1:hex_digit.dout[3]
+HEX1[4] <= dec2hex:circuit_gen:1:hex_digit.dout[4]
+HEX1[5] <= dec2hex:circuit_gen:1:hex_digit.dout[5]
+HEX1[6] <= dec2hex:circuit_gen:1:hex_digit.dout[6]
+HEX1[7] <= dec2hex:circuit_gen:1:hex_digit.dout[7]
+HEX2[0] <= dec2hex:circuit_gen:2:hex_digit.dout[0]
+HEX2[1] <= dec2hex:circuit_gen:2:hex_digit.dout[1]
+HEX2[2] <= dec2hex:circuit_gen:2:hex_digit.dout[2]
+HEX2[3] <= dec2hex:circuit_gen:2:hex_digit.dout[3]
+HEX2[4] <= dec2hex:circuit_gen:2:hex_digit.dout[4]
+HEX2[5] <= dec2hex:circuit_gen:2:hex_digit.dout[5]
+HEX2[6] <= dec2hex:circuit_gen:2:hex_digit.dout[6]
+HEX2[7] <= dec2hex:circuit_gen:2:hex_digit.dout[7]
+HEX3[0] <= dec2hex:circuit_gen:3:hex_digit.dout[0]
+HEX3[1] <= dec2hex:circuit_gen:3:hex_digit.dout[1]
+HEX3[2] <= dec2hex:circuit_gen:3:hex_digit.dout[2]
+HEX3[3] <= dec2hex:circuit_gen:3:hex_digit.dout[3]
+HEX3[4] <= dec2hex:circuit_gen:3:hex_digit.dout[4]
+HEX3[5] <= dec2hex:circuit_gen:3:hex_digit.dout[5]
+HEX3[6] <= dec2hex:circuit_gen:3:hex_digit.dout[6]
+HEX3[7] <= dec2hex:circuit_gen:3:hex_digit.dout[7]
+HEX4[0] <= dec2hex:circuit_gen:4:hex_digit.dout[0]
+HEX4[1] <= dec2hex:circuit_gen:4:hex_digit.dout[1]
+HEX4[2] <= dec2hex:circuit_gen:4:hex_digit.dout[2]
+HEX4[3] <= dec2hex:circuit_gen:4:hex_digit.dout[3]
+HEX4[4] <= dec2hex:circuit_gen:4:hex_digit.dout[4]
+HEX4[5] <= dec2hex:circuit_gen:4:hex_digit.dout[5]
+HEX4[6] <= dec2hex:circuit_gen:4:hex_digit.dout[6]
+HEX4[7] <= dec2hex:circuit_gen:4:hex_digit.dout[7]
+HEX5[0] <= dec2hex:circuit_gen:5:hex_digit.dout[0]
+HEX5[1] <= dec2hex:circuit_gen:5:hex_digit.dout[1]
+HEX5[2] <= dec2hex:circuit_gen:5:hex_digit.dout[2]
+HEX5[3] <= dec2hex:circuit_gen:5:hex_digit.dout[3]
+HEX5[4] <= dec2hex:circuit_gen:5:hex_digit.dout[4]
+HEX5[5] <= dec2hex:circuit_gen:5:hex_digit.dout[5]
+HEX5[6] <= dec2hex:circuit_gen:5:hex_digit.dout[6]
+HEX5[7] <= dec2hex:circuit_gen:5:hex_digit.dout[7]
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|dec_3_8:decoder
+addr[0] => dout.IN1
+addr[0] => dout.IN1
+addr[0] => dout.IN1
+addr[0] => dout.IN1
+addr[0] => dout.IN1
+addr[0] => dout.IN1
+addr[0] => dout.IN1
+addr[0] => dout.IN1
+addr[1] => dout.IN1
+addr[1] => dout.IN1
+addr[1] => dout.IN1
+addr[1] => dout.IN1
+addr[2] => dout.IN0
+addr[2] => dout.IN0
+en => dout.IN1
+en => dout.IN1
+dout[0] <= dout.DB_MAX_OUTPUT_PORT_TYPE
+dout[1] <= dout.DB_MAX_OUTPUT_PORT_TYPE
+dout[2] <= dout.DB_MAX_OUTPUT_PORT_TYPE
+dout[3] <= dout.DB_MAX_OUTPUT_PORT_TYPE
+dout[4] <= dout.DB_MAX_OUTPUT_PORT_TYPE
+dout[5] <= dout.DB_MAX_OUTPUT_PORT_TYPE
+dout[6] <= dout.DB_MAX_OUTPUT_PORT_TYPE
+dout[7] <= dout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:0:in_reg
+clk => FFD:u0.clk
+clk => FFD:u1.clk
+clk => FFD:u2.clk
+clk => FFD:u3.clk
+reset => FFD:u0.reset
+reset => FFD:u1.reset
+reset => FFD:u2.reset
+reset => FFD:u3.reset
+set => FFD:u0.set
+set => FFD:u1.set
+set => FFD:u2.set
+set => FFD:u3.set
+d[0] => FFD:u0.d
+d[1] => FFD:u1.d
+d[2] => FFD:u2.d
+d[3] => FFD:u3.d
+en => FFD:u0.en
+en => FFD:u1.en
+en => FFD:u2.en
+en => FFD:u3.en
+q[0] <= FFD:u0.q
+q[1] <= FFD:u1.q
+q[2] <= FFD:u2.q
+q[3] <= FFD:u3.q
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:0:in_reg|FFD:u0
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:0:in_reg|FFD:u1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:0:in_reg|FFD:u2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:0:in_reg|FFD:u3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:0:out_reg
+clk => FFD:u0.clk
+clk => FFD:u1.clk
+clk => FFD:u2.clk
+clk => FFD:u3.clk
+reset => FFD:u0.reset
+reset => FFD:u1.reset
+reset => FFD:u2.reset
+reset => FFD:u3.reset
+set => FFD:u0.set
+set => FFD:u1.set
+set => FFD:u2.set
+set => FFD:u3.set
+d[0] => FFD:u0.d
+d[1] => FFD:u1.d
+d[2] => FFD:u2.d
+d[3] => FFD:u3.d
+en => FFD:u0.en
+en => FFD:u1.en
+en => FFD:u2.en
+en => FFD:u3.en
+q[0] <= FFD:u0.q
+q[1] <= FFD:u1.q
+q[2] <= FFD:u2.q
+q[3] <= FFD:u3.q
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:0:out_reg|FFD:u0
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:0:out_reg|FFD:u1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:0:out_reg|FFD:u2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:0:out_reg|FFD:u3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|dec2hex:\circuit_gen:0:hex_digit
+d[0] => Equal0.IN0
+d[0] => Equal1.IN3
+d[0] => Equal2.IN1
+d[0] => Equal3.IN3
+d[0] => Equal4.IN1
+d[0] => Equal5.IN3
+d[0] => Equal6.IN2
+d[0] => Equal7.IN3
+d[0] => Equal8.IN1
+d[0] => Equal9.IN3
+d[0] => Equal10.IN2
+d[0] => Equal11.IN3
+d[0] => Equal12.IN2
+d[0] => Equal13.IN3
+d[0] => Equal14.IN3
+d[1] => Equal0.IN3
+d[1] => Equal1.IN0
+d[1] => Equal2.IN0
+d[1] => Equal3.IN2
+d[1] => Equal4.IN3
+d[1] => Equal5.IN1
+d[1] => Equal6.IN1
+d[1] => Equal7.IN2
+d[1] => Equal8.IN3
+d[1] => Equal9.IN1
+d[1] => Equal10.IN1
+d[1] => Equal11.IN2
+d[1] => Equal12.IN3
+d[1] => Equal13.IN2
+d[1] => Equal14.IN2
+d[2] => Equal0.IN2
+d[2] => Equal1.IN2
+d[2] => Equal2.IN3
+d[2] => Equal3.IN0
+d[2] => Equal4.IN0
+d[2] => Equal5.IN0
+d[2] => Equal6.IN0
+d[2] => Equal7.IN1
+d[2] => Equal8.IN2
+d[2] => Equal9.IN2
+d[2] => Equal10.IN3
+d[2] => Equal11.IN1
+d[2] => Equal12.IN1
+d[2] => Equal13.IN1
+d[2] => Equal14.IN1
+d[3] => Equal0.IN1
+d[3] => Equal1.IN1
+d[3] => Equal2.IN2
+d[3] => Equal3.IN1
+d[3] => Equal4.IN2
+d[3] => Equal5.IN2
+d[3] => Equal6.IN3
+d[3] => Equal7.IN0
+d[3] => Equal8.IN0
+d[3] => Equal9.IN0
+d[3] => Equal10.IN0
+d[3] => Equal11.IN0
+d[3] => Equal12.IN0
+d[3] => Equal13.IN0
+d[3] => Equal14.IN0
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+dOut[0] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[1] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[2] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[3] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[4] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[5] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[6] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[7] <= <VCC>
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:1:in_reg
+clk => FFD:u0.clk
+clk => FFD:u1.clk
+clk => FFD:u2.clk
+clk => FFD:u3.clk
+reset => FFD:u0.reset
+reset => FFD:u1.reset
+reset => FFD:u2.reset
+reset => FFD:u3.reset
+set => FFD:u0.set
+set => FFD:u1.set
+set => FFD:u2.set
+set => FFD:u3.set
+d[0] => FFD:u0.d
+d[1] => FFD:u1.d
+d[2] => FFD:u2.d
+d[3] => FFD:u3.d
+en => FFD:u0.en
+en => FFD:u1.en
+en => FFD:u2.en
+en => FFD:u3.en
+q[0] <= FFD:u0.q
+q[1] <= FFD:u1.q
+q[2] <= FFD:u2.q
+q[3] <= FFD:u3.q
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:1:in_reg|FFD:u0
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:1:in_reg|FFD:u1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:1:in_reg|FFD:u2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:1:in_reg|FFD:u3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:1:out_reg
+clk => FFD:u0.clk
+clk => FFD:u1.clk
+clk => FFD:u2.clk
+clk => FFD:u3.clk
+reset => FFD:u0.reset
+reset => FFD:u1.reset
+reset => FFD:u2.reset
+reset => FFD:u3.reset
+set => FFD:u0.set
+set => FFD:u1.set
+set => FFD:u2.set
+set => FFD:u3.set
+d[0] => FFD:u0.d
+d[1] => FFD:u1.d
+d[2] => FFD:u2.d
+d[3] => FFD:u3.d
+en => FFD:u0.en
+en => FFD:u1.en
+en => FFD:u2.en
+en => FFD:u3.en
+q[0] <= FFD:u0.q
+q[1] <= FFD:u1.q
+q[2] <= FFD:u2.q
+q[3] <= FFD:u3.q
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:1:out_reg|FFD:u0
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:1:out_reg|FFD:u1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:1:out_reg|FFD:u2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:1:out_reg|FFD:u3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|dec2hex:\circuit_gen:1:hex_digit
+d[0] => Equal0.IN0
+d[0] => Equal1.IN3
+d[0] => Equal2.IN1
+d[0] => Equal3.IN3
+d[0] => Equal4.IN1
+d[0] => Equal5.IN3
+d[0] => Equal6.IN2
+d[0] => Equal7.IN3
+d[0] => Equal8.IN1
+d[0] => Equal9.IN3
+d[0] => Equal10.IN2
+d[0] => Equal11.IN3
+d[0] => Equal12.IN2
+d[0] => Equal13.IN3
+d[0] => Equal14.IN3
+d[1] => Equal0.IN3
+d[1] => Equal1.IN0
+d[1] => Equal2.IN0
+d[1] => Equal3.IN2
+d[1] => Equal4.IN3
+d[1] => Equal5.IN1
+d[1] => Equal6.IN1
+d[1] => Equal7.IN2
+d[1] => Equal8.IN3
+d[1] => Equal9.IN1
+d[1] => Equal10.IN1
+d[1] => Equal11.IN2
+d[1] => Equal12.IN3
+d[1] => Equal13.IN2
+d[1] => Equal14.IN2
+d[2] => Equal0.IN2
+d[2] => Equal1.IN2
+d[2] => Equal2.IN3
+d[2] => Equal3.IN0
+d[2] => Equal4.IN0
+d[2] => Equal5.IN0
+d[2] => Equal6.IN0
+d[2] => Equal7.IN1
+d[2] => Equal8.IN2
+d[2] => Equal9.IN2
+d[2] => Equal10.IN3
+d[2] => Equal11.IN1
+d[2] => Equal12.IN1
+d[2] => Equal13.IN1
+d[2] => Equal14.IN1
+d[3] => Equal0.IN1
+d[3] => Equal1.IN1
+d[3] => Equal2.IN2
+d[3] => Equal3.IN1
+d[3] => Equal4.IN2
+d[3] => Equal5.IN2
+d[3] => Equal6.IN3
+d[3] => Equal7.IN0
+d[3] => Equal8.IN0
+d[3] => Equal9.IN0
+d[3] => Equal10.IN0
+d[3] => Equal11.IN0
+d[3] => Equal12.IN0
+d[3] => Equal13.IN0
+d[3] => Equal14.IN0
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+dOut[0] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[1] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[2] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[3] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[4] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[5] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[6] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[7] <= <VCC>
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:2:in_reg
+clk => FFD:u0.clk
+clk => FFD:u1.clk
+clk => FFD:u2.clk
+clk => FFD:u3.clk
+reset => FFD:u0.reset
+reset => FFD:u1.reset
+reset => FFD:u2.reset
+reset => FFD:u3.reset
+set => FFD:u0.set
+set => FFD:u1.set
+set => FFD:u2.set
+set => FFD:u3.set
+d[0] => FFD:u0.d
+d[1] => FFD:u1.d
+d[2] => FFD:u2.d
+d[3] => FFD:u3.d
+en => FFD:u0.en
+en => FFD:u1.en
+en => FFD:u2.en
+en => FFD:u3.en
+q[0] <= FFD:u0.q
+q[1] <= FFD:u1.q
+q[2] <= FFD:u2.q
+q[3] <= FFD:u3.q
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:2:in_reg|FFD:u0
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:2:in_reg|FFD:u1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:2:in_reg|FFD:u2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:2:in_reg|FFD:u3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:2:out_reg
+clk => FFD:u0.clk
+clk => FFD:u1.clk
+clk => FFD:u2.clk
+clk => FFD:u3.clk
+reset => FFD:u0.reset
+reset => FFD:u1.reset
+reset => FFD:u2.reset
+reset => FFD:u3.reset
+set => FFD:u0.set
+set => FFD:u1.set
+set => FFD:u2.set
+set => FFD:u3.set
+d[0] => FFD:u0.d
+d[1] => FFD:u1.d
+d[2] => FFD:u2.d
+d[3] => FFD:u3.d
+en => FFD:u0.en
+en => FFD:u1.en
+en => FFD:u2.en
+en => FFD:u3.en
+q[0] <= FFD:u0.q
+q[1] <= FFD:u1.q
+q[2] <= FFD:u2.q
+q[3] <= FFD:u3.q
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:2:out_reg|FFD:u0
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:2:out_reg|FFD:u1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:2:out_reg|FFD:u2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:2:out_reg|FFD:u3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|dec2hex:\circuit_gen:2:hex_digit
+d[0] => Equal0.IN0
+d[0] => Equal1.IN3
+d[0] => Equal2.IN1
+d[0] => Equal3.IN3
+d[0] => Equal4.IN1
+d[0] => Equal5.IN3
+d[0] => Equal6.IN2
+d[0] => Equal7.IN3
+d[0] => Equal8.IN1
+d[0] => Equal9.IN3
+d[0] => Equal10.IN2
+d[0] => Equal11.IN3
+d[0] => Equal12.IN2
+d[0] => Equal13.IN3
+d[0] => Equal14.IN3
+d[1] => Equal0.IN3
+d[1] => Equal1.IN0
+d[1] => Equal2.IN0
+d[1] => Equal3.IN2
+d[1] => Equal4.IN3
+d[1] => Equal5.IN1
+d[1] => Equal6.IN1
+d[1] => Equal7.IN2
+d[1] => Equal8.IN3
+d[1] => Equal9.IN1
+d[1] => Equal10.IN1
+d[1] => Equal11.IN2
+d[1] => Equal12.IN3
+d[1] => Equal13.IN2
+d[1] => Equal14.IN2
+d[2] => Equal0.IN2
+d[2] => Equal1.IN2
+d[2] => Equal2.IN3
+d[2] => Equal3.IN0
+d[2] => Equal4.IN0
+d[2] => Equal5.IN0
+d[2] => Equal6.IN0
+d[2] => Equal7.IN1
+d[2] => Equal8.IN2
+d[2] => Equal9.IN2
+d[2] => Equal10.IN3
+d[2] => Equal11.IN1
+d[2] => Equal12.IN1
+d[2] => Equal13.IN1
+d[2] => Equal14.IN1
+d[3] => Equal0.IN1
+d[3] => Equal1.IN1
+d[3] => Equal2.IN2
+d[3] => Equal3.IN1
+d[3] => Equal4.IN2
+d[3] => Equal5.IN2
+d[3] => Equal6.IN3
+d[3] => Equal7.IN0
+d[3] => Equal8.IN0
+d[3] => Equal9.IN0
+d[3] => Equal10.IN0
+d[3] => Equal11.IN0
+d[3] => Equal12.IN0
+d[3] => Equal13.IN0
+d[3] => Equal14.IN0
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+dOut[0] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[1] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[2] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[3] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[4] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[5] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[6] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[7] <= <VCC>
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:3:in_reg
+clk => FFD:u0.clk
+clk => FFD:u1.clk
+clk => FFD:u2.clk
+clk => FFD:u3.clk
+reset => FFD:u0.reset
+reset => FFD:u1.reset
+reset => FFD:u2.reset
+reset => FFD:u3.reset
+set => FFD:u0.set
+set => FFD:u1.set
+set => FFD:u2.set
+set => FFD:u3.set
+d[0] => FFD:u0.d
+d[1] => FFD:u1.d
+d[2] => FFD:u2.d
+d[3] => FFD:u3.d
+en => FFD:u0.en
+en => FFD:u1.en
+en => FFD:u2.en
+en => FFD:u3.en
+q[0] <= FFD:u0.q
+q[1] <= FFD:u1.q
+q[2] <= FFD:u2.q
+q[3] <= FFD:u3.q
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:3:in_reg|FFD:u0
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:3:in_reg|FFD:u1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:3:in_reg|FFD:u2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:3:in_reg|FFD:u3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:3:out_reg
+clk => FFD:u0.clk
+clk => FFD:u1.clk
+clk => FFD:u2.clk
+clk => FFD:u3.clk
+reset => FFD:u0.reset
+reset => FFD:u1.reset
+reset => FFD:u2.reset
+reset => FFD:u3.reset
+set => FFD:u0.set
+set => FFD:u1.set
+set => FFD:u2.set
+set => FFD:u3.set
+d[0] => FFD:u0.d
+d[1] => FFD:u1.d
+d[2] => FFD:u2.d
+d[3] => FFD:u3.d
+en => FFD:u0.en
+en => FFD:u1.en
+en => FFD:u2.en
+en => FFD:u3.en
+q[0] <= FFD:u0.q
+q[1] <= FFD:u1.q
+q[2] <= FFD:u2.q
+q[3] <= FFD:u3.q
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:3:out_reg|FFD:u0
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:3:out_reg|FFD:u1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:3:out_reg|FFD:u2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:3:out_reg|FFD:u3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|dec2hex:\circuit_gen:3:hex_digit
+d[0] => Equal0.IN0
+d[0] => Equal1.IN3
+d[0] => Equal2.IN1
+d[0] => Equal3.IN3
+d[0] => Equal4.IN1
+d[0] => Equal5.IN3
+d[0] => Equal6.IN2
+d[0] => Equal7.IN3
+d[0] => Equal8.IN1
+d[0] => Equal9.IN3
+d[0] => Equal10.IN2
+d[0] => Equal11.IN3
+d[0] => Equal12.IN2
+d[0] => Equal13.IN3
+d[0] => Equal14.IN3
+d[1] => Equal0.IN3
+d[1] => Equal1.IN0
+d[1] => Equal2.IN0
+d[1] => Equal3.IN2
+d[1] => Equal4.IN3
+d[1] => Equal5.IN1
+d[1] => Equal6.IN1
+d[1] => Equal7.IN2
+d[1] => Equal8.IN3
+d[1] => Equal9.IN1
+d[1] => Equal10.IN1
+d[1] => Equal11.IN2
+d[1] => Equal12.IN3
+d[1] => Equal13.IN2
+d[1] => Equal14.IN2
+d[2] => Equal0.IN2
+d[2] => Equal1.IN2
+d[2] => Equal2.IN3
+d[2] => Equal3.IN0
+d[2] => Equal4.IN0
+d[2] => Equal5.IN0
+d[2] => Equal6.IN0
+d[2] => Equal7.IN1
+d[2] => Equal8.IN2
+d[2] => Equal9.IN2
+d[2] => Equal10.IN3
+d[2] => Equal11.IN1
+d[2] => Equal12.IN1
+d[2] => Equal13.IN1
+d[2] => Equal14.IN1
+d[3] => Equal0.IN1
+d[3] => Equal1.IN1
+d[3] => Equal2.IN2
+d[3] => Equal3.IN1
+d[3] => Equal4.IN2
+d[3] => Equal5.IN2
+d[3] => Equal6.IN3
+d[3] => Equal7.IN0
+d[3] => Equal8.IN0
+d[3] => Equal9.IN0
+d[3] => Equal10.IN0
+d[3] => Equal11.IN0
+d[3] => Equal12.IN0
+d[3] => Equal13.IN0
+d[3] => Equal14.IN0
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+dOut[0] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[1] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[2] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[3] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[4] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[5] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[6] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[7] <= <VCC>
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:4:in_reg
+clk => FFD:u0.clk
+clk => FFD:u1.clk
+clk => FFD:u2.clk
+clk => FFD:u3.clk
+reset => FFD:u0.reset
+reset => FFD:u1.reset
+reset => FFD:u2.reset
+reset => FFD:u3.reset
+set => FFD:u0.set
+set => FFD:u1.set
+set => FFD:u2.set
+set => FFD:u3.set
+d[0] => FFD:u0.d
+d[1] => FFD:u1.d
+d[2] => FFD:u2.d
+d[3] => FFD:u3.d
+en => FFD:u0.en
+en => FFD:u1.en
+en => FFD:u2.en
+en => FFD:u3.en
+q[0] <= FFD:u0.q
+q[1] <= FFD:u1.q
+q[2] <= FFD:u2.q
+q[3] <= FFD:u3.q
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:4:in_reg|FFD:u0
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:4:in_reg|FFD:u1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:4:in_reg|FFD:u2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:4:in_reg|FFD:u3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:4:out_reg
+clk => FFD:u0.clk
+clk => FFD:u1.clk
+clk => FFD:u2.clk
+clk => FFD:u3.clk
+reset => FFD:u0.reset
+reset => FFD:u1.reset
+reset => FFD:u2.reset
+reset => FFD:u3.reset
+set => FFD:u0.set
+set => FFD:u1.set
+set => FFD:u2.set
+set => FFD:u3.set
+d[0] => FFD:u0.d
+d[1] => FFD:u1.d
+d[2] => FFD:u2.d
+d[3] => FFD:u3.d
+en => FFD:u0.en
+en => FFD:u1.en
+en => FFD:u2.en
+en => FFD:u3.en
+q[0] <= FFD:u0.q
+q[1] <= FFD:u1.q
+q[2] <= FFD:u2.q
+q[3] <= FFD:u3.q
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:4:out_reg|FFD:u0
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:4:out_reg|FFD:u1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:4:out_reg|FFD:u2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:4:out_reg|FFD:u3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|dec2hex:\circuit_gen:4:hex_digit
+d[0] => Equal0.IN0
+d[0] => Equal1.IN3
+d[0] => Equal2.IN1
+d[0] => Equal3.IN3
+d[0] => Equal4.IN1
+d[0] => Equal5.IN3
+d[0] => Equal6.IN2
+d[0] => Equal7.IN3
+d[0] => Equal8.IN1
+d[0] => Equal9.IN3
+d[0] => Equal10.IN2
+d[0] => Equal11.IN3
+d[0] => Equal12.IN2
+d[0] => Equal13.IN3
+d[0] => Equal14.IN3
+d[1] => Equal0.IN3
+d[1] => Equal1.IN0
+d[1] => Equal2.IN0
+d[1] => Equal3.IN2
+d[1] => Equal4.IN3
+d[1] => Equal5.IN1
+d[1] => Equal6.IN1
+d[1] => Equal7.IN2
+d[1] => Equal8.IN3
+d[1] => Equal9.IN1
+d[1] => Equal10.IN1
+d[1] => Equal11.IN2
+d[1] => Equal12.IN3
+d[1] => Equal13.IN2
+d[1] => Equal14.IN2
+d[2] => Equal0.IN2
+d[2] => Equal1.IN2
+d[2] => Equal2.IN3
+d[2] => Equal3.IN0
+d[2] => Equal4.IN0
+d[2] => Equal5.IN0
+d[2] => Equal6.IN0
+d[2] => Equal7.IN1
+d[2] => Equal8.IN2
+d[2] => Equal9.IN2
+d[2] => Equal10.IN3
+d[2] => Equal11.IN1
+d[2] => Equal12.IN1
+d[2] => Equal13.IN1
+d[2] => Equal14.IN1
+d[3] => Equal0.IN1
+d[3] => Equal1.IN1
+d[3] => Equal2.IN2
+d[3] => Equal3.IN1
+d[3] => Equal4.IN2
+d[3] => Equal5.IN2
+d[3] => Equal6.IN3
+d[3] => Equal7.IN0
+d[3] => Equal8.IN0
+d[3] => Equal9.IN0
+d[3] => Equal10.IN0
+d[3] => Equal11.IN0
+d[3] => Equal12.IN0
+d[3] => Equal13.IN0
+d[3] => Equal14.IN0
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+dOut[0] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[1] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[2] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[3] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[4] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[5] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[6] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[7] <= <VCC>
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:5:in_reg
+clk => FFD:u0.clk
+clk => FFD:u1.clk
+clk => FFD:u2.clk
+clk => FFD:u3.clk
+reset => FFD:u0.reset
+reset => FFD:u1.reset
+reset => FFD:u2.reset
+reset => FFD:u3.reset
+set => FFD:u0.set
+set => FFD:u1.set
+set => FFD:u2.set
+set => FFD:u3.set
+d[0] => FFD:u0.d
+d[1] => FFD:u1.d
+d[2] => FFD:u2.d
+d[3] => FFD:u3.d
+en => FFD:u0.en
+en => FFD:u1.en
+en => FFD:u2.en
+en => FFD:u3.en
+q[0] <= FFD:u0.q
+q[1] <= FFD:u1.q
+q[2] <= FFD:u2.q
+q[3] <= FFD:u3.q
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:5:in_reg|FFD:u0
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:5:in_reg|FFD:u1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:5:in_reg|FFD:u2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:5:in_reg|FFD:u3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:5:out_reg
+clk => FFD:u0.clk
+clk => FFD:u1.clk
+clk => FFD:u2.clk
+clk => FFD:u3.clk
+reset => FFD:u0.reset
+reset => FFD:u1.reset
+reset => FFD:u2.reset
+reset => FFD:u3.reset
+set => FFD:u0.set
+set => FFD:u1.set
+set => FFD:u2.set
+set => FFD:u3.set
+d[0] => FFD:u0.d
+d[1] => FFD:u1.d
+d[2] => FFD:u2.d
+d[3] => FFD:u3.d
+en => FFD:u0.en
+en => FFD:u1.en
+en => FFD:u2.en
+en => FFD:u3.en
+q[0] <= FFD:u0.q
+q[1] <= FFD:u1.q
+q[2] <= FFD:u2.q
+q[3] <= FFD:u3.q
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:5:out_reg|FFD:u0
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:5:out_reg|FFD:u1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:5:out_reg|FFD:u2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|reg_4bit:\circuit_gen:5:out_reg|FFD:u3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|dec2hex:\circuit_gen:5:hex_digit
+d[0] => Equal0.IN0
+d[0] => Equal1.IN3
+d[0] => Equal2.IN1
+d[0] => Equal3.IN3
+d[0] => Equal4.IN1
+d[0] => Equal5.IN3
+d[0] => Equal6.IN2
+d[0] => Equal7.IN3
+d[0] => Equal8.IN1
+d[0] => Equal9.IN3
+d[0] => Equal10.IN2
+d[0] => Equal11.IN3
+d[0] => Equal12.IN2
+d[0] => Equal13.IN3
+d[0] => Equal14.IN3
+d[1] => Equal0.IN3
+d[1] => Equal1.IN0
+d[1] => Equal2.IN0
+d[1] => Equal3.IN2
+d[1] => Equal4.IN3
+d[1] => Equal5.IN1
+d[1] => Equal6.IN1
+d[1] => Equal7.IN2
+d[1] => Equal8.IN3
+d[1] => Equal9.IN1
+d[1] => Equal10.IN1
+d[1] => Equal11.IN2
+d[1] => Equal12.IN3
+d[1] => Equal13.IN2
+d[1] => Equal14.IN2
+d[2] => Equal0.IN2
+d[2] => Equal1.IN2
+d[2] => Equal2.IN3
+d[2] => Equal3.IN0
+d[2] => Equal4.IN0
+d[2] => Equal5.IN0
+d[2] => Equal6.IN0
+d[2] => Equal7.IN1
+d[2] => Equal8.IN2
+d[2] => Equal9.IN2
+d[2] => Equal10.IN3
+d[2] => Equal11.IN1
+d[2] => Equal12.IN1
+d[2] => Equal13.IN1
+d[2] => Equal14.IN1
+d[3] => Equal0.IN1
+d[3] => Equal1.IN1
+d[3] => Equal2.IN2
+d[3] => Equal3.IN1
+d[3] => Equal4.IN2
+d[3] => Equal5.IN2
+d[3] => Equal6.IN3
+d[3] => Equal7.IN0
+d[3] => Equal8.IN0
+d[3] => Equal9.IN0
+d[3] => Equal10.IN0
+d[3] => Equal11.IN0
+d[3] => Equal12.IN0
+d[3] => Equal13.IN0
+d[3] => Equal14.IN0
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+clear => dOut.OUTPUTSELECT
+dOut[0] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[1] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[2] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[3] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[4] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[5] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[6] <= dOut.DB_MAX_OUTPUT_PORT_TYPE
+dOut[7] <= <VCC>
+
+
+|SpaceInvaders|scoreDisplay:SDisplay|FFD:clear_reg
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
