@@ -134,18 +134,18 @@ class invaderSquadron() {
 class coinBox (){
     private var coins = 0
     private var credits = 0
-    fun insertCoin(){
-        coins ++
-        credits += 2
+    fun insertCoin(mycoin: Int){
+        coins += mycoin
+        credits += 2*mycoin
     }
-    fun getCoins(): Int{
-        return coins
+    fun getCredits(): Boolean{
+        if (credits == 0) {
+            return false
+        }
+        return true
     }
     fun setCoins() {
         coins = 0
-    }
-    fun getCredits(): Int{
-        return credits
     }
     fun setCredits() {
         credits--
@@ -199,10 +199,14 @@ class scoreGamers(){
         if (scoreList.size == 20) {
             scoreList.removeLast()
         }
-        val newregister = scoreRegister
+        var newregister = scoreRegister
         newregister.nome = nome
         newregister.scoreValue = scoreValue
-        scoreList.addLast(newregister)
+        println("${newregister.nome} , ${newregister.scoreValue}, ${scoreList.size}")
+        scoreList.add(0, newregister)
+        for (i in scoreList.indices) {
+            println("valores inseridos ${scoreList[i].nome} , ${scoreList[i].scoreValue}, ${scoreList.size}")
+        }
         scoreList.sortByDescending { scoreValue }
     }
     fun createListScore(): LinkedList<scoreRegister> {
@@ -220,16 +224,16 @@ class scoreGamers(){
     fun writeFile (){
         var dataScore = mutableListOf<MutableList<Any>>()
         for(i in scoreList.indices) {
-            var data = mutableListOf<Any>(scoreList[i].nome, scoreList[i].scoreValue)
-            dataScore.add(data)
-            fileSystem().writeFile("cumulativeScore.txt", dataScore)
+            println("${i} - ${scoreList[i].nome}, ${scoreList[i].scoreValue}")
+            dataScore.add(mutableListOf<Any>(scoreList[i].nome, scoreList[i].scoreValue))
         }
-
+        fileSystem().writeFile("cumulativeScore.txt", dataScore)
     }
 }
-fun game () { // com  list
+fun game (dataStore: scoreGamers): scoreGamers{ // com  list
     val myinvaderList = invaderSquadron()
     myinvaderList.insertInvaderSquadron()
+    //var dataStore = scoreGamers()
     var mynave = nave()
     var liveInvader: Boolean
     var currTime = Time.getTimeInMillis()
@@ -249,70 +253,20 @@ fun game () { // com  list
             if (myinvaderList.killnave(mynave.getLine()) == 0) {
                 liveInvader = false
                 currTime = Time.getTimeInMillis() - currTime
-                scoreGamers().insertScore("teste", score)
+                dataStore.insertScore("teste${score}", score)
             }
         }
         println("score ${score}\n")
     }
+    return dataStore
 }
 
-/*
-fun game () { // sem list
-    var listMyInvader = arrayListOf<nave.invader>()
-    var mynave = nave()
-    var myinvader = nave.invader()
-    var liveInvader: Boolean
-    var currTime = Time.getTimeInMillis()
-    var score = 0
-    var levelIncrement = 15
-    var gameTime = 15 * 1000 / myinvader.getVelocity() //funciona como nível
-            //um jogo 15 segundos
-    while ((Time.getTimeInMillis() - currTime) < gameTime) {
-        liveInvader = true
-        println("myinvader ${myinvader.getLine()} , ${myinvader.getShot()} , ${myinvader.getPosition()} ")
-        while ((liveInvader && (Time.getTimeInMillis() - currTime) < gameTime)) {
-            if (myinvader.getPosition() == 1) {
-                if (mynave.getLine() == myinvader.getLine()) {
-                    println("nave abatida")
-                    println("${mynave.getLine()} , ${myinvader.getLine()} ")
-                    currTime = 0
-                } else {
-                    score -= (5 * myinvader.getVelocity())
-                    myinvader = nave.invader()
-                    //elimna da lista
-                }
-            }
-            println("mynave ${mynave.getLine()} , ${mynave.getShot()}, ${mynave.getLine()}, $gameTime, invader position ${myinvader.getPosition()}")
-            mynave.setShot(Random.nextInt(0, 9)) // avaliar número escolhido
-            mynave.setLine() // avaliar tecla *
-            myinvader.setPosition(1)
-            Thread.sleep(100)
-            //currTime = Time.getTimeInMillis() - currTime
-            if (mynave.getLine() == myinvader.getLine() && mynave.getShot() == myinvader.getShot()) {
-                liveInvader = false
-                score += myinvader.getTarget()
-                if ((score % levelIncrement == 0)){
-                    myinvader.setShift()
-                    myinvader.setVelocity()
-                    myinvader.setPosition(myinvader.getVelocity())
-                    myinvader.seTarget()
-                    print ("--------------------nível = ${myinvader.getVelocity()}\n")
-                }
-                println("fim invader - ${mynave.getShot()}, ${mynave.getLine()} , ${myinvader.getShot()}, ${myinvader.getLine()}")
-            }
-        }
-        println("fim - ${Time.getTimeInMillis() - currTime} ${mynave.getShot()}, ${mynave.getLine()} , ${myinvader.getShot()}, ${myinvader.getLine()}")
-        myinvader = nave.invader()
-    }
-    println("score: " + score)
-}
-*/
 class data () {
     fun createtable(){
        // var mytable = fileSystem().readFile()
     }
 }
-fun maintenance(mycoin: coinBox): Boolean {
+fun maintenance(mycoin: coinBox, dataStore: scoreGamers): Boolean {
     var option: String = "-1"
     while (option != "9") {
         println(
@@ -327,11 +281,11 @@ fun maintenance(mycoin: coinBox): Boolean {
         if (option == "0") {
             println("encerrado")
             mycoin.writeFile()
-            scoreGamers().writeFile()
+            dataStore.writeFile()
             return true
         }
         if (option == "1") {
-            game()
+            //game()
         }
         if (option == "#") {
 
@@ -348,38 +302,29 @@ fun maintenance(mycoin: coinBox): Boolean {
     return false
 }
 
- //colocar outra variável para imagem da nave
-    // position para mudar de linha
-    // shot para quando ocorre o disparo o valor associado vai ser avaliado com o número do invader
-
 fun main(args: Array<String>) {
 
-    var flagSwitchOff: Boolean = false
-     //var stateMaintenance: Boolean = false
+    var flagSwitchOff: Boolean = true
+    //var stateMaintenance: Boolean = false
     var mycoin = coinBox()
-    //while (mycoin.getCredits() == 0) {
-        //avaliar coin
+    var coinAccept = CoinAcceptor
+    var dataStore = scoreGamers()
 
- //   }
-     while (!flagSwitchOff) {
-         println("maintenance options y/n")
-         val option = readln()
-         if (option == "y") {
-             flagSwitchOff = maintenance(mycoin)
-         }
-         else {
-             // pensar quando a opção seja terminar  return (true or false)
-             println("insert 1€ coin y/n: ")
-             val coin = readln()
-             if (coin == "y") {
-                 mycoin.insertCoin()
-                 println("coins and credits: ${mycoin.getCoins()}, ${mycoin.getCredits()}")
-             }
-             while ((mycoin.getCredits() > 0)) {
-                 println("coins and credits: ${mycoin.getCoins()}, ${mycoin.getCredits()}")
-                 game()
-                 mycoin.setCredits()
-             }
-         }
-     }
- }
+    while (flagSwitchOff) {
+        println("--------- inserir moeda")
+        if (CoinAcceptor.getCoin() > 0) {
+            mycoin.insertCoin(CoinAcceptor.resetCoin())
+        }
+        if (manutencao.getMaintenence()) {
+            flagSwitchOff = !maintenance(mycoin, dataStore)
+        }
+        val key = KBD.waitKey(1)
+        if (key != KBD.NONE.toChar()) {
+            if (key == '#' && mycoin.getCredits()) {
+                println("coins and credits: ${mycoin.getCredits()}")
+                dataStore = game(dataStore)
+                mycoin.setCredits()
+            }
+        }
+    }
+}
