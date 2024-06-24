@@ -312,7 +312,7 @@ class scoreGamers() {
     }
 
     fun compareScore(value: Int): Boolean {
-        if (scoreList.last().scoreValue < value) {
+        if (scoreList.last().scoreValue < value || scoreList.size < 19) {
             return true
         }
         return false
@@ -395,6 +395,29 @@ fun game (): Int { // com  list
    // LCD.clear()
     return score
 }
+fun insertName(): String {
+    println("inser name")
+    var name = ""
+    var option = NONE
+    var letter = 0x41
+
+    while (option != '#' && name.length <= 8){
+        option = NONE
+        while (option == NONE ){
+            option = KBD.waitKey(500)
+        }
+        if (option == '1'  && letter > 0x41)
+            letter--
+        if (option == '3' && letter < 0x5A)
+            letter++
+        if (option == '2' )
+            name += letter.toChar().toString()
+        if (option == '*')
+            name = ""
+        LCD.textLine(0,"name: ${name}${letter.toChar()}")
+    }
+    return name
+}
 
 fun match(dataStore: scoreGamers){
     var sentences = arrayOf("Game Over", "Time end", "See ScoreDisplay", "Score Records")
@@ -402,8 +425,9 @@ fun match(dataStore: scoreGamers){
     var myscore = game()
     ScoreDisplay.setScore(myscore)
     if (dataStore.compareScore(myscore)) {
-        //name = função de nome se scoor
-        dataStore.insertScore("teste${myscore}", myscore)
+
+       // dataStore.insertScore("teste${myscore}", myscore)
+        dataStore.insertScore(insertName(), myscore)
     }
     LCD.textLine(0, sentences[3].toString())
     getSleep(100)
@@ -433,7 +457,7 @@ fun maintenance(mycoin: coinBox, dataStore: scoreGamers): Boolean {
         )
         option = NONE
         while (option == NONE ){
-            option = KBD.waitKey(2000)
+            option = KBD.waitKey(1000)
         }
         if (option == '0') {
             LCD.placard(true,false,"Shut down", "")
