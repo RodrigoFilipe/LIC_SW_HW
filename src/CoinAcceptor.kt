@@ -11,8 +11,8 @@ object CoinAcceptor {
         if(HAL.isBit(coinMask)){
             HAL.setBits(acceptMask)
 
-         while (HAL.isBit(coinMask));
-            Thread.sleep(1000)
+            while (HAL.isBit(coinMask));
+            Thread.sleep(500)
             HAL.clrBits(acceptMask)
 
             println("coin added")
