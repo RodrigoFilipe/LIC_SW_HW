@@ -383,6 +383,7 @@ fun game (): Int { // com  list
     LCD.clear()
     var sentences = arrayOf("Game Over", "Time end", "See ScoreDisplay", "Score Records")
     var mynave = nave()
+    //var counter_Inv = 0
     mynave.viewNave()
     val myinvaderList = invaderSquadron()
     myinvaderList.insertInvaderSquadron()
@@ -392,6 +393,7 @@ fun game (): Int { // com  list
     var levelIncrement = 15 //eliminar
     var gameTime = 60 * 100000 / myinvaderList.getfirstInvaderSquadron().getVelocity() //funciona como nível
     while (liveInvader && (Time.getTimeInMillis() - currTime) < gameTime) {
+        //counter_Inv++
         val key = getKey()
         if (key == '*') {
             mynave.setLine()
@@ -417,8 +419,11 @@ fun game (): Int { // com  list
             liveInvader = false
             currTime = Time.getTimeInMillis() - currTime
         } else {
-            myinvaderList.insertInvaderSquadron()
-            getSleep(10)
+            //if(counter_Inv == 500) {
+                myinvaderList.insertInvaderSquadron()
+                getSleep(10)
+                //counter_Inv = 0
+            //}
         }
     }
     if (liveInvader){
@@ -554,7 +559,7 @@ fun getKey(): Char{
 }
 
 fun getSleep (t: Int) {
-    val time = 10_000L/t
+    val time = 5_000L/t
     return Thread.sleep(time)
 }
 /*

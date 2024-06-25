@@ -1,3 +1,5 @@
+import kotlin.system.exitProcess
+
 val modelNave =  Byte [
     0x08,   //    #
     0x04,   //      #
@@ -9,14 +11,7 @@ val modelNave =  Byte [
     0x08]   //   #
 val navechar = designChar(modelNave)
 
-fun main2() {
-    initMain()
-    var credits = coinBox()
-    mainMenu(credits)
 
-
-
-}
 
 
 fun initMain(){
@@ -41,6 +36,12 @@ fun mainMenu(credits: coinBox){
     println(credits.getCoins())
 }
 
+fun updateCredits(credits: Int) {
+    LCD.cursor(1, 15)
+    LCD.write(credits.toString())
+
+}
+
 
 fun main(args: Array<String>) {
     println(0%1)
@@ -49,16 +50,13 @@ fun main(args: Array<String>) {
     println(mycoin.getCoins())
     mainMenu(mycoin)
     var flagSwitchOff: Boolean = true
-    //var stateMaintenance: Boolean = false
-
-    //var coinAccept = CoinAcceptor
     var dataStore = scoreGamers()
-    var score : Int
+    dataStore.readFile()
     var newCoin = CoinAcceptor
 
     while (flagSwitchOff) {
 
-        getSleep(1000)
+//        getSleep(1000)
         //println("--------- inserir moeda ${Time.getTimeInMillis()}, coins ${newCoin.checkCoin()} ${CoinAcceptor.checkCoin()}, ${mycoin.getCredits()}")
         if (newCoin.checkCoin()){
             mycoin.insertCoin(1)
@@ -73,18 +71,16 @@ fun main(args: Array<String>) {
         // val key = KBD.waitKey(1)
         //if (key != KBD.NONE.toChar()) {
         if ( getKey() == '#' && mycoin.existCredits()) {
-            println("coins and credits: {mycoin.getCredits()}")
+            println("coins and credits: ${mycoin.getCredits()}")
             println("game")
-            game()
+            match(dataStore)
             mycoin.setCredits()
         }
 
     }
+
+    exitProcess(0)
 }
 
-fun updateCredits(credits: Int) {
-    LCD.cursor(1, 15)
-    LCD.write(credits.toString())
 
-}
 
