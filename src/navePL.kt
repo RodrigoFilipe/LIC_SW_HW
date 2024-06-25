@@ -29,10 +29,10 @@ class nave {
         0x04,   //      #
         0x08]   //   #
     val nave = designChar(modelNave)
+
     //val nave = "}"
     private var line = 0
     private var shot = -1
-
     fun getLine(): Int {
         return line
     }
@@ -41,22 +41,44 @@ class nave {
     }
     fun viewNave () {
         LCD.cursor(line, 0)
-        LCD.write(nave)
+        if (shot != -1){
+            LCD.write(shot.toString() + nave)
+        }
+        else{
+            LCD.write(" $nave")
+        }
+
     }
 
     fun setLine () {
         LCD.cursor(line, 0)
-        LCD.write(" ")
+        LCD.write("  ")
         when(line){
             0 -> line = 1
             else -> line = 0
         }
-
         LCD.cursor(line, 0)
-        LCD.write(nave)
+        if (shot != -1){
+            LCD.write(shot.toString() + nave)
+        }
+        else{
+            LCD.write(" $nave")
+        }
+
+
+
     }
     fun setShot (s: Int) {
         shot = s
+        LCD.cursor(line, 0)
+        if (shot != -1){
+
+            LCD.write(s.toString() + nave)
+        }
+        else{
+            LCD.write(" $nave")
+        }
+
     }
     class invader {
         val modelInvader =  Byte [
@@ -74,7 +96,7 @@ class nave {
         //Random.nextInt(1, 11)
         private var position = 14 // começa mais À esquerda
         private var velocity = 1 // para aumentar de acordo com o nivel do jogo, pode ser 1 segundo ou menos
-        private var shift =  2 // inicialmemte move-se uma posição para a direita, que pode ser incrementada de acordo com o nível
+        private var shift =  1 // inicialmemte move-se uma posição para a direita, que pode ser incrementada de acordo com o nível
         private var target = 5 // valor atribuido de score inicial, que pode ser incrementado de acordo com o nível
         // pode ainda de acordo com o nível a linha variar ao longo do percurso
 
@@ -118,7 +140,7 @@ class invaderSquadron() {
     fun insertInvaderSquadron() {
         setInvaderSquadron()
 
-        if (invaderList.size < 10) {
+        if (invaderList.size < 18) {
             var invader = nave.invader()
             invaderList.addLast(invader)
         }
@@ -133,13 +155,13 @@ class invaderSquadron() {
         invaderList.remove(invaderkilled)
     }
     fun showinvaderSquadron() {
-        LCD.clear(0,1)
-        LCD.clear(1,1)
+        LCD.clear(0,2)
+        LCD.clear(1,2)
         for (i in invaderList.indices) {
             println("invader number, ${invaderList[i].getLine()}, ${invaderList[i].getPosition()}, ${invaderList[i].getShot()}")
             LCD.cursor(invaderList[i].getLine(), invaderList[i].getPosition())
             //LCD.clear(invaderList[i].getLine(), invaderList[i].getPosition()+2) //Apaga o rasto
-            LCD.write(invaderList[i].invader + invaderList[i].getShot().toString())
+            LCD.write(invaderList[i].getShot().toString())
             //invaderList[i].getShot().toString()
         }
         // getSleep(5)
@@ -147,7 +169,7 @@ class invaderSquadron() {
 
     fun setInvaderSquadron() {
         for (i in invaderList.indices) {
-            if (invaderList[i].getPosition() <= 1) {
+            if (invaderList[i].getPosition() == 1) {
                 println("----------------setInvader ")
                 killInvaderSquadron(invaderList[i])
                 invaderList[i].setPosition()
@@ -170,8 +192,8 @@ class invaderSquadron() {
 
     fun killnave(line: Int): Boolean {
         for (i in invaderList.indices) {
-            if (invaderList[i].getLine() == line) {
-                if (invaderList[i].getPosition() <= 1) {
+            //if (invaderList[i].getLine() == line) {
+                if (invaderList[i].getPosition() <= 2) {
                     println("killed nave ${i} - ${line} - invader ${invaderList[i].getLine()}, ${invaderList[i].getShot()}")
                     LCD.placard(true,true, sentences[1].toString(), sentences[3].toString())
                     return true
@@ -183,7 +205,7 @@ class invaderSquadron() {
                      return true
                      */
                 }
-            }
+          //  }
         }
         return false
     }
@@ -193,11 +215,11 @@ class invaderSquadron() {
 
             if (invaderList[i].getLine() == line) {
                 if (invaderList[i].getShot() == shot) {
-                    var target = invaderList[i].getTarget()
+                    val target = invaderList[i].getTarget()
                     //println("nave - ${line} , ${shot}, invader ${i} -  ${this.invaderList[i].getLine()}, ${invaderList[i].getShot()}, ${invaderList[i].getPosition()}")
 
                     LCD.cursor(invaderList[i].getLine(), invaderList[i].getPosition())
-                    LCD.write("00")
+                    LCD.write("0")
                     println("line, tiro---------------------${i}, ${line}, ${shot}, ${invaderList[i].getShot()}")
                     killInvaderSquadron(invaderList[i])
                     println("-----------invader abatido")
@@ -358,6 +380,7 @@ class scoreGamers() {
 }
 
 fun game (): Int { // com  list
+    LCD.clear()
     var sentences = arrayOf("Game Over", "Time end", "See ScoreDisplay", "Score Records")
     var mynave = nave()
     mynave.viewNave()
@@ -367,21 +390,29 @@ fun game (): Int { // com  list
     var currTime = Time.getTimeInMillis()
     var score = 0
     var levelIncrement = 15 //eliminar
-    var gameTime = 60 * 1000 / myinvaderList.getfirstInvaderSquadron().getVelocity() //funciona como nível
+    var gameTime = 60 * 100000 / myinvaderList.getfirstInvaderSquadron().getVelocity() //funciona como nível
     while (liveInvader && (Time.getTimeInMillis() - currTime) < gameTime) {
         val key = getKey()
         if (key == '*') {
             mynave.setLine()
             println("nave--------------------------------${key}")
         }
-        if (key in '0'..'9') {
+        if (key in '0'..'9' && mynave.getShot() == -1) {
             mynave.setShot(key.digitToInt())
             // while ((liveInvader && (Time.getTimeInMillis() - currTime) < gameTime)) {
-            score += myinvaderList.ShootInvaderSquadron(mynave.getLine(), mynave.getShot())
-            println("shot------------------------------${key}, ${score}")
+            //score += myinvaderList.ShootInvaderSquadron(mynave.getLine(), mynave.getShot())
+            //println("shot------------------------------${key}, ${score}")
             //mynave.setShot(Random.nextInt(0, 9)) // avaliar número escolhido
             //mynave.setLine() // avaliar tecla *
         }
+        if (key == '#' && mynave.getShot() != -1 ){
+            score += myinvaderList.ShootInvaderSquadron(mynave.getLine(), mynave.getShot())
+            println("shot------------------------------${key}, ${score}")
+            mynave.setShot(-1)
+        }
+
+        ScoreDisplay.setScore(score)
+
         if (myinvaderList.killnave(mynave.getLine())) {
             liveInvader = false
             currTime = Time.getTimeInMillis() - currTime
@@ -396,6 +427,7 @@ fun game (): Int { // com  list
     }
 
     // LCD.clear()
+    println(score)
     return score
 }
 fun insertName(): String? = runBlocking {

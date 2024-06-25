@@ -31,6 +31,7 @@ fun initMain(){
 }
 
 fun mainMenu(credits: coinBox){
+    LCD.clear()
     LCD.cursor(0,0)
     LCD.write(" SPACE INVADERS")
     LCD.cursor(1,0)
@@ -61,7 +62,7 @@ fun main(args: Array<String>) {
         //println("--------- inserir moeda ${Time.getTimeInMillis()}, coins ${newCoin.checkCoin()} ${CoinAcceptor.checkCoin()}, ${mycoin.getCredits()}")
         if (newCoin.checkCoin()){
             mycoin.insertCoin(1)
-            updateCredits(mycoin.getCredits())
+            mainMenu(mycoin)
         }
 
         manutencao.enterManut()
@@ -74,7 +75,7 @@ fun main(args: Array<String>) {
         if ( getKey() == '#' && mycoin.existCredits()) {
             println("coins and credits: {mycoin.getCredits()}")
             println("game")
-            score = game()
+            game()
             mycoin.setCredits()
         }
 
