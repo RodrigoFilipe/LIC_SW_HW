@@ -470,9 +470,10 @@ fun maintenance(mycoin: coinBox, dataStore: scoreGamers): Boolean {
                     "9 - end\n"
         )
         option = NONE
-        while (option == NONE ){
+       // while (option == NONE ){
             option = KBD.waitKey(1000)
-        }
+            println(option)
+        //}
         if (option == '0') {
             LCD.placard(true,false,"Shut down", "")
             //mycoin.writeFile()

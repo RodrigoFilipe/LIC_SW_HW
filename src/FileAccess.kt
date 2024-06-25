@@ -50,7 +50,7 @@ class FileAccess(){
         var line = br.readLine()
         while (line != null) {
             val str = line!!.split(",")
-            scoreList.addLast(scoreRegister(str[0].toString(), str[1].toInt()))
+            scoreList.add(scoreRegister(str[0].toString(), str[1].toInt()))
             line = br.readLine()
         }
         return scoreList
