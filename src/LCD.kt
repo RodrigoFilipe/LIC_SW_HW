@@ -1,5 +1,3 @@
-import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.*
 import HAL
 import java.lang.invoke.MethodHandles.loop
 
@@ -144,17 +142,6 @@ object LCD { // Escreve no LCD usando a interface a 4 bits.
         }
     }
 
-    suspend fun instructions (text: Array<String>) {
-        LCD.clear(1,0)
-        println("setas")
-        while (true) {
-            println("setas")
-            for (i in 0..text.size - 1) {
-                textLine(1, text.get(i))
-                getSleep(8)
-            }
-        }
-    }
     fun placard(line0: Boolean, line1: Boolean, text0: String, text1: String) {
         if (line0) {
             textLine(0, text0)

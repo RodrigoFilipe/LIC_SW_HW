@@ -8,8 +8,6 @@ object ScoreDisplay { // Controla o mostrador de pontuação.
         SerialEmitter.send(SerialEmitter.Destination.SCORE, displayOn, 7)
         SerialEmitter.send(SerialEmitter.Destination.SCORE, updateDisplay, 7)
         }
-
-
     // Envia comando para atualizar o valor do mostrador de pontuação
     fun setScore(value: Int) {
         if (value <= 999999) {
