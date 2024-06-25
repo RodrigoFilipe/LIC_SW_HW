@@ -1,3 +1,14 @@
+val modelNave =  Byte [
+    0x08,   //    #
+    0x04,   //      #
+    0x16,   //  #   # #
+    0x1f,   //  # # # # #
+    0x1f,   //  # # # # #
+    0x06,   //  #   # #
+    0x04,   //      #
+    0x08]   //   #
+val navechar = designChar(modelNave)
+
 fun main2() {
     initMain()
     var credits = coinBox()
@@ -9,6 +20,7 @@ fun main2() {
 
 
 fun initMain(){
+
     HAL.init()
     SerialEmitter.init()
     KBD.init()
@@ -40,11 +52,12 @@ fun main(args: Array<String>) {
 
     //var coinAccept = CoinAcceptor
     var dataStore = scoreGamers()
+    var score : Int
     var newCoin = CoinAcceptor
 
     while (flagSwitchOff) {
 
-        getSleep()
+        getSleep(1000)
         //println("--------- inserir moeda ${Time.getTimeInMillis()}, coins ${newCoin.checkCoin()} ${CoinAcceptor.checkCoin()}, ${mycoin.getCredits()}")
         if (newCoin.checkCoin()){
             mycoin.insertCoin(1)
@@ -61,7 +74,7 @@ fun main(args: Array<String>) {
         if ( getKey() == '#' && mycoin.existCredits()) {
             println("coins and credits: {mycoin.getCredits()}")
             println("game")
-            dataStore = game(dataStore)
+            score = game()
             mycoin.setCredits()
         }
 
