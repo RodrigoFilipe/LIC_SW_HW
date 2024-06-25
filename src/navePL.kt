@@ -4,6 +4,9 @@ import java.util.LinkedList
 import java.io.File
 import java.io.FileReader
 import java.io.BufferedReader
+import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.*
+
 
 const val NONE = KBD.NONE.toChar()
 
@@ -155,7 +158,6 @@ class invaderSquadron() {
             }
         }
     }
-
 
     fun getfirstInvaderSquadron(): nave.invader {
         return invaderList.first()
@@ -395,7 +397,9 @@ fun game (): Int { // com  list
    // LCD.clear()
     return score
 }
-fun insertName(): String {
+fun insertName(): String? = runBlocking {
+    val setences = arrayOf("Write you name", "<-(1) OK(2) (3)->", "* for erase")
+    val insertName = launch {LCD.instructions(setences)}
     println("inser name")
     var name = ""
     var option = NONE
@@ -406,17 +410,26 @@ fun insertName(): String {
         while (option == NONE ){
             option = KBD.waitKey(500)
         }
-        if (option == '1'  && letter > 0x41)
+        if (option == '1' ) {
             letter--
-        if (option == '3' && letter < 0x5A)
+            if (letter < 0x41)
+                letter = 0x5A
+        }
+        if (option == '3') {
             letter++
-        if (option == '2' )
+            if (letter > 0x5A || letter < 0x22)
+                letter = 0x41
+        }
+        if (option == '2') {
             name += letter.toChar().toString()
+            letter = 0x20
+        }
         if (option == '*')
-            name = ""
+            name = name.dropLast(1)
         LCD.textLine(0,"name: ${name}${letter.toChar()}")
     }
-    return name
+    insertName.cancel()
+    return@runBlocking name
 }
 
 fun match(dataStore: scoreGamers){
@@ -427,7 +440,7 @@ fun match(dataStore: scoreGamers){
     if (dataStore.compareScore(myscore)) {
 
        // dataStore.insertScore("teste${myscore}", myscore)
-        dataStore.insertScore(insertName(), myscore)
+        dataStore.insertScore(insertName().toString(), myscore)
     }
     LCD.textLine(0, sentences[3].toString())
     getSleep(100)
@@ -461,7 +474,7 @@ fun maintenance(mycoin: coinBox, dataStore: scoreGamers): Boolean {
         }
         if (option == '0') {
             LCD.placard(true,false,"Shut down", "")
-            //mycoin.writeFile()
+            mycoin.writeFile()
             dataStore.writeFile()
             return true
         }
