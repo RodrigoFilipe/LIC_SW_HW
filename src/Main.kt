@@ -1,57 +1,65 @@
-import isel.leic.utils.Time
+import kotlin.system.exitProcess
 
-fun main2() {
-    initMain()
-    var credits = coinBox()
-    mainMenu(credits)
-}
+val modelNave =  Byte [
+    0x08,   //    #
+    0x04,   //      #
+    0x16,   //  #   # #
+    0x1f,   //  # # # # #
+    0x1f,   //  # # # # #
+    0x06,   //  #   # #
+    0x04,   //      #
+    0x08]   //   #
+val navechar = designChar(modelNave)
+
+
+
 
 fun initMain(){
+
     HAL.init()
     SerialEmitter.init()
     KBD.init()
     LCD.init()
     ScoreDisplay.init()
     CoinAcceptor.init()
+
 }
 
 fun mainMenu(credits: coinBox){
-    var sentences = arrayOf("Space Invaders")
-    val mynave = nave().nave
-    //val myinvader = nave.invader().invader
-    //    LCD.cursor(0,0)
-    //LCD.write(" SPACE INVADERS")
-    //LCD.cursor(1,0)
-    //LCD.write("GAME ${mynave}  ${myinvader} ${myinvader}")
-    //LCD.cursor(1, 14)
-    //LCD.write("$${credits.getCredits()}")
-    //println(credits.getCoins())
-    LCD.placard(true,true, sentences[0],"GAME  " + nave().nave  + "   " +  nave.invader().invader.toString() + " " +
-            nave.invader().invader.toString() + " $" + credits.getCredits().toString())
+    LCD.clear()
+    LCD.cursor(0,0)
+    LCD.write(" SPACE INVADERS")
+    LCD.cursor(1,0)
+    LCD.write("GAME }  A A")
+    LCD.cursor(1, 14)
+    LCD.write("$${credits.getCredits()}")
+    println(credits.getCoins())
 }
 
+fun updateCredits(credits: Int) {
+    LCD.cursor(1, 15)
+    LCD.write(credits.toString())
+
+}
+
+
 fun main(args: Array<String>) {
-   // println(0%1)
+    println(0%1)
     initMain()
     var mycoin = coinBox()
-   // mycoin.readFile()
-    //println(mycoin.getCoins())
+    println(mycoin.getCoins())
     mainMenu(mycoin)
     var flagSwitchOff: Boolean = true
-    //var stateMaintenance: Boolean = false
-    //var coinAccept = CoinAcceptor
     var dataStore = scoreGamers()
     dataStore.readFile()
-
-    println(dataStore.scoreList.size)
-    var newCoin = CoinAcceptor //será para eliminar
+    var newCoin = CoinAcceptor
 
     while (flagSwitchOff) {
 
-        getSleep(4)
+//        getSleep(1000)
+        //println("--------- inserir moeda ${Time.getTimeInMillis()}, coins ${newCoin.checkCoin()} ${CoinAcceptor.checkCoin()}, ${mycoin.getCredits()}")
         if (newCoin.checkCoin()){
             mycoin.insertCoin(1)
-            updateCredits(mycoin.getCredits())
             mainMenu(mycoin)
         }
 
@@ -59,27 +67,20 @@ fun main(args: Array<String>) {
         if (manutencao.getMaintenence()) {
             println("em maintenance")
             flagSwitchOff = !maintenance(mycoin, dataStore)
-
         }
         // val key = KBD.waitKey(1)
         //if (key != KBD.NONE.toChar()) {
         if ( getKey() == '#' && mycoin.existCredits()) {
-            mycoin.setCredits()
+            println("coins and credits: ${mycoin.getCredits()}")
+            println("game")
             match(dataStore)
-            mainMenu(mycoin)
+            mycoin.setCredits()
         }
 
     }
-    dataStore.writeFile()
-    println("Log Off")
+
+    exitProcess(0)
 }
 
-fun updateCredits(credits: Int) {
-    var sentences = arrayOf("Space Invaders")
-    //LCD.cursor(1, 15)
-    LCD.placard(true,true, sentences[0],"GAME  " + nave().nave  + "   " +  nave.invader().invader.toString() + " " +
-            nave.invader().invader.toString() + " $" + credits.toString()) // alterado para ser visível sempre o mesmo letering
-   // LCD.write(credits.toString())
 
-}
 
