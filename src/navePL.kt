@@ -4,7 +4,7 @@ import java.util.LinkedList
 import java.io.File
 import java.io.FileReader
 import java.io.BufferedReader
-import kotlin.concurrent.thread
+//import kotlin.concurrent.thread
 
 const val NONE = KBD.NONE.toChar()
 
@@ -387,6 +387,11 @@ fun game (): Int { // com  list
         if  (key == '#') {
             score += myinvaderList.ShootInvaderSquadron(mynave.getLine(), mynave.getShot())
             ScoreDisplay.setScore(score)
+            if (score%levelIncrement == 0) {
+                nave.invader().seTarget()
+                nave.invader().setVelocity()
+                nave.invader().setShift()
+            }
         }
 
         if (key in '0'..'9') {
