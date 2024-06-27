@@ -416,7 +416,7 @@ fun game (): Int { // com  list
     }
     if (liveInvader){
         LCD.placard(true,true, sentences[1].toString() , sentences[2].toString())
-        getSleep(20)
+        getSleep(20);
     }
 
     // LCD.clear()
