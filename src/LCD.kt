@@ -196,6 +196,8 @@ fun main() {
 
 
     LCD.write("Hello")
+    LCD.clear()
+
     //LCD.cursor(1, 3)
     //LCD.write("LIC")
     //LCD.clear()

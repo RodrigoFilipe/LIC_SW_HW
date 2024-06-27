@@ -82,7 +82,7 @@ class nave {
         private var line = Random.nextInt(0, 2)
         private var shot = Random.nextInt(0, 10)
         //Random.nextInt(1, 11)
-        private var position = 14 // começa mais À esquerda
+        private var position = 15 // começa mais À esquerda
         private var velocity = 1 // para aumentar de acordo com o nivel do jogo, pode ser 1 segundo ou menos
         private var shift =  1 // inicialmemte move-se uma posição para a direita, que pode ser incrementada de acordo com o nível
         private var target = 5 // valor atribuido de score inicial, que pode ser incrementado de acordo com o nível
@@ -158,7 +158,7 @@ class invaderSquadron() {
     fun setInvaderSquadron() {
         for (i in invaderList.indices) {
             if (invaderList[i].getPosition() == 1) {
-                println("----------------setInvader ")
+                //println("----------------setInvader ")
                 killInvaderSquadron(invaderList[i])
                 invaderList[i].setPosition()
                 break
@@ -184,6 +184,7 @@ class invaderSquadron() {
                 if (invaderList[i].getPosition() <= 2) {
                     println("killed nave ${i} - ${line} - invader ${invaderList[i].getLine()}, ${invaderList[i].getShot()}")
                     LCD.placard(true,true, sentences[1].toString(), sentences[3].toString())
+                    getSleep(10)
                     return true
                     /* LCD.clear()
                      LCD.cursor(0, 0)
@@ -218,7 +219,7 @@ class invaderSquadron() {
                 }
             }
         }
-        insertInvaderSquadron()
+        //insertInvaderSquadron()
         return 0
         //return 0
     }
@@ -407,16 +408,17 @@ fun game (): Int { // com  list
             liveInvader = false
             currTime = Time.getTimeInMillis() - currTime
         } else {
-            if(counter_Inv % 1000 == 0) {
+            if(counter_Inv == 600) {
                 myinvaderList.insertInvaderSquadron()
                 getSleep(20)
+                counter_Inv = 0
 
             }
         }
     }
     if (liveInvader){
         LCD.placard(true,true, sentences[1].toString() , sentences[2].toString())
-        getSleep(20);
+        getSleep(50);
     }
 
     // LCD.clear()
@@ -425,21 +427,25 @@ fun game (): Int { // com  list
 }
 fun instructions (text: Array<String>) {
     LCD.clear(1,0)
-    for (i in 0..2) {
-        LCD.textLine(1, text.get(i))
-        getSleep(200)
+    var i = 0
+    while (i < 2) {
+        LCD.textLine(1, text[i])
+        getSleep(10)
+        i++
     }
 }
 fun insertName(): String?  {
-    val sentences = arrayOf("Write you name", "<-(1) OK(2) (3)->", "* for erase")
-    instructions(sentences)
-    println("inser name")
+    LCD.clear()
+    val sentences = arrayOf("name: ", "Write you name", "* for erase", "<-1 OK-2 3->")
+    LCD.placardMaintenance(sentences)
+    println("insert name")
     var name = ""
     var option = NONE
     var letter = 0x41
 
     while ((option != '#' || name.length < 3) && name.length <= 8){
         option = NONE
+        LCD.textLine(0,"name: ${name}${letter.toChar()}")
         while (option == NONE ){
             option = KBD.waitKey(500)
         }
@@ -459,7 +465,7 @@ fun insertName(): String?  {
         }
         if (option == '*')
             name = name.dropLast(1)
-        LCD.textLine(0,"name: ${name}${letter.toChar()}")
+
     }
     return name
 }
@@ -553,7 +559,7 @@ fun getKey(): Char{
 }
 
 fun getSleep (t: Int) {
-    val time = 5_000L/t
+    val time = 10_000L/t
     return Thread.sleep(time)
 }
 /*
