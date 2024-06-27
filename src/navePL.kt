@@ -199,6 +199,7 @@ class invaderSquadron() {
         return false
     }
     fun ShootInvaderSquadron(line: Int, shot: Int): Int{
+        val initialTime = Time.getTimeInMillis()
         //ao ocorrer tiro , encontra o primeiro invader da linha da nave, se o valor coincindir, elimina a nave e termina o jogo
         for (i in invaderList.indices) {
 
@@ -208,10 +209,11 @@ class invaderSquadron() {
                     //println("nave - ${line} , ${shot}, invader ${i} -  ${this.invaderList[i].getLine()}, ${invaderList[i].getShot()}, ${invaderList[i].getPosition()}")
 
                     LCD.cursor(invaderList[i].getLine(), invaderList[i].getPosition())
-                    LCD.write("0")
+                    LCD.write(" ")
                     println("line, tiro---------------------${i}, ${line}, ${shot}, ${invaderList[i].getShot()}")
                     killInvaderSquadron(invaderList[i])
                     println("-----------invader abatido")
+                    println( "time: " + (Time.getTimeInMillis() - initialTime))
                     return target
                 }
                 else{
