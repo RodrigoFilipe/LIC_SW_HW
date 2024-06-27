@@ -4,7 +4,9 @@ import java.util.LinkedList
 import java.io.File
 import java.io.FileReader
 import java.io.BufferedReader
-//import kotlin.concurrent.thread
+import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.*
+
 
 const val NONE = KBD.NONE.toChar()
 
@@ -26,11 +28,11 @@ class nave {
         0x06,   //  #   # #
         0x04,   //      #
         0x08]   //   #
-    //val nave = designChar(modelNave)
-    val nave = "}"
+    val nave = designChar(modelNave)
+
+    //val nave = "}"
     private var line = 0
     private var shot = -1
-
     fun getLine(): Int {
         return line
     }
@@ -39,47 +41,48 @@ class nave {
     }
     fun viewNave () {
         LCD.cursor(line, 0)
-        if (shot != -1) {
+        if (shot != -1){
             LCD.write(shot.toString() + nave)
         }
-        else
-            LCD.write(" " + nave)
-     }
-    //?? falta código para apagar o rasto na outra linha?
-    fun setLine () {    //alterado para que view mostre a alteração, sem if aqui
+        else{
+            LCD.write(" $nave")
+        }
+
+    }
+
+
+    fun setLine () {
         LCD.cursor(line, 0)
         LCD.write("  ")
         when(line){
             0 -> line = 1
             else -> line = 0
         }
-        //LCD.cursor(line, 0)
-        //LCD.write(nave) */
         viewNave()
+
     }
-    fun setShot (s: Int) {  //alterado para que view mostre a alteração, sem if aqui
-        if (shot == -1)
-            shot = s
-        else
-            shot = s
+
+    fun setShot (s: Int) {
+        shot = s
+        LCD.cursor(line, 0)
         viewNave()
+
     }
     class invader {
         val modelInvader =  Byte [
-                0x00,   //
-                0x04,   //      #
-                0x0D,   //    # #   #
-                0x1F,   //  # # # # #
-                0x0D,   //    # #   #
-                0x04,   //      #
-                0x00,   //
-                0x00]   // 00
+            0x00,   //
+            0x04,   //      #
+            0x0D,   //    # #   #
+            0x1F,   //  # # # # #
+            0x0D,   //    # #   #
+            0x04,   //      #
+            0x00,   //
+            0x00]   // 00
         val invader = designChar(modelInvader)
-        val posInvader = 2 // para garantir mais fácil alteração nos funções de LCD
         private var line = Random.nextInt(0, 2)
         private var shot = Random.nextInt(0, 10)
         //Random.nextInt(1, 11)
-        private var position = 15 // começa mais À esquerda
+        private var position = 14 // começa mais À esquerda
         private var velocity = 1 // para aumentar de acordo com o nivel do jogo, pode ser 1 segundo ou menos
         private var shift =  1 // inicialmemte move-se uma posição para a direita, que pode ser incrementada de acordo com o nível
         private var target = 5 // valor atribuido de score inicial, que pode ser incrementado de acordo com o nível
@@ -130,33 +133,33 @@ class invaderSquadron() {
             invaderList.addLast(invader)
         }
         showinvaderSquadron()
-        //println("--------------------------------end")
+        println("--------------------------------end")
     }
-    //fun killInvaderSquadron(invaderkilled: nave.invader) { // altreração 240626 PL, não é necessário, apenas chama invaderList.remove(??)
-        //println("killed: ${invaderkilled.getTarget()}")
-        //println(invaderkilled.getTarget())
+    fun killInvaderSquadron(invaderkilled: nave.invader) {
+        println("killed: ${invaderkilled.getTarget()}")
+        println(invaderkilled.getTarget())
         //LCD.cursor(invaderkilled.getLine(), invaderkilled.getPosition())
         //LCD.write("--")
-        //invaderList.remove(invaderkilled)
-    //}
+        invaderList.remove(invaderkilled)
+    }
     fun showinvaderSquadron() {
-        LCD.clear(1, nave.invader().posInvader)
+        LCD.clear(0,2)
+        LCD.clear(1,2)
         for (i in invaderList.indices) {
-            //println("invader number, ${invaderList[i].getLine()}, ${invaderList[i].getPosition()}, ${invaderList[i].getShot()}")
+            println("invader number, ${invaderList[i].getLine()}, ${invaderList[i].getPosition()}, ${invaderList[i].getShot()}")
             LCD.cursor(invaderList[i].getLine(), invaderList[i].getPosition())
             //LCD.clear(invaderList[i].getLine(), invaderList[i].getPosition()+2) //Apaga o rasto
             LCD.write(invaderList[i].getShot().toString())
-        //invaderList[i].getShot().toString()
+            //invaderList[i].getShot().toString()
         }
-       // getSleep(5)
+        // getSleep(5)
     }
 
     fun setInvaderSquadron() {
         for (i in invaderList.indices) {
-            if (invaderList[i].getPosition() <= 1) {
-                //println("----------------setInvader ")
-                invaderList.remove(invaderList[i])
-                //killInvaderSquadron(invaderList[i])
+            if (invaderList[i].getPosition() == 1) {
+                println("----------------setInvader ")
+                killInvaderSquadron(invaderList[i])
                 invaderList[i].setPosition()
                 break
             }
@@ -165,6 +168,7 @@ class invaderSquadron() {
             }
         }
     }
+
 
     fun getfirstInvaderSquadron(): nave.invader {
         return invaderList.first()
@@ -177,38 +181,36 @@ class invaderSquadron() {
     fun killnave(line: Int): Boolean {
         for (i in invaderList.indices) {
             //if (invaderList[i].getLine() == line) {
-                if (invaderList[i].getPosition() <= 1) {
-                    //println("killed nave ${i} - ${line} - invader ${invaderList[i].getLine()}, ${invaderList[i].getShot()}")
+                if (invaderList[i].getPosition() <= 2) {
+                    println("killed nave ${i} - ${line} - invader ${invaderList[i].getLine()}, ${invaderList[i].getShot()}")
                     LCD.placard(true,true, sentences[1].toString(), sentences[3].toString())
-                    nave().setShot(-1)
                     return true
-                   /* LCD.clear()
-                    LCD.cursor(0, 0)
-                    LCD.write( "Nave killed, $${credits}")
-                    LCD.cursor(1, 0)
-                    LCD.write( "See ScoreDisplay")
-                    return true
-                    */
+                    /* LCD.clear()
+                     LCD.cursor(0, 0)
+                     LCD.write( "Nave killed, $${credits}")
+                     LCD.cursor(1, 0)
+                     LCD.write( "See ScoreDisplay")
+                     return true
+                     */
                 }
-
+          //  }
         }
         return false
     }
     fun ShootInvaderSquadron(line: Int, shot: Int): Int{
         //ao ocorrer tiro , encontra o primeiro invader da linha da nave, se o valor coincindir, elimina a nave e termina o jogo
         for (i in invaderList.indices) {
+
             if (invaderList[i].getLine() == line) {
                 if (invaderList[i].getShot() == shot) {
-                    var target = invaderList[i].getTarget()
+                    val target = invaderList[i].getTarget()
                     //println("nave - ${line} , ${shot}, invader ${i} -  ${this.invaderList[i].getLine()}, ${invaderList[i].getShot()}, ${invaderList[i].getPosition()}")
 
                     LCD.cursor(invaderList[i].getLine(), invaderList[i].getPosition())
-                    LCD.write(" ") //retirei "00", aparece no LCD e confunse-se com os invaders
-                    nave().setShot(-1)
-                    //println("line, tiro---------------------${i}, ${line}, ${shot}, ${invaderList[i].getShot()}")
-                    //killInvaderSquadron(invaderList[i])
-                    invaderList.remove(invaderList[i])
-                    //println("-----------invader abatido")
+                    LCD.write("0")
+                    println("line, tiro---------------------${i}, ${line}, ${shot}, ${invaderList[i].getShot()}")
+                    killInvaderSquadron(invaderList[i])
+                    println("-----------invader abatido")
                     return target
                 }
                 else{
@@ -224,8 +226,8 @@ class invaderSquadron() {
 
 class coinBox (){
     private var coins = 0
-    private var credits = coins
-    private var games = coins
+    private var credits = 0
+    private var games = 0
     val fileName = "contability.txt"
     fun insertCoin(coin: Int){
         this.coins += coin
@@ -240,8 +242,8 @@ class coinBox (){
     }
     fun setCoins() {
         coins = 0
-        credits = coins
-        games = coins
+        credits = 0
+        games = 0
     }
     fun getCredits(): Int{
         return credits
@@ -259,30 +261,30 @@ class coinBox (){
     fun viewCoinBox() {
         println("Exist $coins : coins, $credits : credits")
         LCD.placard(true, true, "coins= ${coins.toString()}", "games = ${games.toString()}")
-        getSleep(40)
+        getSleep(10)
     }
     fun zeroCoin() {
         coins = 0
         credits = 0
     }
-   /* fun readFile() {
+    /* fun readFile() {
+         val br = BufferedReader(FileReader(fileName))
+         val line = br.readLine()
+         val str = line!!.split(",")
+         insertCoin(str[0].toString().toInt(), str[1].toString().toInt())
+     }
+     fun writeFile (){
+         var dataContability = mutableListOf<Any>()
+         //var data = mutableListOf<Any>(coins, games)
+         dataContability.add(mutableListOf<Any>(coins, games))
+         FileAccess().writeFile(fileName, dataContability)
+     }*/
+    fun readFile() {
         val br = BufferedReader(FileReader(fileName))
         val line = br.readLine()
         val str = line!!.split(",")
         insertCoin(str[0].toString().toInt(), str[1].toString().toInt())
     }
-    fun writeFile (){
-        var dataContability = mutableListOf<Any>()
-        //var data = mutableListOf<Any>(coins, games)
-        dataContability.add(mutableListOf<Any>(coins, games))
-        FileAccess().writeFile(fileName, dataContability)
-    }*/
-   fun readFile() {
-       val br = BufferedReader(FileReader(fileName))
-       val line = br.readLine()
-       val str = line!!.split(",")
-       insertCoin(str[0].toString().toInt(), str[1].toString().toInt())
-   }
     fun writeFile (){
         val myFile = File(fileName)
         var data = ("${coins},${games}")
@@ -300,11 +302,12 @@ class fileSystem(){
 }
 
 class scoreRegister(nome: String, value: Int) {
-        var nome = nome
-        var scoreValue = value
+    var nome = nome
+    var scoreValue = value
 }
 
 class scoreGamers() {
+
     var scoreList = mutableListOf <scoreRegister>()
     val fileName = "cumulativeScore.txt"
     fun insertScore(name: String, scoreValue: Int) {
@@ -355,61 +358,60 @@ class scoreGamers() {
 
     fun showFile (){
         val sleep = (scoreList.size) // tempo de cada score X 4 porque o valor de sleep por defeito é 2000
-        //println("SLEEP SHOWFILE ${scoreList.size}")
+        println("SLEEP SHOWFILE ${scoreList.size}")
         for (i in scoreList.indices) {
             LCD.textLine(1, ((i+1).toString() + "-" + scoreList[i].nome + " - " +scoreList[i].scoreValue.toString()))
             getSleep(sleep) //alterar depois para sleep ou rotativo
-            //println("New record $i")
+            println("New record $i")
         }
     }
 }
 
 fun game (): Int { // com  list
+    LCD.clear()
     var sentences = arrayOf("Game Over", "Time end", "See ScoreDisplay", "Score Records")
     var mynave = nave()
+    var counter_Inv = 0
     mynave.viewNave()
     val myinvaderList = invaderSquadron()
     myinvaderList.insertInvaderSquadron()
     var liveInvader= true
     var currTime = Time.getTimeInMillis()
     var score = 0
-    var levelIncrement = 50
-    var gameTime = 30 * 1000 / myinvaderList.getfirstInvaderSquadron().getVelocity() //funciona como nível
-    var i = 0
-    ScoreDisplay.init()
+    var levelIncrement = 15 //eliminar
+    var gameTime = 60 * 100000 / myinvaderList.getfirstInvaderSquadron().getVelocity() //funciona como nível
     while (liveInvader && (Time.getTimeInMillis() - currTime) < gameTime) {
-        i++
+        counter_Inv++
         val key = getKey()
         if (key == '*') {
             mynave.setLine()
-            //println("nave--------------------------------${key}")
+            println("nave--------------------------------${key}")
         }
-        if  (key == '#') {
-            score += myinvaderList.ShootInvaderSquadron(mynave.getLine(), mynave.getShot())
-            ScoreDisplay.setScore(score)
-            if (score%levelIncrement == 0) {
-                nave.invader().seTarget()
-                nave.invader().setVelocity()
-                nave.invader().setShift()
-            }
-        }
-
-        if (key in '0'..'9') {
+        if (key in '0'..'9' && mynave.getShot() == -1) {
             mynave.setShot(key.digitToInt())
-        }
-             // while ((liveInvader && (Time.getTimeInMillis() - currTime) < gameTime)) {
+            // while ((liveInvader && (Time.getTimeInMillis() - currTime) < gameTime)) {
             //score += myinvaderList.ShootInvaderSquadron(mynave.getLine(), mynave.getShot())
             //println("shot------------------------------${key}, ${score}")
             //mynave.setShot(Random.nextInt(0, 9)) // avaliar número escolhido
             //mynave.setLine() // avaliar tecla *
+        }
+        if (key == '#' && mynave.getShot() != -1 ){
+            score += myinvaderList.ShootInvaderSquadron(mynave.getLine(), mynave.getShot())
+            println("shot------------------------------${key}, ${score}")
+            mynave.setShot(-1)
+        }
+
+        ScoreDisplay.setScore(score)
+
         if (myinvaderList.killnave(mynave.getLine())) {
             liveInvader = false
             currTime = Time.getTimeInMillis() - currTime
         } else {
-                if (i%(levelIncrement*10)  == 0){
-                    myinvaderList.insertInvaderSquadron()
-                    //getSleep(10)
-                }
+            if(counter_Inv % 1000 == 0) {
+                myinvaderList.insertInvaderSquadron()
+                getSleep(20)
+
+            }
         }
     }
     if (liveInvader){
@@ -417,10 +419,10 @@ fun game (): Int { // com  list
         getSleep(20)
     }
 
-   // LCD.clear()
+    // LCD.clear()
+    println(score)
     return score
 }
-
 fun instructions (text: Array<String>) {
     LCD.clear(1,0)
     for (i in 0..2) {
@@ -428,10 +430,10 @@ fun instructions (text: Array<String>) {
         getSleep(200)
     }
 }
-fun insertName(): String {
-    val setences = arrayOf("Write you name", "<-(1) OK(2) (3)->", "* for erase")
-    instructions(setences)
-        //println("inser name")
+fun insertName(): String?  {
+    val sentences = arrayOf("Write you name", "<-(1) OK(2) (3)->", "* for erase")
+    instructions(sentences)
+    println("inser name")
     var name = ""
     var option = NONE
     var letter = 0x41
@@ -469,11 +471,11 @@ fun match(dataStore: scoreGamers){
     ScoreDisplay.setScore(myscore)
     if (dataStore.compareScore(myscore)) {
 
-       // dataStore.insertScore("teste${myscore}", myscore)
+        // dataStore.insertScore("teste${myscore}", myscore)
         dataStore.insertScore(insertName().toString(), myscore)
     }
     LCD.textLine(0, sentences[3].toString())
-    getSleep(100)
+    getSleep(50)
     dataStore.showFile()
 
 }
@@ -490,21 +492,22 @@ fun maintenance(mycoin: coinBox, dataStore: scoreGamers): Boolean {
     while (option != '9') {
         getSleep(40)
 
-       /* println(
+        println(
             "maintenance options\n" +
                     "0 - Game Off\n" +
                     "1 - Game test\n" +
                     "# - Consult box coin\n" +
                     "# and * - Put Box coin empty\n" +
                     "9 - end\n"
-        )*/
+        )
         option = NONE
-        while (option == NONE ){
+       // while (option == NONE ){
             option = KBD.waitKey(1000)
-        }
+            println(option)
+        //}
         if (option == '0') {
             LCD.placard(true,false,"Shut down", "")
-            mycoin.writeFile()
+            //mycoin.writeFile()
             dataStore.writeFile()
             return true
         }
@@ -512,21 +515,33 @@ fun maintenance(mycoin: coinBox, dataStore: scoreGamers): Boolean {
             game()
             LCD.placardMaintenance(sentences)
         }
-        //aqui ocorreu alteração, mas não tenho de memória??
         if (option == '#') {
-            println(" * - put coin empty")
-            mycoin.viewCoinBox()
-            }
-            println("press * to reset counters ")
-            option = KBD.waitKey(100)
-            if (option == '*') {
+            LCD.clear()
+            LCD.write("press * to reset counters (3 seconds)")
+            if (KBD.waitKey(3000) == '*'){
                 mycoin.zeroCoin()
                 mycoin.viewCoinBox()
                 println("limpar contadores")
             }
-            LCD.placardMaintenance(sentences)
+            println(" * - put coin empty")
+            mycoin.viewCoinBox()
         }
-        return false
+
+
+
+
+
+       /* println("press * to reset counters ")
+        option = KBD.waitKey(100)
+        if (option == '*') {
+            mycoin.zeroCoin()
+            mycoin.viewCoinBox()
+            println("limpar contadores")
+        }*/
+        LCD.placardMaintenance(sentences)
+    }
+
+    return false
 }
 
 fun getKey(): Char{
@@ -538,7 +553,7 @@ fun getKey(): Char{
 }
 
 fun getSleep (t: Int) {
-    val time = 10_000L/t
+    val time = 5_000L/t
     return Thread.sleep(time)
 }
 /*

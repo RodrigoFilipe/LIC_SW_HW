@@ -11,6 +11,9 @@ val modelNave =  Byte [
     0x08]   //   #
 val navechar = designChar(modelNave)
 
+
+
+
 fun initMain(){
 
     HAL.init()
@@ -19,24 +22,26 @@ fun initMain(){
     LCD.init()
     ScoreDisplay.init()
     CoinAcceptor.init()
+
 }
 
 fun mainMenu(credits: coinBox){
-    LCD.placard(true, true, " SPACE INVADERS", "GAME }  D D ")
-    //LCD.clear()
-    //LCD.cursor(0,0)
-   // LCD.write(" SPACE INVADERS")
-    //LCD.cursor(1,0)
-    //LCD.write("GAME }  A A")
-    LCD.cursor(1, 13)
+    LCD.clear()
+    LCD.cursor(0,0)
+    LCD.write(" SPACE INVADERS")
+    LCD.cursor(1,0)
+    LCD.write("GAME }  A A")
+    LCD.cursor(1, 14)
     LCD.write("$${credits.getCredits()}")
-    //println(credits.getCoins())
+    println(credits.getCoins())
 }
 
 fun updateCredits(credits: Int) {
-    LCD.cursor(1, 13)
+    LCD.cursor(1, 15)
     LCD.write(credits.toString())
+
 }
+
 
 fun main(args: Array<String>) {
     println(0%1)
@@ -63,7 +68,6 @@ fun main(args: Array<String>) {
         if (manutencao.getMaintenence()) {
             //println("em maintenance")
             flagSwitchOff = !maintenance(mycoin, dataStore)
-            mainMenu(mycoin)
         }
         // val key = KBD.waitKey(1)
         //if (key != KBD.NONE.toChar()) {
@@ -72,10 +76,10 @@ fun main(args: Array<String>) {
             //println("game")
             match(dataStore)
             mycoin.setCredits()
-            mainMenu(mycoin)
         }
-    }
 
+    }
+    LCD.displayOff()
     //exitProcess(0)
 }
 

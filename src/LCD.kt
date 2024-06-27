@@ -74,6 +74,9 @@ object LCD { // Escreve no LCD usando a interface a 4 bits.
     private fun writeDATA(data: Int) {
         writeByte(true, data)
     }
+    fun displayOff(){
+        writeCMD(0x08)
+    }
 
     // Envia a sequência de iniciação para comunicação a 4 bits.
     fun init() {
