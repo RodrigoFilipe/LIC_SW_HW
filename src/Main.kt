@@ -25,34 +25,33 @@ fun initMain(){
 
 }
 
-fun mainMenu(credits: coinBox){
-    LCD.clear()
+fun mainMenu(credits: coinBox){ //proposta de alteração PL
+    var sentences = arrayOf(" SPACE INVADERS", "GAME }  0-9")
+    LCD.placard(true, true, sentences[0], sentences[1])
+    /*LCD.clear()
     LCD.cursor(0,0)
     LCD.write(" SPACE INVADERS")
     LCD.cursor(1,0)
-    LCD.write("GAME }  A A")
+    LCD.write("GAME }  A A")*/
     LCD.cursor(1, 14)
     LCD.write("$${credits.getCredits()}")
     println(credits.getCoins())
 }
-
 fun updateCredits(credits: Int) {
     LCD.cursor(1, 15)
     LCD.write(credits.toString())
-
 }
-
 
 fun main(args: Array<String>) {
     println(0%1)
     initMain()
     var mycoin = coinBox()
-    mycoin.readFile()
+    mycoin.popData()
     println(mycoin.getCoins())
     mainMenu(mycoin)
     var flagSwitchOff: Boolean = true
     var dataStore = scoreGamers()
-    dataStore.readFile()
+    dataStore.popData()
     var newCoin = CoinAcceptor
 
     while (flagSwitchOff) {
@@ -68,6 +67,7 @@ fun main(args: Array<String>) {
         if (manutencao.getMaintenence()) {
             //println("em maintenance")
             flagSwitchOff = !maintenance(mycoin, dataStore)
+            mainMenu(mycoin) //proposta de alteração PL
         }
         // val key = KBD.waitKey(1)
         //if (key != KBD.NONE.toChar()) {
@@ -75,12 +75,14 @@ fun main(args: Array<String>) {
             //println("coins and credits: ${mycoin.getCredits()}")
             //println("game")
             match(dataStore)
+            TUI.clearScore()
             mycoin.setCredits()
+            mainMenu(mycoin) //
         }
 
     }
-    LCD.displayOff()
-    //exitProcess(0)
+    //LCD.displayOff()
+    exitProcess(0)
 }
 
 

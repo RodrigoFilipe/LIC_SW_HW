@@ -33,6 +33,16 @@ object TUI{
             LCD.cursor(0, writePos)
         }
     }
+
+    fun clearScore(){
+        SerialEmitter.send(SerialEmitter.Destination.SCORE, 0b0000000, 7)
+        SerialEmitter.send(SerialEmitter.Destination.SCORE, 0b0000001, 7)
+        SerialEmitter.send(SerialEmitter.Destination.SCORE, 0b0000010, 7)
+        SerialEmitter.send(SerialEmitter.Destination.SCORE, 0b0000011, 7)
+        SerialEmitter.send(SerialEmitter.Destination.SCORE, 0b0000100, 7)
+        SerialEmitter.send(SerialEmitter.Destination.SCORE, 0b0000101, 7)
+        SerialEmitter.send(SerialEmitter.Destination.SCORE, 0b0000110, 7)
+    }
 }
 
 
@@ -43,6 +53,10 @@ fun main(){
     SerialEmitter.init()
     LCD.init()
     KBD.init()
-    TUI.writeFromLeft("43")
-    TUI.writeFromRight("alo")
+    ScoreDisplay.init()
+    ScoreDisplay.setScore(10101)
+   // SerialEmitter.send(SerialEmitter.Destination.SCORE, 0b1110001, 7)
+    TUI.clearScore()
+    //TUI.writeFromLeft("43")
+    //TUI.writeFromRight("alo")
 }

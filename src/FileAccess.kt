@@ -3,56 +3,42 @@ import java.io.File
 import java.io.FileReader
 
 class FileAccess(){
-   /* fun writeFile (name: String, data: MutableList<Any>){
-        //data: mutableListOf<MutableList<Any>>) {
-        val fileName = name
+    fun readFileC(fileName: String): List<String> {
+        val br = BufferedReader(FileReader(fileName))
+        val line = br.readLine()
+        return (line!!.split(","))
+        //insertCoin(str[0].toString().toInt(), str[1].toString().toInt())
+    }
+    fun writeFileC (fileName: String, data: String ){
         val myFile = File(fileName)
-        var content = data.removeFirst().toString().drop(1).dropLast(1)
-        myFile.writeText(content+"\n")
-        for (i in data.indices) {
-            content = data.removeFirst().toString().drop(1).dropLast(1)
-            myFile.appendText(content + "\n")
-        }
-        println("Written to the file")
-    } */
-    fun writeFile (fileName: String, scoreList: MutableList<scoreRegister>){
-       val myFile = File(fileName)
-       for (i in scoreList.indices) {
-           val content = scoreList[i].nome + "," + scoreList[i].scoreValue + "\n"
-           print("content, $i")
-           if (i == 0){
-               myFile.writeText(content)
-           }
-           else{
-               //myFile.appendText("${scoreList.removeFirst().nome}, ${scoreList.removeFirst().scoreValue}\n")
-               myFile.appendText(content)
-           }
-       }
-       println("Written to the file")
-   }
-    /*
+        //var data = ("${coins},${games}")
+        println(fileName)
+        myFile.writeText(data)
 
+        //println("Written to the file")
+    }
+    fun readFileLP (fileName: String): MutableList<scoreRegister> {
+        val br = BufferedReader(FileReader(fileName))
+        var readScore = mutableListOf <scoreRegister>()
+        var line = br.readLine()
+        while (line != null){
+            val str = line!!.split(",")
+            readScore.add(scoreRegister(str[0].toString(), str[1].toString().toInt()))
+            line = br.readLine()
+        }
+        return readScore
+    }
+    fun writeFileLP (fileName: String, writeScore: MutableList<scoreRegister>){
         val myFile = File(fileName)
-        for (i in scoreList.indices) {
-            val content = scoreList[i].nome + "," + scoreList[i].scoreValue + "\n"
+        for (i in writeScore.indices) {
+            val content = writeScore[i].nome + "," + writeScore[i].scoreValue + "\n"
+            //print("content, $i")
             if (i == 0) {
                 myFile.writeText(content)
             } else {
+                //myFile.appendText("${scoreList.removeFirst().nome}, ${scoreList.removeFirst().scoreValue}\n")
                 myFile.appendText(content)
             }
         }
-    }
-*/
-
-    fun readFile (fileName: String): MutableList<scoreRegister>  {
-        val br = BufferedReader(FileReader(fileName))
-        var scoreList: MutableList<scoreRegister> = mutableListOf()
-        var line = br.readLine()
-        while (line != null) {
-            val str = line!!.split(",")
-            scoreList.add(scoreRegister(str[0].toString(), str[1].toInt()))
-            line = br.readLine()
-        }
-        return scoreList
     }
 }

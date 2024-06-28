@@ -10,7 +10,7 @@ object ScoreDisplay { // Controla o mostrador de pontuação.
         }
     // Envia comando para atualizar o valor do mostrador de pontuação
     fun setScore(value: Int) {
-        if (value <= 999999) {
+        if (value <= 999999 && value != 0) {
             var v = value
             var cmd = 0
 

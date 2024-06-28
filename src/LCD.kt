@@ -136,12 +136,12 @@ object LCD { // Escreve no LCD usando a interface a 4 bits.
         }*/
     }
 
-    fun placardMaintenance(text: Array<String>) {
+    fun placardMaintenance(text: Array<String>, size: Int) {
 
         textLine(0, text.get(0))
-        for (i in 1..text.size - 1) {
+        for (i in 1..size - 1) {
             textLine(1, text.get(i))
-            getSleep(8)
+            getSleep(20)
         }
     }
 
