@@ -68,14 +68,14 @@ object KBD { // Ler teclas. Métodos retornam ‘0’..’9’,’#’,’*’ o
 fun main(){
     HAL.init()
     KBD.init()
-    /*
+
     while (true){
         Thread.sleep(1000)
         println(KBD.getKey())
     }
 
-     */
-    testKBDHardware()
+
+ //   testKBDHardware()
 }
 
 

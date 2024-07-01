@@ -275,7 +275,7 @@ class coinBox (){
     }
     fun zeroCoin() {
         coins = 0
-        credits = 0
+        games = 0
     }
     /* fun readFile() {
          val br = BufferedReader(FileReader(fileName))
@@ -378,7 +378,10 @@ class scoreGamers() {
         val sleep = (scoreList.size) // tempo de cada score X 4 porque o valor de sleep por defeito é 2000
         //println("SLEEP SHOWFILE ${scoreList.size}")
         for (i in scoreList.indices) {
-            LCD.textLine(1, ((i+1).toString() + "-" + scoreList[i].nome + " - " +scoreList[i].scoreValue.toString()))
+            LCD.textLine(1,
+                String.format("%2s", (i+1).toString()) +
+                        "-" + String.format("%-8s", scoreList[i].nome) +
+                        "-"  + String.format("%4s", scoreList[i].scoreValue.toString()))
             getSleep(sleep) //alterar depois para sleep ou rotativo
             //println("New record $i")
         }
@@ -546,6 +549,7 @@ fun maintenance(mycoin: coinBox, dataStore: scoreGamers): Boolean {
         }
         if (option == '1') {
             game()
+            TUI.clearScore()
             //LCD.placardMaintenance(sentences) // avaliar para eliminar
         }
         if (option == '#') {

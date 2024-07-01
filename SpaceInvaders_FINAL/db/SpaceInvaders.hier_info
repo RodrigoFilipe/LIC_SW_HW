@@ -12,69 +12,69 @@ I[0] => keyboardReader:kreader.I[0]
 I[1] => keyboardReader:kreader.I[1]
 I[2] => keyboardReader:kreader.I[2]
 I[3] => keyboardReader:kreader.I[3]
-Wrl <= SLCDC:LCD.Wrl
-O[0] <= keyboardReader:kreader.O[0]
-O[1] <= keyboardReader:kreader.O[1]
-O[2] <= keyboardReader:kreader.O[2]
-O[3] <= keyboardReader:kreader.O[3]
-DoutLCD[0] <= SLCDC:LCD.Dout[0]
-DoutLCD[1] <= SLCDC:LCD.Dout[1]
-DoutLCD[2] <= SLCDC:LCD.Dout[2]
-DoutLCD[3] <= SLCDC:LCD.Dout[3]
-DoutLCD[4] <= SLCDC:LCD.Dout[4]
-DoutLCD[5] <= SLCDC:LCD.Dout[5]
-DoutLCD[6] <= SLCDC:LCD.Dout[6]
-DoutLCD[7] <= SLCDC:LCD.Dout[7]
-DoutLCD[8] <= SLCDC:LCD.Dout[8]
-HEX0[0] <= scoreDisplay:SDisplay.HEX0[0]
-HEX0[1] <= scoreDisplay:SDisplay.HEX0[1]
-HEX0[2] <= scoreDisplay:SDisplay.HEX0[2]
-HEX0[3] <= scoreDisplay:SDisplay.HEX0[3]
-HEX0[4] <= scoreDisplay:SDisplay.HEX0[4]
-HEX0[5] <= scoreDisplay:SDisplay.HEX0[5]
-HEX0[6] <= scoreDisplay:SDisplay.HEX0[6]
-HEX0[7] <= scoreDisplay:SDisplay.HEX0[7]
-HEX1[0] <= scoreDisplay:SDisplay.HEX1[0]
-HEX1[1] <= scoreDisplay:SDisplay.HEX1[1]
-HEX1[2] <= scoreDisplay:SDisplay.HEX1[2]
-HEX1[3] <= scoreDisplay:SDisplay.HEX1[3]
-HEX1[4] <= scoreDisplay:SDisplay.HEX1[4]
-HEX1[5] <= scoreDisplay:SDisplay.HEX1[5]
-HEX1[6] <= scoreDisplay:SDisplay.HEX1[6]
-HEX1[7] <= scoreDisplay:SDisplay.HEX1[7]
-HEX2[0] <= scoreDisplay:SDisplay.HEX2[0]
-HEX2[1] <= scoreDisplay:SDisplay.HEX2[1]
-HEX2[2] <= scoreDisplay:SDisplay.HEX2[2]
-HEX2[3] <= scoreDisplay:SDisplay.HEX2[3]
-HEX2[4] <= scoreDisplay:SDisplay.HEX2[4]
-HEX2[5] <= scoreDisplay:SDisplay.HEX2[5]
-HEX2[6] <= scoreDisplay:SDisplay.HEX2[6]
-HEX2[7] <= scoreDisplay:SDisplay.HEX2[7]
-HEX3[0] <= scoreDisplay:SDisplay.HEX3[0]
-HEX3[1] <= scoreDisplay:SDisplay.HEX3[1]
-HEX3[2] <= scoreDisplay:SDisplay.HEX3[2]
-HEX3[3] <= scoreDisplay:SDisplay.HEX3[3]
-HEX3[4] <= scoreDisplay:SDisplay.HEX3[4]
-HEX3[5] <= scoreDisplay:SDisplay.HEX3[5]
-HEX3[6] <= scoreDisplay:SDisplay.HEX3[6]
-HEX3[7] <= scoreDisplay:SDisplay.HEX3[7]
-HEX4[0] <= scoreDisplay:SDisplay.HEX4[0]
-HEX4[1] <= scoreDisplay:SDisplay.HEX4[1]
-HEX4[2] <= scoreDisplay:SDisplay.HEX4[2]
-HEX4[3] <= scoreDisplay:SDisplay.HEX4[3]
-HEX4[4] <= scoreDisplay:SDisplay.HEX4[4]
-HEX4[5] <= scoreDisplay:SDisplay.HEX4[5]
-HEX4[6] <= scoreDisplay:SDisplay.HEX4[6]
-HEX4[7] <= scoreDisplay:SDisplay.HEX4[7]
-HEX5[0] <= scoreDisplay:SDisplay.HEX5[0]
-HEX5[1] <= scoreDisplay:SDisplay.HEX5[1]
-HEX5[2] <= scoreDisplay:SDisplay.HEX5[2]
-HEX5[3] <= scoreDisplay:SDisplay.HEX5[3]
-HEX5[4] <= scoreDisplay:SDisplay.HEX5[4]
-HEX5[5] <= scoreDisplay:SDisplay.HEX5[5]
-HEX5[6] <= scoreDisplay:SDisplay.HEX5[6]
-HEX5[7] <= scoreDisplay:SDisplay.HEX5[7]
-accept <= UsbPort:uport.outputPort[1]
+Wrl << SLCDC:LCD.Wrl
+O[0] << keyboardReader:kreader.O[0]
+O[1] << keyboardReader:kreader.O[1]
+O[2] << keyboardReader:kreader.O[2]
+O[3] << keyboardReader:kreader.O[3]
+DoutLCD[0] << SLCDC:LCD.Dout[0]
+DoutLCD[1] << SLCDC:LCD.Dout[1]
+DoutLCD[2] << SLCDC:LCD.Dout[2]
+DoutLCD[3] << SLCDC:LCD.Dout[3]
+DoutLCD[4] << SLCDC:LCD.Dout[4]
+DoutLCD[5] << SLCDC:LCD.Dout[5]
+DoutLCD[6] << SLCDC:LCD.Dout[6]
+DoutLCD[7] << SLCDC:LCD.Dout[7]
+DoutLCD[8] << SLCDC:LCD.Dout[8]
+HEX0[0] << scoreDisplay:SDisplay.HEX0[0]
+HEX0[1] << scoreDisplay:SDisplay.HEX0[1]
+HEX0[2] << scoreDisplay:SDisplay.HEX0[2]
+HEX0[3] << scoreDisplay:SDisplay.HEX0[3]
+HEX0[4] << scoreDisplay:SDisplay.HEX0[4]
+HEX0[5] << scoreDisplay:SDisplay.HEX0[5]
+HEX0[6] << scoreDisplay:SDisplay.HEX0[6]
+HEX0[7] << scoreDisplay:SDisplay.HEX0[7]
+HEX1[0] << scoreDisplay:SDisplay.HEX1[0]
+HEX1[1] << scoreDisplay:SDisplay.HEX1[1]
+HEX1[2] << scoreDisplay:SDisplay.HEX1[2]
+HEX1[3] << scoreDisplay:SDisplay.HEX1[3]
+HEX1[4] << scoreDisplay:SDisplay.HEX1[4]
+HEX1[5] << scoreDisplay:SDisplay.HEX1[5]
+HEX1[6] << scoreDisplay:SDisplay.HEX1[6]
+HEX1[7] << scoreDisplay:SDisplay.HEX1[7]
+HEX2[0] << scoreDisplay:SDisplay.HEX2[0]
+HEX2[1] << scoreDisplay:SDisplay.HEX2[1]
+HEX2[2] << scoreDisplay:SDisplay.HEX2[2]
+HEX2[3] << scoreDisplay:SDisplay.HEX2[3]
+HEX2[4] << scoreDisplay:SDisplay.HEX2[4]
+HEX2[5] << scoreDisplay:SDisplay.HEX2[5]
+HEX2[6] << scoreDisplay:SDisplay.HEX2[6]
+HEX2[7] << scoreDisplay:SDisplay.HEX2[7]
+HEX3[0] << scoreDisplay:SDisplay.HEX3[0]
+HEX3[1] << scoreDisplay:SDisplay.HEX3[1]
+HEX3[2] << scoreDisplay:SDisplay.HEX3[2]
+HEX3[3] << scoreDisplay:SDisplay.HEX3[3]
+HEX3[4] << scoreDisplay:SDisplay.HEX3[4]
+HEX3[5] << scoreDisplay:SDisplay.HEX3[5]
+HEX3[6] << scoreDisplay:SDisplay.HEX3[6]
+HEX3[7] << scoreDisplay:SDisplay.HEX3[7]
+HEX4[0] << scoreDisplay:SDisplay.HEX4[0]
+HEX4[1] << scoreDisplay:SDisplay.HEX4[1]
+HEX4[2] << scoreDisplay:SDisplay.HEX4[2]
+HEX4[3] << scoreDisplay:SDisplay.HEX4[3]
+HEX4[4] << scoreDisplay:SDisplay.HEX4[4]
+HEX4[5] << scoreDisplay:SDisplay.HEX4[5]
+HEX4[6] << scoreDisplay:SDisplay.HEX4[6]
+HEX4[7] << scoreDisplay:SDisplay.HEX4[7]
+HEX5[0] << scoreDisplay:SDisplay.HEX5[0]
+HEX5[1] << scoreDisplay:SDisplay.HEX5[1]
+HEX5[2] << scoreDisplay:SDisplay.HEX5[2]
+HEX5[3] << scoreDisplay:SDisplay.HEX5[3]
+HEX5[4] << scoreDisplay:SDisplay.HEX5[4]
+HEX5[5] << scoreDisplay:SDisplay.HEX5[5]
+HEX5[6] << scoreDisplay:SDisplay.HEX5[6]
+HEX5[7] << scoreDisplay:SDisplay.HEX5[7]
+accept << UsbPort:uport.outputPort[1]
 
 
 |SpaceInvaders|keyboardReader:kreader
@@ -481,6 +481,7 @@ DAV => Selector4.IN4
 DAV => GenerateNextState.IN0
 DAV => GenerateNextState.IN0
 DAV => Selector1.IN1
+CTS => GenerateNextState.IN1
 CTS => GenerateNextState.IN1
 CTS => GenerateNextState.IN1
 CTS => GenerateNextState.IN1
@@ -899,18 +900,18 @@ R[2] <= R.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount
-CLK => Registo:EC_Reg.CLK
-RST => Registo:EC_Reg.Reset
-Enable => Registo:EC_Reg.E
-Enable => adderSubtractor:EC_AS.B[0]
-IncDec => adderSubtractor:EC_AS.OPau
-R[0] <= Registo:EC_Reg.S[0]
-R[1] <= Registo:EC_Reg.S[1]
-R[2] <= Registo:EC_Reg.S[2]
-R[3] <= Registo:EC_Reg.S[3]
+CLK => Reg4UD:EC_Reg.CLK
+RST => Reg4UD:EC_Reg.RST
+Enable => Reg4UD:EC_Reg.E
+Enable => adderSubtractorUD:EC_AS.B[0]
+IncDec => adderSubtractorUD:EC_AS.OPau
+R[0] <= Reg4UD:EC_Reg.S[0]
+R[1] <= Reg4UD:EC_Reg.S[1]
+R[2] <= Reg4UD:EC_Reg.S[2]
+R[3] <= Reg4UD:EC_Reg.S[3]
 
 
-|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|MuxCont:EC_MUX
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|MUX4UD:EC_MUX
 X[0] => R.IN0
 X[1] => R.IN0
 X[2] => R.IN0
@@ -933,30 +934,30 @@ R[2] <= R.DB_MAX_OUTPUT_PORT_TYPE
 R[3] <= R.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|Registo:EC_Reg
-A[0] => FFD:FFD1.D
-A[1] => FFD:FFD2.D
-A[2] => FFD:FFD3.D
-A[3] => FFD:FFD4.D
-Clk => FFD:FFD1.CLK
-Clk => FFD:FFD2.CLK
-Clk => FFD:FFD3.CLK
-Clk => FFD:FFD4.CLK
-Reset => FFD:FFD1.RESET
-Reset => FFD:FFD2.RESET
-Reset => FFD:FFD3.RESET
-Reset => FFD:FFD4.RESET
-E => FFD:FFD1.EN
-E => FFD:FFD2.EN
-E => FFD:FFD3.EN
-E => FFD:FFD4.EN
-S[0] <= FFD:FFD1.Q
-S[1] <= FFD:FFD2.Q
-S[2] <= FFD:FFD3.Q
-S[3] <= FFD:FFD4.Q
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|Reg4UD:EC_Reg
+CLK => FFD:R_FFD0.CLK
+CLK => FFD:R_FFD1.CLK
+CLK => FFD:R_FFD2.CLK
+CLK => FFD:R_FFD3.CLK
+RST => FFD:R_FFD0.RESET
+RST => FFD:R_FFD1.RESET
+RST => FFD:R_FFD2.RESET
+RST => FFD:R_FFD3.RESET
+A[0] => FFD:R_FFD0.D
+A[1] => FFD:R_FFD1.D
+A[2] => FFD:R_FFD2.D
+A[3] => FFD:R_FFD3.D
+E => FFD:R_FFD0.EN
+E => FFD:R_FFD1.EN
+E => FFD:R_FFD2.EN
+E => FFD:R_FFD3.EN
+S[0] <= FFD:R_FFD0.Q
+S[1] <= FFD:R_FFD1.Q
+S[2] <= FFD:R_FFD2.Q
+S[3] <= FFD:R_FFD3.Q
 
 
-|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|Registo:EC_Reg|FFD:FFD1
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|Reg4UD:EC_Reg|FFD:R_FFD0
 CLK => Q~reg0.CLK
 RESET => Q~reg0.ACLR
 RESET => Q.IN0
@@ -966,7 +967,7 @@ EN => Q~reg0.ENA
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|Registo:EC_Reg|FFD:FFD2
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|Reg4UD:EC_Reg|FFD:R_FFD1
 CLK => Q~reg0.CLK
 RESET => Q~reg0.ACLR
 RESET => Q.IN0
@@ -976,7 +977,7 @@ EN => Q~reg0.ENA
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|Registo:EC_Reg|FFD:FFD3
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|Reg4UD:EC_Reg|FFD:R_FFD2
 CLK => Q~reg0.CLK
 RESET => Q~reg0.ACLR
 RESET => Q.IN0
@@ -986,7 +987,7 @@ EN => Q~reg0.ENA
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|Registo:EC_Reg|FFD:FFD4
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|Reg4UD:EC_Reg|FFD:R_FFD3
 CLK => Q~reg0.CLK
 RESET => Q~reg0.ACLR
 RESET => Q.IN0
@@ -996,11 +997,11 @@ EN => Q~reg0.ENA
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS
-A[0] => adder4:AS_Adder.A[0]
-A[1] => adder4:AS_Adder.A[1]
-A[2] => adder4:AS_Adder.A[2]
-A[3] => adder4:AS_Adder.A[3]
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractorUD:EC_AS
+A[0] => Adder4UD:AS_Adder.A[0]
+A[1] => Adder4UD:AS_Adder.A[1]
+A[2] => Adder4UD:AS_Adder.A[2]
+A[3] => Adder4UD:AS_Adder.A[3]
 B[0] => BxorOP[0].IN0
 B[1] => BxorOP[1].IN0
 B[2] => BxorOP[2].IN0
@@ -1012,31 +1013,31 @@ OPau => BxorOP[2].IN1
 OPau => BxorOP[3].IN1
 OPau => CIxorOP.IN1
 OPau => C4Out.IN1
-S[0] <= adder4:AS_Adder.S[0]
-S[1] <= adder4:AS_Adder.S[1]
-S[2] <= adder4:AS_Adder.S[2]
-S[3] <= adder4:AS_Adder.S[3]
+S[0] <= Adder4UD:AS_Adder.R[0]
+S[1] <= Adder4UD:AS_Adder.R[1]
+S[2] <= Adder4UD:AS_Adder.R[2]
+S[3] <= Adder4UD:AS_Adder.R[3]
 C4Out <= C4Out.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder
-A[0] => FA:FA1.A
-A[1] => FA:FA2.A
-A[2] => FA:FA3.A
-A[3] => FA:FA4.A
-B[0] => FA:FA1.B
-B[1] => FA:FA2.B
-B[2] => FA:FA3.B
-B[3] => FA:FA4.B
-C0 => FA:FA1.Ci
-S[0] <= FA:FA1.S
-S[1] <= FA:FA2.S
-S[2] <= FA:FA3.S
-S[3] <= FA:FA4.S
-C4 <= FA:FA4.Co
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractorUD:EC_AS|Adder4UD:AS_Adder
+A[0] => FA:A_FA0.A
+A[1] => FA:A_FA1.A
+A[2] => FA:A_FA2.A
+A[3] => FA:A_FA3.A
+B[0] => FA:A_FA0.B
+B[1] => FA:A_FA1.B
+B[2] => FA:A_FA2.B
+B[3] => FA:A_FA3.B
+C0 => FA:A_FA0.Ci
+R[0] <= FA:A_FA0.S
+R[1] <= FA:A_FA1.S
+R[2] <= FA:A_FA2.S
+R[3] <= FA:A_FA3.S
+C4 <= FA:A_FA3.Co
 
 
-|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA1
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractorUD:EC_AS|Adder4UD:AS_Adder|FA:A_FA0
 A => HA:HA1.A
 B => HA:HA1.B
 Ci => HA:HA2.B
@@ -1044,7 +1045,7 @@ S <= HA:HA2.S
 Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA1|HA:HA1
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractorUD:EC_AS|Adder4UD:AS_Adder|FA:A_FA0|HA:HA1
 A => S.IN0
 A => Co.IN0
 B => S.IN1
@@ -1053,7 +1054,7 @@ S <= S.DB_MAX_OUTPUT_PORT_TYPE
 Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA1|HA:HA2
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractorUD:EC_AS|Adder4UD:AS_Adder|FA:A_FA0|HA:HA2
 A => S.IN0
 A => Co.IN0
 B => S.IN1
@@ -1062,7 +1063,7 @@ S <= S.DB_MAX_OUTPUT_PORT_TYPE
 Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA2
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractorUD:EC_AS|Adder4UD:AS_Adder|FA:A_FA1
 A => HA:HA1.A
 B => HA:HA1.B
 Ci => HA:HA2.B
@@ -1070,7 +1071,7 @@ S <= HA:HA2.S
 Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA2|HA:HA1
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractorUD:EC_AS|Adder4UD:AS_Adder|FA:A_FA1|HA:HA1
 A => S.IN0
 A => Co.IN0
 B => S.IN1
@@ -1079,7 +1080,7 @@ S <= S.DB_MAX_OUTPUT_PORT_TYPE
 Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA2|HA:HA2
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractorUD:EC_AS|Adder4UD:AS_Adder|FA:A_FA1|HA:HA2
 A => S.IN0
 A => Co.IN0
 B => S.IN1
@@ -1088,7 +1089,7 @@ S <= S.DB_MAX_OUTPUT_PORT_TYPE
 Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA3
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractorUD:EC_AS|Adder4UD:AS_Adder|FA:A_FA2
 A => HA:HA1.A
 B => HA:HA1.B
 Ci => HA:HA2.B
@@ -1096,7 +1097,7 @@ S <= HA:HA2.S
 Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA3|HA:HA1
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractorUD:EC_AS|Adder4UD:AS_Adder|FA:A_FA2|HA:HA1
 A => S.IN0
 A => Co.IN0
 B => S.IN1
@@ -1105,7 +1106,7 @@ S <= S.DB_MAX_OUTPUT_PORT_TYPE
 Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA3|HA:HA2
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractorUD:EC_AS|Adder4UD:AS_Adder|FA:A_FA2|HA:HA2
 A => S.IN0
 A => Co.IN0
 B => S.IN1
@@ -1114,7 +1115,7 @@ S <= S.DB_MAX_OUTPUT_PORT_TYPE
 Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA4
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractorUD:EC_AS|Adder4UD:AS_Adder|FA:A_FA3
 A => HA:HA1.A
 B => HA:HA1.B
 Ci => HA:HA2.B
@@ -1122,7 +1123,7 @@ S <= HA:HA2.S
 Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA4|HA:HA1
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractorUD:EC_AS|Adder4UD:AS_Adder|FA:A_FA3|HA:HA1
 A => S.IN0
 A => Co.IN0
 B => S.IN1
@@ -1131,7 +1132,7 @@ S <= S.DB_MAX_OUTPUT_PORT_TYPE
 Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractor:EC_AS|adder4:AS_Adder|FA:FA4|HA:HA2
+|SpaceInvaders|keyboardReader:kreader|RingBuffer:RingBuff|MAC:MemoryAddressCtrl|UpDownCounter:UpDownCount|adderSubtractorUD:EC_AS|Adder4UD:AS_Adder|FA:A_FA3|HA:HA2
 A => S.IN0
 A => Co.IN0
 B => S.IN1

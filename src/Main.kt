@@ -22,6 +22,7 @@ fun initMain(){
     LCD.init()
     ScoreDisplay.init()
     CoinAcceptor.init()
+    TUI.clearScore()
 
 }
 
@@ -81,7 +82,8 @@ fun main(args: Array<String>) {
         }
 
     }
-    //LCD.displayOff()
+    LCD.displayOff()
+    ScoreDisplay.off(true)
     exitProcess(0)
 }
 

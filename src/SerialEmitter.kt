@@ -21,7 +21,7 @@ object SerialEmitter { // Envia tramas para os diferentes módulos Serial Receiv
             HAL.clrBits(LCD_sel)
             var countBit = 0
             for (i in 0..<size){
-                val bit = SDX.and(sendData) //remove after testing
+                //val bit = SDX.and(sendData) //remove after testing
                 HAL.writeBits(SDX, sendData)
 
                 if (sendData.and(SDX) == 1){

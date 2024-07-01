@@ -1,12 +1,13 @@
 object ScoreDisplay { // Controla o mostrador de pontuação.
     val SCsel = 0x80
     val SCLK = 0x10
-    val updateDisplay = 0x06
+    val updateDisplay = 0x06 //0b0000110
     val displayOn = 0x07
+    val displayOff = 0x78
     // Inicia a classe, estabelecendo os valores iniciais.
     fun init(){
-        SerialEmitter.send(SerialEmitter.Destination.SCORE, displayOn, 7)
-        SerialEmitter.send(SerialEmitter.Destination.SCORE, updateDisplay, 7)
+        //SerialEmitter.send(SerialEmitter.Destination.SCORE, displayOn, 7)
+        //SerialEmitter.send(SerialEmitter.Destination.SCORE, updateDisplay, 7)
         }
     // Envia comando para atualizar o valor do mostrador de pontuação
     fun setScore(value: Int) {
@@ -25,8 +26,6 @@ object ScoreDisplay { // Controla o mostrador de pontuação.
             }
         }
     }
-
-    }
     // Envia comando para desativar/ativar a visualização do mostrador de pontuação
     fun off(value: Boolean){
         if (value){
@@ -37,6 +36,17 @@ object ScoreDisplay { // Controla o mostrador de pontuação.
         }
     }
 
+    }
+    // Envia comando para desativar/ativar a visualização do mostrador de pontuação
+    fun off(value: Boolean){
+        if (value){
+            SerialEmitter.send(SerialEmitter.Destination.SCORE, ScoreDisplay.displayOff, 7)
+        }
+        else{
+            SerialEmitter.send(SerialEmitter.Destination.SCORE, ScoreDisplay.displayOn, 7)
+        }
+    }
+
 
 fun main(){
     HAL.init()
@@ -44,8 +54,13 @@ fun main(){
     ScoreDisplay.init()
 
     ScoreDisplay.setScore(999999)
+    //Thread.sleep(500)
+    ScoreDisplay.off(true)
+    ScoreDisplay.updateDisplay
     Thread.sleep(1000)
+    ScoreDisplay.setScore(888888)
+    /*Thread.sleep(1000)
     ScoreDisplay.setScore(1200001)
     Thread.sleep(1000)
-    ScoreDisplay.setScore(100001)
+    ScoreDisplay.setScore(100001)*/
 }
