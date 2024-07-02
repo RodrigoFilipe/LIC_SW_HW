@@ -17,18 +17,18 @@ class FileAccess(){
 
         //println("Written to the file")
     }
-    fun readFileLP (fileName: String): MutableList<scoreRegister> {
+    fun readFileLP (fileName: String): MutableList<Scores> {
         val br = BufferedReader(FileReader(fileName))
-        var readScore = mutableListOf <scoreRegister>()
+        var readScore = mutableListOf <Scores>()
         var line = br.readLine()
         while (line != null){
             val str = line!!.split(",")
-            readScore.add(scoreRegister(str[0].toString(), str[1].toString().toInt()))
+            readScore.add(Scores(str[0].toString(), str[1].toString().toInt()))
             line = br.readLine()
         }
         return readScore
     }
-    fun writeFileLP (fileName: String, writeScore: MutableList<scoreRegister>){
+    fun writeFileLP (fileName: String, writeScore: MutableList<Scores>){
         val myFile = File(fileName)
         for (i in writeScore.indices) {
             val content = writeScore[i].nome + "," + writeScore[i].scoreValue + "\n"

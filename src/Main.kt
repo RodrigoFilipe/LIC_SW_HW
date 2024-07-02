@@ -34,7 +34,7 @@ fun mainMenu(credits: coinBox){ //proposta de alteração PL
     LCD.write(" SPACE INVADERS")
     LCD.cursor(1,0)
     LCD.write("GAME }  A A")*/
-    LCD.cursor(1, 14)
+    LCD.cursor(1, 13)
     LCD.write("$${credits.getCredits()}")
     println(credits.getCoins())
 }

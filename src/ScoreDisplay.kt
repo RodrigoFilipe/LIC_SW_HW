@@ -3,11 +3,11 @@ object ScoreDisplay { // Controla o mostrador de pontuação.
     val SCLK = 0x10
     val updateDisplay = 0x06 //0b0000110
     val displayOn = 0x07
-    val displayOff = 0x78
+    val displayOff = 0x0F
     // Inicia a classe, estabelecendo os valores iniciais.
     fun init(){
-        //SerialEmitter.send(SerialEmitter.Destination.SCORE, displayOn, 7)
-        //SerialEmitter.send(SerialEmitter.Destination.SCORE, updateDisplay, 7)
+        SerialEmitter.send(SerialEmitter.Destination.SCORE, displayOn, 7)
+        SerialEmitter.send(SerialEmitter.Destination.SCORE, updateDisplay, 7)
         }
     // Envia comando para atualizar o valor do mostrador de pontuação
     fun setScore(value: Int) {
@@ -27,16 +27,6 @@ object ScoreDisplay { // Controla o mostrador de pontuação.
         }
     }
     // Envia comando para desativar/ativar a visualização do mostrador de pontuação
-    fun off(value: Boolean){
-        if (value){
-            SerialEmitter.send(SerialEmitter.Destination.SCORE, 0x71, 7)
-        }
-        else{
-            SerialEmitter.send(SerialEmitter.Destination.SCORE, 0x70, 7)
-        }
-    }
-
-    }
     // Envia comando para desativar/ativar a visualização do mostrador de pontuação
     fun off(value: Boolean){
         if (value){
@@ -46,6 +36,9 @@ object ScoreDisplay { // Controla o mostrador de pontuação.
             SerialEmitter.send(SerialEmitter.Destination.SCORE, ScoreDisplay.displayOn, 7)
         }
     }
+
+    }
+
 
 
 fun main(){
