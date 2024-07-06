@@ -3,7 +3,6 @@ object manutencao{
     private var inMaintenanceMode = false
     fun enterManut(){
         if(HAL.isBit(manutMask)){
-            println("enter manutençao")
             inMaintenanceMode = true
 
         }

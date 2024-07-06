@@ -23,17 +23,11 @@ fun initMain(){
     ScoreDisplay.init()
     CoinAcceptor.init()
     TUI.clearScore()
-
 }
 
-fun mainMenu(credits: coinBox){ //proposta de alteração PL
+fun mainMenu(credits: Statistics.coinBox){ //proposta de alteração PL
     var sentences = arrayOf(" SPACE INVADERS", "GAME }  0-9")
     LCD.placard(true, true, sentences[0], sentences[1])
-    /*LCD.clear()
-    LCD.cursor(0,0)
-    LCD.write(" SPACE INVADERS")
-    LCD.cursor(1,0)
-    LCD.write("GAME }  A A")*/
     LCD.cursor(1, 13)
     LCD.write("$${credits.getCredits()}")
     println(credits.getCoins())
@@ -46,7 +40,7 @@ fun updateCredits(credits: Int) {
 fun main(args: Array<String>) {
     println(0%1)
     initMain()
-    var mycoin = coinBox()
+    var mycoin = Statistics.coinBox()
     mycoin.popData()
     println(mycoin.getCoins())
     mainMenu(mycoin)
@@ -63,7 +57,6 @@ fun main(args: Array<String>) {
             mycoin.insertCoin(1)
             mainMenu(mycoin)
         }
-
         manutencao.enterManut()
         if (manutencao.getMaintenence()) {
             //println("em maintenance")

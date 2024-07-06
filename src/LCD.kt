@@ -1,5 +1,7 @@
 import HAL
 import java.lang.invoke.MethodHandles.loop
+import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.*
 
 object LCD { // Escreve no LCD usando a interface a 4 bits.
     // Dimensão do display.
@@ -136,7 +138,14 @@ object LCD { // Escreve no LCD usando a interface a 4 bits.
         }*/
     }
 
-    fun placardMaintenance(text: Array<String>, size: Int) {
+    fun placardHelp(text: Array<String>, size: Int) {
+            for (i in 0..size - 1) {
+                textLine(1, text.get(i))
+                getSleep(10)
+            }
+    }
+
+    fun maintenanceHelp(text: Array<String>, size: Int) {
 
         textLine(0, text.get(0))
         for (i in 1..size - 1) {

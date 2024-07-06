@@ -46,8 +46,6 @@ class scoreGamers() {
 
     fun showFile() {
         val sleep = (scoreList.size)
-        //println("SLEEP SHOWFILE ${scoreList.size}")
-        // var str = ""
         for (i in scoreList.indices) {
             LCD.textLine(
                 1, String.format("%2s", (i + 1).toString())
